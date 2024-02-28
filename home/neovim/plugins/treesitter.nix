@@ -4,6 +4,7 @@
       enable = true;
       ensureInstalled = [
         "nix"
+        "zig"
       ];
       indent = true;
     };

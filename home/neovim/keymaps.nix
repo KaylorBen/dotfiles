@@ -104,6 +104,18 @@
         key = "<leader>e";
         action = "<cmd>NvimTreeToggle<CR>";
       }
+
+      # comment.nvim
+      {
+        mode = "n";
+        key = "<leader>/";
+        action = "<Plug>(comment_toggle_linewise_current)";
+      }
+      {
+        mode = "v";
+        key = "<leader>/";
+        action = "<Plug>(comment_toggle_linewise_visual)";
+      }
     ];
     plugins.which-key = {
       enable = true;
@@ -113,6 +125,7 @@
         "<leader>v" = "Split";
         "<leader>t" = "Tab-spacing";
         "<leader>e" = "Explorer";
+        "<keader>/" = "Comment";
       };
     };
   };

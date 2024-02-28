@@ -1,2 +1,2 @@
 # dotfiles
-NixOS Dotfiles
+NixOS Dotfiles with Awesome Window Manager

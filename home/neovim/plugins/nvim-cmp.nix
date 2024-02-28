@@ -2,6 +2,7 @@
   programs.nixvim.plugins = {
     nvim-cmp = {
       enable = true;
+      snippet.expand = "luasnip";
       mapping = {
         "<C-k>" = {
           action = "cmp.mapping.select_prev_item()";
@@ -40,8 +41,11 @@
       };
       sources = [
         { name = "nvim_lsp"; }
+        { name = "luasnip"; }
         { name = "path"; }
       ];
     };
+    cmp_luasnip.enable = true;
+    luasnip.enable = true;
   };
 }

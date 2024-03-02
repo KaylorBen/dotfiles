@@ -10,7 +10,7 @@
     };
     treesitter-refactor = {
       enable = true;
-      highlightingCurrentScope.enable = true;
+      highlightCurrentScope.enable = true;
       highlightDefinitions.enable = true;
       smartRename = {
         enable = true;

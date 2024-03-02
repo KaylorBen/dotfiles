@@ -2,6 +2,7 @@
   programs.nixvim.plugins = {
     nvim-tree = {
       enable = true;
+      disableNetrw = false;
       view.relativenumber = true;
       renderer = {
         rootFolderLabel = ":t";

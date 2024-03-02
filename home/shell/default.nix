@@ -7,6 +7,7 @@ in {
     ./nushell
     ./starship.nix
     ./terminals.nix
+    ./zoxide.nix
   ];
 
   # add environment variables

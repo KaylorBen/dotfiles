@@ -1,6 +1,7 @@
 {
   programs.nixvim.plugins.toggleterm = {
     enable = true;
+    openMapping = "<c-\\>";
     hideNumbers = true;
     shadeTerminals = true;
     shadingFactor = 2;

@@ -17,25 +17,14 @@
     ];
   };
 
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/d8e0944e6d2ce0f326040e654c07a410e2617d47";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/d8e0944e6d2ce0f326040e654c07a410e2617d47";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs = {self, nixpkgs, home-manager, nixvim, ...}@inputs: {
@@ -53,7 +42,6 @@
             imports = [ ./home ];
           };
         }
-        
 
         {
           nix.settings.trusted-users = [ "ben" ];

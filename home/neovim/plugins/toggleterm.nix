@@ -6,7 +6,6 @@
     shadingFactor = 2;
     persistSize = false;
     direction = "float";
-    shell = "nil";
     floatOpts = {
       border = "single";
       winblend = 0;

@@ -29,7 +29,7 @@
     python3 # python
     xdragon # simple drag-and-drop source/sink for X
     appimagekit # A tool to package desktop applications as AppImages
-
+    zathura # pdf viewer
     libreoffice # GNU office
 
     # fun TUIs

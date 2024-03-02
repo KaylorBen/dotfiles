@@ -28,6 +28,7 @@
     qbittorrent-nox # torrent client
     python3 # python
     xdragon # simple drag-and-drop source/sink for X
+    appimagekit # A tool to package desktop applications as AppImages
 
     libreoffice # GNU office
 

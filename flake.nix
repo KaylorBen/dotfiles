@@ -17,7 +17,7 @@
     ];
   };
 
-  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:KaylorBen/nixpkgs";
   inputs = {
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";

@@ -20,5 +20,6 @@
     starsector  # space game
     stockfish # chess engine
     steamPackages.steamcmd # Steam command-line tools
+    fflogs
   ];
 }

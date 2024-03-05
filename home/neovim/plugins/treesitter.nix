@@ -5,6 +5,7 @@
       ensureInstalled = [
         "nix"
         "zig"
+        "java"
       ];
       indent = true;
     };

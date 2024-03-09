@@ -1,13 +1,19 @@
+{pkgs, ...}:
 {
   programs.nixvim.plugins = {
     treesitter = {
       enable = true;
+      grammarPackages = with pkgs.tree-sitter-grammars; [
+        tree-sitter-nu
+      ];
       ensureInstalled = [
         "nix"
         "zig"
         "java"
+        "nu"
       ];
       indent = true;
+      nixvimInjections = true;
     };
     treesitter-refactor = {
       enable = true;

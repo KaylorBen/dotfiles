@@ -17,7 +17,7 @@
     ];
   };
 
-  inputs.nixpkgs.url = "github:KaylorBen/nixpkgs";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -35,6 +35,8 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/benix
+
+        {nixpkgs.overlays = [(final: prev: {inherit inputs;})];}
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

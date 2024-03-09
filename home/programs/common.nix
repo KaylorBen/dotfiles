@@ -35,6 +35,9 @@
     unzip
     p7zip
 
+    # wine
+    wine
+
     # utils
     lsd # ls deluxe, a modern replacement for ls
     vivid # LS_COLORS generator

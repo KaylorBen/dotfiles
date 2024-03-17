@@ -248,6 +248,7 @@
         "<leader>/" = "Comment";
         "<leader>f" = "Find";
         "<leader>l" = "LSP";
+        "<leader>g" = "Git";
       };
     };
   };

@@ -6,6 +6,7 @@
         nil_ls.enable = true;
         zls.enable = true;
         nushell.enable = true;
+        lua-ls.enable = true;
       };
     };
     none-ls = {

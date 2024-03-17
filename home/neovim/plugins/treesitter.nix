@@ -9,8 +9,8 @@
       ensureInstalled = [
         "nix"
         "zig"
+        "lua"
         "java"
-        "nu"
       ];
       indent = true;
       nixvimInjections = true;

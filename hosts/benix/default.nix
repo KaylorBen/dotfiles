@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -23,9 +23,9 @@
 
     initrd.kernelModules = [ "nvidia" ];
 
-    kernelModules = [
-      "v4l2loopback"
-    ];
+    # kernelModules = [
+    #   "v4l2loopback"
+    # ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -37,9 +37,9 @@
       };
     };
 
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
+    # extraModulePackages = with config.boot.kernelPackages; [
+    #   v4l2loopback
+    # ];
   };
 
   networking.hostName = "benix"; # Define your hostname.

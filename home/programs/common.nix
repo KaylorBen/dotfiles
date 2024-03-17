@@ -36,7 +36,7 @@
     p7zip
 
     # wine
-    wine
+    wineWowPackages.stable
 
     # utils
     lsd # ls deluxe, a modern replacement for ls

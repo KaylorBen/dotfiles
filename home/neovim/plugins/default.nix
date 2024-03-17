@@ -5,6 +5,7 @@
     ./indentline.nix
     ./lsp.nix
     ./lualine.nix
+    ./neogit.nix
     ./nvim-cmp.nix
     ./nvim-jdtls.nix
     ./nvim-tree.nix

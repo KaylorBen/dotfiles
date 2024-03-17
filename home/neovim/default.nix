@@ -3,6 +3,7 @@
     ./options.nix
     ./keymaps.nix
     ./plugins
+    ./autoCmd.nix
   ];
 
   programs = { 

@@ -18,7 +18,7 @@
       ];
     };
     indent = {
-      tabChar = [ "a" "b" "c" ];
+      tabChar = [ "│" ];
     };
     whitespace.removeBlanklineTrail = false;
   };

@@ -1,11 +1,17 @@
+{pkgs, ...}:
 {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      gcc
+      lua-language-server
+      nil
+    ];
   };
-  home.file.".config/neovim/init.lua".source = "./init.lua";
+  home.file.".config/nvim/init.lua".source = ./init.lua;
   home.file = {
-    ".config/neovim/lua" = {
+    ".config/nvim/lua" = {
       source = ./lua;
       recursive = true;
     };

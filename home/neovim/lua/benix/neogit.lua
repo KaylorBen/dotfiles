@@ -4,7 +4,7 @@ local M = {
 }
 
 function M.config()
-  local icons = require "ben.icons"
+  local icons = require "benix.icons"
 
   require("neogit").setup {
     disable_signs = false,

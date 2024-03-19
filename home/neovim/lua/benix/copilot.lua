@@ -44,7 +44,6 @@ function M.config()
       csv = false,
       ["."] = false,
     },
-    copilot_node_command = "node",
   }
 
   require("copilot_cmp").setup()

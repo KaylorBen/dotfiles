@@ -1,9 +1,15 @@
 local M = {
   "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
 }
 
 function M.config()
-  require("conform").setup() {
+  local wk = require "which-key"
+  wk.register {
+    ["<leader>lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format" },
+  }
+  require("conform").setup({
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -20,8 +26,7 @@ function M.config()
         lua = { 'stylua' },
       },
     },
-  }
-
+  })
 end
 
 return M

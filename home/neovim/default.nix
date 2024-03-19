@@ -5,6 +5,7 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       gcc
+      nodejs_21
       lua-language-server
       nil
     ];

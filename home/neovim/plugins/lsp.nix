@@ -7,6 +7,11 @@
         zls.enable = true;
         nushell.enable = true;
         lua-ls.enable = true;
+        rust-analyzer = {
+          enable = true;
+          installRustc = true;
+          installCargo = true;
+        };
       };
     };
     # none-ls = {

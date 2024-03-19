@@ -11,6 +11,7 @@
         "zig"
         "lua"
         "java"
+        "rust"
       ];
       indent = true;
       nixvimInjections = true;

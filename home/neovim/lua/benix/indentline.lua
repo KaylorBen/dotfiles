@@ -6,19 +6,19 @@ local M = {
 }
 
 function M.config()
-  local icons = require "ben.icons"
+  local icons = require "benix.icons"
 
   require("ibl").setup {
     exclude = {
       filetypes = {
-      "help",
-      "startify",
-      "dashboard",
-      "lazy",
-      "neogitstatus",
-      "NvimTree",
-      "Trouble",
-      "text",
+        "help",
+        "startify",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "Trouble",
+        "text",
       },
       buftypes = {
         "terminal",

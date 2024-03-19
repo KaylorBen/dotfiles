@@ -10,11 +10,11 @@ function M.config()
     v = { "<cmd>vsplit<CR>", "Split" },
     b = { name = "Buffers" },
     d = { name = "Debug" },
-    f = { name = "Find"},
+    f = { name = "Find" },
     g = { name = "Git" },
     l = { name = "LSP" },
     p = { name = "Plugins" },
-    c = { name = "Copilot"},
+    c = { name = "Copilot" },
     a = {
       name = "Tab",
       n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
@@ -41,17 +41,17 @@ function M.config()
 
   which_key.setup {
     plugins = {
-      marks = true, -- shows a list of your marks on ' and `
+      marks = true,     -- shows a list of your marks on ' and `
       registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     },
     window = {
-      border = "single", -- none, single, double, shadow
-      position = "bottom", -- bottom, top
+      border = "single",        -- none, single, double, shadow
+      position = "bottom",      -- bottom, top
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-    show_help = true, -- show help message on the command line when the popup is visible
-    show_keys = true, -- show the currently pressed key and its label as a message in the command line
+    ignore_missing = true,      -- enable this to hide mappings for which you didn't specify a label
+    show_help = true,           -- show help message on the command line when the popup is visible
+    show_keys = true,           -- show the currently pressed key and its label as a message in the command line
     disable = {
       buftypes = {},
       filetypes = { "TelescopePrompt" },
@@ -67,4 +67,3 @@ function M.config()
 end
 
 return M
-

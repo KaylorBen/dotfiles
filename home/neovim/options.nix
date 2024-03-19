@@ -12,8 +12,8 @@
     wrap = false;
 
     expandtab = true;
-    tabstop = 2;
-    shiftwidth = 2;
+    tabstop = 4;
+    shiftwidth = 4;
 
     signcolumn = "yes";
 

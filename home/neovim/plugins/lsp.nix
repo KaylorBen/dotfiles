@@ -9,8 +9,8 @@
         lua-ls.enable = true;
       };
     };
-    none-ls = {
-      enable = true;
+    # none-ls = {
+    #   enable = true;
     # sources = {
     #   formatting = {
     #     stylua.enable = true;
@@ -18,6 +18,6 @@
     #   };
     #   diagnostics.flake8.enable = true;
     # };
-    };
+    # };
   };
 }

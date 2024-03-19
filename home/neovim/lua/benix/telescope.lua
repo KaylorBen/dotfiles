@@ -1,6 +1,9 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true } },
+  dependencies = {
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+    "nvim-lua/plenary.nvim",
+  },
 }
 
 function M.config()
@@ -65,58 +68,6 @@ function M.config()
           ["k"] = actions.move_selection_previous,
           ["q"] = actions.close,
         },
-      },
-    },
-    pickers = {
-      live_grep = {
-        theme = "dropdown",
-      },
-
-      grep_string = {
-        theme = "dropdown",
-      },
-
-      find_files = {
-        theme = "dropdown",
-        previewer = false,
-      },
-
-      buffers = {
-        theme = "dropdown",
-        previewer = false,
-        initial_mode = "normal",
-        mappings = {
-          i = {
-            ["<C-d>"] = actions.delete_buffer,
-          },
-          n = {
-            ["dd"] = actions.delete_buffer,
-          },
-        },
-      },
-
-      colorscheme = {
-        enable_preview = true,
-      },
-
-      lsp_references = {
-        theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_definitions = {
-        theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_declarations = {
-        theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_implementations = {
-        theme = "dropdown",
-        initial_mode = "normal",
       },
     },
     extensions = {

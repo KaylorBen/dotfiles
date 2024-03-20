@@ -63,7 +63,7 @@ function M.config()
     "pyright",
     "bashls",
     "jsonls",
-    -- "jdtls",   -- moved to seperate config
+    "jdtls",
     "sqls",
     "zls",
     "rust_analyzer",

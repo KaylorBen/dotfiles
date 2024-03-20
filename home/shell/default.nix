@@ -4,7 +4,7 @@
   cache = config.xdg.cacheHome;
 in {
   imports = [
-    ./carapace.nix
+    # ./carapace.nix
     ./nushell
     ./starship.nix
     ./terminals.nix

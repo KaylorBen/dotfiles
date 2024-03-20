@@ -63,12 +63,13 @@ function M.config()
     "pyright",
     "bashls",
     "jsonls",
-    "jdtls",
+    -- "jdtls",   -- moved to seperate config
     "sqls",
     "zls",
     "rust_analyzer",
     "gopls",
     "nil_ls",
+    "texlab",
   }
 
   local default_diagnostic_config = {

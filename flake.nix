@@ -23,6 +23,7 @@
   };
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
   inputs = {
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -37,28 +38,37 @@
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
-  outputs = {self, nixpkgs, home-manager, ...}@inputs: {
-    nixosConfigurations.benix = nixpkgs.lib.nixosSystem {
+  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, ...}@inputs:
+    let
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/benix
+      overlay-stable = final: prev: {
+        stable = import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+    in {
+      nixosConfigurations.benix = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/benix
 
-        {nixpkgs.overlays = [(final: prev: {inherit inputs;})];}
+          ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable ];})
 
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.ben = {
-            imports = [ ./home ];
-          };
-        }
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.ben = {
+              imports = [ ./home ];
+            };
+          }
 
-        {
-          nix.settings.trusted-users = [ "ben" ];
-        }
-      ];
+          {
+            nix.settings.trusted-users = [ "ben" ];
+          }
+        ];
+      };
     };
-  };
 }

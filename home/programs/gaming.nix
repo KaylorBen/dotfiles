@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   home.packages = with pkgs; [
     # gaming
@@ -17,6 +16,8 @@
     openttd # open source transport tycoon
     pacvim  # vim mini game to learn vim
     rogue # the original roguelike
+    prismlauncher # minecraft launcher
+    jdk17   # java required for minecraft
     starsector  # space game
     stockfish # chess engine
     steamPackages.steamcmd # Steam command-line tools

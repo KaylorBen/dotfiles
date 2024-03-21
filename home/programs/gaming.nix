@@ -6,7 +6,7 @@
     protontricks  # winetricks wrapper for proton
     discord # chat for gamers
     vesktop # alternate discord client
-    xivlauncher # ffxiv launcher
+    stable.xivlauncher # ffxiv launcher
     ace-of-penguins # linux version of classic windows games
     airshipper  # Provides automatic updates for the voxel RPG Veloren
     angband # roguelike game

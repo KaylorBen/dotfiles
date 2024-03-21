@@ -7,7 +7,6 @@
     ./neovim
     ./shell
     ./programs
-    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   # Home Manager needs a bit of information about you and the

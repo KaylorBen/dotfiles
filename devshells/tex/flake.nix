@@ -13,6 +13,7 @@
         nativeBuildInputs = [ pkgs.bashInteractive ];
         buildInputs = with pkgs; [
           texlive.combined.scheme-full
+          texlab
           nushell
         ];
 

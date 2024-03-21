@@ -6,11 +6,16 @@
     substituters = [
       "https://cache.nixos.org"
 
+      # Prism Launcher Cache
+      "https://cache.garnix.io"
+
       # nix community's cache server
       "https://nix-community.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
 
       # nix community's cache server public key
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -23,13 +28,16 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.url = "github:nix-community/nixvim";
+    prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
-  outputs = {self, nixpkgs, home-manager, nixvim, ...}@inputs: {
+  outputs = {self, nixpkgs, home-manager, ...}@inputs: {
     nixosConfigurations.benix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};

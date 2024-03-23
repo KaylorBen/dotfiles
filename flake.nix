@@ -38,7 +38,7 @@
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, prismlauncher, ...}@inputs:
     let
       system = "x86_64-linux";
       overlay-stable = final: prev: {
@@ -54,7 +54,7 @@
         modules = [
           ./hosts/benix
 
-          ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable ];})
+          ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable prismlauncher.overlays.default ];})
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

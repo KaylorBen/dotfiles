@@ -71,7 +71,8 @@ in {
     pavucontrol
     wpa_supplicant_gui
     xclip
-
+    prismlauncher
+    
     firefox
   ];
 

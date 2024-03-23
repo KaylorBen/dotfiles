@@ -20,6 +20,5 @@
       };
     };
     carapace.enable = true;
-    fish.enable = true;
   };
 }

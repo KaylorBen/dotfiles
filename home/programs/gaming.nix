@@ -6,7 +6,7 @@
     protontricks  # winetricks wrapper for proton
     discord # chat for gamers
     vesktop # alternate discord client
-    stable.xivlauncher # ffxiv launcher
+    xivlauncher # ffxiv launcher
     ace-of-penguins # linux version of classic windows games
     airshipper  # Provides automatic updates for the voxel RPG Veloren
     angband # roguelike game
@@ -16,7 +16,6 @@
     openttd # open source transport tycoon
     pacvim  # vim mini game to learn vim
     rogue # the original roguelike
-    prismlauncher # minecraft launcher
     jdk17   # java required for minecraft
     starsector  # space game
     stockfish # chess engine

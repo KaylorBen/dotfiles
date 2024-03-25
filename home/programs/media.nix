@@ -14,6 +14,7 @@
     kcc # kindle comic converter
     lorien  # note scratchpad and drawing app
     gimp  # GNU Image Manipulation Program
+    pinta # effective paint alternative
 
     # video
     vlc # Cross-platform multimedia player and streaming server

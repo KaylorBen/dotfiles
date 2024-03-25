@@ -23,6 +23,11 @@
       #   };
       # };
     };
+    direnv = {
+      enable = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
     zathura = {
       enable = true;
       options = {

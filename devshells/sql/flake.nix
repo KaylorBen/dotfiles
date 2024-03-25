@@ -1,5 +1,5 @@
 {
-  description = "Clang development environment";
+  description = "SQL development environment";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -12,18 +12,12 @@
       devShells.default = pkgs.mkShell {
         nativeBuildInputs = [ pkgs.bashInteractive ];
         buildInputs = with pkgs; [
-          gcc
-          clang
-          llvmPackages.libclang
-          cmake
-          ccls
+          postgresql
+          sqls
         ];
 
         shellHook = ''
-          echo "`${pkgs.gcc}/bin/gcc --version`"
-          echo "`${pkgs.clang}/bin/clang --version`"
-          echo "`${pkgs.ccls}/bin/ccls --version`"
-          echo "`${pkgs.cmake}/bin/cmake --version`"
+          echo "`${pkgs.postgresql}/bin/psql; --version`"
         '';
       };
     });

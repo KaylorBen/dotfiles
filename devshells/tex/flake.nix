@@ -14,12 +14,10 @@
         buildInputs = with pkgs; [
           texlive.combined.scheme-full
           texlab
-          nushell
         ];
 
         shellHook = ''
           echo "`${pkgs.texlive.combined.scheme-full}/bin/latex --version`"
-          exec nu
         '';
       };
     });

@@ -19,14 +19,12 @@
           rust-analyzer
           rustfmt
           clippy
-          nushell
         ];
 
         shellHook = ''
           echo "`${pkgs.cargo}/bin/cargo --version`"
           echo "`${pkgs.rustc}/bin/rustc --version`"
           echo "`${pkgs.rust-analyzer}/bin/rust-analyzer --version`"
-          exec nu
         '';
       };
     });

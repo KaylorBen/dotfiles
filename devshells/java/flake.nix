@@ -14,12 +14,10 @@
         buildInputs = with pkgs; [
           jdk21
           jdt-language-server
-          nushell
         ];
 
         shellHook = ''
           echo "`${pkgs.jdk21}/bin/java --version`"
-          exec nu
         '';
       };
     });

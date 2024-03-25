@@ -26,7 +26,6 @@
 
         shellHook = ''
           echo "`${pkgs.python3}/bin/python --version`"
-          exec nu
         '';
       };
     });

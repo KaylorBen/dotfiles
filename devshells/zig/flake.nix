@@ -14,13 +14,11 @@
         buildInputs = with pkgs; [
           zig
           zls
-          nushell
         ];
 
         shellHook = ''
           echo "`${pkgs.zig}/bin/zig --version`"
           echo "`${pkgs.zls}/bin/zls --version`"
-          exec nu
         '';
       };
     });

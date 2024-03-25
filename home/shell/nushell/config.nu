@@ -40,6 +40,15 @@ $env.config = {
       completer: $external_completer
     }
   }
+  hooks: {
+    pre_prompt: [{ ||
+      if (which direnv | is-empty) {
+        return
+      }
+
+      direnv export json | from json | default {} | load-env
+    }]
+  }
 }
 
 $env.STARSHIP_SHELL = "nu"

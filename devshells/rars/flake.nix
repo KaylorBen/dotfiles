@@ -14,12 +14,10 @@
         nativeBuildInputs = [ pkgs.bashInteractive ];
         buildInputs = with pkgs; [
           rars
-          nushell
         ];
 
         shellHook = ''
           echo "`${pkgs.jdk21}/bin/rars h`"
-          exec nu
         '';
       };
     });

@@ -110,6 +110,18 @@
     cava
     lolcat
 
+    # Games for all systems
+    ace-of-penguins # linux version of classic windows games
+    angband # roguelike game
+    sil # LOTR roguelike based on angband
+    forge-mtg # magic the gathering client
+    openttd # open source transport tycoon
+    pacvim  # vim mini game to learn vim
+    rogue # the original roguelike
+    jdk17   # java required for minecraft
+
+    vesktop # alternate discord client
+
     # I want to uninstall these
     eclipses.eclipse-sdk
   ];

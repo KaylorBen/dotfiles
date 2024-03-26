@@ -7,7 +7,7 @@
       "https://cache.nixos.org"
 
       # Prism Launcher Cache
-      "https://cache.garnix.io"
+      # "https://cache.garnix.io"
 
       # nix community's cache server
       "https://nix-community.cachix.org"
@@ -15,7 +15,7 @@
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
 
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
 
       # nix community's cache server public key
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -48,27 +48,59 @@
         };
       };
     in {
-      nixosConfigurations.benix = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/benix
+      nixosConfigurations = {
+        benix = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/benix
 
-          ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable prismlauncher.overlays.default ];})
+            ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable prismlauncher.overlays.default ];})
 
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.ben = {
-              imports = [ ./home ];
-            };
-          }
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.ben = {
+                imports = 
+                [ ./home
+                  ./home/awesome
+                  ./home/programs/gaming.nix
+                  ./home/programs/grobi.nix
+                ];
+              };
+            }
 
-          {
-            nix.settings.trusted-users = [ "ben" ];
-          }
-        ];
+            {
+              nix.settings.trusted-users = [ "ben" ];
+            }
+          ];
+        };
+        nixtop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/nixtop
+
+            ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable ];})
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.ben = {
+                imports =
+                [ ./home
+                  ./home/sway
+                ];
+              };
+            }
+
+            {
+              nix.settings.trusted-users = [ "ben" ];
+            }
+          ];
+        };
       };
     };
 }

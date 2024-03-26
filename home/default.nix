@@ -3,7 +3,6 @@
 {
 
   imports = [
-    ./awesome
     ./neovim
     ./shell
     ./programs

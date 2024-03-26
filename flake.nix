@@ -82,7 +82,7 @@
           modules = [
             ./hosts/nixtop
 
-            ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable ];})
+            ({ config, pkgs, ...}: {nixpkgs.overlays = [ overlay-stable (import ./overlays.nix) ];})
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;

@@ -1,5 +1,5 @@
-{ flake-self, lib, ... }:
-inputs: self: super: {
+self: super:
+{
   fflogs =
     super.callPackage ./packages/fflogs { };
 }

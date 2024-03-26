@@ -4,10 +4,10 @@
 
 let
   pname = "fflogs";
-  version = "8.3.4";
+  version = "8.3.20";
   src = pkgs.fetchurl {
     url = "https://github.com/RPGLogs/Uploaders-fflogs/releases/download/v${version}/fflogs-v${version}.AppImage";
-    sha256 = "0ja4di9cvp5ca6xn10h0xa1mya6lxfbli634h9fbi5xpca0gwzwb";
+    sha256 = "d8GvHaUxQgrW4VvT+Wq5sZaKttWL+xkDnPPGmdr5YZg=";
   };
   extracted = pkgs.appimageTools.extractType2 { inherit pname version src; };
 in
@@ -25,7 +25,7 @@ pkgs.appimageTools.wrapType2 {
     description = "An application for uploading Final Fantasy XIV combat logs to fflogs.com";
     homepage = "https://www.fflogs.com/client/download";
     downloadPage = "https://github.com/RPGLogs/Uploaders-fflogs/releases/latest";
-    license = licenses.unfree; # no license listed
+    license = licenses.free; # no license listed
     mainProgram = "fflogs-${version}";
     platforms = platforms.linux;
     maintainers = with maintainers; [ sersorrel ];

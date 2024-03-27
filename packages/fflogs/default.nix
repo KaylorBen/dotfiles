@@ -26,9 +26,8 @@ pkgs.appimageTools.wrapType2 {
     homepage = "https://www.fflogs.com/client/download";
     downloadPage = "https://github.com/RPGLogs/Uploaders-fflogs/releases/latest";
     license = licenses.free; # no license listed
-    mainProgram = "fflogs-${version}";
+    mainProgram = "fflogs";
     platforms = platforms.linux;
-    maintainers = with maintainers; [ sersorrel ];
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
   };
 }

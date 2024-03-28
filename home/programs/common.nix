@@ -121,6 +121,8 @@
     jdk17   # java required for minecraft
 
     vesktop # alternate discord client
+    
+    globalprotect-openconnect # vpn client for Mines campus
 
     # I want to uninstall these
     eclipses.eclipse-sdk

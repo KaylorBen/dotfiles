@@ -1,6 +1,5 @@
 local M = {
   "LhKipp/nvim-nu",
-  ft = "nu",
 }
 
 function M.config()

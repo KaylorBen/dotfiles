@@ -1,5 +1,6 @@
+
 {
-  description = "Zig development environment";
+  description = "R development environment";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -12,13 +13,12 @@
       devShells.default = pkgs.mkShell {
         nativeBuildInputs = [ pkgs.bashInteractive ];
         buildInputs = with pkgs; [
-          zig
-          zls
+          R
+          rstudio
         ];
 
         shellHook = ''
-          echo "Zig version `${pkgs.zig}/bin/zig version`"
-          echo "Zig Language Server version `${pkgs.zls}/bin/zls --version`"
+          echo "`${pkgs.R}/bin/R h`"
         '';
       };
     });

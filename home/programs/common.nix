@@ -86,8 +86,11 @@
     p7zip
 
     # wine
-    wineWowPackages.stable
-
+    (wineWowPackages.full.override {
+      wineRelease = "staging";
+      mingwSupport = true;
+    })
+    
     # utils
     lsd # ls deluxe, a modern replacement for ls
     vivid # LS_COLORS generator

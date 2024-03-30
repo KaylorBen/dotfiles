@@ -84,6 +84,9 @@ in {
     steam.enable = true;
   };
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   # Enable Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -95,6 +98,7 @@ in {
       pulse.enable = true;
       jack.enable = true;
     };
+    flatpak.enable = true;
     picom.enable = true;
   };
 }

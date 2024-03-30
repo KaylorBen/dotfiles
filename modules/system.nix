@@ -74,6 +74,7 @@ in {
     # prismlauncher
 
     fflogs
+    wowup
     
     firefox
   ];

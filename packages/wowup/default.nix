@@ -7,7 +7,7 @@ let
   version = "2.11.0-beta.4";
   src = pkgs.fetchurl {
     url = "https://github.com/WowUp/WowUp/releases/download/v${version}/WowUp-${version}.AppImage";
-    sha256 = lib.fakeSha256;
+    sha256 = "eMTTkzfdYWizptL+H75lVUKzZhRSw5pz7/WsRld/W8w=";
   };
   extracted = pkgs.appimageTools.extractType2 { inherit pname version src; };
 in

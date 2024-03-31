@@ -194,11 +194,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711554349,
-        "narHash": "sha256-RypwcWEIFePBI0Hubfj4chanbM/G2yzJzC6wgz+dmS4=",
+        "lastModified": 1711625603,
+        "narHash": "sha256-W+9dfqA9bqUIBV5u7jaIARAzMe3kTq/Hp2SpSVXKRQw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "179f6acaf7c068c7870542cdae72afec9427a5b0",
+        "rev": "c0ef0dab55611c676ad7539bf4e41b3ec6fa87d2",
         "type": "github"
       },
       "original": {
@@ -232,11 +232,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711588575,
-        "narHash": "sha256-9lTwKUcGbxnyQ1Ne2EahRWKZKIywOrcHjpNHPqYuphs=",
+        "lastModified": 1711848163,
+        "narHash": "sha256-0tIdTblGd3HTkIugjAHG8UJV+KQBXiyTC5EwP/ITNGo=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "ead5e3e917e43ab000150784c00a479de5502d43",
+        "rev": "d6f0e3594ea73181a93315b1433c61cb3b1ac6aa",
         "type": "github"
       },
       "original": {
@@ -247,11 +247,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1711523803,
-        "narHash": "sha256-UKcYiHWHQynzj6CN/vTcix4yd1eCu1uFdsuarupdCQQ=",
+        "lastModified": 1711703276,
+        "narHash": "sha256-iMUFArF0WCatKK6RzfUJknjem0H9m4KgorO/p3Dopkk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2726f127c15a4cc9810843b96cad73c7eb39e443",
+        "rev": "d8fe5e6c92d0d190646fb9f1056741a229980089",
         "type": "github"
       },
       "original": {
@@ -263,11 +263,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1711460390,
-        "narHash": "sha256-akSgjDZL6pVHEfSE6sz1DNSXuYX6hq+P/1Z5IoYWs7E=",
+        "lastModified": 1711668574,
+        "narHash": "sha256-u1dfs0ASQIEr1icTVrsKwg2xToIpn7ZXxW3RHfHxshg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "44733514b72e732bd49f5511bd0203dea9b9a434",
+        "rev": "219951b495fc2eac67b1456824cc1ec1fd2ee659",
         "type": "github"
       },
       "original": {
@@ -319,11 +319,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1711568546,
-        "narHash": "sha256-hpmgHFNoVCI3AsfxJXjk55wb+8xYbtmNDLUyM7K2YJA=",
+        "lastModified": 1711796601,
+        "narHash": "sha256-r2JspFvK7usbqZnJytS7NnxsmYCZngwDAJMusAWz6B4=",
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
-        "rev": "0f178270be0a8cd02801b48d6c89aa3945f4e529",
+        "rev": "b7835036d4b4f392ea97cc6b021c152f00cd8e69",
         "type": "github"
       },
       "original": {

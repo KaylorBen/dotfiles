@@ -11,6 +11,7 @@
     stockfish # chess engine
     fflogs
     wowup
+    gamemode
   ];
 }
 

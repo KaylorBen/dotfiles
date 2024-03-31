@@ -79,7 +79,6 @@ in {
   # Nix settings programs to enable
   programs = {
     dconf.enable = true;
-    steam.enable = true;
   };
 
   xdg.portal.enable = true;

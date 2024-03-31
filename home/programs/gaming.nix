@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # gaming
+    steam
     winetricks  # wine helper
     protontricks  # winetricks wrapper for proton
     xivlauncher # ffxiv launcher

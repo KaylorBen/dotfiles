@@ -9,6 +9,8 @@
     openmw  # open source morrowind engine
     starsector  # space game
     stockfish # chess engine
+    fflogs
+    wowup
   ];
 }
 

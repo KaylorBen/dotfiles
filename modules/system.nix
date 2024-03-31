@@ -72,9 +72,6 @@ in {
     wpa_supplicant_gui
     xclip
     # prismlauncher
-
-    fflogs
-    wowup
     
     firefox
   ];

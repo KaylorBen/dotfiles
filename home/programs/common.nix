@@ -8,7 +8,6 @@
         vim_keys = true;
       };
     };
-    less.enable = true;
     bat = {
       enable = true;
       # themes = {
@@ -82,7 +81,6 @@
     # archiving
     unzip
     xz
-    unzip
     p7zip
 
     # wine
@@ -99,7 +97,6 @@
     qbittorrent-nox # torrent client
     python3 # python
     xdragon # simple drag-and-drop source/sink for X
-    appimagekit # A tool to package desktop applications as AppImages
     libreoffice # GNU office
 
     # fun TUIs
@@ -112,6 +109,7 @@
     todo
     cava
     lolcat
+    nyancat
 
     # Games for all systems
     ace-of-penguins # linux version of classic windows games

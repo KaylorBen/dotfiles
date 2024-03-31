@@ -11,6 +11,7 @@
     settings = {
       background_image_layout = "cscaled";
       background_tint = "0.2";
+      enable_audio_bell = false;
     };
   };
 }

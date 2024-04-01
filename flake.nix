@@ -27,18 +27,20 @@
   inputs = {
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    flake-utils.url = "github:numtide/flake-utils";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, prismlauncher, ...}@inputs:
+  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, ...}@inputs:
     let
       system = "x86_64-linux";
       overlay-stable = final: prev: {
@@ -55,9 +57,11 @@
           modules = [
             ./hosts/benix
 
+            inputs.sops-nix.nixosModules.sops
+
             ({ config, pkgs, ...}: {nixpkgs.overlays = [
               overlay-stable
-              prismlauncher.overlays.default
+              inputs.prismlauncher.overlays.default
               (import ./overlays.nix)
             ];})
 

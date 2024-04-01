@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
-let cfg = config.TM.streaming;
+let cfg = config.Wotan.streaming;
 in {
-  options.TM.streaming = {
+  options.Wotan.streaming = {
     enable =
       lib.mkEnableOption "Enable streaming specific kernel modules & install OBS";
   };

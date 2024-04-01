@@ -19,6 +19,7 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     nix-citizen.inputs.nixpkgs.follows = "nixpkgs";
     nix-citizen.inputs.treefmt-nix.follows = "treefmt-nix";
+    nix-colors.url = "github:misterio77/nix-colors";
     nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
     nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
     nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
@@ -52,9 +53,6 @@
     snowfall-lib.url = "github:snowfallorg/lib/dev";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.inputs.home-manager.follows = "home-manager";
-    stylix.url = "github:danth/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -77,6 +75,7 @@
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         impermanence.nixosModules.home-manager.impermanence
+        nix-colors.homeManagerModules.default
         nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
         sops-nix.homeManagerModules.sops
@@ -93,7 +92,6 @@
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
         spicetify-nix.nixosModule
-        stylix.nixosModules.stylix
       ];
     } {
       formatter =

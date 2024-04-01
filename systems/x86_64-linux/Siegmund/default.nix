@@ -7,16 +7,11 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    nvidia.enable = true;
+    MyNextGPUWillNotBeNvidia.enable = true;
     streaming.enable = true;
     sound.enable = true;
     # TODO security
     desktop.awesome.enable = true;
-    styles = {
-      enable = true;
-      wallpaper = ./wallpaper.png;
-      editImage = true;
-    };
   };
 
   boot.plymouth.enable = true;

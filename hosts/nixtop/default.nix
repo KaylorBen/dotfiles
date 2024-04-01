@@ -24,7 +24,7 @@
     enable = true;  # Enables wireless support via wpa_supplicant.
     networks = {
       "Mines".auth = ''key_mgmt=NONE'';
-      "Mayhem".psk = inputs.sops.secrets."wifi";
+      "Mayhem".psk = "F1r3B@11SUCK";
     };
   };
   #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.

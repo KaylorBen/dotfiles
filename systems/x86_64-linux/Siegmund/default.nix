@@ -7,7 +7,6 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    MyNextGPUWillNotBeNvidia.enable = true;
     streaming.enable = true;
     sound.enable = true;
     # TODO security

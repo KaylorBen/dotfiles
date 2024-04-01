@@ -1,114 +1,106 @@
-# flake.nix
 {
-  description = "NixOS configuration of Ben";
-
-  nixConfig = {
-    substituters = [
-      "https://cache.nixos.org"
-
-      # Prism Launcher Cache
-      # "https://cache.garnix.io"
-
-      # nix community's cache server
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-
-      # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-
-      # nix community's cache server public key
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
+  description = "Ben's NixOS configuration powered by Snowfall";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
   inputs = {
-    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
-    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    devshell.url = "github:numtide/devshell";
+    devshell.inputs.nixpkgs.follows = "nixpkgs";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko";
     flake-utils.url = "github:numtide/flake-utils";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    impermanence.url = "github:nix-community/impermanence";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    nix-citizen.url = "github:LovingMelody/nix-citizen";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+    nix-citizen.inputs.nixpkgs.follows = "nixpkgs";
+    nix-citizen.inputs.treefmt-nix.follows = "treefmt-nix";
+    nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
+    nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
+    nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
+    nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.inputs.flake-parts.follows = "flake-parts";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index.url = "github:nix-community/nix-index";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nixos-anywhere.inputs.disko.follows = "disko";
+    nixos-anywhere.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-anywhere.inputs.treefmt-nix.follows = "treefmt-nix";
+    nixos-anywhere.url = "github:nix-community/nixos-anywhere";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-generators.inputs.nixlib.follows = "nixpkgs";
+    nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
+    nixpkgs-wayland.inputs.lib-aggregate.follows = "lib-aggregate";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+    snowfall-lib.url = "github:snowfallorg/lib/dev";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.inputs.home-manager.follows = "home-manager";
+    stylix.url = "github:danth/stylix";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, ...}@inputs:
+  outputs = {self, systems, ...}@inputs:
     let
-      system = "x86_64-linux";
-      overlay-stable = final: prev: {
-        stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-    in {
-      nixosConfigurations = {
-        benix = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/benix
+      forAllSystems = f:
+        inputs.nixpkgs.lib.genAttrs (import systems)
+        (system: f inputs.nixpkgs.legacyPackages.${system});
+      treefmtEval = forAllSystems
+        (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in inputs.snowfall-lib.mkFlake {
+      inherit inputs;
 
-            ({ config, pkgs, ...}: {nixpkgs.overlays = [
-              overlay-stable
-              inputs.prismlauncher.overlays.default
-              (import ./overlays.nix)
-            ];})
-
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.ben = {
-                imports = 
-                [ ./home
-                  ./home/awesome
-                  ./home/programs/gaming.nix
-                  ./home/programs/grobi.nix
-                ];
-              };
-            }
-
-            {
-              nix.settings.trusted-users = [ "ben" ];
-            }
-          ];
-        };
-        nixtop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/nixtop
-
-            ({ config, pkgs, ...}: {nixpkgs.overlays = [
-              overlay-stable
-              (import ./overlays.nix)
-            ];})
-
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.ben = {
-                imports =
-                [ ./home
-                  ./home/sway
-                ];
-              };
-            }
-
-            {
-              nix.settings.trusted-users = [ "ben" ];
-            }
-          ];
-        };
-      };
+      src = ./.;
+      snowfall.namespace = "Wotan";
+      overlays = with inputs; [
+        prismlauncher.overlays.default
+        nix-minecraft.overlays.default
+      ];
+      home.users."ben@Siegmund".modules = with inputs; [
+        impermanence.nixosModules.home-manager.impermanence
+        nix-index-database.hmModules.nix-index
+        snowfall-lib.homeModules.user
+        sops-nix.homeManagerModules.sops
+      ];
+      systems.modules.nixos = with inputs; [
+        ({lib, ...}: { systems.stateVersion = lib.Wotan.stateVersion.nixos; })
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+        impermanence.nixosModules.impermanence
+        lanzaboote.nixosModules.lanzaboote
+        nix-gaming.nixosModules.pipewireLowLatency
+        nix-citizen.nixosModules.StarCitizen
+        nix-minecraft.nixosModules.minecraft-servers
+        nixos-generators.nixosModules.all-formats
+        sops-nix.nixosModules.sops
+        spicetify-nix.nixosModule
+        stylix.nixosModules.stylix
+      ];
+    } {
+      formatter =
+        forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      checks = forAllSystems (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
     };
 }
+

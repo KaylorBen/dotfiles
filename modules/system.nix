@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: let
+{ pkgs, lib, inputs, ... }: let
   username = "ben";
 in {
   users.users.ben = {
@@ -7,6 +7,17 @@ in {
     extraGroups = [ "wheel" "networkmanager" "wireshark" "video" ];
     shell = pkgs.nushell;
   };
+
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
+
+  sops.defaultSopsFile = ../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/ben/.config/sops/age/keys.txt";
+
+  sops.secrets."wifi" = { };
 
   # customize /etc/nix/nix.conf declaratively via 'nix.settings'
   nix = { 

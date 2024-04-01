@@ -14,6 +14,7 @@ in {
 
   # add environment variables
   home.sessionVariables = {
+    XDG_CONFIG_HOME = c;
     # clean up ~
     LESSHISTFILE = cache + "/less/history";
     LESSKEY = c + "/less/lesskey";

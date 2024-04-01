@@ -3,7 +3,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -24,7 +24,7 @@
     enable = true;  # Enables wireless support via wpa_supplicant.
     networks = {
       "Mines".auth = ''key_mgmt=NONE'';
-      "Mayhem".psk = "F1r3B@11SUCK";
+      "Mayhem".psk = inputs.sops.secrets."wifi";
     };
   };
   #networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.

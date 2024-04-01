@@ -98,6 +98,7 @@
     python3 # python
     xdragon # simple drag-and-drop source/sink for X
     libreoffice # GNU office
+    sops # secret management
 
     # fun TUIs
     cowsay

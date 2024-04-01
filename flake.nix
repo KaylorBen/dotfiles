@@ -57,8 +57,6 @@
           modules = [
             ./hosts/benix
 
-            inputs.sops-nix.nixosModules.sops
-
             ({ config, pkgs, ...}: {nixpkgs.overlays = [
               overlay-stable
               inputs.prismlauncher.overlays.default

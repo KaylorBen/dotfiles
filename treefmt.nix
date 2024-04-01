@@ -4,7 +4,8 @@ _: {
   # Terraform formatter
   programs = {
     nixfmt.enable = true;
-  #   yamlfmt.enable = true;
+    stylua.enable = true;
+    yamlfmt.enable = true;
   #   deno.enable = true;
   #   deadnix = {
   #     enable = true;

@@ -1,14 +1,10 @@
-
-
 { lib, config, pkgs, ... }:
-with lib;
-let cfg = config.Wotan.programs.git;
-in {
+{
   options.Wotan.programs.git.enable =
-    mkEnableOption "Distributed version control system" // {
+    lib.mkEnableOption "Distributed version control system" // {
       default = true;
     };
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.Wotan.programs.git.enable {
     programs.git = {
       package = pkgs.gitAndTools.gitFull;
       enable = true;

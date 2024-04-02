@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
-let cfg = config.Wotan.users;
-in {
-  config = lib.mkIf cfg.enable {
+{
+  config = lib.mkIf config.Wotan.users.enable {
     # Define ben
     snowfallorg.users.ben = { };
     users.users.ben = {

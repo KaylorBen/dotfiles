@@ -7,6 +7,8 @@
     devshell.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -45,7 +47,6 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
-    nixpkgs-wayland.inputs.lib-aggregate.follows = "lib-aggregate";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
@@ -91,9 +92,8 @@
         nix-minecraft.nixosModules.minecraft-servers
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
-        spicetify-nix.nixosModule
       ];
-    } {
+    } // {
       formatter =
         forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = forAllSystems (pkgs: {

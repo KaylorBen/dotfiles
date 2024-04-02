@@ -5,7 +5,7 @@ in {
     enable = lib.mkEnableOption "Enable gaming specific configs";
     remotePlay = lib.mkEnableOption "Enable settings for remote play";
     kernel = lib.mkOption {
-      types = lib.types.raw;
+      type = lib.types.raw;
       default = pkgs.linuxPackages_xanmod_latest;
       description = "Set kernel";
     };

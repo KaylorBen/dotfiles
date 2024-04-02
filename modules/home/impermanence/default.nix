@@ -1,6 +1,5 @@
 { config, lib, osConfig, inputs, ... }:
-let cfg = config.Wotan.impermanence;
-in {
+{
   imports = with inputs;
     [ impermanence.nixosModules.home-amanger.impermanence ];
   options.Wotan.impermanence = {
@@ -14,5 +13,5 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable { };
+  config = lib.mkIf config.Wotan.impermanence.enable { };
 }

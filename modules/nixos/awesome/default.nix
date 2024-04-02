@@ -1,11 +1,10 @@
 { config, lib, pkgs, ... }:
-let cfg = config.Wotan.desktop.awesome;
-in {
+{
   options.Wotan.desktop.awesome = {
-    enable = lib.mkdEnableOption "awesome wm";
+    enable = lib.mkEnableOption "awesome wm";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.Wotan.desktop.awesome.enable {
     services.xserver = {
       windowManager.awesome = {
         enable = true;

@@ -1,9 +1,8 @@
 { config, lib, pkgs, ... }:
-let cfg = config.Wotan.virt;
-in {
+{
   options.Wotan.virt.enable = lib.mkEnableOption "Enable Virtualisation";
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.Wotan.virt.enable {
     virtualisation = {
       libvirtd = {
         enable = lib.mkDefault true;

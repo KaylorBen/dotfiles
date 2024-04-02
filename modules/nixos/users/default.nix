@@ -1,6 +1,5 @@
 { config, lib, ...}:
-let cfg = config.Wotan.users;
-in {
+{
   options.Wotan.users.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -8,7 +7,7 @@ in {
   };
   imports = [ ./perUser/root ./perUser/builder ];
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.Wotan.users.enable {
     # systemd.sysusers.enable = true;
     # Create groups for services
     # Audio Group

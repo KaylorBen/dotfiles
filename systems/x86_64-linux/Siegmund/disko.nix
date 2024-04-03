@@ -1,28 +1,9 @@
-{ disks ? [ "nvme0n1" "nvme1n1" "sda" ], lib, secretFile ? "/tmp/secret.key", ... }:
-let
-  defineZfs = idx: {
-    type = "disk";
-    device = "/dev/nvme${builtins.toString idx}n1";
-    content = {
-      type = "gpt";
-      partitions = {
-        zfs = {
-          size = "100%";
-          content = {
-            type = "zfs";
-            pool = "zroot";
-          };
-        };
-      };
-    };
-  };
-  b = builtins.elemAt disks 0;
-in {
+{ disks ? [ "nvme0n1" "nvme1n1" "sda" "sdb" ], lib, secretFile ? "/tmp/secret.key", ... }:
+{
   disk = {
-    x = defineZfs 1;
-    z = {
+    main = {
       type = "disk";
-      device = "/dev/${b}";
+      device = "/dev/${builtins.elemAt disks 2}";
       content = {
         type = "gpt";
         partitions = {
@@ -33,15 +14,6 @@ in {
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "noFail" ];
-            };
-          };
-          swap = {
-            size = "100%";
-            content = {
-              type = "swap";
-              randomEncryption = true;
-              resumeDevice = true;
             };
           };
         };
@@ -51,7 +23,6 @@ in {
   zpool = {
     zroot = {
       type = "zpool";
-      mode = "mirror";
       rootFsOptions = {
         compression = "zstd-5";
         "com.sun:auto-snapshot" = "false";

@@ -3,7 +3,7 @@
   disk = {
     main = {
       type = "disk";
-      device = "/dev/${builtins.elemAt disks 2}";
+      device = "/dev/${builtins.elemAt disks 1}";
       content = {
         type = "gpt";
         partitions = {

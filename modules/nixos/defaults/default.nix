@@ -73,7 +73,7 @@
     };
     nix = {
       settings = {
-        experimental-features = [ "nix-command" "falkes" ];
+        experimental-features = [ "nix-command" "flakes" ];
         trusted-users = [ "builder" "root" "@wheel" ];
       };
       gc = {

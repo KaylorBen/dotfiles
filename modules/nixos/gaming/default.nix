@@ -15,7 +15,7 @@ in {
         default = true;
         description = "Enable ZRam - Star Citizen needs it <40G";
       };
-      memoryPercent = lib.mkOtpion {
+      memoryPercent = lib.mkOption {
         type = lib.types.int;
         default = 100;
         inherit (lib.options.zramSwap.memoryPercent) description;
@@ -28,7 +28,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     nix-citizen.starCitizen = {
-      inherit (cfg.starCtiizen) enable;
+      inherit (cfg.starCitizen) enable;
       preCommands = ''
         export DXVK_HUD=compiler;
         export MANGO_HUD=1;
@@ -45,7 +45,7 @@ in {
 
     services = with pkgs; {
       xserver.modules = [ xorg.xf86inputjoystick ];
-      udev.packages = [ game-device-udev-rules ];
+      udev.packages = [ game-devices-udev-rules ];
     };
     nix.settings = let
       substituters = [ "https://nix-gaming.cachix.org" ];

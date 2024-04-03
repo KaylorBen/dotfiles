@@ -3,7 +3,7 @@
   options.Wotan.security = {
     enable = lib.mkEnableOption "Enable security defaults" // { default = true; };
     enableTPM = lib.mkEnableOption "Enable TPM" // { default = false; };
-    enabelSecureBoot = lib.mkEnableOption "Enable Secure Boot" // { default = false; };
+    enableSecureBoot = lib.mkEnableOption "Enable Secure Boot" // { default = false; };
   };
 
   config = lib.mkMerge [

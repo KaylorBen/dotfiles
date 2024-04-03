@@ -1,8 +1,26 @@
-{ config, lib, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, inputs, ... }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
+  imports = with inputs; [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+    nixos-hardware.nixosModules.common-gpu-intel-disable
+    nixos-hardware.nixosModules.common-pc-ssd
+  ];
+  # Use the systemd-boot EFI boot loader
   boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "x86_64-windows"
+      "wasm32-wasi"
+      "wasm64-wasi"
+      "riscv32-linux"
+      "riscv64-linux"
+    ];
+    supportedFilesystems = [ "ntfs" ];
     initrd = {
       systemd.enable = true;
       availableKernelModules =
@@ -12,7 +30,45 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-  Wotan.MyNextGPUWillNotBeNvidia = true;
+  powerManagement.cpuFreqGovernor = "performance";
+
+  services = {
+    blueman.enable = true;
+    fwupd.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+    };
+    udev.packages = with pkgs; [ liquidctl ];
+  };
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      settings.general.enable = "Source,Sink,Media,Socket";
+    };
+    openrazer = {
+      enable = true;
+      users = [ config.users.users.ben.name ];
+    };
+  };
+  networking.interfaces.enp7s0.wakeOnLan.enable = true;
+
+  # Set docker storage driver to btrfs
+  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.vmVariant = {
+    disko.devices = lib.mkForce (import ./disko-vm.nix { inherit lib; });
+  };
+
+  Wotan = {
+    MyNextGPUWillNotBeNvidia = true;
+    # services.liquidctl = {
+    #   enable = true;
+    #   TODO: find cooler model and configure
+    #   config = {
+    #   };
+  };
+
   Wotan.zfs.enable = true;
   # RAID stuff
   # environment.etc."mdadm.conf".text = ''

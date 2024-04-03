@@ -32,7 +32,7 @@
       in {
         enable = false;
         openFirewall = true;
-        dhcpNodBind = true;
+        dhcpNoBind = true;
         mode = "boot";
         kernel = "${build.kernel}/bzImage";
         initrd = "${build.netbootRamdisk}/initrd";

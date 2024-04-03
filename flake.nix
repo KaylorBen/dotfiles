@@ -93,6 +93,9 @@
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
       ];
+      channels-config = {
+        allowUnfree = true;
+      };
     } // {
       formatter =
         forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);

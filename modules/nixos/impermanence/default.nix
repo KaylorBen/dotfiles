@@ -109,8 +109,6 @@ in {
           ];
           files = [
             ".screenrc"
-            ".config/spotify/prefs"
-            ".config/spotify/Users/fuzen-py/prefs"
           ];
         };
       };

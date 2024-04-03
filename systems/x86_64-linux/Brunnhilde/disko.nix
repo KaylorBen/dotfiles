@@ -17,7 +17,7 @@
             };
           };
           root = {
-            end = "-16";
+            end = "-16G";
             content = {
               type = "zfs";
               pool = "zroot";
@@ -38,7 +38,6 @@
   zpool = {
     zroot = {
       type = "zpool";
-      mode = "mirror";
       footFsOptions = {
         compression = "zstd-5";
         "com.sun:auto-snapshot" = "false";

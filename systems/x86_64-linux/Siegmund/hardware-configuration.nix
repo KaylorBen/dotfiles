@@ -71,9 +71,9 @@
 
   Wotan.zfs.enable = true;
   # RAID stuff
-  # environment.etc."mdadm.conf".text = ''
-  #   MAILADDR root
-  # '';
+  environment.etc."mdadm.conf".text = ''
+    MAILADDR root
+  '';
 
   disko.devices = import ./disko.nix { inherit lib; };
 

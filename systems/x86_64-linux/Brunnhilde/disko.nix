@@ -38,7 +38,12 @@
   zpool = {
     zroot = {
       type = "zpool";
+<<<<<<< HEAD
       footFsOptions = {
+=======
+      mode = "mirror";
+      rootFsOptions = {
+>>>>>>> 8e4c9d9a6469b0a78a3d58b639292410175e32e5
         compression = "zstd-5";
         "com.sun:auto-snapshot" = "false";
         acltype = "posixacl";

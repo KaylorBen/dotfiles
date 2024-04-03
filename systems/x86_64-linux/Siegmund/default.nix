@@ -9,7 +9,7 @@
     gaming.enable = true;
     streaming.enable = true;
     sound.enable = true;
-    # TODO security
+    security.enable = true;
     desktop.awesome.enable = true;
   };
 
@@ -27,7 +27,18 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    # Consider pixiecore netbooting
+    pixiecore =
+      let inherit (inputs.self.nixoSconfigurations.Netboot.config.system) build;
+      in {
+        enable = false;
+        openFirewall = true;
+        dhcpNodBind = true;
+        mode = "boot";
+        kernel = "${build.kernel}/bzImage";
+        initrd = "${build.netbootRamdisk}/initrd";
+        cmdLine = "init=${build.toplevel}/init loglevel=4";
+        debug = true;
+      };
     xserver = {
       enable = true;
       libinput.enable = true;

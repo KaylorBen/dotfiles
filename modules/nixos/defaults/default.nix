@@ -1,6 +1,11 @@
 { config, lib, inputs, pkgs, format, ... }:
 {
-  imports = [ (lib.Wotan.get-shared-module "defaults") ];
+  options.Wotan.defaults.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Enable nebula base defaults";
+  };
+
   config = lib.mkIf config.Wotan.defaults.enable {
     boot.initrd.systemd.enable = lib.mkDefault (format != "iso");
     # GIT is needed for flakes
@@ -67,7 +72,10 @@
       };
     };
     nix = {
-      settings.trusted-users = [ "builder" "root" "@wheel" ];
+      settings = {
+        experimental-features = [ "nix-command" "falkes" ];
+        trusted-users = [ "builder" "root" "@wheel" ];
+      };
       gc = {
         automatic = lib.mkDefault true;
         options = lib.mkDefault "--delete-older-than 30d";

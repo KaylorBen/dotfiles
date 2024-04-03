@@ -17,7 +17,6 @@ in {
       (builtins.attrNames flake.nixosConfigurations);
   };
   get-secret-file = file: fs.get-file "secrets/${file}";
-  get-shared-module = name: fs.get-file "modules/shared/${name}";
   get-ssh-key-files = user:
     fs.get-files (lib.snowfall.fs.get-file "keys/${user}/ssh");
 

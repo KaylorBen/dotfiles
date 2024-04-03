@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.Wotan.impermanence;
   dir = directory: user: group: mode: { inherit directory user group mode; };
@@ -19,16 +19,16 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
-      # boot.initrd.systemd.services.impermanence = {
-      #   description = "Resets root to a clean state (Requires ZFS)";
-      #   wantedBy = [ "initrd.target" ];
-      #   after = [ "zfs-import-zroot.service" ];
-      #   before = [ "sysroot.mount" ];
-      #   path = with pkgs; [ zfs ];
-      #   unitConfig.DefaultDependencies = "no";
-      #   serviceConfig.Type = "oneshot";
-      #   script = cfg.rollbackCommand;
-      # };
+      boot.initrd.systemd.services.impermanence = {
+        description = "Resets root to a clean state (Requires ZFS)";
+        wantedBy = [ "initrd.target" ];
+        after = [ "zfs-import-zroot.service" ];
+        before = [ "sysroot.mount" ];
+        path = with pkgs; [ zfs ];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = cfg.rollbackCommand;
+      };
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;
         directories = [
@@ -57,17 +57,17 @@ in {
             file = "/etc/nix/id_rsa";
             parentDirectory = { mode = "u=rwx,g=,o="; };
           }
-          "/etc/shadow"
-          "/etc/passwd"
-          "/etc/group"
-          "/etc/subgid"
-          "/etc/subuid"
-          "/etc/sudoers"
-          "/etc/adjtime"
-          "/etc/ssh/ssh_host_ed25519_key"
-          "/etc/ssh/ssh_host_ed25519_key.pub"
-          "/etc/ssh/ssh_host_rsa_key"
-          "/etc/ssh/ssh_host_rsa_key.pub"
+          { file = "/etc/shadow"; force = true; }
+          { file = "/etc/passwd"; force = true; }
+          { file = "/etc/group"; force = true; }
+          { file = "/etc/subgid"; force = true; }
+          { file = "/etc/subuid"; force = true; }
+          { file = "/etc/sudoers"; force = true; }
+          { file = "/etc/adjtime"; force = true; }
+          { file = "/etc/ssh/ssh_host_ed25519_key"; force = true; }
+          { file = "/etc/ssh/ssh_host_ed25519_key.pub"; force = true; }
+          { file = "/etc/ssh/ssh_host_rsa_key"; force = true; }
+          { file = "/etc/ssh/ssh_host_rsa_key.pub"; force = true; }
         ];
       };
     }

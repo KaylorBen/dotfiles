@@ -105,9 +105,7 @@ in {
             ".config/obs-studio"
             ".config/discord"
             ".config/VencordDesktop"
-            ".local/share/TelegramDesktop"
             ".mozilla"
-            ".config/kdeconnect"
           ];
           files = [
             ".screenrc"

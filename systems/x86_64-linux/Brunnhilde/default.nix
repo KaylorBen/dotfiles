@@ -17,7 +17,7 @@
       enableTPM = false;
       # enableSecureBoot = true;
     };
-    desktop.awesome.enable = true;
+    desktop.hyprland.enable = true;
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,7 +29,6 @@
       enable = true;
       enableSSHSupport = true;
     };
-    kdeconnect.enable = true;
     mosh.enable = true;
     noisetorch.enable = true;
     partition-manager.enable = true;

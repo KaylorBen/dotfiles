@@ -15,11 +15,11 @@
     sound.enable = true;
     security = {
       enableTPM = false;
-      enableSecureBoot = true;
+      # enableSecureBoot = true;
     };
     desktop.awesome.enable = true;
   };
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Plymouth
   boot.plymouth.enable = false;

@@ -16,7 +16,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enablib.le (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
       # boot.initrd.systemd.services.impermanence = {
@@ -74,7 +74,7 @@ in {
     (lib.mkIf config.Wotan.users.enable {
       programs.fuse.userAllowOther = true;
       environment.persistence.${cfg.persistentDirectory} = {
-        users.melody = {
+        users.ben = {
           directories = [
             "Downloads"
             "Music"

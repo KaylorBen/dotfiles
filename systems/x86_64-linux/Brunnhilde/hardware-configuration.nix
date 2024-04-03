@@ -12,9 +12,9 @@
     initrd = {
       systemd.enable = true;
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-      binfmt.emulatedSystems = [ "aarch64-linux" "riscv32-linux" "riscv64-linux" "x86_64-windows" ];
       kernelModules = [ ];
     };
+    binfmt.emulatedSystems = [ "aarch64-linux" "riscv32-linux" "riscv64-linux" "x86_64-windows" ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };

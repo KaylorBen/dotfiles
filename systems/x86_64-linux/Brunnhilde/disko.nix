@@ -39,7 +39,7 @@
     zroot = {
       type = "zpool";
       mode = "mirror";
-      footFsOptions = {
+      rootFsOptions = {
         compression = "zstd-5";
         "com.sun:auto-snapshot" = "false";
         acltype = "posixacl";

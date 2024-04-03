@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
-    autoUpgrade = true;
+    autoUpgrade.enable = true;
     zfs.enable = true;
     users.enable = true;
     time.enable = true;
@@ -13,13 +13,11 @@
       '';
     };
     sound.enable = true;
-    secutiy = {
+    security = {
       enableTPM = false;
       enableSecureBoot = true;
     };
-    desktop = {
-      hyprland.enable = true;
-    };
+    desktop.awesome.enable = true;
   };
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

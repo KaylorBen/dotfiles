@@ -13,7 +13,7 @@
         ssh.enable = true;
       };
     };
-    services.syncthings.enable = true;
+    services.syncthing.enable = true;
 
     gtk.font.size = lib.mkDefault 12;
 

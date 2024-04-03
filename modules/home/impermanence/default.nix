@@ -1,7 +1,7 @@
 { config, lib, osConfig, inputs, ... }:
 {
   imports = with inputs;
-    [ impermanence.nixosModules.home-amanger.impermanence ];
+    [ impermanence.nixosModules.home-manager.impermanence ];
   options.Wotan.impermanence = {
     enable = lib.mkOption {
       type = lib.types.bool;

@@ -26,7 +26,7 @@ in {
     };
     persistent = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
       description = "Enable persistent upgrades";
     };
   };
@@ -40,7 +40,7 @@ in {
       inherit (cfg) enable;
       inherit (cfg) operation;
       inherit (cfg) dates;
-      inherit (cfg) allwReboot;
+      inherit (cfg) allowReboot;
       inherit (cfg) randomizedDelaySec;
       inherit (cfg) persistent;
       flake = lib.Wotan.info.url;

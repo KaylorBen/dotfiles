@@ -44,8 +44,7 @@
     xclip
   ];
 
-  # Questionable functionality
-  snowfall.users.ben.config = {
+  snowfallorg.users.ben.home.config = {
     home.persistence."/.FinalFantasyXIV" = {
       directories = [ ".xlcore" ];
       allowOther = true;

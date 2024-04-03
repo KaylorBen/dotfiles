@@ -3,10 +3,10 @@
   options.Wotan.programs.firefox.enable =
     lib.mkEnableOption "A web browser built from Firefox source tree";
 
-    config = lib.mIf config.Wotan.programs.firefox.enable {
+    config = lib.mkIf config.Wotan.programs.firefox.enable {
       programs.firefox = {
         enable = true;
-        poicies = {
+        policies = {
           DisableAppUpdate = true;
           DisableTelemetry = true;
         };

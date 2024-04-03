@@ -82,7 +82,7 @@
         sops-nix.homeManagerModules.sops
       ];
       systems.modules.nixos = with inputs; [
-        ({lib, ...}: { systems.stateVersion = lib.Wotan.stateVersion.nixos; })
+        ({lib, ...}: { system.stateVersion = lib.Wotan.stateVersion.nixos; })
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         impermanence.nixosModules.impermanence

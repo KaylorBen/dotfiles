@@ -28,7 +28,7 @@ in {
         export DXVK_HUD=compiler;
         export MANGO_HUD=1;
       '';
-      helerScript.enable = true;
+      helperScript.enable = true;
     };
     zramSwap.enable = cfg.zram.enable;
     zramSwap.memoryPercent = cfg.zram.memoryPercent;

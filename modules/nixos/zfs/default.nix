@@ -3,8 +3,8 @@
   options.Wotan.zfs.enable = lib.mkEnableOption "Enable ZFS specifics";
   config = lib.mkIf config.Wotan.zfs.enable {
     services.zfs = {
-      autScrub.enable = true;
-      time.enable = true;
+      autoScrub.enable = true;
+      trim.enable = true;
     };
 
     boot.kernelPackages =

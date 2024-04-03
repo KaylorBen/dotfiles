@@ -5,7 +5,7 @@
       groups.builder = { };
       users.builder = {
         openssh.authorizedKeys.keyFiles =
-          config.users.users.root.openssh.autorizedKeys.keyFiles;
+          config.users.users.root.openssh.authorizedKeys.keyFiles;
         group = "builder";
         extraGroups = [ "ssh" ];
         createHome = false;

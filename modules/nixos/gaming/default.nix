@@ -11,6 +11,11 @@ in {
     };
     zram = {
       enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Enable ZRam - Star Citizen needs it <40G";
+      };
+      memoryPercent = lib.mkOtpion {
         type = lib.types.int;
         default = 100;
         inherit (lib.options.zramSwap.memoryPercent) description;

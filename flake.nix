@@ -14,6 +14,10 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    hypridle.inputs.nixpkgs.follows = "nixpkgs";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:vaxerski/Hyprland";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";
@@ -75,6 +79,8 @@
         nix-minecraft.overlays.default
       ];
       home.users."ben@Siegmund".modules = with inputs; [
+        hyprland.homeManagerModules.default
+        hypridle.homeManagerModules.hypridle
         impermanence.nixosModules.home-manager.impermanence
         nix-colors.homeManagerModules.default
         nix-index-database.hmModules.nix-index
@@ -85,6 +91,7 @@
         ({lib, ...}: { system.stateVersion = lib.Wotan.stateVersion.nixos; })
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
+        hyprland.nixosModules.default
         impermanence.nixosModules.impermanence
         lanzaboote.nixosModules.lanzaboote
         nix-gaming.nixosModules.pipewireLowLatency

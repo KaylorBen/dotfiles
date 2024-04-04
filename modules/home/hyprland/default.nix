@@ -1,30 +1,30 @@
-{ config, inputs, lib, pkgs, osconfig, ... }:
+{ config, inputs, lib, pkgs, osConfig, ... }:
 let cfg = config.Wotan.desktop.hyprland;
 in {
   options.Wotan.desktop.hyprland = {
-    enable = lib.mkoption {
+    enable = lib.mkOption {
       type = lib.types.bool;
       description = "hyprland";
-      default = osconfig.Wotan.desktop.hyprland.enable or false;
+      default = osConfig.Wotan.desktop.hyprland.enable or false;
     };
-    extraautostart = lib.mkoption {
+    extraautostart = lib.mkOption {
       # list of strings
       type = with lib.types; listof str;
-      default = if builtins.hasattr "Wotan" osconfig then
-        osconfig.Wotan.desktop.hyprland.extraautostart
+      default = if builtins.hasattr "Wotan" osConfig then
+        osConfig.Wotan.desktop.hyprland.extraautostart
       else
         [ ];
     };
-    extrasettings = lib.mkoption {
+    extrasettings = lib.mkOption {
       type = lib.types.attrs;
-      default = if builtins.hasattr "Wotan" osconfig then
-        osconfig.Wotan.desktop.hyprland.extrasettings
+      default = if builtins.hasattr "Wotan" osConfig then
+        osConfig.Wotan.desktop.hyprland.extrasettings
       else
         { };
     };
   };
 
-  config = lib.mkif cfg.enable {
+  config = lib.mkIf cfg.enable {
     Wotan.programs.waybar.enable = true;
     programs.rofi = {
       enable = true;
@@ -93,8 +93,8 @@ in {
       };
     };
 
-    wayland.windowmanager.hyprland = let
-      self = config.wayland.windowmanager.hyprland;
+    wayland.windowManager.hyprland = let
+      self = config.wayland.windowManager.hyprland;
     in {
       enable = true;
       xwayland = { enable = true; };

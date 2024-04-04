@@ -7,18 +7,18 @@ in {
       description = "hyprland";
       default = osConfig.Wotan.desktop.hyprland.enable or false;
     };
-    extraautostart = lib.mkOption {
+    extraAutoStart = lib.mkOption {
       # list of strings
       type = with lib.types; listof str;
-      default = if builtins.hasattr "Wotan" osConfig then
-        osConfig.Wotan.desktop.hyprland.extraautostart
+      default = if builtins.hasAttr "Wotan" osConfig then
+        osConfig.Wotan.desktop.hyprland.extraAutoStart
       else
         [ ];
     };
-    extrasettings = lib.mkOption {
+    extraSettings = lib.mkOption {
       type = lib.types.attrs;
-      default = if builtins.hasattr "Wotan" osConfig then
-        osConfig.Wotan.desktop.hyprland.extrasettings
+      default = if builtins.hasAttr "Wotan" osConfig then
+        osConfig.Wotan.desktop.hyprland.extraSettings
       else
         { };
     };
@@ -43,7 +43,7 @@ in {
           {
             event = "after-resume";
             command = "${
-                lib.getexe' config.wayland.windowmanager.hyprland.package "hyprctl"
+                lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"
               } dispatch dpms on";
           }
           {
@@ -60,13 +60,8 @@ in {
 
     home.packages = with pkgs; [
       rofi-wayland
-      gnome.gnome-keyring
-      gnome.seahorse
-      linux-wallpaperengine
-      steam
       pamixer
       inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
-      gnome.nautilus
       networkmanager
     ];
 
@@ -138,9 +133,9 @@ in {
           animate_manual_resizes = false;
         };
         general = {
-          gaps_in = lib.mkdefault 5;
-          gaps_out = lib.mkdefault 8;
-          border_size = lib.mkdefault 3;
+          gaps_in = lib.mkDefault 5;
+          gaps_out = lib.mkDefault 8;
+          border_size = lib.mkDefault 3;
           layout = "dwindle"; # master | dwindle
         };
         dwindle = {
@@ -235,7 +230,7 @@ in {
         inherit pkgs;
         inherit (self.settings.general) gaps_in;
         inherit (self.settings.general) gaps_out;
-      }) // cfg.extrasettings;
+      }) // cfg.extraSettings;
     };
   };
 }

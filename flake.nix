@@ -14,6 +14,8 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    hyprwm-contrib.inputs.nixpkgs.follows = "nixpkgs";
+    hyprwm-contrib.url = "github:hyprwm/contrib";
     hypridle.inputs.nixpkgs.follows = "nixpkgs";
     hypridle.url = "github:hyprwm/hypridle";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";

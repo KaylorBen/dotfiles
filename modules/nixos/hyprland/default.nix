@@ -2,15 +2,15 @@
 {
   options.Wotan.desktop.hyprland = {
     enable = lib.mkEnableOption "hyprland";
-    # extraAutoStart = lib.mkOption {
-    #   # List of strings
-    #   type = with lib.types; listOf str;
-    #   default = [ ];
-    # };
-    # extraSettings = lib.mkOption {
-    #   type = lib.types.attrs;
-    #   default = { };
-    # };
+    extraAutoStart = lib.mkOption {
+      # List of strings
+      type = with lib.types; listOf str;
+      default = [ ];
+    };
+    extraSettings = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
+    };
   };
 
   config = lib.mkIf config.Wotan.desktop.hyprland.enable {

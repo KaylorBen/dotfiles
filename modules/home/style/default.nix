@@ -1,5 +1,6 @@
 { lib, config, pkgs, inputs, ... }:
-{
+let cfg = config.Wotan.styles;
+in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
   ];
@@ -15,8 +16,8 @@
     };
   };
 
-  config = lib.mkIf config.Wotan.styles.enable {
-    colorScheme = inputs.nix-colors.colorSchemes.${config.Wotan.styles.style};
+  config = lib.mkIf cfg.enable {
+    colorScheme = inputs.nix-colors.colorSchemes.${cfg.style};
     # fonts = {
     #   serif = {
     #     package = pkgs.freefont_ttf;

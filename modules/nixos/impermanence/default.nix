@@ -29,6 +29,7 @@ in {
       #   serviceConfig.Type = "oneshot";
       #   script = cfg.rollbackCommand;
       # };
+      fileSystems.${cfg.persistentDirectory}.neededForBoot = true;
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;
         directories = [

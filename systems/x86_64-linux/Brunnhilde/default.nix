@@ -45,7 +45,7 @@
       enable = true;
 
       # Configure keymap in X11
-      layout = "us";
+      xkb.layout = "us";
 
       # Enable touchpad support
       libinput.enable = true;
@@ -63,7 +63,13 @@
   security.polkit.enable = true;
 
   snowfallorg.users.ben.home.config = {
-    Wotan.home-profiles.desktop.enable = true;
+    Wotan = {
+      home-profiles.desktop.enable = true;
+      styles = {
+        enable = true;
+        style = "rose-pine";
+      };
+    };
   };
   home-manager = {
     useGlobalPkgs = true;

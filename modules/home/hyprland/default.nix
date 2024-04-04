@@ -89,7 +89,7 @@ in {
 
         disable-caps-lock-text = true;
 
-        inside-color = lib.mkforce "00000000";
+        inside-color = lib.mkForce "00000000";
       };
     };
 

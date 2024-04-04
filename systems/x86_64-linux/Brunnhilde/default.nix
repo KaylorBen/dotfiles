@@ -18,7 +18,7 @@
       # enableSecureBoot = true;
     };
     desktop = {
-      awesome.enable = false;
+      hyprland.enable = true;
     };
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;

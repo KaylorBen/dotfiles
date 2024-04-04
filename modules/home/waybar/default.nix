@@ -160,16 +160,16 @@
           }
 
           .modules-right {
-            background-color: ${config.colorScheme.name};
+            background-color: 191724;
             margin: 2px 10px 0 0;
           }
 
           .modules-center {
-            background-color: ${config.colorScheme.name};
+            background-color: 191724;
             margin: 2px 0 0 0;
           }
           .modules-left {
-            background-color: ${config.colorScheme.name};
+            background-color: 191724;
             margin: 2px 0 0 5px;
           }
 

@@ -4,6 +4,7 @@
     enable = lib.mkEnableOption {
       description = "hyprland";
       default = true;
+    };
     # extraAutoStart = lib.mkOption {
     #   # List of strings
     #   type = with lib.types; listOf str;

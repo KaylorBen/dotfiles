@@ -1,5 +1,5 @@
 { config, inputs, lib, pkgs, osconfig, ... }:
-let cfg = config.tm.desktop.hyprland;
+let cfg = config.Wotan.desktop.hyprland;
 in {
   options.Wotan.desktop.hyprland = {
     enable = lib.mkoption {
@@ -10,7 +10,7 @@ in {
     extraautostart = lib.mkoption {
       # list of strings
       type = with lib.types; listof str;
-      default = if builtins.hasattr "tm" osconfig then
+      default = if builtins.hasattr "Wotan" osconfig then
         osconfig.Wotan.desktop.hyprland.extraautostart
       else
         [ ];
@@ -181,6 +181,7 @@ in {
             "workspaces, 1, 6, overshot, slidevert"
           ];
         };
+        # No stylix or styling set up or wallpaper engine
         # exec-once = [
         #   "mako &"
         #   "hyprctl setcursor '${config.stylix.cursor.name}' ${

@@ -5,6 +5,7 @@ _: {
   programs.starship.enable = true;
   boot.initrd.systemd.enable = true;
   Wotan = {
+    security.enable = false;
     laptop = true;
     autoUpgrade.enable = false;
   };

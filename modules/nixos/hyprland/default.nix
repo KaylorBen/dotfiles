@@ -1,10 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   options.Wotan.desktop.hyprland = {
-    enable = lib.mkEnableOption {
-      description = "hyprland";
-      default = true;
-    };
+    enable = lib.mkEnableOption "hyprland";
     # extraAutoStart = lib.mkOption {
     #   # List of strings
     #   type = with lib.types; listOf str;

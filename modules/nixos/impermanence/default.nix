@@ -58,12 +58,6 @@ in {
             file = "/etc/nix/id_rsa";
             parentDirectory = { mode = "u=rwx,g=,o="; };
           }
-          "/etc/shadow"
-          "/etc/passwd"
-          "/etc/group"
-          "/etc/subgid"
-          "/etc/subuid"
-          "/etc/sudoers"
           "/etc/adjtime"
           "/etc/ssh/ssh_host_ed25519_key"
           "/etc/ssh/ssh_host_ed25519_key.pub"

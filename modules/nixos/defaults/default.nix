@@ -68,7 +68,7 @@
     services = {
       openssh = lib.mkDefault {
         enable = true;
-        settings = { passwordAuthentication = false; };
+        settings.passwordAuthentication = false;
       };
     };
     nix = {

@@ -96,7 +96,7 @@ in {
       systemd.enable = true;
       settings = {
         source = "${./keybinds.conf}";
-        "$mainmod" = "super";
+        "$mainMod" = "super";
         input = {
           kb_layout = "us";
           kb_options = "caps:escape";
@@ -170,7 +170,7 @@ in {
           bezier = "overshot, 0.13, 0.99, 0.29, 1.1";
           animation = [
             "windows, 1, 4, overshot, slide"
-            "windowsout, 1, 5, default, popin 80%"
+            "windowsOut, 1, 5, default, popin 80%"
             "border, 1, 5, default"
             "fade, 1, 8, default"
             "workspaces, 1, 6, overshot, slidevert"

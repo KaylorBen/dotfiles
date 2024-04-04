@@ -57,12 +57,12 @@ in {
             file = "/etc/nix/id_rsa";
             parentDirectory = { mode = "u=rwx,g=,o="; };
           }
-          # { file = "/etc/shadow"; force = true; }
-          # { file = "/etc/passwd"; force = true; }
-          # { file = "/etc/group"; force = true; }
-          # { file = "/etc/subgid"; force = true; }
-          # { file = "/etc/subuid"; force = true; }
-          # { file = "/etc/sudoers"; force = true; }
+          "/etc/shadow"
+          "/etc/passwd"
+          "/etc/group"
+          "/etc/subgid"
+          "/etc/subuid"
+          "/etc/sudoers"
           "/etc/adjtime"
           "/etc/ssh/ssh_host_ed25519_key"
           "/etc/ssh/ssh_host_ed25519_key.pub"

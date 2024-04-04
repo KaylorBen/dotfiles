@@ -160,16 +160,16 @@
           }
 
           .modules-right {
-            background-color: 191724;
+            background-color: #191724;
             margin: 2px 10px 0 0;
           }
 
           .modules-center {
-            background-color: 191724;
+            background-color: #191724;
             margin: 2px 0 0 0;
           }
           .modules-left {
-            background-color: 191724;
+            background-color: #191724;
             margin: 2px 0 0 5px;
           }
 

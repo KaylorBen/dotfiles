@@ -62,6 +62,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    wezterm.inputs.nixpkgs.follows = "nixpkgs";
+    wezterm.url = "github:wez/wezterm?dir=nix/";
   };
 
   outputs = {self, systems, ...}@inputs:

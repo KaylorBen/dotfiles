@@ -34,7 +34,7 @@ in {
   config = lib.mkIf cfg.enable {
     # Git is needed for the flake to be abkle to update itself
     environment.systemPackages = [ pkgs.git ];
-    nix.settings.experimental-features = [ "nix-command flakes" ];
+    # nix.settings.experimental-features = [ "nix-command flakes" ];
 
     system.autoUpgrade = {
       inherit (cfg) enable;

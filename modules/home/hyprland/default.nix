@@ -74,7 +74,7 @@ in {
         # font = config.stylix.fonts.monospace.name;
         clock = true;
         timestr = "%r";
-        datestr = "%a, %d %b";
+        datestr = "%A, %d %B";
         fade-in = 0.2;
         effect-blur = "20x2";
         indicator = true;

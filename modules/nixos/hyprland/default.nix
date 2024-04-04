@@ -16,11 +16,11 @@
   config = lib.mkIf config.Wotan.desktop.hyprland.enable {
     programs.light.enable = true;
     services.xserver.displayManager.gdm.enable = true;
-    xdg.portal = {
-     enable = true;
-     extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
-     xdgOpenUsePortal = true;
-    };
+    # xdg.portal = {
+    #  enable = true;
+    #  extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
+    #  xdgOpenUsePortal = true;
+    # };
     programs.hyprland = {
       enable = true;
       package = pkgs.hyprland;

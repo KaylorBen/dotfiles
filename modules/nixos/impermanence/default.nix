@@ -57,17 +57,17 @@ in {
             file = "/etc/nix/id_rsa";
             parentDirectory = { mode = "u=rwx,g=,o="; };
           }
-          { file = "/etc/shadow"; force = true; }
-          { file = "/etc/passwd"; force = true; }
-          { file = "/etc/group"; force = true; }
-          { file = "/etc/subgid"; force = true; }
-          { file = "/etc/subuid"; force = true; }
-          { file = "/etc/sudoers"; force = true; }
-          { file = "/etc/adjtime"; force = true; }
-          { file = "/etc/ssh/ssh_host_ed25519_key"; force = true; }
-          { file = "/etc/ssh/ssh_host_ed25519_key.pub"; force = true; }
-          { file = "/etc/ssh/ssh_host_rsa_key"; force = true; }
-          { file = "/etc/ssh/ssh_host_rsa_key.pub"; force = true; }
+          # { file = "/etc/shadow"; force = true; }
+          # { file = "/etc/passwd"; force = true; }
+          # { file = "/etc/group"; force = true; }
+          # { file = "/etc/subgid"; force = true; }
+          # { file = "/etc/subuid"; force = true; }
+          # { file = "/etc/sudoers"; force = true; }
+          "/etc/adjtime"
+          "/etc/ssh/ssh_host_ed25519_key"
+          "/etc/ssh/ssh_host_ed25519_key.pub"
+          "/etc/ssh/ssh_host_rsa_key"
+          "/etc/ssh/ssh_host_rsa_key.pub"
         ];
       };
     }

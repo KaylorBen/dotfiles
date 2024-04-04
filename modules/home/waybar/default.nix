@@ -1,6 +1,6 @@
 { lib, config, pkgs, osConfig, ... }:
 {
-  options.TM.programs.waybar.enable = lib.mkEnableOption "Waybar";
+  options.Wotan.programs.waybar.enable = lib.mkEnableOption "Waybar";
 
   config = lib.mkIf config.Wotan.programs.waybar.enable {
     programs.waybar = {
@@ -145,8 +145,8 @@
         ''
           * {
             border: none;
-            font-family: Font Awesome, ${config.fonts.monospace.name}, ${config.fonts.sansSerif.name}, ${config.fonts.serif.name};
-            font-size: ${builtins.toString config.fonts.sizes.desktop};
+            font-family: Font Awesome, Monocraft Nerd Font, FreeSans, FreeSerif;
+            font-size: 14;
             color: #ffffff;
             border-radius: 20px;
           }

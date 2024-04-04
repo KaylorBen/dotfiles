@@ -17,7 +17,9 @@
       enableTPM = false;
       # enableSecureBoot = true;
     };
-    desktop.awesome.enable = false;
+    desktop = {
+      awesome.enable = false;
+    };
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;

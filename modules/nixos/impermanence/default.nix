@@ -19,16 +19,16 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
-      # boot.initrd.systemd.services.impermanence = {
-      #   description = "Resets root to a clean state (Requires ZFS)";
-      #   wantedBy = [ "initrd.target" ];
-      #   after = [ "zfs-import-zroot.service" ];
-      #   before = [ "sysroot.mount" ];
-      #   path = with pkgs; [ zfs ];
-      #   unitConfig.DefaultDependencies = "no";
-      #   serviceConfig.Type = "oneshot";
-      #   script = cfg.rollbackCommand;
-      # };
+      boot.initrd.systemd.services.impermanence = {
+        description = "Resets root to a clean state (Requires ZFS)";
+        wantedBy = [ "initrd.target" ];
+        after = [ "zfs-import-zroot.service" ];
+        before = [ "sysroot.mount" ];
+        path = with pkgs; [ zfs ];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = cfg.rollbackCommand;
+      };
       fileSystems.${cfg.persistentDirectory}.neededForBoot = true;
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;
@@ -53,16 +53,22 @@ in {
           (dir "/var/lib/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
         ];
         files = [
-          # "/etc/machine-id"
-          # {
-          #   file = "/etc/nix/id_rsa";
-          #   parentDirectory = { mode = "u=rwx,g=,o="; };
-          # }
-          # "/etc/adjtime"
-          # "/etc/ssh/ssh_host_ed25519_key"
-          # "/etc/ssh/ssh_host_ed25519_key.pub"
-          # "/etc/ssh/ssh_host_rsa_key"
-          # "/etc/ssh/ssh_host_rsa_key.pub"
+          "/etc/machine-id"
+          {
+            file = "/etc/nix/id_rsa";
+            parentDirectory = { mode = "u=rwx,g=,o="; };
+          }
+          "/etc/shadow"
+          "/etc/passwd"
+          "/etc/group"
+          "/etc/subgid"
+          "/etc/subuid"
+          "/etc/sudoers"
+          "/etc/adjtime"
+          "/etc/ssh/ssh_host_ed25519_key"
+          "/etc/ssh/ssh_host_ed25519_key.pub"
+          "/etc/ssh/ssh_host_rsa_key"
+          "/etc/ssh/ssh_host_rsa_key.pub"
         ];
       };
     }
@@ -75,8 +81,6 @@ in {
             "Music"
             "Games"
             ".xlcore"
-            ".Penumbra"
-            ".MareSync"
             "Pictures"
             "Documents"
             "Videos"
@@ -101,9 +105,6 @@ in {
             ".config/discord"
             ".config/VencordDesktop"
             ".mozilla"
-          ];
-          files = [
-            ".screenrc"
           ];
         };
       };

@@ -99,6 +99,7 @@
     xdragon # simple drag-and-drop source/sink for X
     libreoffice # GNU office
     sops # secret management
+    autokey
 
     # fun TUIs
     cowsay

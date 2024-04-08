@@ -9,6 +9,8 @@
         chromium.enable = true;
         firefox.enable = true;
         wezterm.enable = true;
+        # wezterm wayland support is currently pretty bad
+        alacritty.enable = true;
         mpv.enable = true;
         ssh.enable = true;
       };
@@ -22,7 +24,7 @@
         DONTNET_CLI_TELEMETRY_OPTOUT = "1";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
-        TERM = "wezterm";
+        TERM = "alacritty";
       };
       sessionPath = [ "${pkgs.dotnet-sdk}/bin" "~/.local/bin" "~/.cargo/bin" ];
       keyboard.layout = true;

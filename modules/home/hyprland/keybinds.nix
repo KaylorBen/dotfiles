@@ -1,7 +1,7 @@
 { pkgs, gaps_out, gaps_in, ... }: {
   bind = [
-    "$mainMod, Return, exec, ${pkgs.wezterm}/bin/wezterm"
-    "$mainMod SHIFT, Return, exec, wezterm --class='termfloat'"
+    "$mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
+    "$mainMod SHIFT, Return, exec, alacritty --class='termfloat'"
     "$mainMod SHIFT, Q, killactive"
     "$mainMod SHIFT, E, exit"
     "$mainMod SHIFT, SPACE, togglefloating"

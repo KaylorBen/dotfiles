@@ -31,7 +31,7 @@
             format-disconnected = "";
             max-length = 50;
             on-click =
-              "${pkgs.wezterm}/bin/wezterm -e ${pkgs.networkmanager}/bin/nmtui";
+              "${pkgs.alacritty}/bin/alacritty -e ${pkgs.networkmanager}/bin/nmtui";
           };
           idle_inhibitor = {
             format = "{icon}";

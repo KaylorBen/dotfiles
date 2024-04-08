@@ -31,7 +31,7 @@
       packages = with pkgs; [
         audacity
         freetube
-        kitty
+        # kitty
         vesktop
       ];
     };

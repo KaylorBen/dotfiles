@@ -48,7 +48,7 @@ $env.PROMPT_COMMAND = { || create_left_prompt }
 $env.PROMPT_COMMAND_RIGHT = ""
 
 # LS_COLORS config
-$env.LS_COLORS = (vivid generate molokai | str trim)
+$env.LS_COLORS = (vivid generate rose-pine | str trim)
 
 # Editor
 $env.EDITOR = "nvim"

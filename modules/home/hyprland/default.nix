@@ -63,6 +63,8 @@ in {
       pamixer
       inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
       networkmanager
+      wl-clipboard
+      wl-clipboard-x11
     ];
 
     programs.swaylock = {

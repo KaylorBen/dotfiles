@@ -4,6 +4,7 @@ local M = {
   dependencies = {
     {
       "folke/neodev.nvim",
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     },
   },
 }
@@ -127,6 +128,8 @@ function M.config()
 
     lspconfig[server].setup(opts)
   end
+
+  require("lsp_lines").setup()
 end
 
 return M

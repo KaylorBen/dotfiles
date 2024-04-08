@@ -18,6 +18,10 @@ in {
   config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
+      extraPackages = with pkgs; [
+        lua-language-server
+        nil
+      ];
       # package = pkgs.neovim;
       defaultEditor = cfg.defaultEditor;
     };

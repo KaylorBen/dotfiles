@@ -4,7 +4,7 @@ local M = {
   dependencies = {
     {
       "folke/neodev.nvim",
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      { url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim", },
     },
   },
 }
@@ -89,6 +89,7 @@ function M.config()
         { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
       },
     },
+    virtual_text = false;
     update_in_insert = true,
     severity_sort = true,
     float = {

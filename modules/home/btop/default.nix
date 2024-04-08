@@ -13,7 +13,10 @@
     home.file.".config/btop/themes/rose-pine.theme".source = ./rose-pine.theme;
     programs.btop = {
       enable = true;
-      color_theme = "rose-pine";
+      settings = {
+        color_theme = "rose-pine";
+        vim_keys = true;
+      };
     };
   };
 }

@@ -22,6 +22,8 @@ in {
         lua-language-server
         nil
       ];
+      # for copilot
+      withNodeJs = true;
       # package = pkgs.neovim;
       defaultEditor = cfg.defaultEditor;
     };

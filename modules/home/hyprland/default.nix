@@ -167,13 +167,13 @@ in {
         };
         animations = {
           enabled = true;
-          bezier = "overshot, 0.13, 0.99, 0.29, 1.1";
+          bezier = "easeInOutCubic, 0.65, 0, 0.35, 1";
           animation = [
-            "windows, 1, 4, overshot, slide"
+            "windows, 1, 4, easeInOutCubic, slide"
             "windowsOut, 1, 5, default, popin 80%"
             "border, 1, 5, default"
             "fade, 1, 8, default"
-            "workspaces, 1, 6, overshot, slidevert"
+            "workspaces, 1, 6, easeInOutCubic, slidevert"
           ];
         };
         # No stylix or styling set up or wallpaper engine

@@ -76,19 +76,39 @@ in {
         ignore-empty-password = true;
         # Not using stylix
         # font = config.stylix.fonts.monospace.name;
+        screenshots = true;
         clock = true;
         timestr = "%r";
         datestr = "%A, %d %B";
         fade-in = 0.2;
         effect-blur = "20x2";
         indicator = true;
-        indicator-radius = 240;
-        indicator-thickness = 20;
+        indicator-radius = 100;
+        indicator-thickness = 10;
+        indicator-x-position = 175;
+        indicator-y-position = 1000;
         indicator-caps-lock = true;
 
         disable-caps-lock-text = true;
 
+        key-hl-color = lib.mkForce "31748f";
+        bs-hl-color = lib.mkForce "eb6f92";
+        caps-lock-key-hl-color = lib.mkForce "c4a7e7";
+        caps-lock-bs-hl-color = lib.mkForce "eb6f92";
+
         inside-color = lib.mkForce "00000000";
+        inside-clear-color = lib.mkForce "00000000";
+        inside-caps-lock-color = lib.mkForce "00000000";
+        inside-ver-color = lib.mkForce "00000000";
+        inside-wrong-color = lib.mkForce "00000000";
+
+        line-uses-inside = true;
+
+        ring-color = lib.mkForce "26233a";
+        ring-clear-color = lib.mkForce "ebbcba";
+        ring-caps-lock-color = lib.mkForce "f6c177";
+        ring-ver-color = lib.mkForce "31748f";
+        ring-wrong-color = lib.mkForce "eb6f92";
       };
     };
 
@@ -141,6 +161,8 @@ in {
           gaps_out = lib.mkDefault 8;
           border_size = lib.mkDefault 3;
           layout = "dwindle"; # master | dwindle
+          "col.active_border" = "0xffebbcba";
+          "col.inactive_border" = "0xff6e6a86";
         };
         dwindle = {
           no_gaps_when_only = false;

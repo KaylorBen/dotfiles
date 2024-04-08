@@ -26,5 +26,6 @@
       package = pkgs.hyprland;
       xwayland = { enable = true; };
     };
+    security.pam.services.swaylock = {};
   };
 }

@@ -17,7 +17,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.vivid ];
-    home.file.".config/vivid/rose-pine.yml".source = ./rose-pine.yml;
+    home.file.".config/vivid/themes/rose-pine.yml".source = ./rose-pine.yml;
     programs = {
       nushell = {
         enable = true;

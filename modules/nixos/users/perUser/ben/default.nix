@@ -21,7 +21,7 @@
       shell = lib.mkForce pkgs.nushell;
       description = "Benjamin Kaylor";
       openssh.authorizedKeys.keyFiles = lib.Wotan.get-ssh-key-files "ben";
-      hashedPasswordFile = "/.persistent/password/ben";
+      # hashedPasswordFile = "/.persistent/password/ben";
     };
   };
 }

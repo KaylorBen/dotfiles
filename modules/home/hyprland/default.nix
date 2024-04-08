@@ -142,11 +142,11 @@ in {
           workspace_swipe_create_new = true;
         };
         env = [
-          "gdk_scale,2"
+          # "gdk_scale,2"
           # Not using stylix
           # "xcursor_size,${lib.tostring config.stylix.cursor.size}"
         ];
-        xwayland = { force_zero_scaling = true; };
+        # xwayland = { force_zero_scaling = true; };
         misc = {
           disable_autoreload = true;
           disable_hyprland_logo = true;

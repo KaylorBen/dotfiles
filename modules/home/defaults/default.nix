@@ -3,6 +3,9 @@ let inherit (pkgs.stdenv) isDarwin;
 in {
   config = {
     programs.yazi.enable = true;
+    nix.settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
     home = {
       keyboard = lib.mkIf isDarwin { layout = true; };
       username = lib.mkDefault config.snowfallorg.user.name;

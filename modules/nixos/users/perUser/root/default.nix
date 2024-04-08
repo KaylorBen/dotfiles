@@ -7,6 +7,7 @@
       openssh.authorizedKeys.keyFiles = lib.Wotan.get-ssh-key-files "root";
       initialPassword = "NixOS4Life";
       extraGroups = [ "ssh" ];
+      passwordFile = "/.persistent/password/root";
     };
   };
 }

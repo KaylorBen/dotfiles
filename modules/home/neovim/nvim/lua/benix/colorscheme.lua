@@ -1,11 +1,12 @@
 local M = {
-  "ellisonleao/gruvbox.nvim",
+  "rose-pine/neovim",
   lazy = false,
   priority = 1000,
 }
 
 function M.config()
-  vim.cmd.colorscheme("gruvbox")
+  require("rose-pine").setup()
+  vim.cmd.colorscheme("rose-pine")
 end
 
 return M

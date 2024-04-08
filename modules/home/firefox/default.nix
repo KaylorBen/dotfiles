@@ -33,6 +33,30 @@
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 definedAliases = [ "@np" ];
               };
+              "Nix Options" = {
+                urls = [{
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    { name = "type"; value = "packages"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@no" ];
+              };
+              "Nix Flakes" = {
+                urls = [{
+                  template = "https://search.nixos.org/flakes";
+                  params = [
+                    { name = "type"; value = "packages"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@nf" ];
+              };
 
               "NixOS Wiki" = {
                 urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];

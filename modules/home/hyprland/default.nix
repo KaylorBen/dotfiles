@@ -29,7 +29,7 @@ in {
     programs.rofi = {
       enable = true;
       package = pkgs.wofi;
-    };
+    home.file.".config/rofi/config.rasi".source = ./rose-pine.rasi
     services = {
       mako.enable = true;
       playerctld.enable = true;

@@ -18,7 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim;
+      # package = pkgs.neovim;
       defaultEditor = cfg.defaultEditor;
     };
     home.file.".config/nvim" = {

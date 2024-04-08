@@ -26,10 +26,11 @@ in {
 
   config = lib.mkIf cfg.enable {
     Wotan.programs.waybar.enable = true;
-    programs.rofi = {
-      enable = true;
-      package = pkgs.wofi;
-    home.file.".config/rofi/config.rasi".source = ./rose-pine.rasi
+    # programs.rofi = {
+    #   enable = true;
+    #   package = pkgs.wofi;
+    # };
+    home.file.".config/rofi/config.rasi".source = ./rose-pine.rasi;
     services = {
       mako.enable = true;
       playerctld.enable = true;
@@ -60,6 +61,7 @@ in {
 
     home.packages = with pkgs; [
       rofi-wayland
+      wofi
       pamixer
       inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
       networkmanager

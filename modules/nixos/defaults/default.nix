@@ -20,7 +20,6 @@
       ripgrep
       rsync
       sl
-      todo
       vim
       ventoy
     ];

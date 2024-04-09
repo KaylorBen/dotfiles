@@ -1,11 +1,7 @@
 { lib, config, ... }:
 {
-  options.Wotan.programs.cava = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      description = "Sound visualizer in terminal";
-    };
-  };
+  options.Wotan.programs.cava.enable =
+    lib.mkEnableOption "Sound visualizer in terminal";
 
   config = lib.mkIf config.Wotan.programs.cava.enable {
     programs.cava = {

@@ -15,6 +15,7 @@
       enable = true;
       settings = {
         color_theme = "rose-pine";
+        truecolor = true;
         vim_keys = true;
       };
     };

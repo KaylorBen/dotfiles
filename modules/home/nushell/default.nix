@@ -36,6 +36,7 @@ in {
         enable = cfg.carapaceCompletions;
         enableNushellIntegration = true;
       };
+      lsd.enable = true; # For tree command
     };
   };
 }

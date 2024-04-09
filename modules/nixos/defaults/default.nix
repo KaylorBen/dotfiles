@@ -11,12 +11,17 @@
     # GIT is needed for flakes
     environment.systemPackages = with pkgs; [
       btop
+      cbonsai
       comma
+      cowsay
+      fastfetch
       git
       htop
-      rsync
-      vim
       ripgrep
+      rsync
+      sl
+      todo
+      vim
       ventoy
     ];
     environment.etc.FLAKE_CURRENT_COMMIT = {

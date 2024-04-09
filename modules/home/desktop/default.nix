@@ -11,6 +11,8 @@
         wezterm.enable = true;
         # wezterm wayland support is currently pretty bad
         alacritty.enable = true;
+        zathura.enable = true;
+        cava.enable = true;
         mpv.enable = true;
         ssh.enable = true;
       };
@@ -31,9 +33,13 @@
       packages = with pkgs; [
         audacity
         freetube
+        ffmpeg
         # kitty
+        pinta
+        todo
         vesktop
       ];
+      services.easyeffects.enable = true;
     };
     fonts.fontconfig.enable = true;
   };

@@ -16,6 +16,9 @@
   config = lib.mkIf config.Wotan.desktop.hyprland.enable {
     programs.light.enable = true;
     services.xserver.displayManager.gdm.enable = true;
+    security.pam.services.swaylock.text = ''
+      auth include login
+    '';
     # xdg.portal = {
     #  enable = true;
     #  extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
@@ -27,6 +30,5 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       xwayland = { enable = true; };
     };
-    security.pam.services.swaylock = {};
   };
 }

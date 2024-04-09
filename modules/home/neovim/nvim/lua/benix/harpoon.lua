@@ -21,7 +21,7 @@ function M.config()
     ["<leader>H9"] = { "<cmd>lua require('harpoon.ui').nav_file(9)", "Jump to File 9" },
   }
 
-  require("harppon").setup({
+  require("harpoon").setup({
     save_on_toggle = false,
     save_on_change = true,
   })

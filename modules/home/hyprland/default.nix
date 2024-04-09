@@ -75,7 +75,7 @@ in {
       settings = {
         ignore-empty-password = true;
         # Not using stylix
-        # font = config.stylix.fonts.monospace.name;
+        font = "Fantasque Sans Mono";
         screenshots = true;
         clock = true;
         timestr = "%r";
@@ -146,7 +146,7 @@ in {
           # Not using stylix
           # "xcursor_size,${lib.tostring config.stylix.cursor.size}"
         ];
-        # xwayland = { force_zero_scaling = true; };
+        xwayland = { force_zero_scaling = true; };
         misc = {
           disable_autoreload = true;
           disable_hyprland_logo = true;
@@ -195,11 +195,11 @@ in {
           enabled = true;
           bezier = "easeInOutCubic, 0.65, 0, 0.35, 1";
           animation = [
-            "windows, 1, 4, easeInOutCubic, slide"
+            "windows, 1, 2, easeInOutCubic, slide"
             "windowsOut, 1, 5, default, popin 80%"
-            "border, 1, 5, default"
-            "fade, 1, 8, default"
-            "workspaces, 1, 6, easeInOutCubic, slidevert"
+            "border, 1, 3, default"
+            "fade, 1, 4, default"
+            "workspaces, 1, 1, easeInOutCubic, slidevert"
           ];
         };
         # No stylix or styling set up or wallpaper engine

@@ -27,6 +27,9 @@
     fonts = {
       fontDir.decompressFonts = lib.mkDefault true;
       enableDefaultPackages = true;
+      packages = with pkgs; [
+        fantasque-sans-mono
+      ];
     };
 
     programs = {

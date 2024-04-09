@@ -64,6 +64,8 @@
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     wezterm.inputs.nixpkgs.follows = "nixpkgs";
     wezterm.url = "github:wez/wezterm?dir=nix/";
+    xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {self, systems, ...}@inputs:

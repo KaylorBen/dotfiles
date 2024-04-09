@@ -145,7 +145,7 @@
         ''
           * {
             border: none;
-            font-family: Font Awesome, Monocraft Nerd Font, FreeSans, FreeSerif;
+            font-family: Fantasque Sans Mono;
             font-size: 14;
             color: #ffffff;
             border-radius: 20px;

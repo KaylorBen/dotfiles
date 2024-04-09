@@ -15,6 +15,7 @@ function M.config()
     l = { name = "LSP" },
     p = { name = "Plugins" },
     c = { name = "Copilot" },
+    H = { name = "Harpoon" },
     a = {
       name = "Tab",
       n = { "<cmd>$tabnew<cr>", "New Empty Tab" },

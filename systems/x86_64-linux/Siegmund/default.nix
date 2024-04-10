@@ -5,6 +5,7 @@
     # virt.enable = true;
     autoUpgrade.enable = true;
     users.enable = true;
+    zfs.enable = true;
     time.enable = true;
     # gaming.enable = true;
     impermanence = {

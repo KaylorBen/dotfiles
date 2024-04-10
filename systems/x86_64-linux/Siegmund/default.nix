@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
-    virt.enable = true;
+    # virt.enable = true;
     autoUpgrade.enable = true;
     users.enable = true;
     time.enable = true;
@@ -86,10 +86,11 @@
     wget
   ];
 
-  virtualisation = {
-    libvirtd.enable = true;
+  # virtualisation = {
+  #   libvirtd.enable = true;
     # waydroid.enable = true;
-  };
+  # };
+
   # Disable autosleep
   systemd = {
     targets = {

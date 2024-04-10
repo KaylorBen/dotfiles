@@ -57,8 +57,8 @@ local theme_path = string.format("%s/.config/awesome/themes/%s", os.getenv("HOME
 beautiful.init(theme_path .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
-local terminal_args = " -o background_image=" .. theme_path .. "/backgrounds/RomanticBackground"
+terminal = "wezterm"
+-- local terminal_args = " -o background_image=" .. theme_path .. "/backgrounds/RomanticBackground"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -288,7 +288,8 @@ globalkeys = gears.table.join(
     { description = "go back", group = "client" }),
 
   -- Standard program
-  awful.key({ modkey, }, "Return", function() awful.spawn(terminal .. terminal_args .. math.random(0, 21) .. ".png") end,
+  -- awful.key({ modkey, }, "Return", function() awful.spawn(terminal .. terminal_args .. math.random(0, 21) .. ".png") end,
+  awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
     { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),

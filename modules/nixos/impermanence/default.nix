@@ -67,8 +67,8 @@ in {
       };
     }
     (lib.mkIf config.Wotan.users.enable {
-      # users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
-      # users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
+      users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
+      users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
       programs.fuse.userAllowOther = true;
       environment.persistence.${cfg.persistentDirectory} = {
         users.ben = {

@@ -18,9 +18,9 @@ theme.font      = "sans 8"
 theme.fg_normal  = "#E0DEF4"
 theme.fg_focus   = "#EBBCBA"
 theme.fg_urgent  = "#EB6F92"
-theme.bg_normal  = "#1F1D2E"
+theme.bg_normal  = "#26233a"
 theme.bg_focus   = "#191724"
-theme.bg_urgent  = "#26233A"
+theme.bg_urgent  = "#21202E"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
@@ -74,7 +74,7 @@ theme.taglist_squares_unsel = themes_path .. "zenburn/taglist/squarez.png"
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "zenburn/awesome-icon.png"
+theme.awesome_icon           = themes_path .. "rose-pine/awesome-icon.png"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
 -- }}}
 

@@ -271,7 +271,7 @@ globalkeys = gears.table.join(
 
   -- xrandr script
   awful.key({ modkey, }, "u", function() xrandr.xrandr() end,
-    { description = "xrandr screen configuration", group = "awesome" })
+    { description = "xrandr screen configuration", group = "awesome" }),
 
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,

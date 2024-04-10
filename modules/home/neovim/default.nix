@@ -21,7 +21,7 @@ in {
       extraPackages = with pkgs; [
         lua-language-server
         nil
-        libgcc
+        gcc
       ];
       # for copilot
       withNodeJs = true;

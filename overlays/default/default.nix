@@ -13,4 +13,15 @@ _prev: super: {
   hyprland = hyprland.packages.${super.system}.hyprland;
   xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
+
+  lutris = super.lutris.override {
+    steamSupport = true;
+    extraPkgs = _pkgs: [
+      super.winetricks
+      super.gamescope
+      super.goverlay
+      super.gamemode
+    ];
+    extraLibraries = _pkgs: [ super.mangohud ];
+  };
 }

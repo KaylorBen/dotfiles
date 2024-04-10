@@ -11,7 +11,7 @@
       # May break scerensharing / Discord
       __GLX_VENDO_LIBRARY_NAME = lib.mkDefault "nvidia";
       WLR_NO_HARDWARE_CURSORS = lib.mkDefault "1";
-      # Unsure what this has the optential to break
+      # Unsure what this has the potential to break
       NIXOS_OZONE_WL = lib.mkDefault "1";
     };
     hardware.nvidia = {

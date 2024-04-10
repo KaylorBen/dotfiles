@@ -7,17 +7,21 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
+    impermanence = {
+      enable = true;
+      rollbackCommand = ''
+        zfs rollback -r zroot/encrypted/NixOS/root@blank
+      '';
+    };
     streaming.enable = true;
     sound.enable = true;
     security.enable = true;
     desktop.awesome.enable = true;
   };
 
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   networking = {
-    hostName = "Siegmund";
-
     networkmanager.enable = true;
 
     # TODO open ports in the firewall
@@ -27,18 +31,18 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
-    pixiecore =
-      let inherit (inputs.self.nixoSconfigurations.Netboot.config.system) build;
-      in {
-        enable = false;
-        openFirewall = true;
-        dhcpNoBind = true;
-        mode = "boot";
-        kernel = "${build.kernel}/bzImage";
-        initrd = "${build.netbootRamdisk}/initrd";
-        cmdLine = "init=${build.toplevel}/init loglevel=4";
-        debug = true;
-      };
+    # pixiecore =
+    #   let inherit (inputs.self.nixosConfigurations.Netboot.config.system) build;
+    #   in {
+    #     enable = false;
+    #     openFirewall = true;
+    #     dhcpNoBind = true;
+    #     mode = "boot";
+    #     kernel = "${build.kernel}/bzImage";
+    #     initrd = "${build.netbootRamdisk}/initrd";
+    #     cmdLine = "init=${build.toplevel}/init loglevel=4";
+    #     debug = true;
+    #   };
     xserver = {
       enable = true;
       libinput.enable = true;
@@ -84,7 +88,7 @@
 
   virtualisation = {
     libvirtd.enable = true;
-    waydroid.enable = true;
+    # waydroid.enable = true;
   };
   # Disable autosleep
   systemd = {
@@ -97,7 +101,6 @@
   programs = {
     fuse.userAllowOther = true;
     kdeconnect.enable = true;
-    noisetorch.enable = true;
     fzf.fuzzyCompletion = true;
     fish.enable = true;
   };

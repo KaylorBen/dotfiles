@@ -52,7 +52,10 @@
       users = [ config.users.users.ben.name ];
     };
   };
-  networking.interfaces.enp7s0.wakeOnLan.enable = true;
+  networking = {
+    hostName = "Siegmund";
+    interfaces.enp7s0.wakeOnLan.enable = true;
+  };
 
   # Set docker storage driver to btrfs
   virtualisation.docker.storageDriver = "btrfs";

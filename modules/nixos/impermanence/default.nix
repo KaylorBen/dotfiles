@@ -19,16 +19,16 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
-      boot.initrd.systemd.services.impermanence = {
-        description = "Resets root to a clean state (Requires ZFS)";
-        wantedBy = [ "initrd.target" ];
-        after = [ "zfs-import-zroot.service" ];
-        before = [ "sysroot.mount" ];
-        path = with pkgs; [ zfs ];
-        unitConfig.DefaultDependencies = "no";
-        serviceConfig.Type = "oneshot";
-        script = cfg.rollbackCommand;
-      };
+      # boot.initrd.systemd.services.impermanence = {
+      #   description = "Resets root to a clean state (Requires ZFS)";
+      #   wantedBy = [ "initrd.target" ];
+      #   after = [ "zfs-import-zroot.service" ];
+      #   before = [ "sysroot.mount" ];
+      #   path = with pkgs; [ zfs ];
+      #   unitConfig.DefaultDependencies = "no";
+      #   serviceConfig.Type = "oneshot";
+      #   script = cfg.rollbackCommand;
+      # };
       fileSystems.${cfg.persistentDirectory}.neededForBoot = true;
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;

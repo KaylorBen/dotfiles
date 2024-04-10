@@ -80,7 +80,6 @@ in {
             "Pictures"
             "Documents"
             "Videos"
-            "VirtualBox VMs"
             "Development"
             {
               directory = ".gnupg";

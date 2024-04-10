@@ -12,14 +12,14 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    binfmt.emulatedSystems = [
-      "aarch64-linux"
-      "x86_64-windows"
-      "wasm32-wasi"
-      "wasm64-wasi"
-      "riscv32-linux"
-      "riscv64-linux"
-    ];
+    # binfmt.emulatedSystems = [
+    #   "aarch64-linux"
+    #   "x86_64-windows"
+    #   "wasm32-wasi"
+    #   "wasm64-wasi"
+    #   "riscv32-linux"
+    #   "riscv64-linux"
+    # ];
     supportedFilesystems = [ "ntfs" ];
     initrd = {
       systemd.enable = true;

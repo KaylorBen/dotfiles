@@ -7,7 +7,7 @@
     programs.tmux = {
       sensibleOnTop = true;
       enable = true;
-      shortcut = "a";
+      shortcut = "b";
       aggressiveResize = true;
       baseIndex = 1;
       newSession = true;

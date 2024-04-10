@@ -82,6 +82,7 @@
     git
     os-prober
     pamixer
+    nvtopPackages.full
     tmux
     wget
   ];

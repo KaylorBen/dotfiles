@@ -17,11 +17,15 @@
       fastfetch
       git
       htop
+      p7zip
       ripgrep
       rsync
       sl
       vim
       ventoy
+      unzip
+      xz
+      zip
     ];
     environment.etc.FLAKE_CURRENT_COMMIT = {
       text = "${config.system.configurationRevision}";

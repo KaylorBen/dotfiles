@@ -66,6 +66,7 @@ in {
       mangohud
       moonlight-qt
       steam
+      steamcmd
       steam-tui
       xivlauncher
     ];

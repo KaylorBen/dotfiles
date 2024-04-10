@@ -17,6 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- xrandr script for mult-monitor setups
+local xrandr = require("xrandr")
 
 -- Randomize seed
 math.randomseed(os.time())
@@ -266,6 +268,10 @@ globalkeys = gears.table.join(
   ),
   awful.key({ modkey, }, "w", function() mymainmenu:show() end,
     { description = "show main menu", group = "awesome" }),
+
+  -- xrandr script
+  awful.key({ modkey, }, "u", function() xrandr.xrandr() end,
+    { description = "xrandr screen configuration", group = "awesome" })
 
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,

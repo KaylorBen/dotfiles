@@ -54,14 +54,15 @@
   };
   networking = {
     hostName = "Siegmund";
+    hostId = "ffcb235e";
     interfaces.enp7s0.wakeOnLan.enable = true;
   };
 
-  # Set docker storage driver to btrfs
-  virtualisation.docker.storageDriver = "btrfs";
-  virtualisation.vmVariant = {
-    disko.devices = lib.mkForce (import ./disko-vm.nix { inherit lib; });
-  };
+  # # Set docker storage driver to btrfs
+  # virtualisation.docker.storageDriver = "btrfs";
+  # virtualisation.vmVariant = {
+  #   disko.devices = lib.mkForce (import ./disko-vm.nix { inherit lib; });
+  # };
 
   Wotan = {
     MyNextGPUWillNotBeNvidia = true;
@@ -74,18 +75,18 @@
 
   Wotan.zfs.enable = true;
   # RAID stuff
-  environment.etc."mdadm.conf".text = ''
-    MAILADDR root
-  '';
+  # environment.etc."mdadm.conf".text = ''
+  #   MAILADDR root
+  # '';
 
   disko.devices = import ./disko.nix { inherit lib; };
+  fileSystems."./persistent".neededForBoot = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  networking.hostId = "344bf77f";
   # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

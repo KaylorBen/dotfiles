@@ -177,12 +177,17 @@ local function set_wallpaper(s)
   end
 end
 
+-- ❯ : xrandr --output HDMI-0 --rotate left
+-- ❯ : xrandr --output HDMI-0 --left-of DP-0
+
+awful.spawn("xrandr --output HDMI-0 --rotate left --left-of DP-0")
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
-  set_wallpaper(s)
+  -- set_wallpaper(s)
 
   -- Each screen has its own tag table.
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])

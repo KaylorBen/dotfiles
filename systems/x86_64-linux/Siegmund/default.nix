@@ -6,7 +6,7 @@
     autoUpgrade.enable = true;
     users.enable = true;
     time.enable = true;
-    # gaming.enable = true;
+    gaming.enable = true;
     impermanence = {
       enable = true;
       rollbackCommand = ''

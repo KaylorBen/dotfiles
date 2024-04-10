@@ -8,12 +8,27 @@
         type = "gpt";
         partitions = {
           boot = {
-            size = "2G";
+            size = "5G";
             type = "EF00";
             content = {
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
+            };
+          };
+          root = {
+            end = "-64";
+            content = {
+              type = "zfs";
+              pool = "zroot";
+            };
+          };
+          swap = {
+            size = "64";
+            content = {
+              type = "swap";
+              randomEncryption = true;
+              resumeDevice = true;
             };
           };
         };
@@ -31,41 +46,40 @@
         mountpoint = "none";
       };
       datasets = {
-        NixOS = {
+        encrypted = {
           type = "zfs_fs";
           options = {
+            mountpoint = "none";
             encryption = "aes-256-gcm";
             keyformat = "passphrase";
-            keylocation = "prompt";
           };
         };
-        "NixOS/root" = {
+        "encrypted/NixOS/root" = {
           type = "zfs_fs";
           mountpoint = "/";
-          postCreateHook = "zfs snapshot zroot/NixOS/root@blank";
+          postCreateHook = "zfs snapshot zroot/encrypted/NixOS/root@blank";
         };
         # No reason to back this up, it can be recreated
-        "NixOS/nix" = {
+        "encrypted/NixOS/nix" = {
           type = "zfs_fs";
           mountpoint = "/nix";
         };
-        "NixOS/safe" = {
+        "encrypted/NixOS/safe" = {
           type = "zfs_fs";
           options = {
             mountpoint = "none";
             "com.sun:auto-snapshot" = "true";
           };
         };
-        "NixOS/safe/home" = {
+        "encrypted/NixOS/safe/home" = {
           type = "zfs_fs";
           mountpoint = "/home";
-          postCreateHook = "zfs snapshot zroot/NixOS/safe/home@blank";
         };
-        "NixOS/safe/persistent" = {
+        "encrypted/NixOS/safe/persistent" = {
           type = "zfs_fs";
           mountpoint = "/.persistent";
         };
-        "NixOS/safe/logs" = {
+        "encrypted/NixOS/safe/logs" = {
           type = "zfs_fs";
           mountpoint = "/var/logs";
         };

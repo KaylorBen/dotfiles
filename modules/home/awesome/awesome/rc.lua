@@ -168,27 +168,22 @@ local tasklist_buttons = gears.table.join(
 --     text = "beautiful.wallpaper
 -- })
 
-local function set_wallpaper(s)
+
   -- Wallpaper
-  if s == screen.primary then
-    gears.wallpaper.maximized(theme_path .. "/wallpaper_primary.jpg", s)
-  else
-    gears.wallpaper.maximized(theme_path .. "/wallpaper_secondary.jpg", s)
-  end
+local function set_wallpapers()
+  awful.screen.connect_for_each_screen(function (s)
+    if s == screen.primary then
+      gears.wallpaper.maximized(theme_path .. "/wallpaper_primary.jpg", s, false)
+    else
+      gears.wallpaper.tiled(theme_path .. "/wallpaper_secondary.jpg", s)
+    end
+  end)
 end
 
--- ❯ : xrandr --output HDMI-0 --rotate left
--- ❯ : xrandr --output HDMI-0 --left-of DP-0
-
-awful.spawn("xrandr --output HDMI-0 --rotate left --left-of DP-0 --output DP-0 --primary")
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
--- screen.connect_signal("property::geometry", set_wallpaper)
+screen.connect_signal("property::geometry", set_wallpapers)
 
 awful.screen.connect_for_each_screen(function(s)
-  -- Wallpaper
-  set_wallpaper(s)
-
   -- Each screen has its own tag table.
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
@@ -306,8 +301,8 @@ globalkeys = gears.table.join(
     { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "e", awesome.quit,
     { description = "quit awesome", group = "awesome" }),
-  awful.key({ modkey, }, ";", function() set_wallpaper(screen.primary) end,
-    { description = "reset wallpaper", group = "awesome" }),
+  awful.key({ modkey, }, ";", function() set_wallpapers() end,
+    { description = "reset wallpapers", group = "awesome" }),
   awful.key({}, "Print", function() awful.util.spawn_with_shell("flameshot gui") end,
     { description = "take a screenshot", group = "awesome" }),
   awful.key({ modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
@@ -546,6 +541,12 @@ client.connect_signal("manage", function(c)
     -- Prevent clients from being unreachable after screen count changes.
     awful.placement.no_offscreen(c)
   end
+
+  -- Rounded window shape
+  -- Performance too bad for right now
+  -- c.shape = function(cr, w, h)
+  --   gears.shape.rounded_rect(cr,w,h,13)
+  -- end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -596,6 +597,17 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- ❯ : xrandr --output HDMI-0 --rotate left
+-- ❯ : xrandr --output HDMI-0 --left-of DP-0
+
+awful.spawn(
+  "xrandr --output HDMI-0 --rotate left --left-of DP-0 --scale 1.25x1.25"
+)
+awful.spawn(
+  "xrandr --output DP-0 --pos 1500x200 --primary"
+)
+
 
 -- Start some programs
 awful.util.spawn_with_shell("pa-applet")

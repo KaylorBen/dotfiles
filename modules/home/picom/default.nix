@@ -20,6 +20,13 @@
         "100:name *?= 'Firefox' && !focused"
         "95:class_g = 'org.wezfurlong.wezterm' && focused"
       ];
+      settings = {
+        blur = {
+          method = "gaussian";
+          size = 30;
+          deviation = 5.0;
+        };
+      };
     };
   };
 }

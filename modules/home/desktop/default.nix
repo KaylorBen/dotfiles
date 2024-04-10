@@ -19,7 +19,17 @@
     };
     services.syncthing.enable = true;
 
-    gtk.font.size = lib.mkDefault 12;
+    gtk = {
+      font.size = lib.mkDefault 12;
+      iconTheme = {
+        name = "rose-pine";
+        package = pkgs.rose-pine-icon-theme;
+      };
+      theme = {
+        name = "rose-pine";
+        package = pkgs.rose-pine-gtk-theme;
+      };
+    };
 
     home = {
       sessionVariables = {
@@ -33,9 +43,11 @@
       packages = with pkgs; [
         audacity
         freetube
-        ffmpeg
+        ffmpeg_5-full
         # kitty
+        pavucontrol
         pinta
+        spotify-player
         todo
         vesktop
       ];

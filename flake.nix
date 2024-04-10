@@ -54,6 +54,8 @@
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    picom.inputs.nixpkgs.follows = "nixpkgs";
+    picom.url = "github:yshui/picom/next";
     prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
     prismlauncher.url = "github:PrismLauncher/PrismLauncher";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";

@@ -3,6 +3,7 @@
 , wezterm
 , hyprland
 , xdg-desktop-portal-hyprland
+, picom
 , ... }:
 
 _prev: super: {
@@ -11,5 +12,5 @@ _prev: super: {
   wezterm = wezterm.packages.${super.system}.default;
   hyprland = hyprland.packages.${super.system}.hyprland;
   xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
-
+  picom = picom.defaultPackage.${super.system};
 }

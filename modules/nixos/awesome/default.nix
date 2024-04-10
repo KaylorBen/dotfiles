@@ -5,14 +5,14 @@
   };
 
   config = lib.mkIf config.Wotan.desktop.awesome.enable {
+    programs.light.enable = true;
     services.xserver = {
       windowManager.awesome = {
         enable = true;
         package = pkgs.awesome;
       };
-      # TODO move this to its own place since no awesome specific
       displayManager = {
-        lightdm.enable = true;
+        gdm.enable = true;
         defaultSession = "none+awesome";
       };
     };

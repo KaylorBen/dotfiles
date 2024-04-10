@@ -12,7 +12,7 @@
       enable = true;
       activeOpacity = 1.0;
       fade = true;
-      fadeDelta = 0.05;
+      fadeDelta = 10;
       inactiveOpacity = 0.8;
       shadow = true;
     };

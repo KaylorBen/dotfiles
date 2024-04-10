@@ -180,10 +180,10 @@ end
 -- ❯ : xrandr --output HDMI-0 --rotate left
 -- ❯ : xrandr --output HDMI-0 --left-of DP-0
 
-awful.spawn("xrandr --output HDMI-0 --rotate left --left-of DP-0")
+awful.spawn("xrandr --output HDMI-0 --rotate left --left-of DP-0 --output DP-0 --primary")
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+-- screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper

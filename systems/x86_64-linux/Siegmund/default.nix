@@ -60,10 +60,10 @@
   ];
 
   snowfallorg.users.ben.home.config = {
-    home.persistence."/.FinalFantasyXIV" = {
-      directories = [ ".xlcore" ];
-      allowOther = true;
-    };
+    # home.persistence."/.FinalFantasyXIV" = {
+    #   directories = [ ".xlcore" ];
+    #   allowOther = true;
+    # };
     programs.yazi.enable = true;
     Wotan = {
       home-profiles.desktop.enable = true;

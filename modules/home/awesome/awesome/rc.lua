@@ -171,9 +171,9 @@ local tasklist_buttons = gears.table.join(
 local function set_wallpaper(s)
   -- Wallpaper
   if s == screen.primary then
-    gears.wallpaper.maximized(theme_path .. "/RomanticWallpaperMain.png", s)
+    gears.wallpaper.maximized(theme_path .. "/wallpaper_primary.jpg", s)
   else
-    gears.wallpaper.maximized(theme_path .. "/RomanticWallpaperSecond.png", s)
+    gears.wallpaper.maximized(theme_path .. "/wallpaper_secondary.jpg", s)
   end
 end
 
@@ -187,7 +187,7 @@ awful.spawn("xrandr --output HDMI-0 --rotate left --left-of DP-0 --output DP-0 -
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
-  -- set_wallpaper(s)
+  set_wallpaper(s)
 
   -- Each screen has its own tag table.
   awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])

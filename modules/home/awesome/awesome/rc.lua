@@ -544,9 +544,9 @@ client.connect_signal("manage", function(c)
 
   -- Rounded window shape
   -- Performance too bad for right now
-  c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr,w,h,13)
-  end
+  -- c.shape = function(cr, w, h)
+  --   gears.shape.rounded_rect(cr,w,h,13)
+  -- end
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.

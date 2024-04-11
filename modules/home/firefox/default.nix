@@ -23,7 +23,7 @@
               };
               "Nix Packages" = {
                 urls = [{
-                  template = "https://search.nixos.org/packages";
+                  template = "https://search.nixos.org/packages?channel=unstable";
                   params = [
                     { name = "type"; value = "packages"; }
                     { name = "query"; value = "{searchTerms}"; }
@@ -35,7 +35,7 @@
               };
               "Nix Options" = {
                 urls = [{
-                  template = "https://search.nixos.org/options";
+                  template = "https://search.nixos.org/options?channel=unstable";
                   params = [
                     { name = "type"; value = "packages"; }
                     { name = "query"; value = "{searchTerms}"; }
@@ -47,7 +47,7 @@
               };
               "Nix Flakes" = {
                 urls = [{
-                  template = "https://search.nixos.org/flakes";
+                  template = "https://search.nixos.org/flakes?channel=unstable";
                   params = [
                     { name = "type"; value = "packages"; }
                     { name = "query"; value = "{searchTerms}"; }

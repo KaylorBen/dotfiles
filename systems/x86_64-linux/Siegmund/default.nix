@@ -54,6 +54,7 @@
   };
 
   users.users.ben.packages = with pkgs; [
+    jdk
     prismlauncher
     nil
     xclip

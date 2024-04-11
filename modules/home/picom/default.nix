@@ -4,7 +4,6 @@
     enable = lib.mkOption {
       type = lib.types.bool;
       description = "Picom compositor toggle";
-      default = osConfig.Wotan.desktop.awesome.enable or false;
     };
   };
   config = lib.mkIf config.Wotan.desktop.picom.enable {
@@ -21,6 +20,8 @@
         "95:class_g = 'org.wezfurlong.wezterm' && focused"
       ];
       settings = {
+        # corner-radius = 8.0;
+        # round-borders = 1;
         blur = {
           method = "gaussian";
           size = 30;

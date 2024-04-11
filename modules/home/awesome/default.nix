@@ -8,6 +8,7 @@
     };
   };
   config = lib.mkIf config.Wotan.desktop.awesome.enable {
+    Wotan.desktop.picom.enable = lib.mkDefault true;
     home.file.".config/awesome" = {
       source = ./awesome;
       recursive = true;

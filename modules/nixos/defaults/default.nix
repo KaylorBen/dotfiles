@@ -37,6 +37,7 @@
       enableDefaultPackages = true;
       packages = with pkgs; [
         fantasque-sans-mono
+        fira-code
       ];
     };
 

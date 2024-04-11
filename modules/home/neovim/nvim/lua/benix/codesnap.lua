@@ -1,7 +1,6 @@
 local M = {
-  "mistricky/codesnap",
+  "mistricky/codesnap.nvim",
   build = "make",
-  event = "VeryLazy",
 }
 
 function M.config()

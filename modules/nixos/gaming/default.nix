@@ -71,7 +71,7 @@ in {
       xivlauncher
     ];
 
-    boot.kernelPackages = cfg.kernel;
+    # boot.kernelPackages = cfg.kernel;
 
     hardware = {
       opengl = {

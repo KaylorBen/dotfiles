@@ -69,11 +69,12 @@
           };
           extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
             auto-tab-discard
-            ublock-origin
-            sponsorblock
             darkreader
-            vimium
+            dearrow
             firenvim
+            sponsorblock
+            vimium
+            ublock-origin
           ];
           settings = {
             "browser.startup.homepage" = "https://nixos.org";

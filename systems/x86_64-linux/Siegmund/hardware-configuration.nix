@@ -35,11 +35,11 @@
   services = {
     blueman.enable = true;
     fwupd.enable = true;
-    hardware.openrgb = {
-      enable = true;
-      package = pkgs.openrgb-with-all-plugins;
-    };
-    udev.packages = with pkgs; [ liquidctl ];
+    # hardware.openrgb = {
+    #   enable = true;
+    #   package = pkgs.openrgb-with-all-plugins;
+    # };
+    # udev.packages = with pkgs; [ liquidctl ];
   };
 
   hardware = {

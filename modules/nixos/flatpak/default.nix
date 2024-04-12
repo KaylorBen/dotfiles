@@ -1,4 +1,5 @@
-{config, lib, ...}:
+# TODO this doesnt work
+{config, lib, pkgs, ...}:
 let cfg = config.Wotan.flatpak;
 in {
   options.Wotan.flatpak = {
@@ -17,6 +18,11 @@ in {
     };
   };
   config = lib.mkIf cfg.enable {
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = "*";
+    };
     services.flatpak = {
       enable = true;
       remotes = cfg.remotes;

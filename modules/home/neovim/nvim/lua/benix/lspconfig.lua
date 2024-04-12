@@ -92,6 +92,7 @@ function M.config()
     virtual_text = true;
     update_in_insert = true,
     severity_sort = true,
+    inlay_hints = { enabled = true },
     float = {
       focusable = true,
       style = "minimal",

@@ -59,10 +59,10 @@ local theme_path = string.format("%s/.config/awesome/themes/%s", os.getenv("HOME
 beautiful.init(theme_path .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "wezterm"
+local terminal = "wezterm"
 -- local terminal_args = " -o background_image=" .. theme_path .. "/backgrounds/RomanticBackground"
-editor = os.getenv("EDITOR") or "nano"
-editor_cmd = terminal .. " -e " .. editor
+local editor = os.getenv("EDITOR") or "nano"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.

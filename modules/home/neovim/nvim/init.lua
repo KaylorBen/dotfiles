@@ -13,7 +13,7 @@ spec "benix.telescope"
 spec "benix.toggleterm"
 spec "benix.whichkey"
 spec "benix.conform"
-spec "benix.copilot"
+spec "benix.copilot"   -- Copilot more like cope-pilot
 spec "benix.indentline"
 spec "benix.lualine"
 spec "benix.neogit"

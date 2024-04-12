@@ -104,7 +104,6 @@
   programs = {
     fuse.userAllowOther = true;
     kdeconnect.enable = true;
-    fzf.fuzzyCompletion = true;
     fish.enable = true;
   };
 }

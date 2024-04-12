@@ -6,8 +6,8 @@ local M = {
 function M.config()
   require("codesnap").setup({
     mac_window_bar = false,
-    code_font_family = "Fira Code",
     watermark_font_family = "Fantasque Sans Mono",
+    bg_color = "#6e6a86",
     has_breadcrumbs = true,
   })
 end

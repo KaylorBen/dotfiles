@@ -13,8 +13,8 @@
       };
       displayManager = {
         gdm.enable = true;
-        defaultSession = "none+awesome";
       };
     };
+    services.displayManager.defaultSession = "none+awesome";
   };
 }

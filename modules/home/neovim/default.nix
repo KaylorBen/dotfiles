@@ -22,6 +22,7 @@ in {
         lua-language-server
         nil
         gcc
+        gnumake
       ];
       # for copilot
       withNodeJs = true;

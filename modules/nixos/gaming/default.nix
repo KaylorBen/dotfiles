@@ -59,16 +59,25 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      fflogs
       gamescope
       goverlay
       lug-helper
       lutris
       mangohud
       moonlight-qt
+      protontricks
       steam
       steamcmd
       steam-tui
       xivlauncher
+      winetricks
+      wowup
+
+      (wineWowPackages.full.override {
+      wineRelease = "staging";
+      mingwSupport = true;
+      })
     ];
 
     # boot.kernelPackages = cfg.kernel;

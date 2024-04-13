@@ -7,6 +7,8 @@
 , ... }:
 
 _prev: super: {
+  inherit (self.packages.${super.system})
+    fflogs wowup;
   inherit (nix-citizen.packages.${super.system})
     lug-helper star-citizen-helper star-citizen;
   wezterm = wezterm.packages.${super.system}.default;
@@ -24,4 +26,8 @@ _prev: super: {
     ];
     extraLibraries = _pkgs: [ super.mangohud ];
   };
+
+  xivlauncher = super.xivlauncher.overrideAttrs (old: {
+    runtimeDeps = [ super.gamemode super.gamescope ] ++ old.runtimeDeps;
+  });
 }

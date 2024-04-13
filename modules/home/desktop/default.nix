@@ -58,6 +58,7 @@
         pavucontrol
         pinta
         spotify-player
+        teamspeak_client
         todo
         vesktop
       ];

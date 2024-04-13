@@ -1,4 +1,4 @@
-{ lib, config, osConfig ? { }, ... }:
+{ lib, config, osConfig ? { }, pkgs, ... }:
 {
   options.Wotan.gaming = {
     enable = lib.mkEnableOption "Gaming" // {
@@ -7,7 +7,7 @@
   };
   config = lib.mkIf config.Wotan.gaming.enable {
     # consider reshade
-    # Wotan.desktop.picom.enable = lib.mkForce false;
+    Wotan.desktop.picom.enable = lib.mkForce false;
     programs.mangohud = {
       enable = true;
       enableSessionWide = lib.mkDefault true;

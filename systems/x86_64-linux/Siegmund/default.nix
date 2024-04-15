@@ -9,7 +9,7 @@
     gaming.enable = true;
     flatpak = {
       enable = true;
-      lutris = true;
+      # lutris = true;
     };
     impermanence = {
       enable = true;

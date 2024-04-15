@@ -7,10 +7,10 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    flatpak = {
-      enable = true;
-      # lutris = true;
-    };
+    # flatpak = {
+    #   enable = true;
+    #   lutris = true;
+    # };
     impermanence = {
       enable = true;
       rollbackCommand = ''
@@ -19,7 +19,7 @@
     };
     streaming.enable = true;
     sound.enable = true;
-    security.enable = true;
+    # security.enable = true;
     desktop.awesome.enable = true;
   };
 
@@ -87,7 +87,7 @@
     git
     os-prober
     pamixer
-    nvtopPackages.full
+    # nvtopPackages.full
     tmux
     wget
   ];

@@ -6,7 +6,7 @@ in {
     remotePlay = lib.mkEnableOption "Enable settings for remote play";
     kernel = lib.mkOption {
       type = lib.types.raw;
-      default = pkgs.linuxPackages_xanmod_latest;
+      default = pkgs.linuxPackages_latest;
       description = "Set kernel";
     };
     zram = {
@@ -63,7 +63,7 @@ in {
       gamescope
       goverlay
       lug-helper
-      # lutris
+      lutris
       mangohud
       moonlight-qt
       protontricks
@@ -80,7 +80,7 @@ in {
       })
     ];
 
-    # boot.kernelPackages = cfg.kernel;
+    boot.kernelPackages = cfg.kernel;
 
     hardware = {
       opengl = {

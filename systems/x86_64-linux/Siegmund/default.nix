@@ -7,10 +7,10 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    # flatpak = {
-    #   enable = true;
-    #   lutris = true;
-    # };
+    flatpak = {
+      enable = true;
+      lutris = true;
+    };
     impermanence = {
       enable = true;
       rollbackCommand = ''

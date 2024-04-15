@@ -63,7 +63,7 @@ in {
       gamescope
       goverlay
       lug-helper
-      lutris
+      # lutris
       mangohud
       moonlight-qt
       protontricks

@@ -52,6 +52,7 @@
       keyboard.layout = true;
       packages = with pkgs; [
         audacity
+        emulsion
         freetube
         ffmpeg_5-full
         # kitty

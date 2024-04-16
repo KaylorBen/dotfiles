@@ -23,6 +23,7 @@
       sl
       vim
       ventoy
+      unrar
       unzip
       xz
       zip

@@ -53,6 +53,7 @@
       packages = with pkgs; [
         audacity
         emulsion
+        discord
         freetube
         ffmpeg_5-full
         # kitty

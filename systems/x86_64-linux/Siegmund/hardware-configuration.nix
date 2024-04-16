@@ -55,7 +55,6 @@
   networking = {
     hostName = "Siegmund";
     hostId = "ffcb235e";
-    interfaces.enp7s0.wakeOnLan.enable = true;
   };
 
   # # Set docker storage driver to btrfs

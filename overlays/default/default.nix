@@ -16,16 +16,16 @@ _prev: super: {
   xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
 
-  # lutris = super.lutris.override {
-  #   steamSupport = true;
-  #   extraPkgs = _pkgs: [
-  #     super.winetricks
-  #     super.gamescope
-  #     super.goverlay
-  #     super.gamemode
-  #   ];
-  #   extraLibraries = _pkgs: [ super.mangohud ];
-  # };
+  lutris = super.lutris.override {
+    steamSupport = true;
+    extraPkgs = _pkgs: [
+      super.winetricks
+      super.gamescope
+      super.goverlay
+      super.gamemode
+    ];
+    extraLibraries = _pkgs: [ super.mangohud ];
+  };
 
   xivlauncher = super.xivlauncher.overrideAttrs (old: {
     runtimeDeps = [ super.gamemode super.gamescope ] ++ old.runtimeDeps;

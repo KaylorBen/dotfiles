@@ -1,10 +1,7 @@
 { config, lib, osConfig, pkgs, ... }:
 {
   options.Wotan.desktop.picom = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      description = "Picom compositor toggle";
-    };
+    enable = lib.mkEnableOption "Picom compositor toggle";
   };
   config = lib.mkIf config.Wotan.desktop.picom.enable {
     services.picom = {

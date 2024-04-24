@@ -63,6 +63,7 @@
         teamspeak_client
         todo
         vesktop
+        youtube-tui
       ];
     };
     services.easyeffects.enable = true;

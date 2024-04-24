@@ -51,6 +51,7 @@ in {
           (dir "/etc/fwupd" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/ssh/authorized_keys.d" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
+          (dir "/etc/nix" "root" "root" "u=rwx,g=rx,o=rx")
         ];
         files = [
           "/etc/machine-id"

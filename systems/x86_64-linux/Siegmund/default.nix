@@ -59,6 +59,7 @@
 
   users.users.ben.packages = with pkgs; [
     jdk
+    globalprotect-openconnect
     prismlauncher
     nil
     xclip
@@ -85,6 +86,7 @@
     vim
     gh
     git
+    imgcat
     os-prober
     pamixer
     # nvtopPackages.full
@@ -106,6 +108,7 @@
     };
   };
   programs = {
+    nix-ld.enable = true;
     fuse.userAllowOther = true;
     kdeconnect.enable = true;
     fish.enable = true;

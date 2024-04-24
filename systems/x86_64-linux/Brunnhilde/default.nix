@@ -52,13 +52,14 @@
     };
 
     openssh.enable = true;
+
+    blueman.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     firefox
     git
     nil
-    bluez
   ];
 
   security.polkit.enable = true;

@@ -58,6 +58,7 @@
     firefox
     git
     nil
+    bluez
   ];
 
   security.polkit.enable = true;

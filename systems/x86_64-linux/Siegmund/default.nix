@@ -111,6 +111,6 @@
     nix-ld.enable = true;
     fuse.userAllowOther = true;
     kdeconnect.enable = true;
-    fish.enable = true;
+    # fish.enable = true;
   };
 }

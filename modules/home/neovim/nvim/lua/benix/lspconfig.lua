@@ -77,6 +77,7 @@ function M.config()
     "gopls",
     "nil_ls",
     "texlab",
+    "marksman",
   }
 
   local default_diagnostic_config = {

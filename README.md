@@ -11,5 +11,3 @@
 </a>
 
 Unified config across multiple systems.
-
-Snowfall fork WIP (not buildable)

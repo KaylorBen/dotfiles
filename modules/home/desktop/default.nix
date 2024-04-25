@@ -57,6 +57,7 @@
         freetube
         ffmpeg_5-full
         # kitty
+        libreoffice
         pavucontrol
         pinta
         spotify-player

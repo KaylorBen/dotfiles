@@ -117,10 +117,11 @@
               display: none !important
             }
 
+            /* Turning this off for now */
             /* Remove extensions button */
-            #unified-extensions-button {
-              display: none !important
-            }
+            /* #unified-extensions-button { */
+            /*   display: none !important */
+            /* } */
 
             /* Remove icons from urlbar */ 
             /* #identity-permission-box

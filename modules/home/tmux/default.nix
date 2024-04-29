@@ -95,6 +95,8 @@
         bind c new-window -c "#{pane_current_path}"
         set-option -g set-titles on
         set-option -g set-titles-string "Tmux #{online_status} #{session_name} > #{pane_title} | #h"
+        set -g default-terminal "tmux-256color"
+        set -ag terminal-overrides ",xterm-256color:RGB"
       '';
     };
   };

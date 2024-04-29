@@ -1,4 +1,5 @@
-vim.opt.number = true         -- set numbered lines
+vim.opt.number =              -- set numbered lines
+  not vim.g.started_by_firenvim
 vim.opt.relativenumber = true -- set relative numbered lines
 
 vim.opt.ignorecase = true     -- ignore case in search patterns
@@ -20,4 +21,5 @@ vim.opt.splitbelow = true     -- open new split windows below
 vim.opt.signcolumn = "yes"    -- always show the sign column, otherwise it 
                               -- would shift the text each time
 
-vim.opt.title = true
+vim.opt.title =
+  not vim.g.started_by_firenvim

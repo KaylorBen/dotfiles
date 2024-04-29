@@ -3,7 +3,7 @@ local M = {
   dependencies = {
     "andrem222/copilot-lualine"
   },
-  -- cond = not vim.g.started_by_firenvim,
+  cond = not vim.g.started_by_firenvim,
 }
 
 function M.config()

@@ -81,6 +81,7 @@ in {
             "Pictures"
             "Documents"
             "Videos"
+            "VMs"
             "Development"
             {
               directory = ".gnupg";

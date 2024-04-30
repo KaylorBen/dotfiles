@@ -145,7 +145,7 @@
         ''
           * {
             border: none;
-            font-family: Fantasque Sans Mono;
+            font-family: FiraCode Nerd Font;
             font-size: 14;
             color: #ffffff;
             border-radius: 20px;

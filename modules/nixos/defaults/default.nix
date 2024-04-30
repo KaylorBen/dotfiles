@@ -39,6 +39,7 @@
       packages = with pkgs; [
         fantasque-sans-mono
         fira-code
+        nerdfonts
       ];
     };
 

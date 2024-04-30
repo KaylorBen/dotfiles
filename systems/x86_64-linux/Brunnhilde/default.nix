@@ -39,7 +39,7 @@
     networkmanager.enable = true;
     useDHCP = false;
     interfaces.wlp2s0.useDHCP = true;
-    networking.firewall = {
+    firewall = {
       # if packets are still dropped, they will show up in dmesg
      logReversePathDrops = true;
      # wireguard trips rpfilter up

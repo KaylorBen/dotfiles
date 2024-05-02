@@ -12,6 +12,7 @@
         "games"
         "libvirtd"
         "podman"
+        "pipewire"
         "ssh"
         "tss"
         "video"

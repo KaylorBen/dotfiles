@@ -44,6 +44,7 @@
     };
 
     programs = {
+      nano.enable = false;
       starship = {
         enable = lib.mkDefault true;
         settings = {

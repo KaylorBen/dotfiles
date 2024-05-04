@@ -43,9 +43,7 @@ in {
           "/var/lib/libvirt"
           "/var/lib/pipewire"
           (dir "/var/lib/alsa" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/cache/tailscale" "root" "root" "u=rwx,g=rx,o=rx")
 
-          (dir "/var/lib/tailscale" "root" "root" "u=rwx,g=,o=")
           (dir "/var/db/sudo" "root" "root" "u=rwx,g=,o=")
           (dir "/etc/secureboot" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/fwupd" "root" "root" "u=rwx,g=rx,o=rx")

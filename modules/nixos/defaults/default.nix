@@ -89,7 +89,7 @@
     nix = {
       settings = {
         experimental-features = [ "nix-command" "flakes" ];
-        trusted-users = [ "builder" "root" "@wheel" ];
+        trusted-users = [ "builder" "root" "@wheel" "ben" ];
       };
       gc = {
         automatic = lib.mkDefault true;

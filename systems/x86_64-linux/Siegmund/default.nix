@@ -1,4 +1,4 @@
-{config, lib, pkgs, inputs, ...}:
+{pkgs, ...}:
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
@@ -59,9 +59,9 @@
     #     cmdLine = "init=${build.toplevel}/init loglevel=4";
     #     debug = true;
     #   };
+    libinput.enable = true;
     xserver = {
       enable = true;
-      libinput.enable = true;
 
       xkb.layout = "us";
     };

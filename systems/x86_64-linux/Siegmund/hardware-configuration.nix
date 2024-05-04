@@ -48,7 +48,7 @@
       settings.general.enable = "Source,Sink,Media,Socket";
     };
     openrazer = {
-      enable = true;
+      enable = false;
       users = [ config.users.users.ben.name ];
     };
   };

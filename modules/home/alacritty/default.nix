@@ -8,6 +8,11 @@
       enable = true;
       package = pkgs.alacritty;
       settings = {
+        font = {
+          normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
+          bold = { family = "FiraCode Nerd Font"; style = "Bold"; };
+          italic = { family = "FiraCode Nerd Font"; style = "Light"; };
+        };
         colors = {
           primary = {
             foreground = "#e0def4";

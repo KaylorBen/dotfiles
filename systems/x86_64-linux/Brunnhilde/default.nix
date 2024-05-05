@@ -53,6 +53,10 @@
      '';
     };
   };
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
   services = {
     libinput.enable = true;
     xserver = {

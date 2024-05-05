@@ -59,7 +59,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s", os.getenv("HOME
 beautiful.init(theme_path .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-local terminal = "wezterm"
+local terminal = "alacritty"
 -- local terminal_args = " -o background_image=" .. theme_path .. "/backgrounds/RomanticBackground"
 local editor = os.getenv("EDITOR") or "nano"
 local editor_cmd = terminal .. " -e " .. editor

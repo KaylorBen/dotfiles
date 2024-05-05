@@ -69,10 +69,10 @@
           };
           extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
             auto-tab-discard
-            darkreader
             dearrow
             firenvim
             sponsorblock
+            stylus
             vimium
             ublock-origin
           ];

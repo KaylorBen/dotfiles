@@ -59,6 +59,7 @@
     driSupport32Bit = true;
   };
   services = {
+    libinput.enable = true;
     xserver = {
       enable = true;
 
@@ -66,7 +67,6 @@
       xkb.layout = "us";
 
       # Enable touchpad support
-      libinput.enable = true;
     };
 
     openssh.enable = true;

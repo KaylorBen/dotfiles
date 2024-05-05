@@ -20,7 +20,6 @@
     desktop = {
       hyprland.enable = true;
     };
-    kmscon.enable = true;
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;

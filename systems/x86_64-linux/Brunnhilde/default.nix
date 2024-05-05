@@ -20,6 +20,7 @@
     desktop = {
       hyprland.enable = true;
     };
+    kmscon.enable = true;
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -52,6 +53,10 @@
        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
      '';
     };
+  };
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
   };
   services = {
     xserver = {

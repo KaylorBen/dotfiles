@@ -16,6 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     services.kmscon = {
       enable = true;
+      hwRender = true;
       fonts = cfg.fonts;
     };
   };

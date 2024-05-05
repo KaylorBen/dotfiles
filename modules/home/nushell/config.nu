@@ -15,11 +15,11 @@ $env.config = {
   }
 }
 
-$env.STARSHIP_SHELL = "nu"
+# $env.STARSHIP_SHELL = "nu"
 
-def create_left_prompt [] {
-    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
-}
+# def create_left_prompt [] {
+#     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
+# }
 
 # Function querying free online English dictionary API for definition of given word(s)
 def dict [...word #word(s) to query the dictionary API but they have to make sense together like "martial law", not "cats dogs"

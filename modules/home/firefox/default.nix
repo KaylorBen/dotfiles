@@ -13,10 +13,9 @@
         profiles.ben = {
           name = "ben";
           search = {
-            default = "Brave Search";
+            default = "DuckDuckGo";
             engines = {
               "Brave Search" = {
-                name = "Brave Search";
                 url = "https://search.brave.com/search?q={searchTerms}";
                 icon = "https://search.brave.com/favicon.ico";
                 definedAliases = [ "@bs" ];

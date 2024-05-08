@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
-    virt.enable = true;
+    # virt.enable = true;
     autoUpgrade.enable = true;
     users.enable = true;
     time.enable = true;
@@ -17,9 +17,11 @@
         zfs rollback -r zroot/encrypted/NixOS/root@blank
       '';
     };
-    streaming.enable = true;
+    # streaming.enable = true;
     sound.enable = true;
-    # security.enable = true;
+    security = {
+      enableTPM = false;
+    };
     desktop.awesome.enable = true;
   };
 

@@ -13,6 +13,9 @@
 
     # Maybe move this to homeManager not sure
     environment.systemPackages = with pkgs; [
+      cudatoolkit
+      nv-codec-headers
+      ffmpeg-full
       obs-studio
       obs-studio-plugins.obs-composite-blur
     ];

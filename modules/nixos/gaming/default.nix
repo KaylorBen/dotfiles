@@ -61,7 +61,7 @@ in {
     environment.systemPackages = with pkgs; [
       fflogs
       gamescope
-      # goverlay
+      goverlay
       lug-helper
       lutris
       mangohud

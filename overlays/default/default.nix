@@ -20,9 +20,9 @@ _prev: super: {
     steamSupport = true;
     extraPkgs = _pkgs: [
       super.winetricks
-      super.gamescope
+      # super.gamescope
       super.goverlay
-      super.gamemode
+      # super.gamemode
     ];
     extraLibraries = _pkgs: [ super.mangohud ];
   };

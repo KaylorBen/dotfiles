@@ -20,7 +20,7 @@
     # streaming.enable = true;
     sound.enable = true;
     security = {
-      enableTPM = false;
+      enable = false;
     };
     desktop.awesome.enable = true;
   };

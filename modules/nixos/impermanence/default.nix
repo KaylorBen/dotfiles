@@ -77,6 +77,7 @@ in {
             "Games"
             ".xlcore"
             "Pictures"
+            "Modding"
             "Documents"
             "Videos"
             "VMs"

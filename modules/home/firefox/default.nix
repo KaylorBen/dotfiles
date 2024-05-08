@@ -70,6 +70,7 @@
             auto-tab-discard
             dearrow
             firenvim
+            return-youtube-dislikes
             sponsorblock
             stylus
             vimium

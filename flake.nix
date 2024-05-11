@@ -65,8 +65,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    wezterm.inputs.nixpkgs.follows = "nixpkgs";
-    wezterm.url = "github:wez/wezterm?dir=nix/";
+    # wezterm.inputs.nixpkgs.follows = "nixpkgs";
+    # wezterm.url = "github:wez/wezterm?dir=nix/";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
@@ -86,6 +86,7 @@
       overlays = with inputs; [
         prismlauncher.overlays.default
         nix-minecraft.overlays.default
+        nixpkgs-wayland.overlays.default
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         hyprland.homeManagerModules.default

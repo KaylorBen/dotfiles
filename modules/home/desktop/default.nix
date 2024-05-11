@@ -8,8 +8,6 @@
       programs = {
         chromium.enable = true;
         firefox.enable = true;
-        wezterm.enable = true;
-        # wezterm wayland support is currently pretty bad
         alacritty.enable = true;
         zathura.enable = true;
         cava.enable = true;

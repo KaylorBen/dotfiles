@@ -75,7 +75,7 @@
 
     "$mainMod,slash,workspace,previous"
 
-    "$mainMod SHIFT,X,exec,swaylock"
+    "$mainMod SHIFT,X,exec,swaylock -f"
     "$mainMod, bracketleft,exec,grimblast --notify --cursor  copysave area ~/Pictures/$(date '+%Y-%m-%d'T'%H:%M:%S_no_watermark').png"
     "$mainMod, bracketright,exec, grimblast --notify --cursor  copy area"
     "$mainMod, A,exec, grimblast_watermark"

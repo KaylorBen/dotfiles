@@ -39,7 +39,7 @@ in {
         events = [
           {
             event = "before-sleep";
-            command = "${pkgs.swaylock-effects}/bin/swaylock";
+            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
           {
             event = "after-resume";
@@ -49,7 +49,7 @@ in {
           }
           {
             event = "lock";
-            command = "${pkgs.swaylock-effects}/bin/swaylock";
+            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
           }
         ];
         timeouts = [{

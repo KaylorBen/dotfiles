@@ -20,7 +20,7 @@
     # streaming.enable = true;
     sound.enable = true;
     security = {
-      enable = false;
+      enableTPM = false;
     };
     desktop.awesome.enable = true;
   };
@@ -67,7 +67,7 @@
 
       xkb.layout = "us";
     };
-    dbus.enable = true;
+    # dbus.enable = true;
     openssh.enable = true;
   };
 

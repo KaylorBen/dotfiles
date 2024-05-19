@@ -17,14 +17,14 @@
             };
           };
           root = {
-            end = "-64G";
+            end = "-16G";
             content = {
               type = "zfs";
               pool = "zroot";
             };
           };
           swap = {
-            size = "64G";
+            size = "16G";
             content = {
               type = "swap";
               randomEncryption = true;

@@ -14,7 +14,7 @@
     impermanence = {
       enable = true;
       rollbackCommand = ''
-        zfs rollback -r zroot/encrypted/NixOS/root@blank
+        zfs rollback -r zroot/NixOS/root@blank
       '';
     };
     # streaming.enable = true;

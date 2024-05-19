@@ -46,40 +46,32 @@
         mountpoint = "none";
       };
       datasets = {
-        encrypted = {
-          type = "zfs_fs";
-          options = {
-            mountpoint = "none";
-            encryption = "aes-256-gcm";
-            keyformat = "passphrase";
-          };
-        };
-        "encrypted/NixOS/root" = {
+        "NixOS/root" = {
           type = "zfs_fs";
           mountpoint = "/";
           postCreateHook = "zfs snapshot zroot/encrypted/NixOS/root@blank";
         };
         # No reason to back this up, it can be recreated
-        "encrypted/NixOS/nix" = {
+        "NixOS/nix" = {
           type = "zfs_fs";
           mountpoint = "/nix";
         };
-        "encrypted/NixOS/safe" = {
+        "NixOS/safe" = {
           type = "zfs_fs";
           options = {
             mountpoint = "none";
             "com.sun:auto-snapshot" = "true";
           };
         };
-        "encrypted/NixOS/safe/home" = {
+        "NixOS/safe/home" = {
           type = "zfs_fs";
           mountpoint = "/home";
         };
-        "encrypted/NixOS/safe/persistent" = {
+        "NixOS/safe/persistent" = {
           type = "zfs_fs";
           mountpoint = "/.persistent";
         };
-        "encrypted/NixOS/safe/logs" = {
+        "NixOS/safe/logs" = {
           type = "zfs_fs";
           mountpoint = "/var/logs";
         };

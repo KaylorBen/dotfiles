@@ -3,10 +3,10 @@
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     # virt.enable = true;
-    # autoUpgrade.enable = true;
+    autoUpgrade.enable = true;
     users.enable = true;
     time.enable = true;
-    # gaming.enable = true;
+    gaming.enable = true;
     # flatpak = {
     #   enable = true;
     #   lutris = true;
@@ -23,7 +23,7 @@
       enable = false;
       enableTPM = false;
     };
-    # desktop.awesome.enable = true;
+    desktop.awesome.enable = true;
   };
 
   # boot.plymouth.enable = true;
@@ -62,37 +62,36 @@
     #     cmdLine = "init=${build.toplevel}/init loglevel=4";
     #     debug = true;
     #   };
-    # libinput.enable = true;
-    # xserver = {
-    #   enable = true;
-    #
-    #   xkb.layout = "us";
-    # };
-    # # dbus.enable = true;
-    # openssh.enable = true;
+    libinput.enable = true;
+    xserver = {
+      enable = true;
+
+      xkb.layout = "us";
+    };
+    # dbus.enable = true;
+    openssh.enable = true;
   };
 
   # users.users.ben.packages = with pkgs; [
   #   ani-cli
   #   jdk
-  #   globalprotect-openconnect
   #   prismlauncher
   #   nil
   #   xclip
   # ];
 
-  # snowfallorg.users.ben.home.config = {
-  #   # home.persistence."/.FinalFantasyXIV" = {
-  #   #   directories = [ ".xlcore" ];
-  #   #   allowOther = true;
-  #   # };
-  #   programs.yazi.enable = true;
-  #   Wotan = {
-  #     home-profiles.desktop.enable = true;
-  #     impermanence.enable = true;
-  #     programs.git.enable=true;
-  #   };
-  # };
+  snowfallorg.users.ben.home.config = {
+    # home.persistence."/.FinalFantasyXIV" = {
+    #   directories = [ ".xlcore" ];
+    #   allowOther = true;
+    # };
+    programs.yazi.enable = true;
+    Wotan = {
+      home-profiles.desktop.enable = true;
+      impermanence.enable = true;
+      programs.git.enable=true;
+    };
+  };
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

@@ -66,18 +66,18 @@ in {
       lutris
       mangohud
       moonlight-qt
-      protontricks
+      # protontricks
       steam
       steamcmd
       steam-tui
       xivlauncher
-      winetricks
+      # winetricks
       wowup
 
-      (wineWowPackages.full.override {
-      wineRelease = "staging";
-      mingwSupport = true;
-      })
+      # (wineWowPackages.full.override {
+      # wineRelease = "staging";
+      # mingwSupport = true;
+      # })
     ];
 
     boot.kernelPackages = cfg.kernel;

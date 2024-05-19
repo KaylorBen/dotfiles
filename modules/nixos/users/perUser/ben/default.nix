@@ -5,7 +5,7 @@
     snowfallorg.users.ben = { };
     users.users.ben = {
       isNormalUser = true;
-      # initialPassword = "NixOS4Life";
+      initialPassword = "NixOS4Life";
       extraGroups = [
         "audio"
         "bluetooth"

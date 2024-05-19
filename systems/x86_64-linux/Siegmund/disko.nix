@@ -49,7 +49,7 @@
         "NixOS/root" = {
           type = "zfs_fs";
           mountpoint = "/";
-          postCreateHook = "zfs snapshot zroot/encrypted/NixOS/root@blank";
+          postCreateHook = "zfs snapshot zroot/NixOS/root@blank";
         };
         # No reason to back this up, it can be recreated
         "NixOS/nix" = {

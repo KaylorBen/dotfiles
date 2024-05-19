@@ -1,11 +1,11 @@
 { config, lib, pkgs, modulesPath, inputs, ... }:
 {
-  imports = with inputs; [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-    nixos-hardware.nixosModules.common-gpu-intel-disable
-    nixos-hardware.nixosModules.common-pc-ssd
-  ];
+  # imports = with inputs; [
+  #   (modulesPath + "/installer/scan/not-detected.nix")
+  #   nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+  #   nixos-hardware.nixosModules.common-gpu-intel-disable
+  #   nixos-hardware.nixosModules.common-pc-ssd
+  # ];
   # Use the systemd-boot EFI boot loader
   boot = {
     loader = {
@@ -30,10 +30,10 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-  powerManagement.cpuFreqGovernor = "performance";
+  # powerManagement.cpuFreqGovernor = "performance";
 
   services = {
-    blueman.enable = true;
+    # blueman.enable = true;
     # fwupd.enable = true;
     # hardware.openrgb = {
     #   enable = true;
@@ -42,16 +42,16 @@
     # udev.packages = with pkgs; [ liquidctl ];
   };
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      settings.general.enable = "Source,Sink,Media,Socket";
-    };
-    openrazer = {
-      enable = false;
-      users = [ config.users.users.ben.name ];
-    };
-  };
+  # hardware = {
+  #   bluetooth = {
+  #     enable = true;
+  #     settings.general.enable = "Source,Sink,Media,Socket";
+  #   };
+  #   openrazer = {
+  #     enable = false;
+  #     users = [ config.users.users.ben.name ];
+  #   };
+  # };
   networking = {
     hostName = "Siegmund";
     hostId = "ffcb235e";
@@ -63,14 +63,14 @@
   #   disko.devices = lib.mkForce (import ./disko-vm.nix { inherit lib; });
   # };
 
-  Wotan = {
-    MyNextGPUWillNotBeNvidia = true;
+  # Wotan = {
+    # MyNextGPUWillNotBeNvidia = true;
     # services.liquidctl = {
     #   enable = true;
     #   TODO: find cooler model and configure
     #   config = {
     #   };
-  };
+  # };
 
   Wotan.zfs.enable = true;
   # RAID stuff

@@ -72,13 +72,13 @@
     openssh.enable = true;
   };
 
-  # users.users.ben.packages = with pkgs; [
-  #   ani-cli
-  #   jdk
-  #   prismlauncher
-  #   nil
-  #   xclip
-  # ];
+  users.users.ben.packages = with pkgs; [
+    ani-cli
+    jdk
+    prismlauncher
+    nil
+    xclip
+  ];
 
   snowfallorg.users.ben.home.config = {
     # home.persistence."/.FinalFantasyXIV" = {
@@ -115,13 +115,13 @@
   };
 
   # Disable autosleep
-  # systemd = {
-  #   targets = {
-  #     suspend.enable = true;
-  #     hibernate.enable = true;
-  #     hybrid-sleep.enable = true;
-  #   };
-  # };
+  systemd = {
+    targets = {
+      suspend.enable = true;
+      hibernate.enable = true;
+      hybrid-sleep.enable = true;
+    };
+  };
   # programs = {
   #   nix-ld.enable = true;
   #   fuse.userAllowOther = true;

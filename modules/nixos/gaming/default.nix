@@ -66,12 +66,12 @@ in {
       lutris
       mangohud
       moonlight-qt
-      # protontricks
+      protontricks
       steam
       steamcmd
       steam-tui
       xivlauncher
-      # winetricks
+      winetricks
       wowup
 
       # (wineWowPackages.full.override {

@@ -12,7 +12,7 @@ in {
     zram = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = false;
+        default = true;
         description = "Enable ZRam - Star Citizen needs it <40G";
       };
       memoryPercent = lib.mkOption {
@@ -74,10 +74,10 @@ in {
       winetricks
       wowup
 
-      # (wineWowPackages.full.override {
-      # wineRelease = "staging";
-      # mingwSupport = true;
-      # })
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+        mingwSupport = true;
+      })
     ];
 
     boot.kernelPackages = cfg.kernel;

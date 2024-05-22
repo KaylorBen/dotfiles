@@ -1,9 +1,10 @@
 { lib, config, ... }:
-{
+let cfg = config.Wotan.programs.zathura;
+in {
   options.Wotan.programs.zathura.enable =
     lib.mkEnableOption "A highly customizable and functional document viewer";
 
-  config = lib.mkIf config.Wotan.programs.zathura.enable {
+  config = lib.mkIf cfg.enable {
     programs.zathura = {
       enable = true;
       options = {

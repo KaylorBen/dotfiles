@@ -1,9 +1,10 @@
 { config, pkgs, lib, ... }:
-{
+let cfg = config.Wotan.home-profiles.desktop;
+in {
   options.Wotan.home-profiles.desktop = {
     enable = lib.mkEnableOption "Enable desktop defaults";
   };
-  config = lib.mkIf config.Wotan.home-profiles.desktop.enable {
+  config = lib.mkIf cfg.enable {
     Wotan = {
       programs = {
         chromium.enable = true;

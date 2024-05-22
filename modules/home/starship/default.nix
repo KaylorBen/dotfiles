@@ -1,10 +1,11 @@
 { lib, config, ... }:
-{
+let cfg = config.Wotan.programs.starship;
+in {
   options.Wotan.programs.starship.enable =
     lib.mkEnableOption "Terminal theming application" // {
       default = true;
     };
-  config = lib.mkIf config.Wotan.programs.starship.enable {
+  config = lib.mkIf cfg.enable {
     programs.starship = {
       enable = true;
       settings = {

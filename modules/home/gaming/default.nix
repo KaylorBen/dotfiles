@@ -1,11 +1,12 @@
 { lib, config, osConfig ? { }, pkgs, ... }:
-{
+let cfg = config.Wotan.gaming;
+in {
   options.Wotan.gaming = {
     enable = lib.mkEnableOption "Gaming" // {
       default = osConfig.Wotan.gaming.enable or false;
     };
   };
-  config = lib.mkIf config.Wotan.gaming.enable {
+  config = lib.mkIf cfg.enable {
     # consider reshade
     # Wotan.desktop.picom.enable = lib.mkForce false;
     programs.mangohud = {

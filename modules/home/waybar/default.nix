@@ -1,15 +1,8 @@
-{
-  lib,
-  config,
-  pkgs,
-  osConfig,
-  ...
-}:
+{ lib, config, pkgs, osConfig, ... }:
 with lib;
 let
   cfg = config.Wotan.programs.waybar;
-in
-{
+in {
   options.Wotan.programs.waybar = {
     enable = mkEnableOption "Waybar";
   };

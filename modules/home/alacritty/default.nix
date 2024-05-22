@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-let cfg = config.Wotan.desktop.alacritty;
+let cfg = config.Wotan.programs.alacritty;
 in {
   options.Wotan.programs.alacritty.enable = lib.mkEnableOption
     "Alacritty Terminal Emulator";

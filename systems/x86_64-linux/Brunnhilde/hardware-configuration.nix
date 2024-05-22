@@ -27,7 +27,7 @@
   };
   Wotan = {
     zfs.enable = true;
-    laptop = lib.mkDefault true;
+    laptop.enable = lib.mkDefault true;
   };
 
   disko.devices = import ./disko.nix { inherit lib; };

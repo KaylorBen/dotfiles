@@ -8,7 +8,6 @@
   imports = [ ./perUser/root ./perUser/builder ];
 
   config = lib.mkIf config.Wotan.users.enable {
-    users.mutableUsers = false;
     # systemd.sysusers.enable = true;
     # Create groups for services
     # Audio Group

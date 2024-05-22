@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
-{
+let cfg = config.Wotan.security;
+in {
   options.Wotan.security = {
     enable = lib.mkEnableOption "Enable security defaults" // { default = true; };
     enableTPM = lib.mkEnableOption "Enable TPM" // { default = false; };
@@ -7,7 +8,7 @@
   };
 
   config = lib.mkMerge [
-    (lib.mkIf config.Wotan.security.enable {
+    (lib.mkIf cfg.enable {
       boot = {
         kernel.sysctl = {
           "dev.tty.ldisc_autoload" =
@@ -98,7 +99,7 @@
         ];
       };
     })
-    (lib.mkIf config.Wotan.security.enableTPM {
+    (lib.mkIf cfg.enableTPM {
       boot.initrd.kernelModules = [ "tpm_tis" ];
       security.tpm2 = {
         enable = true;
@@ -106,7 +107,7 @@
         tctiEnvironment.enable = true;
       };
     })
-    (lib.mkIf config.Wotan.security.enableSecureBoot {
+    (lib.mkIf cfg.enableSecureBoot {
       environment.systemPackages = [ pkgs.sbctl ];
       boot = {
         loader.systemd-boot.enable = lib.mkForce false;

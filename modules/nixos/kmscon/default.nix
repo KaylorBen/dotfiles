@@ -1,6 +1,5 @@
 {config, lib, pkgs, ...}:
-let
-  cfg = config.Wotan.kmscon;
+let cfg = config.Wotan.kmscon;
 in {
   options.Wotan.kmscon = {
     enable = lib.mkEnableOption "kmscon TTY interface";

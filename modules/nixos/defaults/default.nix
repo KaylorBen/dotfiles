@@ -1,12 +1,13 @@
 { config, lib, inputs, pkgs, format, ... }:
-{
+let cfg = config.Wotan.defaults;
+in {
   options.Wotan.defaults.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
     description = "Enable nebula base defaults";
   };
 
-  config = lib.mkIf config.Wotan.defaults.enable {
+  config = lib.mkIf cfg.enable {
     boot.initrd.systemd.enable = lib.mkDefault (format != "iso");
     # GIT is needed for flakes
     environment.systemPackages = with pkgs; [

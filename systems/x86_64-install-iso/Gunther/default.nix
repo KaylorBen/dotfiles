@@ -6,7 +6,7 @@ _: {
   boot.initrd.systemd.enable = true;
   Wotan = {
     security.enable = false;
-    laptop = true;
+    laptop.enable = true;
     autoUpgrade.enable = false;
   };
 }

@@ -1,8 +1,9 @@
 { config, lib, ... }:
-{
+let cfg = config.Wotan.MyNextGPUWillNotBeNvidia;
+in {
   options.Wotan.MyNextGPUWillNotBeNvidia = lib.mkEnableOption "Fix nvidia nonsense";
 
-  config = lib.mkIf config.Wotan.MyNextGPUWillNotBeNvidia{
+  config = lib.mkIf cfg.enable {
     services.xserver.videoDrivers = [ "nvidia" ];
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = lib.mkDefault "nvidia";

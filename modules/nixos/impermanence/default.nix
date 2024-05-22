@@ -1,22 +1,23 @@
-{ config, pkgs, lib, ... }:
+{ config, lib,pkgs,  ... }:
+with lib;
 let
   cfg = config.Wotan.impermanence;
   dir = directory: user: group: mode: { inherit directory user group mode; };
 in {
   options.Wotan.impermanence = {
-    enable = lib.mkEnableOption "impermanence";
-    rollbackCommand = lib.mkOption {
-      type = lib.types.str;
+    enable = mkEnableOption "impermanence";
+    rollbackCommand = mkOption {
+      type = types.str;
       description = "Command to remove all impermanent files";
     };
-    persistentDirectory = lib.mkOption {
-      type = lib.types.str;
+    persistentDirectory = mkOption {
+      type = types.str;
       description = "Directory to store persistent files";
       default = "/.persistent";
     };
   };
 
-  config = lib.mkIf cfg.enable (lib.mkMerge [
+  config = mkIf cfg.enable (mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
       boot.initrd.systemd.services.impermanence = {
@@ -34,21 +35,21 @@ in {
         hideMounts = true;
         directories = [
           (dir "/var/log" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/lib/bluetooth" "root" "root" "u=rwx,g=,o=")
-          (dir "/var/lib/nixos" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/lib/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
+          (dir "/var/bluetooth" "root" "root" "u=rwx,g=,o=")
+          (dir "/var/nixos" "root" "root" "u=rwx,g=rx,o=rx")
+          (dir "/var/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/NetworkManager/system-connections" "root" "root"
             "u=rwx,g=,o=")
-          "/var/lib/flatpak"
-          "/var/lib/libvirt"
-          "/var/lib/pipewire"
-          (dir "/var/lib/alsa" "root" "root" "u=rwx,g=rx,o=rx")
+          "/var/flatpak"
+          "/var/libvirt"
+          "/var/pipewire"
+          (dir "/var/alsa" "root" "root" "u=rwx,g=rx,o=rx")
 
           (dir "/var/db/sudo" "root" "root" "u=rwx,g=,o=")
           (dir "/etc/secureboot" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/fwupd" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/ssh/authorized_keys.d" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/lib/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
+          (dir "/var/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
           (dir "/etc/nix" "root" "root" "u=rwx,g=rx,o=rx")
         ];
         files = [
@@ -65,7 +66,7 @@ in {
         ];
       };
     }
-    (lib.mkIf config.Wotan.users.enable {
+    (mkIf config.Wotan.users.enable {
       users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
       users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
       programs.fuse.userAllowOther = true;

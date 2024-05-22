@@ -1,17 +1,18 @@
-{ lib, config, ... }:
+{  config, lib,... }:
+with lib;
 let cfg = config.Wotan.current-system-packages;
 in {
   options.Wotan.current-system-packages = {
-    enable = lib.mkEnableOption "Store all packages and versions" // {
+    enable = mkEnableOption "Store all packages and versions" // {
       default = true;
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     environment.etc.current-system-pacakges.text = let
       packages =
         builtins.map (p: "${p.name}") config.environment.systemPackages;
-      sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+      sortedUnique = builtins.sort builtins.lessThan (unique packages);
       formatted = builtins.concatStringsSep "\n" sortedUnique;
     in formatted;
     /* #nixos/nixpks PR 208902

@@ -1,12 +1,13 @@
-{ lib, pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
+with lib;
 let cfg = config.Wotan.streaming;
 in {
   options.Wotan.streaming = {
     enable =
-      lib.mkEnableOption "Enable streaming specific kernel modules & install OBS";
+      mkEnableOption "Enable streaming specific kernel modules & install OBS";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     boot.extraModulePackages = with config.boot.kernelPackages;
       [ v4l2loopback.out ];
 

@@ -1,27 +1,28 @@
 { config, lib, ... }:
+with lib;
 let cfg = config.Wotan.MyNextGPUWillNotBeNvidia;
 in {
-  options.Wotan.MyNextGPUWillNotBeNvidia = lib.mkEnableOption "Fix nvidia nonsense";
+  options.Wotan.MyNextGPUWillNotBeNvidia = mkEnableOption "Fix nvidia nonsense";
 
-  config = lib.mkIf cfg {
+  config = mkIf cfg {
     services.xserver.videoDrivers = [ "nvidia" ];
     environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = lib.mkDefault "nvidia";
+      A_DRIVER_NAME = mkDefault "nvidia";
       # May crash firefox
-      GBM_BACKEND = lib.mkDefault "nividia-drm";
+      GBM_BACKEND = mkDefault "nividia-drm";
       # May break scerensharing / Discord
-      __GLX_VENDO_LIBRARY_NAME = lib.mkDefault "nvidia";
-      WLR_NO_HARDWARE_CURSORS = lib.mkDefault "1";
+      __GLX_VENDO_ARY_NAME = mkDefault "nvidia";
+      WLR_NO_HARDWARE_CURSORS = mkDefault "1";
       # Unsure what this has the potential to break
-      NIXOS_OZONE_WL = lib.mkDefault "1";
+      NIXOS_OZONE_WL = mkDefault "1";
     };
     hardware.nvidia = {
-      package = lib.mkDefault config.boot.kernelPackages.nvidia_x11_production;
-      modesetting.enable = lib.mkDefault true;
-      open = lib.mkDefault true;
-      nvidiaSettings = lib.mkDefault true;
+      package = mkDefault config.boot.kernelPackages.nvidia_x11_production;
+      modesetting.enable = mkDefault true;
+      open = mkDefault true;
+      nvidiaSettings = mkDefault true;
     };
-    hardware.nvidia.powerManagement.enable = lib.mkDefault true;
+    hardware.nvidia.powerManagement.enable = mkDefault true;
     # hardware.nvidia.open = mkDefault false;
   };
 }

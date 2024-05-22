@@ -1,14 +1,15 @@
-{ config, lib, inputs, pkgs, format, ... }:
+{ config,  inputs, lib,pkgs, format, ... }:
+with lib;
 let cfg = config.Wotan.defaults;
 in {
-  options.Wotan.defaults.enable = lib.mkOption {
-    type = lib.types.bool;
+  options.Wotan.defaults.enable = mkOption {
+    type = types.bool;
     default = true;
     description = "Enable nebula base defaults";
   };
 
-  config = lib.mkIf cfg.enable {
-    boot.initrd.systemd.enable = lib.mkDefault (format != "iso");
+  config = mkIf cfg.enable {
+    boot.initrd.systemd.enable = mkDefault (format != "iso");
     # GIT is needed for flakes
     environment.systemPackages = with pkgs; [
       btop
@@ -35,7 +36,7 @@ in {
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev;
 
     fonts = {
-      fontDir.decompressFonts = lib.mkDefault true;
+      fontDir.decompressFonts = mkDefault true;
       enableDefaultPackages = true;
       packages = with pkgs; [
         fantasque-sans-mono
@@ -47,10 +48,10 @@ in {
     programs = {
       nano.enable = false;
       starship = {
-        enable = lib.mkDefault true;
+        enable = mkDefault true;
         settings = {
-          add_newline = lib.mkDefault false;
-          battery = lib.mkDefault {
+          add_newline = mkDefault false;
+          battery = mkDefault {
             full_symbol = "🔋";
             charging_symbol = "⚡️";
             discharging_symbol = "💀";
@@ -66,9 +67,9 @@ in {
             ];
           };
           username = {
-            show_always = lib.mkDefault true;
-            style_user = lib.mkDefault "bold green";
-            style_root = lib.mkDefault "bold red";
+            show_always = mkDefault true;
+            style_user = mkDefault "bold green";
+            style_root = mkDefault "bold red";
           };
           directory = {
             substitutions = {
@@ -82,7 +83,7 @@ in {
       };
     };
     services = {
-      openssh = lib.mkDefault {
+      openssh = mkDefault {
         enable = true;
         settings.passwordAuthentication = false;
       };
@@ -94,8 +95,8 @@ in {
         trusted-users = [ "builder" "root" "@wheel" "ben" ];
       };
       gc = {
-        automatic = lib.mkDefault true;
-        options = lib.mkDefault "--delete-older-than 30d";
+        automatic = mkDefault true;
+        options = mkDefault "--delete-older-than 30d";
       };
     };
 

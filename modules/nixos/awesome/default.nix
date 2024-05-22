@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.desktop.awesome;
 in {
   options.Wotan.desktop.awesome = {
-    enable = lib.mkEnableOption "awesome wm";
+    enable = mkEnableOption "awesome wm";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.light.enable = true;
     services.xserver = {
       windowManager.awesome = {

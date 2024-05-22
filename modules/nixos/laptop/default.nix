@@ -1,10 +1,11 @@
 { config, lib, ... }:
+with lib;
 let cfg = config.Wotan.laptop;
 in {
-  options.Wotan.laptop.enable = lib.mkEnableOption "Laptop";
+  options.Wotan.laptop.enable = mkEnableOption "Laptop";
 
-  config = lib.mkIf cfg.enable {
-    services.thermald.enable = lib.mkDefault true;
+  config = mkIf cfg.enable {
+    services.thermald.enable = mkDefault true;
     services.tlp.settings = {
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;

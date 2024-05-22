@@ -1,4 +1,5 @@
-{ lib, config, pkgs, inputs, ... }:
+{  config, lib, pkgs, inputs, ... }:
+with lib;
 let cfg = config.Wotan.styles;
 in {
   imports = [
@@ -6,17 +7,17 @@ in {
   ];
 
   options.Wotan.styles = {
-    enable = lib.mkEnableOption {
+    enable = mkEnableOption {
       default = true;
       description = "styles";
     };
-    style = lib.mkOption {
-      type = lib.types.str;
+    style = mkOption {
+      type = types.str;
       default = "rose-pine";
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     colorScheme = inputs.nix-colors.colorSchemes.${cfg.style};
     # fonts = {
     #   serif = {

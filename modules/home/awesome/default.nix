@@ -1,15 +1,16 @@
 { config, lib, osConfig, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.desktop.awesome;
 in {
   options.Wotan.desktop.awesome = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
+    enable = mkOption {
+      type = types.bool;
       description = "AwesomeWM";
       default = osConfig.Wotan.desktop.awesome.enable or false;
     };
   };
-  config = lib.mkIf cfg.enable {
-    Wotan.desktop.picom.enable = lib.mkDefault true;
+  config = mkIf cfg.enable {
+    Wotan.desktop.picom.enable = mkDefault true;
     home.file.".config/awesome" = {
       source = ./awesome;
       recursive = true;
@@ -29,7 +30,7 @@ in {
     };
 
     home.packages = with pkgs; [
-      xorg.libxcb
+      xorg.cb
       pamixer
       pa_applet
       xclip

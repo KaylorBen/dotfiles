@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.programs.alacritty;
 in {
   options.Wotan.programs.alacritty.enable = lib.mkEnableOption

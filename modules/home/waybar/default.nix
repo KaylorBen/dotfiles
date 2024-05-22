@@ -1,4 +1,4 @@
-{ lib, config, pkgs, osConfig, ... }:
+{  config, lib, pkgs, osConfig, ... }:
 with lib;
 let
   cfg = config.Wotan.programs.waybar;

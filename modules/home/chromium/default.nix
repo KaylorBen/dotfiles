@@ -1,9 +1,10 @@
 { config, lib, ... }:
+with lib;
 let cfg = config.Wotan.programs.chromium;
 in {
-  options.Wotan.programs.chromium.enable = lib.mkEnableOption "Chromium Browser";
+  options.Wotan.programs.chromium.enable = mkEnableOption "Chromium Browser";
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.chromium = {
       enable = true;
       extensions = [

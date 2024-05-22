@@ -1,11 +1,12 @@
-{ lib, config, ... }:
+{ config, lib, ... }:
+with lib;
 let cfg = config.Wotan.programs.direnv;
 in {
   options.Wotan.programs.direnv.enable =
-    lib.mkEnableOption "A Shell Extension that Manages Your Environment" // {
+    mkEnableOption "A Shell Extension that Manages Your Environment" // {
       default = true;
     };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;
       enableNushellIntegration = true;

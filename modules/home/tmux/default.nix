@@ -1,10 +1,11 @@
 { config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.programs.tmux;
 in {
-  options.Wotan.programs.tmux.enable = lib.mkEnableOption "Terminal multiplexer" // {
+  options.Wotan.programs.tmux.enable = mkEnableOption "Terminal multiplexer" // {
     default = true;
   };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.tmux = {
       sensibleOnTop = true;
       enable = true;

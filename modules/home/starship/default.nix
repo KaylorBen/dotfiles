@@ -1,16 +1,17 @@
-{ lib, config, ... }:
+{  config, lib, ... }:
+with lib;
 let cfg = config.Wotan.programs.starship;
 in {
   options.Wotan.programs.starship.enable =
-    lib.mkEnableOption "Terminal theming application" // {
+    mkEnableOption "Terminal theming application" // {
       default = true;
     };
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
       settings = {
-        add_newline = lib.mkDefault false;
-        battery = lib.mkDefault {
+        add_newline = mkDefault false;
+        battery = mkDefault {
           full_symbol = "🔋";
           charging_symbol = "⚡️";
           discharging_symbol = "💀";
@@ -26,9 +27,9 @@ in {
           ];
         };
         username = {
-          show_always = lib.mkDefault true;
-          style_user = lib.mkDefault "bold green";
-          style_root = lib.mkDefault "bold red";
+          show_always = mkDefault true;
+          style_user = mkDefault "bold green";
+          style_root = mkDefault "bold red";
         };
         directory = {
           substitutions = {

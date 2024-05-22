@@ -1,21 +1,22 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.programs.nushell;
 in {
   options.Wotan.programs.nushell = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
+    enable = mkOption {
+      type = types.bool;
       description = "A modern shell written in Rust";
       # Enable nushell defaults
       default = true;
     };
-    carapaceCompletions = lib.mkOption {
-      type = lib.types.bool;
+    carapaceCompletions = mkOption {
+      type = types.bool;
       description = "Completion engine written in Go";
       default = true;
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = [ pkgs.vivid ];
     home.file.".config/vivid/themes/rose-pine.yml".source = ./rose-pine.yml;
     programs = {

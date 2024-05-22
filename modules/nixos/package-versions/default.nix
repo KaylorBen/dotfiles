@@ -1,7 +1,7 @@
 { lib, config, ... }:
 let cfg = config.Wotan.current-system-packages;
 in {
-  options.Wotan.current-system-pacakges = {
+  options.Wotan.current-system-packages = {
     enable = lib.mkEnableOption "Store all packages and versions" // {
       default = true;
     };

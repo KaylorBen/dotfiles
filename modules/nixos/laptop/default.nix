@@ -1,5 +1,5 @@
 { config, lib, ... }:
-let cfg = config.Wotan.laptop.enable;
+let cfg = config.Wotan.laptop;
 in {
   options.Wotan.laptop.enable = lib.mkEnableOption "Laptop";
 

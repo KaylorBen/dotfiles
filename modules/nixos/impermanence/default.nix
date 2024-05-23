@@ -1,22 +1,23 @@
 { config, pkgs, lib, ... }:
+with lib;
 let
   cfg = config.Wotan.impermanence;
   dir = directory: user: group: mode: { inherit directory user group mode; };
 in {
   options.Wotan.impermanence = {
-    enable = lib.mkEnableOption "impermanence";
-    rollbackCommand = lib.mkOption {
-      type = lib.types.str;
+    enable = mkEnableOption "impermanence";
+    rollbackCommand = mkOption {
+      type = types.str;
       description = "Command to remove all impermanent files";
     };
-    persistentDirectory = lib.mkOption {
-      type = lib.types.str;
+    persistentDirectory = mkOption {
+      type = types.str;
       description = "Directory to store persistent files";
       default = "/.persistent";
     };
   };
 
-  config = lib.mkIf cfg.enable (lib.mkMerge [
+  config = mkIf cfg.enable (mkMerge [
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
       boot.initrd.systemd.services.impermanence = {
@@ -65,7 +66,7 @@ in {
         ];
       };
     }
-    (lib.mkIf config.Wotan.users.enable {
+    (mkIf config.Wotan.users.enable {
       users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
       users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
       programs.fuse.userAllowOther = true;

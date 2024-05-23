@@ -1,22 +1,23 @@
 { config, inputs, lib, pkgs, osConfig, ... }:
+with lib;
 let cfg = config.Wotan.desktop.hyprland;
 in {
   options.Wotan.desktop.hyprland = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
+    enable = mkOption {
+      type = types.bool;
       description = "hyprland";
       default = osConfig.Wotan.desktop.hyprland.enable or false;
     };
-    extraAutoStart = lib.mkOption {
+    extraAutoStart = mkOption {
       # list of strings
-      type = with lib.types; listof str;
+      type = with types; listof str;
       default = if builtins.hasAttr "Wotan" osConfig then
         osConfig.Wotan.desktop.hyprland.extraAutoStart
       else
         [ ];
     };
-    extraSettings = lib.mkOption {
-      type = lib.types.attrs;
+    extraSettings = mkOption {
+      type = types.attrs;
       default = if builtins.hasAttr "Wotan" osConfig then
         osConfig.Wotan.desktop.hyprland.extraSettings
       else
@@ -24,7 +25,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     Wotan.programs.waybar.enable = true;
     # programs.rofi = {
     #   enable = true;
@@ -44,7 +45,7 @@ in {
           {
             event = "after-resume";
             command = "${
-                lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"
+                getExe' config.wayland.windowManager.hyprland.package "hyprctl"
               } dispatch dpms on";
           }
           {
@@ -91,24 +92,24 @@ in {
 
         disable-caps-lock-text = true;
 
-        key-hl-color = lib.mkForce "31748f";
-        bs-hl-color = lib.mkForce "eb6f92";
-        caps-lock-key-hl-color = lib.mkForce "c4a7e7";
-        caps-lock-bs-hl-color = lib.mkForce "eb6f92";
+        key-hl-color = mkForce "31748f";
+        bs-hl-color = mkForce "eb6f92";
+        caps-lock-key-hl-color = mkForce "c4a7e7";
+        caps-lock-bs-hl-color = mkForce "eb6f92";
 
-        inside-color = lib.mkForce "00000000";
-        inside-clear-color = lib.mkForce "00000000";
-        inside-caps-lock-color = lib.mkForce "00000000";
-        inside-ver-color = lib.mkForce "00000000";
-        inside-wrong-color = lib.mkForce "00000000";
+        inside-color = mkForce "00000000";
+        inside-clear-color = mkForce "00000000";
+        inside-caps-lock-color = mkForce "00000000";
+        inside-ver-color = mkForce "00000000";
+        inside-wrong-color = mkForce "00000000";
 
         line-uses-inside = true;
 
-        ring-color = lib.mkForce "26233a";
-        ring-clear-color = lib.mkForce "ebbcba";
-        ring-caps-lock-color = lib.mkForce "f6c177";
-        ring-ver-color = lib.mkForce "31748f";
-        ring-wrong-color = lib.mkForce "eb6f92";
+        ring-color = mkForce "26233a";
+        ring-clear-color = mkForce "ebbcba";
+        ring-caps-lock-color = mkForce "f6c177";
+        ring-ver-color = mkForce "31748f";
+        ring-wrong-color = mkForce "eb6f92";
       };
     };
 
@@ -144,7 +145,7 @@ in {
         env = [
           # "gdk_scale,2"
           # Not using stylix
-          # "xcursor_size,${lib.tostring config.stylix.cursor.size}"
+          # "xcursor_size,${tostring config.stylix.cursor.size}"
         ];
         xwayland = { force_zero_scaling = true; };
         misc = {
@@ -157,9 +158,9 @@ in {
           animate_manual_resizes = false;
         };
         general = {
-          gaps_in = lib.mkDefault 5;
-          gaps_out = lib.mkDefault 8;
-          border_size = lib.mkDefault 3;
+          gaps_in = mkDefault 5;
+          gaps_out = mkDefault 8;
+          border_size = mkDefault 3;
           layout = "dwindle"; # master | dwindle
           "col.active_border" = "0xffebbcba";
           "col.inactive_border" = "0xff6e6a86";

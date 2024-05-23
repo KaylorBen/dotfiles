@@ -1,21 +1,22 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.programs.neovim;
 in {
   options.Wotan.programs.neovim = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
+    enable = mkOption {
+      type = types.bool;
       description = "Enable neovim";
       # Enable neovim by default
       default = true;
     };
-    defaultEditor = lib.mkOption {
-      type = lib.types.bool;
+    defaultEditor = mkOption {
+      type = types.bool;
       description = "Use neovim as the default editor";
       default = true;
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     programs.neovim = {
       enable = true;
       extraPackages = with pkgs; [

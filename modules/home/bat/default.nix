@@ -1,11 +1,13 @@
 { config, lib, pkgs, ... }:
-{
-  options.Wotan.programs.bat.enable = lib.mkEnableOption "A cat(1) clone with wings."
+with lib;
+let cfg = config.Wotan.programs.bat;
+in {
+  options.Wotan.programs.bat.enable = mkEnableOption "A cat(1) clone with wings."
     // {
       default = true;
     };
 
-  config = lib.mkIf config.Wotan.programs.bat.enable {
+  config = mkIf cfg.enable {
     programs.bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [

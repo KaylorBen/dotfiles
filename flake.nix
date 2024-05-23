@@ -86,7 +86,7 @@
       overlays = with inputs; [
         prismlauncher.overlays.default
         nix-minecraft.overlays.default
-        nixpkgs-wayland.overlays.default
+        # nixpkgs-wayland.overlays.default
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         hyprland.homeManagerModules.default

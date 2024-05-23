@@ -1,21 +1,22 @@
-{ lib, config, ... }:
+{ config, lib, ... }:
+with lib;
 let cfg = config.Wotan.sound;
 in {
   options.Wotan.sound = {
-    enable = lib.mkEnableOption "Enable sound";
-    lowLatency = lib.mkOption {
-      type = lib.types.bool;
+    enable = mkEnableOption "Enable sound";
+    lowLatency = mkOption {
+      type = types.bool;
       default = true;
       description = "Enable low latency mode";
     };
-    support32Bit = lib.mkEnableOption {
-      types = lib.types.bool;
+    support32Bit = mkEnableOption {
+      types = types.bool;
       default = true;
       description = "Enable 32 bit support";
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     sound.enable = true;
     sound.mediaKeys.enable = true;
     hardware.pulseaudio.enable = false;

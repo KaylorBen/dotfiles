@@ -1,11 +1,13 @@
 { config, lib, ... }:
-{
+with lib;
+let cfg = config.Wotan.programs.aria2;
+in {
   options.Wotan.programs.aria2.enable =
-    lib.mkEnableOption "Aria2 downloader" // {
+    mkEnableOption "Aria2 downloader" // {
       default = true;
     };
 
-  config = lib.mkIf config.Wotan.programs.aria2.enable {
+  config = mkIf cfg.enable {
     programs.aria2 = {
       enable = true;
       settings = {

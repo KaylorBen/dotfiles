@@ -1,13 +1,15 @@
 { config, lib, ... }:
-{
-  options.Wotan.zfs.enable = lib.mkEnableOption "Enable ZFS specifics";
-  config = lib.mkIf config.Wotan.zfs.enable {
+with lib;
+let cfg = config.Wotan.zfs;
+in {
+  options.Wotan.zfs.enable = mkEnableOption "Enable ZFS specifics";
+  config = mkIf cfg.enable {
     services.zfs = {
       autoScrub.enable = true;
       trim.enable = true;
     };
 
     boot.kernelPackages =
-      lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
+      mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
   };
 }

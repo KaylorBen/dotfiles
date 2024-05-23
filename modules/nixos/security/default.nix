@@ -1,13 +1,15 @@
-{ config, lib, pkgs, ... }:
-{
+{ config,  pkgs, lib,... }:
+with lib;
+let cfg = config.Wotan.security;
+in {
   options.Wotan.security = {
-    enable = lib.mkEnableOption "Enable security defaults" // { default = true; };
-    enableTPM = lib.mkEnableOption "Enable TPM" // { default = false; };
-    enableSecureBoot = lib.mkEnableOption "Enable Secure Boot" // { default = false; };
+    enable = mkEnableOption "Enable security defaults" // { default = true; };
+    enableTPM = mkEnableOption "Enable TPM" // { default = false; };
+    enableSecureBoot = mkEnableOption "Enable Secure Boot" // { default = false; };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf config.Wotan.security.enable {
+  config = mkMerge [
+    (mkIf cfg.enable {
       boot = {
         kernel.sysctl = {
           "dev.tty.ldisc_autoload" =
@@ -75,7 +77,7 @@
             0; # Refuse ICMP redirects (MITM Mitigation)
           "vm.mmap_rnd_bits" = 32; # Increase entropy for mmap ASLR
           "vm.mmap_rnd_compat_bits" = 16; # Increase entropy for mmap ASLR
-          "vm.swappiness" = lib.mkDefault 1; # VM swap only when necessary
+          "vm.swappiness" = mkDefault 1; # VM swap only when necessary
           "vm.unprivileged_userfaultfd" =
             0; # Restrict userdefaultfd to CAP_SYS_PTRACE to prevent use after free flaws
         };
@@ -98,7 +100,7 @@
         ];
       };
     })
-    (lib.mkIf config.Wotan.security.enableTPM {
+    (mkIf cfg.enableTPM {
       boot.initrd.kernelModules = [ "tpm_tis" ];
       security.tpm2 = {
         enable = true;
@@ -106,10 +108,10 @@
         tctiEnvironment.enable = true;
       };
     })
-    (lib.mkIf config.Wotan.security.enableSecureBoot {
+    (mkIf cfg.enableSecureBoot {
       environment.systemPackages = [ pkgs.sbctl ];
       boot = {
-        loader.systemd-boot.enable = lib.mkForce false;
+        loader.systemd-boot.enable = mkForce false;
         lanzaboote = {
           enable = true;
           pkiBundle = "/etc/secureboot";

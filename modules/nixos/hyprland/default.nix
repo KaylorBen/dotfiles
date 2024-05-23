@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
-{
+let cfg = config.Wotan.desktop.hyprland;
+in {
   options.Wotan.desktop.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     extraAutoStart = lib.mkOption {
@@ -13,7 +14,7 @@
     };
   };
 
-  config = lib.mkIf config.Wotan.desktop.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     programs.light.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     security.pam.services.swaylock.text = ''

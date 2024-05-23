@@ -1,9 +1,11 @@
 { config, lib, osConfig, pkgs, ... }:
-{
+with lib;
+let cfg = config.Wotan.desktop.picom;
+in {
   options.Wotan.desktop.picom = {
-    enable = lib.mkEnableOption "Picom compositor toggle";
+    enable = mkEnableOption "Picom compositor toggle";
   };
-  config = lib.mkIf config.Wotan.desktop.picom.enable {
+  config = mkIf cfg.enable {
     services.picom = {
       enable = true;
       package = pkgs.picom;

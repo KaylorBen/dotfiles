@@ -1,14 +1,15 @@
 { config, lib, ...}:
-{
-  options.Wotan.users.enable = lib.mkOption {
-    type = lib.types.bool;
+with lib;
+let cfg = config.Wotan.users;
+in {
+  options.Wotan.users.enable = mkOption {
+    type = types.bool;
     default = true;
     description = "Nebula users defaults - Opt out";
   };
   imports = [ ./perUser/root ./perUser/builder ];
 
-  config = lib.mkIf config.Wotan.users.enable {
-    users.mutableUsers = false;
+  config = mkIf cfg.enable {
     # systemd.sysusers.enable = true;
     # Create groups for services
     # Audio Group

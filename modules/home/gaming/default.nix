@@ -1,23 +1,25 @@
-{ lib, config, osConfig ? { }, pkgs, ... }:
-{
+{ config, osConfig ? { }, lib, pkgs, ... }:
+with lib;
+let cfg = config.Wotan.gaming;
+in {
   options.Wotan.gaming = {
-    enable = lib.mkEnableOption "Gaming" // {
+    enable = mkEnableOption "Gaming" // {
       default = osConfig.Wotan.gaming.enable or false;
     };
   };
-  config = lib.mkIf config.Wotan.gaming.enable {
+  config = mkIf cfg.enable {
     # consider reshade
-    Wotan.desktop.picom.enable = lib.mkForce false;
+    # Wotan.desktop.picom.enable = mkForce false;
     programs.mangohud = {
       enable = true;
-      enableSessionWide = lib.mkDefault true;
+      enableSessionWide = mkDefault true;
       settings = {
-        alpha = lib.mkForce 0.6;
-        background_alpha = lib.mkForce 0.3;
+        alpha = mkForce 0.6;
+        background_alpha = mkForce 0.3;
         horizontal = true;
         hud_compat = true;
         hud_no_margin = true;
-        no_hud = lib.mkDefault true;
+        no_hud = mkDefault true;
         position = "top-center";
         horizontal_stretch = false;
         frame_timing = 0;

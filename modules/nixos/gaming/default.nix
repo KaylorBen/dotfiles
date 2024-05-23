@@ -1,11 +1,12 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
 let cfg = config.Wotan.gaming;
 in {
   options.Wotan.gaming = {
-    enable = lib.mkEnableOption "Enable gaming specific configs";
-    remotePlay = lib.mkEnableOption "Enable settings for remote play";
-    kernel = lib.mkOption {
-      type = lib.types.raw;
+    enable = mkEnableOption "Enable gaming specific configs";
+    remotePlay = mkEnableOption "Enable settings for remote play";
+    kernel = mkOption {
+      type = types.raw;
       default = pkgs.linuxPackages_latest;
       description = "Set kernel";
     };
@@ -15,18 +16,18 @@ in {
         default = true;
         description = "Enable ZRam - Star Citizen needs it <40G";
       };
-      memoryPercent = lib.mkOption {
-        type = lib.types.int;
+      memoryPercent = mkOption {
+        type = types.int;
         default = 100;
-        inherit (lib.options.zramSwap.memoryPercent) description;
+        inherit (options.zramSwap.memoryPercent) description;
       };
     };
     starCitizen = {
-      enable = lib.mkEnableOption "Enable Star Citizen" // { default = true; };
+      enable = mkEnableOption "Enable Star Citizen" // { default = true; };
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     nix-citizen.starCitizen = {
       inherit (cfg.starCitizen) enable;
       preCommands = ''

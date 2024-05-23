@@ -1,9 +1,11 @@
 { config, lib, pkgs, inputs, ... }:
-{
+with lib;
+let cfg = config.Wotan.programs.firefox;
+in {
   options.Wotan.programs.firefox.enable =
-    lib.mkEnableOption "A web browser built from Firefox source tree";
+    mkEnableOption "A web browser built from Firefox source tree";
 
-    config = lib.mkIf config.Wotan.programs.firefox.enable {
+    config = mkIf cfg.enable {
       programs.firefox = {
         enable = true;
         policies = {

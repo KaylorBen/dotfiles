@@ -1,4 +1,5 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+with lib;
 let inherit (pkgs.stdenv) isDarwin;
 in {
   config = {
@@ -7,10 +8,10 @@ in {
       experimental-features = [ "nix-command" "flakes" ];
     };
     home = {
-      keyboard = lib.mkIf isDarwin { layout = true; };
-      username = lib.mkDefault config.snowfallorg.user.name;
+      keyboard = mkIf isDarwin { layout = true; };
+      username = mkDefault config.snowfallorg.user.name;
       homeDirectory = let inherit (config.home) username;
-      in lib.mkDefault (if pkgs.stdenv.isDarwin then
+      in mkDefault (if pkgs.stdenv.isDarwin then
         "/Users/${username}"
       else if (username != "root") then
         "/home/${username}"
@@ -19,13 +20,13 @@ in {
       packages = with pkgs; [ rclone ripgrep ventoy ];
       file = {
         # TODO: custom website fetch
-        # ".face" = lib.mkIf (config.snowfallorg.user.name == "ben") {
+        # ".face" = mkIf (config.snowfallorg.user.name == "ben") {
         #   source = builtins.fetchurl {
         #     
         #   };
         # };
         # ".wallpaper"
-        ".cargo/config" = lib.mkDefault {
+        ".cargo/config" = mkDefault {
           text = ''
             [alias]
             gen = "generate"
@@ -37,7 +38,7 @@ in {
           '';
         };
       };
-      stateVersion = lib.Wotan.stateVersion.nixos;
+      stateVersion = Wotan.stateVersion.nixos;
     };
   };
 }

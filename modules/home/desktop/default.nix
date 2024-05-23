@@ -1,9 +1,11 @@
 { config, pkgs, lib, ... }:
-{
+with lib;
+let cfg = config.Wotan.home-profiles.desktop;
+in {
   options.Wotan.home-profiles.desktop = {
-    enable = lib.mkEnableOption "Enable desktop defaults";
+    enable = mkEnableOption "Enable desktop defaults";
   };
-  config = lib.mkIf config.Wotan.home-profiles.desktop.enable {
+  config = mkIf cfg.enable {
     Wotan = {
       programs = {
         chromium.enable = true;
@@ -18,7 +20,7 @@
     services.syncthing.enable = true;
 
     gtk = {
-      font.size = lib.mkDefault 12;
+      font.size = mkDefault 12;
       iconTheme = {
         name = "rose-pine";
         package = pkgs.rose-pine-icon-theme;

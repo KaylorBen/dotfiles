@@ -63,14 +63,14 @@
   #   disko.devices = lib.mkForce (import ./disko-vm.nix { inherit lib; });
   # };
 
-  # Wotan = {
-    # MyNextGPUWillNotBeNvidia = true;
+  Wotan = {
+    MyNextGPUWillNotBeNvidia = true;
     # services.liquidctl = {
     #   enable = true;
     #   TODO: find cooler model and configure
     #   config = {
     #   };
-  # };
+  };
 
   Wotan.zfs.enable = true;
   # RAID stuff

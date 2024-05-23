@@ -4,7 +4,7 @@
 
 let
   pname = "fflogs";
-  version = "8.3.25";
+  version = "8.5.6";
   src = pkgs.fetchurl {
     url = "https://github.com/RPGLogs/Uploaders-fflogs/releases/download/v${version}/fflogs-v${version}.AppImage";
     sha256 = "s6srA3s51UZLYKeHDFNM+6jav/fMsDwvWIDLWAWcjMA=";

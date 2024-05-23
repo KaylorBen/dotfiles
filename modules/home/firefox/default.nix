@@ -70,6 +70,7 @@ in {
           };
           extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
             auto-tab-discard
+            darkreader
             dearrow
             firenvim
             return-youtube-dislikes

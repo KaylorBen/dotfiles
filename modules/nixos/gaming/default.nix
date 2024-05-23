@@ -11,9 +11,9 @@ in {
       description = "Set kernel";
     };
     zram = {
-      enable = mkOption {
-        type = types.bool;
-        default = false;
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
         description = "Enable ZRam - Star Citizen needs it <40G";
       };
       memoryPercent = mkOption {
@@ -76,8 +76,8 @@ in {
       wowup
 
       (wineWowPackages.full.override {
-      wineRelease = "staging";
-      mingwSupport = true;
+        wineRelease = "staging";
+        mingwSupport = true;
       })
     ];
 

@@ -1,4 +1,4 @@
-{ config, lib,pkgs,  ... }:
+{ config, pkgs, lib, ... }:
 with lib;
 let
   cfg = config.Wotan.impermanence;
@@ -35,21 +35,21 @@ in {
         hideMounts = true;
         directories = [
           (dir "/var/log" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/bluetooth" "root" "root" "u=rwx,g=,o=")
-          (dir "/var/nixos" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
+          (dir "/var/lib/bluetooth" "root" "root" "u=rwx,g=,o=")
+          (dir "/var/lib/nixos" "root" "root" "u=rwx,g=rx,o=rx")
+          (dir "/var/lib/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/NetworkManager/system-connections" "root" "root"
             "u=rwx,g=,o=")
-          "/var/flatpak"
-          "/var/libvirt"
-          "/var/pipewire"
-          (dir "/var/alsa" "root" "root" "u=rwx,g=rx,o=rx")
+          "/var/lib/flatpak"
+          "/var/lib/libvirt"
+          "/var/lib/pipewire"
+          (dir "/var/lib/alsa" "root" "root" "u=rwx,g=rx,o=rx")
 
           (dir "/var/db/sudo" "root" "root" "u=rwx,g=,o=")
           (dir "/etc/secureboot" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/fwupd" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/ssh/authorized_keys.d" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
+          (dir "/var/lib/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
           (dir "/etc/nix" "root" "root" "u=rwx,g=rx,o=rx")
         ];
         files = [

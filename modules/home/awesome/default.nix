@@ -30,7 +30,7 @@ in {
     };
 
     home.packages = with pkgs; [
-      xorg.cb
+      xorg.libxcb
       pamixer
       pa_applet
       xclip

@@ -2,13 +2,14 @@
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
+    virt.enable = true;
     autoUpgrade.enable = true;
     zfs.enable = true;
     users.enable = true;
-    # gaming = {
-    #   enable = true;
-    #   starCitizen.enable = false;
-    # };
+    gaming = {
+      enable = true;
+      starCitizen.enable = false;
+    };
     time.enable = true;
     impermanence = {
       enable = true;

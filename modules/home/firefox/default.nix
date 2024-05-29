@@ -76,8 +76,9 @@ in {
             return-youtube-dislikes
             sponsorblock
             stylus
-            vimium
             ublock-origin
+            vimium
+            wikiwand-wikipedia-modernized
           ];
           settings = {
             "browser.startup.homepage" = "https://nixos.org";

@@ -78,7 +78,6 @@ in {
             stylus
             ublock-origin
             vimium
-            wikiwand-wikipedia-modernized
           ];
           settings = {
             "browser.startup.homepage" = "https://nixos.org";

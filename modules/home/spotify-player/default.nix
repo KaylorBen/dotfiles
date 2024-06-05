@@ -2,7 +2,7 @@
 with lib;
 let cfg = config.Wotan.programs.spotify-player;
 in {
-  options.Wotan.programs.ssh.enable = mkEnableOption "Spotify Player";
+  options.Wotan.programs.spotify-player.enable = mkEnableOption "Spotify Player";
 
   config = mkIf cfg.enable {
     programs.spotify-player = {

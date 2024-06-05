@@ -13,6 +13,7 @@ in {
         alacritty.enable = true;
         zathura.enable = true;
         cava.enable = true;
+        spotify-player.enable = true;
         mpv.enable = true;
         ssh.enable = true;
       };
@@ -57,7 +58,6 @@ in {
         libreoffice
         pavucontrol
         pinta
-        spotify-player
         teamspeak_client
         todo
         vesktop

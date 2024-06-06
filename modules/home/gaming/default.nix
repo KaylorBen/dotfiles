@@ -9,7 +9,7 @@ in {
   };
   config = mkIf cfg.enable {
     # consider reshade
-    # Wotan.desktop.picom.enable = mkForce false;
+    Wotan.desktop.picom.enable = mkForce false;
     programs.mangohud = {
       enable = true;
       enableSessionWide = mkDefault true;

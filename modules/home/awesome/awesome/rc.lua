@@ -602,10 +602,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- ❯ : xrandr --output HDMI-0 --left-of DP-0
 
 awful.spawn(
-  "xrandr --output HDMI-0 --rotate left --left-of DP-0 --scale 1.25x1.25"
+  "xrandr --output HDMI-0 --rotate right --right-of DP-0 --scale 1.25x1.25"
 )
 awful.spawn(
-  "xrandr --output DP-0 --pos 1500x200 --primary"
+  "xrandr --output DP-0 --pos 0x0 --primary"
 )
 
 

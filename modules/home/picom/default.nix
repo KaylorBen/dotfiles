@@ -16,7 +16,7 @@ in {
       shadow = true;
       opacityRules = [
         "100:name *?= 'Firefox' && !focused"
-        "95:class_g = 'org.wezfurlong.wezterm' && focused"
+        "95:class_g = 'Alacritty' && focused"
       ];
       vSync = true;
       settings = {

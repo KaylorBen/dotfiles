@@ -70,6 +70,12 @@
     };
     # dbus.enable = true;
     openssh.enable = true;
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
 
   users.users.ben.packages = with pkgs; [
@@ -88,7 +94,6 @@
     programs.yazi.enable = true;
     Wotan = {
       home-profiles.desktop.enable = true;
-      impermanence.enable = true;
       programs.git.enable=true;
     };
   };

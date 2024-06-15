@@ -17,7 +17,7 @@
         zfs rollback -r zroot/NixOS/root@blank
       '';
     };
-    streaming.enable = true;
+    # streaming.enable = true;
     sound.enable = true;
     security = {
       enable = false;

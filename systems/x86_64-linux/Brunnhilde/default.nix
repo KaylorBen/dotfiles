@@ -38,7 +38,6 @@
     };
     mosh.enable = true;
     noisetorch.enable = true;
-    partition-manager.enable = true;
   };
   networking = {
     networkmanager.enable = true;

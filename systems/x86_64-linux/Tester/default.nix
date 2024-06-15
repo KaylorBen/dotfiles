@@ -41,7 +41,7 @@
   };
   networking = {
     networkmanager.enable = true;
-    useDHCP = true;
+    # useDHCP = true;
     # interfaces.wlp2s0.useDHCP = true;
     firewall = {
       # if packets are still dropped, they will show up in dmesg

@@ -1,9 +1,9 @@
 local M = {
-  "m4xshen/smartcolumn.nvim",
-};
+	"m4xshen/smartcolumn.nvim",
+}
 
 function M.config()
-  require("smartcolumn").setup()
+	require("smartcolumn").setup()
 end
 
 return M

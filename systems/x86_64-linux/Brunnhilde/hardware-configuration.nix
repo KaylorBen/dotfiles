@@ -1,6 +1,5 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
-{
-  imports = with inputs; [ 
+{ config, lib, pkgs, modulesPath, inputs, ... }: {
+  imports = with inputs; [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.common-cpu-intel
     nixos-hardware.nixosModules.common-pc-laptop-ssd
@@ -11,16 +10,22 @@
   boot = {
     initrd = {
       systemd.enable = true;
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
       kernelModules = [ ];
     };
-    binfmt.emulatedSystems = [ "aarch64-linux" "riscv32-linux" "riscv64-linux" "x86_64-windows" ];
+    binfmt.emulatedSystems =
+      [ "aarch64-linux" "riscv32-linux" "riscv64-linux" "x86_64-windows" ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-  services = {
-    fwupd.enable = true;
-  };
+  services = { fwupd.enable = true; };
   networking = {
     hostName = "Brunnhilde";
     hostId = "7c40a3b8";

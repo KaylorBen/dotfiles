@@ -1,10 +1,8 @@
-{  config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 with lib;
 let cfg = config.Wotan.styles;
 in {
-  imports = [
-    inputs.nix-colors.homeManagerModules.default
-  ];
+  imports = [ inputs.nix-colors.homeManagerModules.default ];
 
   options.Wotan.styles = {
     enable = mkEnableOption {

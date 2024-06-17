@@ -6,26 +6,21 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      devShells.default = pkgs.mkShell {
-        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShells.default = pkgs.mkShell {
+          RUST_SRC_PATH =
+            "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
-        nativeBuildInputs = [ pkgs.bashInteractive ];
-        buildInputs = with pkgs; [
-          cargo
-          rustc
-          rust-analyzer
-          rustfmt
-          clippy
-        ];
+          nativeBuildInputs = [ pkgs.bashInteractive ];
+          buildInputs = with pkgs; [ cargo rustc rust-analyzer rustfmt clippy ];
 
-        shellHook = ''
-          echo "`${pkgs.cargo}/bin/cargo --version`"
-          echo "`${pkgs.rustc}/bin/rustc --version`"
-          echo "`${pkgs.rust-analyzer}/bin/rust-analyzer --version`"
-        '';
-      };
-    });
+          shellHook = ''
+            echo "`${pkgs.cargo}/bin/cargo --version`"
+            echo "`${pkgs.rustc}/bin/rustc --version`"
+            echo "`${pkgs.rust-analyzer}/bin/rust-analyzer --version`"
+          '';
+        };
+      });
 }

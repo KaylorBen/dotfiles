@@ -1,5 +1,4 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
-{
+{ config, lib, pkgs, modulesPath, inputs, ... }: {
   # imports = with inputs; [
   #   (modulesPath + "/installer/scan/not-detected.nix")
   #   nixos-hardware.nixosModules.common-cpu-intel-cpu-only
@@ -23,8 +22,16 @@
     supportedFilesystems = [ "ntfs" ];
     initrd = {
       systemd.enable = true;
-      availableKernelModules =
-        [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" "sr_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usbhid"
+        "uas"
+        "usb_storage"
+        "sd_mod"
+        "sr_mod"
+      ];
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-intel" ];

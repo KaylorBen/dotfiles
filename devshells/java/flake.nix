@@ -6,19 +6,16 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      devShells.default = pkgs.mkShell {
-        nativeBuildInputs = [ pkgs.bashInteractive ];
-        buildInputs = with pkgs; [
-          jdk21
-          jdt-language-server
-        ];
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = [ pkgs.bashInteractive ];
+          buildInputs = with pkgs; [ jdk21 jdt-language-server ];
 
-        shellHook = ''
-          echo "`${pkgs.jdk21}/bin/java --version`"
-        '';
-      };
-    });
+          shellHook = ''
+            echo "`${pkgs.jdk21}/bin/java --version`"
+          '';
+        };
+      });
 }

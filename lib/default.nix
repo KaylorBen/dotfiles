@@ -8,9 +8,9 @@ in {
       platform = import (./src/hosts + "/${host}/system.nix");
       extra-platforms =
         flake.nixosConfiguations.${host}.config.nix.settings.extra-platforms or [ ];
-        features =
-          flake.nixosConfiguations.${host}.config.nix.settings.system-features;
-        inherit (flake.nixosConfiguations.${host}.config.system.nixos) tags;
+      features =
+        flake.nixosConfiguations.${host}.config.nix.settings.system-features;
+      inherit (flake.nixosConfiguations.${host}.config.system.nixos) tags;
     };
     allHostInfo = flake:
       map (host: lib.Wotan.info.hostInfo host flake)

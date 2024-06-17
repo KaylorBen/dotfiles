@@ -1,4 +1,3 @@
-
 {
   description = "R development environment";
   inputs = {
@@ -7,19 +6,16 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      devShells.default = pkgs.mkShell {
-        nativeBuildInputs = [ pkgs.bashInteractive ];
-        buildInputs = with pkgs; [
-          R
-          rstudio
-        ];
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = [ pkgs.bashInteractive ];
+          buildInputs = with pkgs; [ R rstudio ];
 
-        shellHook = ''
-          echo "`${pkgs.R}/bin/R h`"
-        '';
-      };
-    });
+          shellHook = ''
+            echo "`${pkgs.R}/bin/R h`"
+          '';
+        };
+      });
 }

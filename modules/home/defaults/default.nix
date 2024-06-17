@@ -4,9 +4,7 @@ let inherit (pkgs.stdenv) isDarwin;
 in {
   config = {
     programs.yazi.enable = true;
-    nix.settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+    nix.settings = { experimental-features = [ "nix-command" "flakes" ]; };
     home = {
       keyboard = mkIf isDarwin { layout = true; };
       username = mkDefault config.snowfallorg.user.name;

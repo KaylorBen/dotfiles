@@ -1,11 +1,13 @@
-{ config,  pkgs, lib,... }:
+{ config, pkgs, lib, ... }:
 with lib;
 let cfg = config.Wotan.security;
 in {
   options.Wotan.security = {
     enable = mkEnableOption "Enable security defaults" // { default = true; };
     enableTPM = mkEnableOption "Enable TPM" // { default = false; };
-    enableSecureBoot = mkEnableOption "Enable Secure Boot" // { default = false; };
+    enableSecureBoot = mkEnableOption "Enable Secure Boot" // {
+      default = false;
+    };
   };
 
   config = mkMerge [

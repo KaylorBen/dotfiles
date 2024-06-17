@@ -7,8 +7,6 @@ in {
       default = true;
     };
 
-  config = mkIf cfg.enable {
-    programs.fzf.enable = true;
-  };
+  config = mkIf cfg.enable { programs.fzf.enable = true; };
 }
 

@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{ pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     virt.enable = true;
@@ -33,16 +32,16 @@
 
     firewall = {
       # if packets are still dropped, they will show up in dmesg
-     logReversePathDrops = true;
-     # wireguard trips rpfilter up
-     extraCommands = ''
-       ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
-       ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
-     '';
-     extraStopCommands = ''
-       ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
-       ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
-     '';
+      logReversePathDrops = true;
+      # wireguard trips rpfilter up
+      extraCommands = ''
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
+      '';
+      extraStopCommands = ''
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
+      '';
     };
   };
 
@@ -78,13 +77,7 @@
     };
   };
 
-  users.users.ben.packages = with pkgs; [
-    ani-cli
-    jdk
-    prismlauncher
-    nil
-    xclip
-  ];
+  users.users.ben.packages = with pkgs; [ ani-cli jdk prismlauncher nil xclip ];
 
   snowfallorg.users.ben.home.config = {
     # home.persistence."/.FinalFantasyXIV" = {
@@ -94,7 +87,7 @@
     programs.yazi.enable = true;
     Wotan = {
       home-profiles.desktop.enable = true;
-      programs.git.enable=true;
+      programs.git.enable = true;
     };
   };
   home-manager = {

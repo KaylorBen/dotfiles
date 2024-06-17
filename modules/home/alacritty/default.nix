@@ -2,8 +2,8 @@
 with lib;
 let cfg = config.Wotan.programs.alacritty;
 in {
-  options.Wotan.programs.alacritty.enable = mkEnableOption
-    "Alacritty Terminal Emulator";
+  options.Wotan.programs.alacritty.enable =
+    mkEnableOption "Alacritty Terminal Emulator";
 
   config = mkIf cfg.enable {
     programs.alacritty = {
@@ -11,9 +11,18 @@ in {
       package = pkgs.alacritty;
       settings = {
         font = {
-          normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
-          bold = { family = "FiraCode Nerd Font"; style = "Bold"; };
-          italic = { family = "FiraCode Nerd Font"; style = "Light"; };
+          normal = {
+            family = "FiraCode Nerd Font";
+            style = "Regular";
+          };
+          bold = {
+            family = "FiraCode Nerd Font";
+            style = "Bold";
+          };
+          italic = {
+            family = "FiraCode Nerd Font";
+            style = "Light";
+          };
         };
         colors = {
           primary = {
@@ -91,5 +100,5 @@ in {
         };
       };
     };
-  };  
+  };
 }

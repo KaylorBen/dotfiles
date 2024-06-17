@@ -1,4 +1,4 @@
-{ config,  inputs, lib,pkgs, format, ... }:
+{ config, inputs, lib, pkgs, format, ... }:
 with lib;
 let cfg = config.Wotan.defaults;
 in {
@@ -38,11 +38,7 @@ in {
     fonts = {
       fontDir.decompressFonts = mkDefault true;
       enableDefaultPackages = true;
-      packages = with pkgs; [
-        fantasque-sans-mono
-        fira-code
-        nerdfonts
-      ];
+      packages = with pkgs; [ fantasque-sans-mono fira-code nerdfonts ];
     };
 
     programs = {

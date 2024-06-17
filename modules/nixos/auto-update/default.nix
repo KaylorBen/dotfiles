@@ -1,5 +1,5 @@
 # Enables system upgrades using system.autoUpgrade
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 with lib;
 let cfg = config.Wotan.autoUpgrade;
 in {

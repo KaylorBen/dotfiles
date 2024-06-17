@@ -2,10 +2,9 @@
 with lib;
 let cfg = config.Wotan.programs.aria2;
 in {
-  options.Wotan.programs.aria2.enable =
-    mkEnableOption "Aria2 downloader" // {
-      default = true;
-    };
+  options.Wotan.programs.aria2.enable = mkEnableOption "Aria2 downloader" // {
+    default = true;
+  };
 
   config = mkIf cfg.enable {
     programs.aria2 = {

@@ -14,5 +14,5 @@ in {
       source = ./wezterm;
       recursive = true;
     };
-  };  
+  };
 }

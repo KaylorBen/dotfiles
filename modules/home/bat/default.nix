@@ -2,8 +2,8 @@
 with lib;
 let cfg = config.Wotan.programs.bat;
 in {
-  options.Wotan.programs.bat.enable = mkEnableOption "A cat(1) clone with wings."
-    // {
+  options.Wotan.programs.bat.enable =
+    mkEnableOption "A cat(1) clone with wings." // {
       default = true;
     };
 

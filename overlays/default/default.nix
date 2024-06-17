@@ -1,13 +1,7 @@
-{ self
-, nix-citizen
-, hyprland
-, xdg-desktop-portal-hyprland
-, picom
-, ... }:
+{ self, nix-citizen, hyprland, xdg-desktop-portal-hyprland, picom, ... }:
 
 _prev: super: {
-  inherit (self.packages.${super.system})
-    fflogs wowup;
+  inherit (self.packages.${super.system}) fflogs wowup;
   inherit (nix-citizen.packages.${super.system})
     lug-helper star-citizen-helper star-citizen;
   # wezterm = wezterm.packages.${super.system}.default;

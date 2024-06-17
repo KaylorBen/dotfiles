@@ -1,5 +1,4 @@
-{ config, lib, ... }:
-{
+{ config, lib, ... }: {
   config = lib.mkIf config.Wotan.users.enable {
     users = {
       groups.builder = { };

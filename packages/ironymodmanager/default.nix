@@ -1,6 +1,4 @@
-{ pkgs
-, lib
-}:
+{ pkgs, lib }:
 
 pkgs.buildDotnetModule rec {
   pname = "IronyModManager";

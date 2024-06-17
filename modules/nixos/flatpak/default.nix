@@ -1,5 +1,5 @@
 # TODO this doesnt work
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 with lib;
 let cfg = config.Wotan.flatpak;
 in {
@@ -27,11 +27,11 @@ in {
     services.flatpak = {
       enable = true;
       remotes = cfg.remotes;
-      packages = cfg.extraPackages
-        ++ (if cfg.lutris then
-          [ { appId = "net.lutris.Lutris"; origin = "flathub-beta"; } ]
-          else [ ]
-        );
+      packages = cfg.extraPackages ++ (if cfg.lutris then [{
+        appId = "net.lutris.Lutris";
+        origin = "flathub-beta";
+      }] else
+        [ ]);
     };
   };
 }

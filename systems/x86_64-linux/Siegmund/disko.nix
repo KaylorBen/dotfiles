@@ -1,5 +1,5 @@
-{ disks ? [ "nvme0n1" "nvme1n1" "sda" "sdb" ], lib, secretFile ? "/tmp/secret.key", ... }:
-{
+{ disks ? [ "nvme0n1" "nvme1n1" "sda" "sdb" ], lib
+, secretFile ? "/tmp/secret.key", ... }: {
   disk = {
     main = {
       type = "disk";

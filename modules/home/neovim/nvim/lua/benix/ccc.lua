@@ -1,9 +1,9 @@
 local M = {
-  "uga-rosa/ccc.nvim",
+	"uga-rosa/ccc.nvim",
 }
 
 function M.config()
-  require("ccc").setup()
+	require("ccc").setup()
 end
 
 return M

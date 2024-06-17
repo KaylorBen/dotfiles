@@ -1,33 +1,33 @@
-require "benix.launch"
-require "benix.options"
-require "benix.keymaps"
-spec "benix.colorscheme"
-spec "benix.devicons"
-spec "benix.treesitter"
-spec "benix.lspconfig"
-spec "benix.autopairs"
-spec "benix.cmp"
-spec "benix.comment"
-spec "benix.nvim-tree"
-spec "benix.telescope"
-spec "benix.toggleterm"
-spec "benix.whichkey"
-spec "benix.conform"
+require("benix.launch")
+require("benix.options")
+require("benix.keymaps")
+spec("benix.colorscheme")
+spec("benix.devicons")
+spec("benix.treesitter")
+spec("benix.lspconfig")
+spec("benix.autopairs")
+spec("benix.cmp")
+spec("benix.comment")
+spec("benix.nvim-tree")
+spec("benix.telescope")
+spec("benix.toggleterm")
+spec("benix.whichkey")
+spec("benix.conform")
 -- spec "benix.copilot"   -- Copilot more like cope-pilot
-spec "benix.indentline"
-spec "benix.lualine"
-spec "benix.neogit"
-spec "benix.netrw"
-spec "benix.project"
-spec "benix.vimtex"
-spec "benix.presence"
-spec "benix.nvim-nu"
-spec "benix.cellular-automaton"
-spec "benix.ccc"
-spec "benix.smartcolumn"
-spec "benix.harpoon"
-spec "benix.codesnap"
+spec("benix.indentline")
+spec("benix.lualine")
+spec("benix.neogit")
+spec("benix.netrw")
+spec("benix.project")
+spec("benix.vimtex")
+spec("benix.presence")
+spec("benix.nvim-nu")
+spec("benix.cellular-automaton")
+spec("benix.ccc")
+spec("benix.smartcolumn")
+spec("benix.harpoon")
+spec("benix.codesnap")
 -- spec "benix.nvim-java"
-spec "benix.firenvim"
-spec "benix.alpha-nvim"
-require "benix.lazy"
+spec("benix.firenvim")
+spec("benix.alpha-nvim")
+require("benix.lazy")

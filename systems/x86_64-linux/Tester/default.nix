@@ -1,5 +1,4 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     virt.enable = true;
@@ -22,9 +21,7 @@
       enableTPM = false;
       # enableSecureBoot = true;
     };
-    desktop = {
-      awesome.enable = true;
-    };
+    desktop = { awesome.enable = true; };
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -45,16 +42,16 @@
     # interfaces.wlp2s0.useDHCP = true;
     firewall = {
       # if packets are still dropped, they will show up in dmesg
-     logReversePathDrops = true;
-     # wireguard trips rpfilter up
-     extraCommands = ''
-       ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
-       ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
-     '';
-     extraStopCommands = ''
-       ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
-       ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
-     '';
+      logReversePathDrops = true;
+      # wireguard trips rpfilter up
+      extraCommands = ''
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
+        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
+      '';
+      extraStopCommands = ''
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
+        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
+      '';
     };
   };
   hardware.opengl = {
@@ -77,17 +74,11 @@
     blueman.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    firefox
-    git
-    nil
-  ];
+  environment.systemPackages = with pkgs; [ firefox git nil ];
 
   security.polkit.enable = true;
 
-  users.users.ben.packages = with pkgs; [
-    ani-cli
-  ];
+  users.users.ben.packages = with pkgs; [ ani-cli ];
 
   snowfallorg.users.ben.home.config = {
     Wotan = {

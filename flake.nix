@@ -68,10 +68,11 @@
     # wezterm.inputs.nixpkgs.follows = "nixpkgs";
     # wezterm.url = "github:wez/wezterm?dir=nix/";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    xdg-desktop-portal-hyprland.url =
+      "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
-  outputs = {self, systems, ...}@inputs:
+  outputs = { self, systems, ... }@inputs:
     let
       forAllSystems = f:
         inputs.nixpkgs.lib.genAttrs (import systems)
@@ -98,7 +99,7 @@
         sops-nix.homeManagerModules.sops
       ];
       systems.modules.nixos = with inputs; [
-        ({lib, ...}: { system.stateVersion = lib.Wotan.stateVersion.nixos; })
+        ({ lib, ... }: { system.stateVersion = lib.Wotan.stateVersion.nixos; })
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
@@ -111,9 +112,7 @@
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
       ];
-      channels-config = {
-        allowUnfree = true;
-      };
+      channels-config = { allowUnfree = true; };
     } // {
       formatter =
         forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);

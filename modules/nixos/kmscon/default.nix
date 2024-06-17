@@ -1,4 +1,4 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 with lib;
 let cfg = config.Wotan.kmscon;
 in {
@@ -6,10 +6,10 @@ in {
     enable = mkEnableOption "kmscon TTY interface";
     fonts = mkOption {
       type = with types; listOf attrs;
-      default = [ {
+      default = [{
         name = "FiraMono Nerd Font";
         package = pkgs.nerdfonts;
-      } ];
+      }];
     };
   };
 

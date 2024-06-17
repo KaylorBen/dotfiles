@@ -29,11 +29,6 @@ in {
       };
     };
 
-    home.packages = with pkgs; [
-      xorg.libxcb
-      pamixer
-      pa_applet
-      xclip
-    ];
+    home.packages = with pkgs; [ xorg.libxcb pamixer pa_applet xclip ];
   };
 }

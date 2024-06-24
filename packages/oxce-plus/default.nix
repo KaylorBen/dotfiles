@@ -1,13 +1,13 @@
 { pkgs, lib, stdenv }:
 stdenv.mkDerivation {
-  pname = "openxcom";
-  version = "1.0.0.2024.02.28";
+  pname = "oxce-plus";
+  version = "7.12";
 
   src = pkgs.fetchFromGitHub {
     owner = "MeridianOXC";
     repo = "OpenXcom";
-    rev = "4a98605e9fcb3f9a9ce8c43737d07e938b09bb00";
-    hash = "sha256-2G2dSvoDdacdYsXS51h3aGLCCjbHwcvD4CNnQIH/J6A=";
+    rev = "1bde457c85a96993ba0210ee62a361872554bd9b";
+    hash = "sha256-g+v5sfxLNksobrhhxQ/hAlla+LmfLtK6BEBDRmkp6Z4=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -27,6 +27,12 @@ stdenv.mkDerivation {
     openssl
     zlib
   ];
+
+  extraInstallCommands = ''
+    mkdir -p $HOME/.local/share/openxcom
+    ln -s $out/share/openxcom/common $HOME/.local/share/openxcom/common
+    ln -s $out/share/openxcom/standard $HOME/.local/share/openxcom/standard
+  '';
 
   meta = {
     description = "Open source clone of UFO: Enemy Unknown";

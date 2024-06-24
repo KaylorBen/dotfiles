@@ -68,6 +68,7 @@ in {
       lutris
       mangohud
       moonlight-qt
+      oxce-plus
       protontricks
       steam
       steamcmd

@@ -23,6 +23,7 @@ in {
       ripgrep
       rsync
       sl
+      tldr
       vim
       ventoy
       unrar

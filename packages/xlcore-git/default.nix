@@ -12,7 +12,7 @@ in
       owner = "goatcorp";
       repo = "XIVLauncher.Core";
       inherit rev;
-      hash = lib.fakeSha256;
+      hash = "sha256-h8h2hzMsyu6M3xHi1klEsDuX0HIeIJP/+W54uVb2QUc=";
       fetchSubmodules = true;
     };
 

@@ -26,7 +26,7 @@ function M.config()
 			"rust",
 			"go",
 			"nix",
-			"nu",
+			-- "nu",
 		}, -- put the language you want in this array
 		highlight = { enable = true },
 		indent = { enable = true },

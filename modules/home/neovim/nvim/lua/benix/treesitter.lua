@@ -39,17 +39,17 @@ function M.config()
 			},
 		},
 	})
-	parser_config.pdx = {
-		install_info = {
-			url = "~/Development/tree-sitter-paradox/", -- local path or git repo
-			files = { "src/parser.c" }, -- note that some parsers also require src/scanner.c or src/scanner.cc
-			-- optional entries:
-			-- branch = "main", -- default branch in case of git repo if different from master
-			generate_requires_npm = false, -- if stand-alone parser without npm dependencies
-			requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
-		},
-		filetype = "txt", -- if filetype does not match the parser name
-	}
+	-- parser_config.pdx = {
+	-- 	install_info = {
+	-- 		url = "~/Development/tree-sitter-paradox/", -- local path or git repo
+	-- 		files = { "src/parser.c" }, -- note that some parsers also require src/scanner.c or src/scanner.cc
+	-- 		-- optional entries:
+	-- 		-- branch = "main", -- default branch in case of git repo if different from master
+	-- 		generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+	-- 		requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+	-- 	},
+	-- 	filetype = "txt", -- if filetype does not match the parser name
+	-- }
 end
 
 return M

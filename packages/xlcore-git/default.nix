@@ -6,7 +6,7 @@ let
 in
   pkgs.buildDotnetModule rec {
     pname = "XIVLauncher";
-    version = rev;
+    version = "1.09";
 
     src = pkgs.fetchFromGitHub {
       owner = "goatcorp";

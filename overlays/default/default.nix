@@ -25,7 +25,7 @@ _prev: super: {
     extraLibraries = _pkgs: [ super.mangohud ];
   };
 
-  xivlauncher = super.xivlauncher.overrideAttrs (old: {
+  xivlauncher = self.packages.${super.system}.xlcore-git.overrideAttrs (old: {
     runtimeDeps = [ super.gamemode super.gamescope ] ++ old.runtimeDeps;
   });
 }

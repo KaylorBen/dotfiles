@@ -9,10 +9,10 @@ _prev: super: {
   # xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
 
-  # discord = super.discord.override {
-  #   withOpenASAR = true;
-  #   withVencord = true;
-  # };
+  discord = super.discord.override {
+    withOpenASAR = true;
+    withVencord = true;
+  };
 
   lutris = super.lutris.override {
     steamSupport = true;

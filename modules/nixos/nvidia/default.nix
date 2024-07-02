@@ -17,7 +17,7 @@ in {
       NIXOS_OZONE_WL = mkDefault "1";
     };
     hardware.nvidia = {
-      package = mkDefault config.boot.kernelPackages.nvidia_x11_production;
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = mkDefault true;
       open = mkDefault true;
       nvidiaSettings = mkDefault true;

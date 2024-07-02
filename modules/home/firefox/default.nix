@@ -91,17 +91,17 @@ in {
           };
           force = true;
         };
-        # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        #   auto-tab-discard
-        #   darkreader
-        #   dearrow
-        #   firenvim
-        #   return-youtube-dislikes
-        #   sponsorblock
-        #   stylus
-        #   ublock-origin
-        #   vimium
-        # ];
+        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          auto-tab-discard
+          darkreader
+          dearrow
+          firenvim
+          return-youtube-dislikes
+          sponsorblock
+          stylus
+          ublock-origin
+          vimium
+        ];
         settings = {
           "browser.startup.homepage" = "https://nixos.org";
           "browser.newtabpage.pinned" = [{

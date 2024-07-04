@@ -1,6 +1,6 @@
 { lib, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
-  Wotan.autoUpgrade.enablle = true;
+  Wotan.autoUpgrade.enable = true;
   environment.systemPackages = with pkgs; [ vim git ];
   Wotan.users.enable = true;
   programs.nix-ld.enable = true;

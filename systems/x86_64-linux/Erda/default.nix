@@ -3,10 +3,10 @@
   Wotan = {
     autoUpgrade.enable = true;
     users.enable = true;
-    gaming = {
-      enable = true;
-      starCitizen.enable = false;
-    };
+    # gaming = {
+    #   enable = true;
+    #   starCitizen.enable = false;
+    # };
     time.enable = true;
     sound.enable = true;
     desktop = { hyprland.enable = true; };

@@ -32,7 +32,20 @@
 
   };
 
-  environment.systemPackages = with pkgs; [ firefox git nil vim ];
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  environment.systemPackages = with pkgs; [
+    firefox
+    git
+    gh
+    imgcat
+    os-prober
+    pamixer
+    nil
+    vim
+    tmux
+    wget
+  ];
 
   security.polkit.enable = true;
 

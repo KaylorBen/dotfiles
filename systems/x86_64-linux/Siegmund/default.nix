@@ -6,7 +6,7 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    # gaming.starCitizen.enable = false;
+    gaming.starCitizen.enable = false;
     # flatpak = {
     #   enable = true;
     #   lutris = true;

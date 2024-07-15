@@ -6,7 +6,7 @@ let
   src = pkgs.fetchurl {
     url =
       "https://github.com/WowUp/WowUp/releases/download/v${version}/WowUp-${version}.AppImage";
-    sha256 = "Q1lrX87nQMu172D0QlCoFXbYr5WwXXUjPipL5tGn02k=";
+    sha256 = "M9KINzQGuRZnWWHen7eOHWftk2ETtbbn6T/GpG/nspU=";
   };
   extracted = pkgs.appimageTools.extractType2 { inherit pname version src; };
 in pkgs.appimageTools.wrapType2 {

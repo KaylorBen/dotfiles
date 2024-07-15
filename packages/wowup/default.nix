@@ -2,7 +2,7 @@
 
 let
   pname = "wowup";
-  version = "2.11.0";
+  version = "2.12.0";
   src = pkgs.fetchurl {
     url =
       "https://github.com/WowUp/WowUp/releases/download/v${version}/WowUp-${version}.AppImage";
@@ -14,9 +14,8 @@ in pkgs.appimageTools.wrapType2 {
 
   extraInstallCommands = ''
     mkdir -p $out/share/applications
-    # cp -r ${extracted}/usr/share/icons $out/share/
-    # cp ${extracted}/fflogs.desktop $out/share/applications/
-    # sed -i s@^Exec=.\*@Exec=$out/bin/${pname}-${version}@g $out/share/applications/fflogs.desktop
+    cp -r ${extracted}/usr/share/icons $out/share/
+    cp ${extracted}/wowup.desktop $out/share/applications/
   '';
 
   meta = with lib; {

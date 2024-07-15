@@ -122,10 +122,10 @@
       hybrid-sleep.enable = true;
     };
   };
-  # programs = {
-  #   nix-ld.enable = true;
-  #   fuse.userAllowOther = true;
-  #   kdeconnect.enable = true;
-  #   # fish.enable = true;
-  # };
+  programs = {
+    nix-ld.enable = true;
+    fuse.userAllowOther = true;
+    kdeconnect.enable = true;
+    fish.enable = true;
+  };
 }

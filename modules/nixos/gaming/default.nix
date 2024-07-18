@@ -74,6 +74,7 @@ in {
       moonlight-qt
       oxce-plus
       protontricks
+      starsector
       steam
       steamcmd
       steam-tui

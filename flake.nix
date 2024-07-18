@@ -91,7 +91,6 @@
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         hyprland.homeManagerModules.default
-        hypridle.homeManagerModules.hypridle
         impermanence.nixosModules.home-manager.impermanence
         nix-colors.homeManagerModules.default
         nix-index-database.hmModules.nix-index

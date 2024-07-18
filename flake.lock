@@ -1152,6 +1152,18 @@
         "type": "github"
       }
     },
+    "nixcord": {
+      "locked": {
+        "lastModified": 1721324073,
+        "narHash": "sha256-GSnhPy2uhrk/OOrO/vNvhhwvucVE9lqJBCM2JBjBlB0=",
+        "path": "/home/ben/Development/nixcord",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/ben/Development/nixcord",
+        "type": "path"
+      }
+    },
     "nixos-anywhere": {
       "inputs": {
         "disko": [
@@ -1511,6 +1523,7 @@
         "nix-index": "nix-index",
         "nix-index-database": "nix-index-database",
         "nix-minecraft": "nix-minecraft",
+        "nixcord": "nixcord",
         "nixos-anywhere": "nixos-anywhere",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",

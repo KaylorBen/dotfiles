@@ -70,6 +70,9 @@
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.url =
       "github:hyprwm/xdg-desktop-portal-hyprland";
+
+    # Testing
+    nixcord.url = "path:/home/ben/Development/nixcord";
   };
 
   outputs = { self, systems, ... }@inputs:
@@ -96,6 +99,7 @@
         nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
         sops-nix.homeManagerModules.sops
+        nixcord.homeManagerModules.nixcord
       ];
       systems.modules.nixos = with inputs; [
         ({ lib, ... }: { system.stateVersion = lib.Wotan.stateVersion.nixos; })

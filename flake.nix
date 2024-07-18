@@ -52,6 +52,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixcord.url = "github:kaylorben/nixcord/dev";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -70,9 +71,6 @@
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.url =
       "github:hyprwm/xdg-desktop-portal-hyprland";
-
-    # Testing
-    nixcord.url = "path:/home/ben/Development/nixcord";
   };
 
   outputs = { self, systems, ... }@inputs:

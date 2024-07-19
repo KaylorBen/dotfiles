@@ -74,12 +74,13 @@ in {
       moonlight-qt
       oxce-plus
       protontricks
+      starsector
       steam
       steamcmd
       steam-tui
       xivlauncher
       winetricks
-      wowup
+      wowup-cf
 
       (wineWowPackages.full.override {
         wineRelease = "staging";

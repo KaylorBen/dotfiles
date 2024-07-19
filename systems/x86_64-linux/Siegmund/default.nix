@@ -6,7 +6,6 @@
     users.enable = true;
     time.enable = true;
     gaming.enable = true;
-    gaming.starCitizen.enable = false;
     # flatpak = {
     #   enable = true;
     #   lutris = true;
@@ -122,10 +121,10 @@
       hybrid-sleep.enable = true;
     };
   };
-  # programs = {
-  #   nix-ld.enable = true;
-  #   fuse.userAllowOther = true;
-  #   kdeconnect.enable = true;
-  #   # fish.enable = true;
-  # };
+  programs = {
+    nix-ld.enable = true;
+    fuse.userAllowOther = true;
+    kdeconnect.enable = true;
+    fish.enable = true;
+  };
 }

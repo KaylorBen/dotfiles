@@ -52,6 +52,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixcord.url = "github:kaylorben/nixcord/dev";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -91,12 +92,12 @@
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         hyprland.homeManagerModules.default
-        hypridle.homeManagerModules.hypridle
         impermanence.nixosModules.home-manager.impermanence
         nix-colors.homeManagerModules.default
         nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
         sops-nix.homeManagerModules.sops
+        nixcord.homeManagerModules.nixcord
       ];
       systems.modules.nixos = with inputs; [
         ({ lib, ... }: { system.stateVersion = lib.Wotan.stateVersion.nixos; })

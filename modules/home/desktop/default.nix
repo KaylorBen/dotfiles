@@ -14,6 +14,7 @@ in {
         zathura.enable = true;
         cava.enable = true;
         spotify-player.enable = true;
+        nixcord.enable = true;
         mpv.enable = true;
         ssh.enable = true;
       };
@@ -54,7 +55,7 @@ in {
       packages = with pkgs; [
         audacity
         emulsion
-        discord
+        # discord
         freetube
         ffmpeg_5-full
         # kitty

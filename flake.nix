@@ -7,8 +7,8 @@
     devshell.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
-    # firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
-    # firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -52,7 +52,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixcord.url = "github:kaylorben/nixcord/dev";
+    nixcord.url = "github:kaylorben/nixcord";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";

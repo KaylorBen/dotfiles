@@ -27,7 +27,7 @@ in {
             closeOthers = true;
             forceOpen = false;
             keepIcons = false;
-            showFolderIcon = 2;
+            showFolderIcon = "moreThanOne";
           };
           betterGifAltText.enable = true;
           betterGifPicker.enable = true;
@@ -109,7 +109,7 @@ in {
           mutualGroupDMs.enable = true;
           newGuildSettings = {
             enable = true;
-            messages = 1;
+            messages = "only@Mentions";
             role = false;
           };
           noBlockedMessages.enable = true;
@@ -149,7 +149,7 @@ in {
           serverInfo.enable = true;
           serverListIndicators = {
             enable = true;
-            mode = 3;
+            mode = "both";
           };
           shikiCodeblocks.enable = true;
           showAllMessageButtons.enable = true;
@@ -157,7 +157,7 @@ in {
           showConnections.enable = true;
           showHiddenChannels = {
             enable = true;
-            showMode = 1;
+            showMode = "muted";
           };
           showHiddenThings.enable = true;
           showTimeoutDuration.enable = true;

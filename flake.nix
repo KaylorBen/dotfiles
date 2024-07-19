@@ -7,8 +7,8 @@
     devshell.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
-    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
-    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    # firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    # firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";

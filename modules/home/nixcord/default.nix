@@ -8,6 +8,7 @@ in {
   config = mkIf cfg.enable {
     programs.nixcord = {
       enable = true;
+      vesktop.enable = true;
       config = {
         themeLinks = [
           "https://raw.githubusercontent.com/rose-pine/discord/main/rose-pine.theme.css"
@@ -188,6 +189,13 @@ in {
           voiceMessages.enable = true;
           volumeBooster.enable = true;
           watchTogetherAdblock.enable = true;
+        };
+      };
+      vesktopConfig = {
+        plugins = {
+          webKeybinds.enable = true;
+          webRichPresence.enable = true;
+          webScreenShareFixes.enable = true;
         };
       };
     };

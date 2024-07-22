@@ -31,6 +31,7 @@ in {
           };
           betterGifAltText.enable = true;
           betterGifPicker.enable = true;
+          betterNotesBox.enable = true;
           # BetterNotesBox = {
           #   enable = true;
           #   hide = true;
@@ -123,7 +124,7 @@ in {
           noTypingAnimation.enable = true;
           noUnblockToJump.enable = true;
           normalizeMessageLinks.enable = true;
-          nSFWGateBypass.enable = true;
+          nsfwGateBypass.enable = true;
           openInApp.enable = true;
           overrideForumDefaults.enable = true;
           permissionFreeWill.enable = true;

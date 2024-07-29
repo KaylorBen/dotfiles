@@ -33,5 +33,7 @@ $env.NU_PLUGIN_DIRS = [
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 $env.XDG_CONFIG_HOME = "/home/ben/.config"
 
+$env.TERM = "xterm-256color"
+
 # mkdir ~/.cache/starship
 # starship init nu | sed "s/size -c/size/" | save ~/.cache/starship/init.nu -f

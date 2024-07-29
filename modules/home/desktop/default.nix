@@ -48,7 +48,7 @@ in {
         DONTNET_CLI_TELEMETRY_OPTOUT = "1";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
-        TERM = "alacritty";
+        TERM = "xterm-256color";
       };
       sessionPath = [ "${pkgs.dotnet-sdk}/bin" "~/.local/bin" "~/.cargo/bin" ];
       keyboard.layout = true;

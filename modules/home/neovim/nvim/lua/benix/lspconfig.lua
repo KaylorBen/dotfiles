@@ -130,6 +130,10 @@ function M.config()
 			require("neodev").setup({})
 		end
 
+    if server == "zls" then
+      vim.cmd("let g:zig_fmt_autosave = 0")
+    end
+
 		lspconfig[server].setup(opts)
 	end
 

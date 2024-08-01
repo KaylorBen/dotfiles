@@ -31,6 +31,7 @@ in {
           "lla" = "ls -la";
           "lt" = "lsd --tree";
           "lsa" = "ls -a";
+          "windows" = "quickemu --vm /home/ben/VMs/windows/windows-11.conf";
         };
       };
       carapace = {

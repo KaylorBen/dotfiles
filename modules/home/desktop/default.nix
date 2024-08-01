@@ -57,7 +57,6 @@ in {
         emulsion
         # discord
         freetube
-        ffmpeg_5-full
         # kitty
         libreoffice
         pavucontrol
@@ -68,7 +67,7 @@ in {
         youtube-tui
       ];
     };
-    services.easyeffects.enable = true;
+    # services.easyeffects.enable = true;
     fonts.fontconfig.enable = true;
   };
 }

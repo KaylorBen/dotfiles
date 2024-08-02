@@ -59,7 +59,7 @@ in {
         freetube
         # kitty
         libreoffice
-        pavucontrol
+        pwvucontrol
         pinta
         teamspeak_client
         todo

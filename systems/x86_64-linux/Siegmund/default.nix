@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
+  # This is a comment
   Wotan = {
     virt.enable = true;
     autoUpgrade.enable = true;

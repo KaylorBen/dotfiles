@@ -90,7 +90,6 @@ in {
           implicitRelationships.enable = true;
           invisibleChat.enable = true;
           keepCurrentChannel.enable = true;
-          maskedLinkPaste.enable = true;
           memberCount.enable = true;
           mentionAvatars.enable = true;
           messageClickActions = {
@@ -188,7 +187,7 @@ in {
           voiceDownload.enable = true;
           voiceMessages.enable = true;
           volumeBooster.enable = true;
-          watchTogetherAdblock.enable = true;
+          youtubeAdblock.enable = true;
         };
       };
       vesktopConfig = {

@@ -1,4 +1,4 @@
-{ config, osConfig ? { }, lib, pkgs, ... }:
+{ config, osConfig ? { }, lib, ... }:
 with lib;
 let cfg = config.Wotan.gaming;
 in {

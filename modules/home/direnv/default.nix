@@ -9,7 +9,7 @@ in {
   config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;
-      enableNushellIntegration = true;
+      enableNushellIntegration = config.programs.nushell.enable;
       nix-direnv.enable = true;
     };
   };

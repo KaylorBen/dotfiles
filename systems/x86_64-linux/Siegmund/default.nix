@@ -22,7 +22,7 @@
       enable = false;
       enableTPM = false;
     };
-    desktop.awesome.enable = true;
+    desktop.cosmic.enable = true;
   };
 
   # boot.plymouth.enable = true;

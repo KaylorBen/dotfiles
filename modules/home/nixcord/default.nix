@@ -6,6 +6,7 @@ in {
     mkEnableOption "Discord + Vencord config";
   imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   config = mkIf cfg.enable {
+    services.arrpc.enable = true;
     programs.nixcord = {
       enable = true;
       vesktop.enable = true;

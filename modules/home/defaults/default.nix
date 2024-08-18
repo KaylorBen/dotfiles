@@ -24,17 +24,17 @@ in {
         #   };
         # };
         # ".wallpaper"
-        ".cargo/config" = mkDefault {
-          text = ''
-            [alias]
-            gen = "generate"
-
-            [cargo-new]
-            name = "${config.programs.git.userName}"
-            email = "${config.programs.git.userEmail}"
-            vcs = "git"
-          '';
-        };
+        # ".cargo/config" = mkDefault {
+        #   text = ''
+        #     [alias]
+        #     gen = "generate"
+        #
+        #     [cargo-new]
+        #     name = "${config.programs.git.userName}"
+        #     email = "${config.programs.git.userEmail}"
+        #     vcs = "git"
+        #   '';
+        # };
       };
       stateVersion = Wotan.stateVersion.nixos;
     };

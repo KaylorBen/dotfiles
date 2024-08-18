@@ -12,7 +12,7 @@ in {
       enable = true;
       userName = "Benjamin Kaylor";
       userEmail = "blkaylor22@gmail.com";
-      delta.enable = true;
+  #     delta.enable = true;
       lfs = { enable = true; };
       ignores = [ "*~" "*.swp" ".DS_Store" ];
       extraConfig = {

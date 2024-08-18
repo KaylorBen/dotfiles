@@ -2,7 +2,7 @@
 with lib;
 let cfg = config.Wotan.desktop.awesome;
 in {
-  options.Wotan.desktop.awesome = { enable = mkEnableOption "awesome wm"; };
+  options.Wotan.desktop.awesome = { enable = mkEnableOption "Awesome WM"; };
 
   config = mkIf cfg.enable {
     programs.light.enable = true;

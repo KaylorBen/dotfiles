@@ -46,6 +46,8 @@
     nixos-anywhere.inputs.nixpkgs.follows = "nixpkgs";
     nixos-anywhere.inputs.treefmt-nix.follows = "treefmt-nix";
     nixos-anywhere.url = "github:nix-community/nixos-anywhere";
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators.inputs.nixlib.follows = "nixpkgs";
     nixos-generators.url = "github:nix-community/nixos-generators";
@@ -109,6 +111,7 @@
         nix-gaming.nixosModules.pipewireLowLatency
         nix-citizen.nixosModules.StarCitizen
         nix-minecraft.nixosModules.minecraft-servers
+        nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
       ];

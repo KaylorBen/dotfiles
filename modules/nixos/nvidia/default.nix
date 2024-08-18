@@ -24,5 +24,7 @@ in {
     };
     hardware.nvidia.powerManagement.enable = mkDefault true;
     # hardware.nvidia.open = mkDefault false;
+    # bool.kernelParams =  [ "nvidia_drm.fbdev=1" ];
+    # Might need this for cosmic
   };
 }

@@ -980,6 +980,25 @@
         "type": "github"
       }
     },
+    "neovim": {
+      "inputs": {
+        "nixCats": "nixCats",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1724043376,
+        "narHash": "sha256-mNWX/yjfLreAKVKS9xHHEr4QIxruVMGqUMmpC94rdqA=",
+        "owner": "kaylorben",
+        "repo": "neovim",
+        "rev": "097c1578c792d6b45728ab790d30bf609e6237c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kaylorben",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
     "nix-citizen": {
       "inputs": {
         "nix-gaming": [
@@ -1198,6 +1217,23 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "dir": "nix",
+        "lastModified": 1723880212,
+        "narHash": "sha256-lKH2/gYi0xFnHCPTcQdM9ftqE7FL/s0mOFYvxLWbZmQ=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "fc5f62a5f4fb3c48b308dac09db0487bd199d801",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nix",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixcord": {
       "locked": {
         "lastModified": 1722898915,
@@ -1366,16 +1402,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1723637854,
-        "narHash": "sha256-med8+5DSWa2UnOqtdICndjDAEjxr5D7zaIiK4pn0Q7c=",
-        "owner": "NixOS",
+        "lastModified": 1723985069,
+        "narHash": "sha256-MGtXhZHLZGKhtZT/MYXBJEuMkZB5DLYjY679EYNL7Es=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c3aa7b8938b17aebd2deecf7be0636000d62a2b9",
+        "rev": "ff1c2669bbb4d0dd9e62cc94f0968cfa652ceec1",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1480,6 +1516,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1723637854,
+        "narHash": "sha256-med8+5DSWa2UnOqtdICndjDAEjxr5D7zaIiK4pn0Q7c=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c3aa7b8938b17aebd2deecf7be0636000d62a2b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -1600,6 +1652,7 @@
         "hyprwm-contrib": "hyprwm-contrib",
         "impermanence": "impermanence",
         "lanzaboote": "lanzaboote",
+        "neovim": "neovim",
         "nix-citizen": "nix-citizen",
         "nix-colors": "nix-colors",
         "nix-eval-jobs": "nix-eval-jobs",
@@ -1614,7 +1667,7 @@
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "picom": "picom",
         "prismlauncher": "prismlauncher",

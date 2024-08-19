@@ -17,23 +17,25 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.nvim ];
     programs.neovim = {
-      enable = true;
-      extraPackages = with pkgs; [
-        lua-language-server
-        nil
-        marksman
-        gcc
-        gnumake
-      ];
-      # for copilot
-      withNodeJs = true;
-      # package = pkgs.neovim;
+      # enable = true;
+      # package = pkgs.nvim;
+      # extraPackages = with pkgs; [
+      #   lua-language-server
+      #   nil
+      #   marksman
+      #   gcc
+      #   gnumake
+      # ];
+      # # for copilot
+      # withNodeJs = true;
+      # # package = pkgs.neovim;
       defaultEditor = cfg.defaultEditor;
     };
-    home.file.".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-    };
+    # home.file.".config/nvim" = {
+    #   source = ./nvim;
+    #   recursive = true;
+    # };
   };
 }

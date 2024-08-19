@@ -23,6 +23,7 @@
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    neovim.url = "github:kaylorben/neovim";
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     nix-citizen.inputs.nixpkgs.follows = "nixpkgs";
@@ -89,6 +90,7 @@
       overlays = with inputs; [
         prismlauncher.overlays.default
         nix-minecraft.overlays.default
+        neovim.overlays.default
         # nixpkgs-wayland.overlays.default
       ];
       home.users."ben@Siegmund".modules = with inputs; [

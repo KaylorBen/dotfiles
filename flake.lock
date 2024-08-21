@@ -986,11 +986,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1724254515,
-        "narHash": "sha256-eQ6FRwDseIVPEajcAu7FHMeda7XZAie2NAFa46d4Eks=",
+        "lastModified": 1724260945,
+        "narHash": "sha256-s5CMMYELi9tbIGWudN7jLy38tJ2xnUGsc4aoQC3L8NM=",
         "owner": "kaylorben",
         "repo": "neovim",
-        "rev": "86f5ed49c593d5d65f86faa84de007d13da163d7",
+        "rev": "8310993e1b31272867d400961e00376ce378df21",
         "type": "github"
       },
       "original": {

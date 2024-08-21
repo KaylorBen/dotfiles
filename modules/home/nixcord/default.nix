@@ -10,6 +10,7 @@ in {
     programs.nixcord = {
       enable = true;
       vesktop.enable = true;
+      openASAR.enable = false;  # OpenASAR not working for current nixpkgs version of discord
       config = {
         themeLinks = [
           "https://raw.githubusercontent.com/rose-pine/discord/main/rose-pine.theme.css"

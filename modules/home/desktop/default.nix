@@ -63,7 +63,6 @@ in {
         pinta
         teamspeak_client
         todo
-        vesktop
         youtube-tui
       ];
     };

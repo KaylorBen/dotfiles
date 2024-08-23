@@ -1236,14 +1236,17 @@
     },
     "nixcord": {
       "locked": {
-        "lastModified": 1724345213,
-        "narHash": "sha256-RryJ9qJJQqHMU9STF43jYv9waTB1VL8fdAi1maoeao0=",
-        "path": "/home/ben/Development/nixcord",
-        "type": "path"
+        "lastModified": 1724394101,
+        "narHash": "sha256-zJr4TxJDb+Fd93QkqbontFoCoqh0/aV/TYtesgEbI18=",
+        "owner": "kaylorben",
+        "repo": "nixcord",
+        "rev": "f8c171cfb49c1e259608b2c42f2b1f145dbfcc7a",
+        "type": "github"
       },
       "original": {
-        "path": "/home/ben/Development/nixcord",
-        "type": "path"
+        "owner": "kaylorben",
+        "repo": "nixcord",
+        "type": "github"
       }
     },
     "nixos-anywhere": {

@@ -4,6 +4,7 @@ let cfg = config.Wotan.programs.nixcord;
 in {
   options.Wotan.programs.nixcord.enable =
     mkEnableOption "Discord + Vencord config";
+
   imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   config = mkIf cfg.enable {
     services.arrpc.enable = true;
@@ -197,6 +198,22 @@ in {
           webRichPresence.enable = true;
           webScreenShareFixes.enable = true;
         };
+      };
+      extraConfig = {
+        plugins = {
+          betterActivities.enable = true;
+          blockKrisp.enable = true;
+          ignoreTerms.enable = true;
+          serverProfilesToolbox.enable = true;
+          voiceChatUtilities.enable = true;
+        };
+      };
+      userPlugins = {
+        betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
+        blockKrisp = "github:D3SOX/vc-blockKrisp/91964150e5ba42e45bf4bc514c2616abe7cdca53";
+        ignoreTerms = "github:D3SOX/vc-ignoreTerms/7e63e599e7f8918dda6b4ec4c2ea1a6f6e1879e2";
+        serverProfilesToolbox = "github:D3SOX/vc-serverProfilesToolbox/3178aed3dbf8f95dce439d2fa97bdd4d997bc2f3";
+        voiceChatUtilities = "github:D3SOX/vc-voiceChatUtilities/251a18a0e4afed197cebe6bfaac9b534c243d094";
       };
     };
   };

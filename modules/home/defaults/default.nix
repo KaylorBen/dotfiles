@@ -15,12 +15,17 @@ in {
         "/home/${username}"
       else
         "/root");
-      packages = with pkgs; [ rclone ripgrep ventoy ];
+      packages = with pkgs; [
+        rclone
+        ripgrep
+        ventoy
+        smassh
+      ];
       file = {
         # TODO: custom website fetch
         # ".face" = mkIf (config.snowfallorg.user.name == "ben") {
         #   source = builtins.fetchurl {
-        #     
+        #
         #   };
         # };
         # ".wallpaper"

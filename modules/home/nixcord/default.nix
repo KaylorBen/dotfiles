@@ -20,7 +20,6 @@ in {
         plugins = {
           alwaysTrust.enable = true;
           anonymiseFileNames.enable = true;
-          automodContext.enable = true;
           betterFolders = {
             enable = true;
             sidebar = true;
@@ -156,7 +155,6 @@ in {
           };
           shikiCodeblocks.enable = true;
           showAllMessageButtons.enable = true;
-          showAllRoles.enable = true;
           showConnections.enable = true;
           showHiddenChannels = {
             enable = true;

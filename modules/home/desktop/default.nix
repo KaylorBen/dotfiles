@@ -66,7 +66,7 @@ in {
         youtube-tui
       ];
     };
-    # services.easyeffects.enable = true;
+    services.easyeffects.enable = true;
     fonts.fontconfig.enable = true;
   };
 }

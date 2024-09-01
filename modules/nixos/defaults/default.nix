@@ -12,7 +12,6 @@ in {
     boot.initrd.systemd.enable = mkDefault (format != "iso");
     # GIT is needed for flakes
     environment.systemPackages = with pkgs; [
-      btop
       cbonsai
       comma
       cowsay

@@ -17,7 +17,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.vivid ];
+    home.packages = [
+      pkgs.vivid
+      pkgs.mpg123
+    ];
     home.file.".config/vivid/themes/rose-pine.yml".source = ./rose-pine.yml;
     programs = {
       nushell = {
@@ -32,6 +35,7 @@ in {
           "lt" = "lsd --tree";
           "lsa" = "ls -a";
           "windows" = "quickemu --vm /home/ben/VMs/windows/windows-11.conf";
+          "gensokyo" = "mpg123 https://stream.gensokyoradio.net/1/";
         };
       };
       carapace = {

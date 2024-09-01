@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let cfg = config.Wotan.programs.btop;
 in {
@@ -15,6 +15,7 @@ in {
     home.file.".config/btop/themes/rose-pine.theme".source = ./rose-pine.theme;
     programs.btop = {
       enable = true;
+      package = (pkgs.btop.override { cudaSupport = true; });
       settings = {
         color_theme = "rose-pine";
         truecolor = true;

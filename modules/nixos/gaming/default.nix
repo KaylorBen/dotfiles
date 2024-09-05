@@ -74,7 +74,7 @@ in {
       lutris
       mangohud
       moonlight-qt
-      oxce-plus
+      # oxce-plus
       protontricks
       starsector
       steam

@@ -8,7 +8,7 @@ in {
       type = with types; listOf attrs;
       default = [{
         name = "FiraMono Nerd Font";
-        package = pkgs.nerdfonts;
+        package = pkgs.fonts;
       }];
     };
   };

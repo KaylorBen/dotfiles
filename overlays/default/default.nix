@@ -9,6 +9,14 @@ _prev: super: {
   # xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
 
+  fonts = (super.nerdfonts.override {
+    fonts = [
+      "FantasqueSansMono"
+      "FiraCode"
+      "FiraMono"
+    ];
+  });
+
   lutris = super.lutris.override {
     steamSupport = true;
     extraPkgs = _pkgs: [

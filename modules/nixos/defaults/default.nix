@@ -38,7 +38,7 @@ in {
     fonts = {
       fontDir.decompressFonts = mkDefault true;
       enableDefaultPackages = true;
-      packages = with pkgs; [ fantasque-sans-mono fira-code nerdfonts ];
+      packages = [ pkgs.fonts ];
     };
 
     programs = {

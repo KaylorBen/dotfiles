@@ -1253,17 +1253,14 @@
     },
     "nixcord": {
       "locked": {
-        "lastModified": 1724998008,
-        "narHash": "sha256-smYddeVMcAIS3RcNV3R1Eiw5BTAfVL/g/DRQ0efeogU=",
-        "owner": "kaylorben",
-        "repo": "nixcord",
-        "rev": "a95d069c908ab9a5d1ddc8ad99da39f2997d39a6",
-        "type": "github"
+        "lastModified": 1725596888,
+        "narHash": "sha256-tGbjyP29DoDq2EsJhO/JuVSSCpfDV5YG9pwBCfBVToU=",
+        "path": "/home/ben/Development/nixcord",
+        "type": "path"
       },
       "original": {
-        "owner": "kaylorben",
-        "repo": "nixcord",
-        "type": "github"
+        "path": "/home/ben/Development/nixcord",
+        "type": "path"
       }
     },
     "nixos-anywhere": {

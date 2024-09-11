@@ -5,9 +5,9 @@ in {
   options.Wotan.virt.enable = mkEnableOption "Enable Virtualisation";
 
   config = mkIf cfg.enable {
-    # environment.systemPackages = [
-    #   pkgs.quickemu
-    # ];
+    environment.systemPackages = [
+      pkgs.quickemu
+    ];
     virtualisation = {
       libvirtd = {
         enable = mkDefault true;

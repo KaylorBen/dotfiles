@@ -55,6 +55,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-xivlauncher-rb.url = "github:drakon64/nixos-xivlauncher-rb";
     # nixcord.url = "path:/home/ben/Development/nixcord"; # Development
     nixcord.url = "github:kaylorben/nixcord";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";

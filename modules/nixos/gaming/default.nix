@@ -80,9 +80,14 @@ in {
       steam
       steamcmd
       steam-tui
-      xivlauncher
+      # xivlauncher
       winetricks
       wowup-cf
+
+      (xivlauncher-rb.override {
+        useGameMode = true;
+        nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
+      })
 
       (wineWowPackages.full.override {
         wineRelease = "staging";

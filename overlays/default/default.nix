@@ -1,4 +1,4 @@
-{ self, nix-citizen, hyprland, xdg-desktop-portal-hyprland, picom, ... }:
+{ self, nix-citizen, hyprland, xdg-desktop-portal-hyprland, picom, nixos-xivlauncher-rb, ... }:
 
 _prev: super: {
   inherit (self.packages.${super.system}) oxce-plus;
@@ -8,6 +8,7 @@ _prev: super: {
   # hyprland = hyprland.packages.${super.system}.hyprland;
   # xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
+  xivlauncher-rb = nixos-xivlauncher-rb.packages.${super.system}.default;
 
   fonts = (super.nerdfonts.override {
     fonts = [
@@ -27,8 +28,4 @@ _prev: super: {
     ];
     extraLibraries = _pkgs: [ super.mangohud ];
   };
-
-  xivlauncher = super.xivlauncher.overrideAttrs (old: {
-    runtimeDeps = [ super.gamemode super.gamescope ] ++ old.runtimeDeps;
-  });
 }

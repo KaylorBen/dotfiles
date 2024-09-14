@@ -10,7 +10,7 @@ in {
     programs.tmux = {
       sensibleOnTop = true;
       enable = true;
-      shortcut = "b";
+      shortcut = "Space";
       aggressiveResize = true;
       baseIndex = 1;
       newSession = true;
@@ -26,15 +26,6 @@ in {
           plugin = resurrect;
           extraConfig = "set -g @resurrect-strategy-nvim 'session'";
         }
-        # {
-        #   plugin = online-status;
-        #   extraConfig = ''
-        #     set -g status-right "Online: #{online_status} | %a %h-%d %H:%M "
-        #     set -g @online_icon "ok"
-        #     set -g @offline_icon "offline!"
-        #     set -g @route_to_ping "1.1.1.1"
-        #   '';
-        # }
         pain-control
         battery
         {
@@ -92,7 +83,7 @@ in {
         }
       ];
       extraConfig = ''
-        bind-key a send-prefix
+        bind-key C-Space send-prefix
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
         bind c new-window -c "#{pane_current_path}"

@@ -5,7 +5,10 @@
     autoUpgrade.enable = true;
     users.enable = true;
     time.enable = true;
-    gaming.enable = true;
+    gaming = {
+      enable = true;
+      starCitizen.enable = false;
+    };
     # flatpak = {
     #   enable = true;
     #   lutris = true;
@@ -70,11 +73,11 @@
     # dbus.enable = true;
     openssh.enable = true;
     printing.enable = true;
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
+    # avahi = {
+    #   enable = true;
+    #   nssmdns4 = true;
+    #   openFirewall = true;
+    # };
   };
 
   users.users.ben.packages = with pkgs; [ ani-cli jdk prismlauncher nil xclip ];

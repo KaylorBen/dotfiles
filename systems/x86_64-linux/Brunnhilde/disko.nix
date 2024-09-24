@@ -1,4 +1,4 @@
-{ disks ? [ "/dev/nvme0n1" ], secretFile ? "/tmp/secret.key", lib, ... }: {
+{ disks ? [ "/dev/nvme0n1" ], ... }: {
   disk = {
     main = {
       type = "disk";

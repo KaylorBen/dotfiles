@@ -3,8 +3,6 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
-    devshell.url = "github:numtide/devshell";
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +26,6 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
     nix-citizen.inputs.nixpkgs.follows = "nixpkgs";
     nix-citizen.inputs.treefmt-nix.follows = "treefmt-nix";
-    nix-colors.url = "github:misterio77/nix-colors";
     nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
     nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
     nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
@@ -63,12 +60,8 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
-    prismlauncher.inputs.nixpkgs.follows = "nixpkgs";
-    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     snowfall-lib.url = "github:snowfallorg/lib/dev";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    sops-nix.url = "github:Mic92/sops-nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -89,7 +82,6 @@
       src = ./.;
       snowfall.namespace = "Wotan";
       overlays = with inputs; [
-        prismlauncher.overlays.default
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
@@ -97,10 +89,8 @@
       home.users."ben@Siegmund".modules = with inputs; [
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
-        nix-colors.homeManagerModules.default
         nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
-        sops-nix.homeManagerModules.sops
         nixcord.homeManagerModules.nixcord
       ];
       systems.modules.nixos = with inputs; [
@@ -116,7 +106,6 @@
         nix-minecraft.nixosModules.minecraft-servers
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
-        sops-nix.nixosModules.sops
       ];
       channels-config = { allowUnfree = true; };
     } // {

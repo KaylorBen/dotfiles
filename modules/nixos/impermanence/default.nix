@@ -41,15 +41,11 @@ in {
           (dir "/etc/NetworkManager/system-connections" "root" "root"
             "u=rwx,g=,o=")
           "/var/lib/flatpak"
-          "/var/lib/libvirt"
-          "/var/lib/pipewire"
           (dir "/var/lib/alsa" "root" "root" "u=rwx,g=rx,o=rx")
 
           (dir "/var/db/sudo" "root" "root" "u=rwx,g=,o=")
-          (dir "/etc/secureboot" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/fwupd" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/ssh/authorized_keys.d" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/var/lib/colord" "colord" "colord" "u=rwx,g=rx,o=rx")
           (dir "/etc/nix" "root" "root" "u=rwx,g=rx,o=rx")
         ];
         files = [
@@ -100,7 +96,6 @@ in {
             { directory = ".steam"; }
             ".config/obs-studio"
             ".config/discord"
-            ".config/VencordDesktop"
             ".mozilla"
           ];
         };

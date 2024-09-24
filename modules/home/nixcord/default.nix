@@ -115,7 +115,6 @@ in {
             role = false;
           };
           noBlockedMessages.enable = true;
-          noDefaultHangStatus.enable = true;
           noDevtoolsWarning.enable = true;
           noF1.enable = true;
           noMosaic.enable = true;
@@ -170,7 +169,6 @@ in {
           startupTimings.enable = true;
           streamerModeOnStream.enable = true;
           themeAttributes.enable = true;
-          timeBarAllActivities.enable = true;
           translate.enable = true;
           typingIndicator.enable = true;
           typingTweaks.enable = true;

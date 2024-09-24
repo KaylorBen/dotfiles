@@ -20,17 +20,17 @@ in {
         plugins = {
           alwaysTrust.enable = true;
           anonymiseFileNames.enable = true;
-          betterFolders = {
-            enable = true;
-            sidebar = true;
-            sidebarAnim = false;
-            closeAllFolders = true;
-            closeAllHomeButton = true;
-            closeOthers = true;
-            forceOpen = false;
-            keepIcons = false;
-            showFolderIcon = "moreThanOne";
-          };
+          # betterFolders = {
+          #   enable = true;
+          #   sidebar = true;
+          #   sidebarAnim = false;
+          #   closeAllFolders = true;
+          #   closeAllHomeButton = true;
+          #   closeOthers = true;
+          #   forceOpen = false;
+          #   keepIcons = false;
+          #   showFolderIcon = "moreThanOne";
+          # };
           betterGifAltText.enable = true;
           betterGifPicker.enable = true;
           betterNotesBox.enable = true;

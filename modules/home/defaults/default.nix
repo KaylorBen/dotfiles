@@ -3,7 +3,9 @@ with lib;
 let inherit (pkgs.stdenv) isDarwin;
 in {
   config = {
-    programs.yazi.enable = true;
+    programs = {
+      yazi.enable = true;
+    };
     nix.settings = { experimental-features = [ "nix-command" "flakes" ]; };
     home = {
       keyboard = mkIf isDarwin { layout = true; };

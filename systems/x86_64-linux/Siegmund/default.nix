@@ -29,6 +29,7 @@
   };
 
   # boot.plymouth.enable = true;
+  boot.kernel.sysctl = { "net.ipv4.tcp_mtu_probing" = 1; };
 
   networking = {
     networkmanager.enable = true;

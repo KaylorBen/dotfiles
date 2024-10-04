@@ -59,6 +59,7 @@ in {
           customRPC = {
             enable = false; # TODO
           };
+          customIdle.enable = true;
           dearrow.enable = true;
           decor.enable = true;
           disableCallIdle.enable = true;
@@ -78,6 +79,7 @@ in {
           forceOwnerCrown.enable = true;
           friendInvites.enable = true;
           friendsSince.enable = true;
+          fullSearchContext.enable = true;
           gameActivityToggle.enable = true;
           gifPaste.enable = true;
           greetStickerPicker.enable = true;
@@ -144,7 +146,6 @@ in {
           revealAllSpoilers.enable = true;
           reverseImageSearch.enable = true;
           roleColorEverywhere.enable = true;
-          searchReply.enable = true;
           summaries.enable = true;
           sendTimestamps.enable = true;
           serverInfo.enable = true;

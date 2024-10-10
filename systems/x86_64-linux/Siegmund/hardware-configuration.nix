@@ -40,6 +40,7 @@
   # powerManagement.cpuFreqGovernor = "performance";
 
   services = {
+    thermald.enable = true;
     # blueman.enable = true;
     # fwupd.enable = true;
     # hardware.openrgb = {

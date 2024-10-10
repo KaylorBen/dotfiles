@@ -59,7 +59,6 @@ in {
           customRPC = {
             enable = false; # TODO
           };
-          customIdle.enable = true;
           dearrow.enable = true;
           decor.enable = true;
           disableCallIdle.enable = true;

@@ -50,16 +50,12 @@
     # udev.packages = with pkgs; [ liquidctl ];
   };
 
-  # hardware = {
-  #   bluetooth = {
-  #     enable = true;
-  #     settings.general.enable = "Source,Sink,Media,Socket";
-  #   };
-  #   openrazer = {
-  #     enable = false;
-  #     users = [ config.users.users.ben.name ];
-  #   };
-  # };
+  hardware = {
+    openrazer = {
+      enable = false;
+      users = [ config.users.users.ben.name ];
+    };
+  };
   networking = {
     hostName = "Siegmund";
     hostId = "ffcb235e";

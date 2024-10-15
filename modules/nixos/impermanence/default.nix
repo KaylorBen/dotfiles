@@ -1,9 +1,22 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
 let
   cfg = config.Wotan.impermanence;
-  dir = directory: user: group: mode: { inherit directory user group mode; };
-in {
+  dir = directory: user: group: mode: {
+    inherit
+      directory
+      user
+      group
+      mode
+      ;
+  };
+in
+{
   options.Wotan.impermanence = {
     enable = mkEnableOption "impermanence";
     rollbackCommand = mkOption {
@@ -38,8 +51,7 @@ in {
           (dir "/var/lib/bluetooth" "root" "root" "u=rwx,g=,o=")
           (dir "/var/lib/nixos" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
-          (dir "/etc/NetworkManager/system-connections" "root" "root"
-            "u=rwx,g=,o=")
+          (dir "/etc/NetworkManager/system-connections" "root" "root" "u=rwx,g=,o=")
           "/var/lib/flatpak"
           (dir "/var/lib/alsa" "root" "root" "u=rwx,g=rx,o=rx")
 

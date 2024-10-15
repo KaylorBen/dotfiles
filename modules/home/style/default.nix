@@ -1,7 +1,15 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.styles;
-in {
+let
+  cfg = config.Wotan.styles;
+in
+{
   options.Wotan.styles = {
     enable = mkEnableOption {
       default = true;

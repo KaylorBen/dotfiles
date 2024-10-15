@@ -1,9 +1,15 @@
-{ config, lib, inputs, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.nixcord;
-in {
-  options.Wotan.programs.nixcord.enable =
-    mkEnableOption "Discord + Vencord config";
+let
+  cfg = config.Wotan.programs.nixcord;
+in
+{
+  options.Wotan.programs.nixcord.enable = mkEnableOption "Discord + Vencord config";
 
   imports = [ inputs.nixcord.homeManagerModules.nixcord ];
   config = mkIf cfg.enable {

@@ -1,6 +1,13 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.Wotan.desktop.hyprland;
-in {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.Wotan.desktop.hyprland;
+in
+{
   options.Wotan.desktop.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     extraAutoStart = lib.mkOption {
@@ -29,7 +36,9 @@ in {
       enable = true;
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
-      xwayland = { enable = true; };
+      xwayland = {
+        enable = true;
+      };
     };
   };
 }

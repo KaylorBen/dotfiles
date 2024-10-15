@@ -1,9 +1,10 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.programs.cava;
-in {
-  options.Wotan.programs.cava.enable =
-    mkEnableOption "Sound visualizer in terminal";
+let
+  cfg = config.Wotan.programs.cava;
+in
+{
+  options.Wotan.programs.cava.enable = mkEnableOption "Sound visualizer in terminal";
 
   config = mkIf cfg.enable {
     programs.cava = {
@@ -24,4 +25,3 @@ in {
     };
   };
 }
-

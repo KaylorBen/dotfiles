@@ -1,9 +1,12 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.programs.direnv;
-in {
+let
+  cfg = config.Wotan.programs.direnv;
+in
+{
   options.Wotan.programs.direnv.enable =
-    mkEnableOption "A Shell Extension that Manages Your Environment" // {
+    mkEnableOption "A Shell Extension that Manages Your Environment"
+    // {
       default = true;
     };
   config = mkIf cfg.enable {

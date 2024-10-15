@@ -1,4 +1,12 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  inputs,
+  ...
+}:
+{
   # imports = with inputs; [ 
   #   (modulesPath + "/installer/scan/not-detected.nix")
   #   nixos-hardware.nixosModules.common-cpu-intel
@@ -20,12 +28,18 @@
       ];
       kernelModules = [ ];
     };
-    binfmt.emulatedSystems =
-      [ "aarch64-linux" "riscv32-linux" "riscv64-linux" "x86_64-windows" ];
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "riscv32-linux"
+      "riscv64-linux"
+      "x86_64-windows"
+    ];
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-  services = { fwupd.enable = true; };
+  services = {
+    fwupd.enable = true;
+  };
   networking = {
     hostName = "Tester";
     hostId = "7c40a3b7";
@@ -51,6 +65,5 @@
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

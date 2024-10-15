@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.MyNextGPUWillNotBeNvidia;
-in {
+let
+  cfg = config.Wotan.MyNextGPUWillNotBeNvidia;
+in
+{
   options.Wotan.MyNextGPUWillNotBeNvidia = mkEnableOption "Fix nvidia nonsense";
 
   config = mkIf cfg {

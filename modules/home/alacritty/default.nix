@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.alacritty;
-in {
-  options.Wotan.programs.alacritty.enable =
-    mkEnableOption "Alacritty Terminal Emulator";
+let
+  cfg = config.Wotan.programs.alacritty;
+in
+{
+  options.Wotan.programs.alacritty.enable = mkEnableOption "Alacritty Terminal Emulator";
 
   config = mkIf cfg.enable {
     programs.alacritty = {

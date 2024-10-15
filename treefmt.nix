@@ -14,7 +14,6 @@ _: {
     #   };
     #   statix.enable = true;
     #   rustfmt.enable = true;
-    shellcheck.enable = true;
   };
   # settings.formatter = {
   #   deadnix.excludes = [ "npins/default.nix" ];

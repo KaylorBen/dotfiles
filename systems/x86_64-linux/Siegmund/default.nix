@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     virt.enable = true;
@@ -29,7 +30,9 @@
   };
 
   # boot.plymouth.enable = true;
-  boot.kernel.sysctl = { "net.ipv4.tcp_mtu_probing" = 1; };
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_mtu_probing" = 1;
+  };
 
   networking = {
     networkmanager.enable = true;
@@ -81,7 +84,13 @@
     # };
   };
 
-  users.users.ben.packages = with pkgs; [ ani-cli jdk prismlauncher nil xclip ];
+  users.users.ben.packages = with pkgs; [
+    ani-cli
+    jdk
+    prismlauncher
+    nil
+    xclip
+  ];
 
   snowfallorg.users.ben.home.config = {
     # home.persistence."/.FinalFantasyXIV" = {

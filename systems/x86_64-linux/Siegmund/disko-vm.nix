@@ -1,4 +1,9 @@
-{ disks ? [ "disk/by/label/nixos" ], secretFile ? "/secret.key", ... }: {
+{
+  disks ? [ "disk/by/label/nixos" ],
+  secretFile ? "/secret.key",
+  ...
+}:
+{
   disk.vm = {
     type = "disk";
     device = "/dev/${builtins.getElemAt 0 disks}";
@@ -72,4 +77,3 @@
     };
   };
 }
-

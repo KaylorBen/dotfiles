@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.btop;
-in {
+let
+  cfg = config.Wotan.programs.btop;
+in
+{
   options.Wotan.programs.btop = {
     enable = mkOption {
       type = types.bool;

@@ -1,8 +1,15 @@
 # Enables system upgrades using system.autoUpgrade
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.autoUpgrade;
-in {
+let
+  cfg = config.Wotan.autoUpgrade;
+in
+{
   options.Wotan.autoUpgrade = {
     enable = mkOption {
       type = types.bool;
@@ -10,20 +17,21 @@ in {
       description = "Enable autoupgrades";
     };
     operation = mkOption {
-      type = types.enum [ "switch" "boot" ];
+      type = types.enum [
+        "switch"
+        "boot"
+      ];
       default = "switch";
     };
     dates = mkOption {
       type = types.str;
       default = "daily";
     };
-    allowReboot =
-      mkEnableOption "Allow rebooting for kernel, module or initrd updates";
+    allowReboot = mkEnableOption "Allow rebooting for kernel, module or initrd updates";
     randomizedDelaySec = mkOption {
       type = types.str;
       default = "1h";
-      description = mdDoc
-        "Randomized delay for upgrades format must me {manpage}`systemd.time(7)`";
+      description = mdDoc "Randomized delay for upgrades format must me {manpage}`systemd.time(7)`";
     };
     persistent = mkOption {
       type = types.bool;

@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.sound;
-in {
+let
+  cfg = config.Wotan.sound;
+in
+{
   options.Wotan.sound = {
     enable = mkEnableOption "Enable sound";
     lowLatency = mkOption {
@@ -32,4 +34,3 @@ in {
     };
   };
 }
-

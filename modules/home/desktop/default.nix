@@ -1,7 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.home-profiles.desktop;
-in {
+let
+  cfg = config.Wotan.home-profiles.desktop;
+in
+{
   options.Wotan.home-profiles.desktop = {
     enable = mkEnableOption "Enable desktop defaults";
   };
@@ -35,12 +42,9 @@ in {
 
     # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
     xdg.configFile = {
-      "gtk-4.0/gtk.css".source =
-        "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-      "gtk-3.0/assets".source =
-        "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/assets";
-      "gtk-3.0/gtk.css".source =
-        "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-3.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/assets";
+      "gtk-3.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     };
 
     home = {
@@ -50,7 +54,11 @@ in {
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
         TERM = "xterm-256color";
       };
-      sessionPath = [ "${pkgs.dotnet-sdk}/bin" "~/.local/bin" "~/.cargo/bin" ];
+      sessionPath = [
+        "${pkgs.dotnet-sdk}/bin"
+        "~/.local/bin"
+        "~/.cargo/bin"
+      ];
       keyboard.layout = true;
       packages = with pkgs; [
         audacity

@@ -1,11 +1,12 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.programs.starship;
-in {
-  options.Wotan.programs.starship.enable =
-    mkEnableOption "Terminal theming application" // {
-      default = true;
-    };
+let
+  cfg = config.Wotan.programs.starship;
+in
+{
+  options.Wotan.programs.starship.enable = mkEnableOption "Terminal theming application" // {
+    default = true;
+  };
   config = mkIf cfg.enable {
     programs.starship = {
       enable = true;
@@ -46,4 +47,3 @@ in {
     home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
   };
 }
-

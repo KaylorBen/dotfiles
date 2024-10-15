@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.laptop;
-in {
+let
+  cfg = config.Wotan.laptop;
+in
+{
   options.Wotan.laptop.enable = mkEnableOption "Laptop";
 
   config = mkIf cfg.enable {

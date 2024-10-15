@@ -1,4 +1,10 @@
-{ pkgs, gaps_out, gaps_in, ... }: {
+{
+  pkgs,
+  gaps_out,
+  gaps_in,
+  ...
+}:
+{
   bind = [
     "$mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
     "$mainMod SHIFT, Return, exec, alacritty --class='termfloat'"
@@ -16,9 +22,7 @@
     "$mainMod, B, togglegroup"
     "$mainMod, Tab, changegroupactive, f"
     # Gap adjustment
-    "$mainMod SHIFT, G,exec,hyprctl --batch 'keyword general:gaps_out ${
-      builtins.toString gaps_out
-    };keyword general:gaps_in ${builtins.toString gaps_in}'"
+    "$mainMod SHIFT, G,exec,hyprctl --batch 'keyword general:gaps_out ${builtins.toString gaps_out};keyword general:gaps_in ${builtins.toString gaps_in}'"
     "$mainMod , G,exec,hyprctl --batch 'keyword general:gaps_out 0;keyword general:gaps_in 0'"
     # Move focus with mainMod + arrow keys
     "$mainMod, H, movefocus, l"

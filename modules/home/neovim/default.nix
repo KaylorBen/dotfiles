@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.neovim;
-in {
+let
+  cfg = config.Wotan.programs.neovim;
+in
+{
   options.Wotan.programs.neovim = {
     enable = mkOption {
       type = types.bool;

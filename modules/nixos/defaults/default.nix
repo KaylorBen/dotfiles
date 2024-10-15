@@ -1,7 +1,16 @@
-{ config, inputs, lib, pkgs, format, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  format,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.defaults;
-in {
+let
+  cfg = config.Wotan.defaults;
+in
+{
   options.Wotan.defaults.enable = mkOption {
     type = types.bool;
     default = true;
@@ -87,8 +96,16 @@ in {
     nix = {
       # package = pkgs.nixFlakes;
       settings = {
-        experimental-features = [ "nix-command" "flakes" ];
-        trusted-users = [ "builder" "root" "@wheel" "ben" ];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        trusted-users = [
+          "builder"
+          "root"
+          "@wheel"
+          "ben"
+        ];
       };
       gc = {
         automatic = mkDefault true;
@@ -96,6 +113,9 @@ in {
       };
     };
 
-    boot.supportedFilesystems = [ "ntfs" "btrfs" ];
+    boot.supportedFilesystems = [
+      "ntfs"
+      "btrfs"
+    ];
   };
 }

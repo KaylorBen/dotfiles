@@ -1,7 +1,15 @@
-{ config, lib, osConfig, pkgs, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.desktop.awesome;
-in {
+let
+  cfg = config.Wotan.desktop.awesome;
+in
+{
   options.Wotan.desktop.awesome = {
     enable = mkOption {
       type = types.bool;
@@ -29,6 +37,11 @@ in {
       };
     };
 
-    home.packages = with pkgs; [ xorg.libxcb pamixer pa_applet xclip ];
+    home.packages = with pkgs; [
+      xorg.libxcb
+      pamixer
+      pa_applet
+      xclip
+    ];
   };
 }

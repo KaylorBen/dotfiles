@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.programs.aria2;
-in {
+let
+  cfg = config.Wotan.programs.aria2;
+in
+{
   options.Wotan.programs.aria2.enable = mkEnableOption "Aria2 downloader" // {
     default = true;
   };
@@ -52,4 +54,3 @@ in {
     };
   };
 }
-

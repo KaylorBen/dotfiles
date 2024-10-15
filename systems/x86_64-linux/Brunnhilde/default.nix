@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     virt.enable = true;
@@ -21,7 +22,9 @@
       enableTPM = false;
       # enableSecureBoot = true;
     };
-    desktop = { hyprland.enable = true; };
+    desktop = {
+      hyprland.enable = true;
+    };
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -81,7 +84,11 @@
     blueman.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ firefox git nil ];
+  environment.systemPackages = with pkgs; [
+    firefox
+    git
+    nil
+  ];
 
   security.polkit.enable = true;
 

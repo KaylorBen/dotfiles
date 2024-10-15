@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.nushell;
-in {
+let
+  cfg = config.Wotan.programs.nushell;
+in
+{
   options.Wotan.programs.nushell = {
     enable = mkOption {
       type = types.bool;

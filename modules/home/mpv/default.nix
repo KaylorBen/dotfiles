@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.mpv;
-in {
-  options.Wotan.programs.mpv.enable =
-    mkEnableOption "General-purpose media player, fork of MPlayer and mplayer2";
+let
+  cfg = config.Wotan.programs.mpv;
+in
+{
+  options.Wotan.programs.mpv.enable = mkEnableOption "General-purpose media player, fork of MPlayer and mplayer2";
   config = mkIf cfg.enable {
     programs.mpv = {
       enable = true;

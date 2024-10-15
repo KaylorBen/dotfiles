@@ -1,6 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.zfs;
+let
+  cfg = config.Wotan.zfs;
   isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
   zfsCompatibleKernelPackages = lib.filterAttrs (
     name: kernelPackages:
@@ -16,7 +22,8 @@ let cfg = config.Wotan.zfs;
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
-in {
+in
+{
   options.Wotan.zfs.enable = mkEnableOption "Enable ZFS specifics";
   config = mkIf cfg.enable {
     services.zfs = {

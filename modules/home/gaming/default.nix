@@ -1,7 +1,14 @@
-{ config, osConfig ? { }, lib, ... }:
+{
+  config,
+  osConfig ? { },
+  lib,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.gaming;
-in {
+let
+  cfg = config.Wotan.gaming;
+in
+{
   options.Wotan.gaming = {
     enable = mkEnableOption "Gaming" // {
       default = osConfig.Wotan.gaming.enable or false;

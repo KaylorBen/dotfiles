@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.bat;
-in {
-  options.Wotan.programs.bat.enable =
-    mkEnableOption "A cat(1) clone with wings." // {
-      default = true;
-    };
+let
+  cfg = config.Wotan.programs.bat;
+in
+{
+  options.Wotan.programs.bat.enable = mkEnableOption "A cat(1) clone with wings." // {
+    default = true;
+  };
 
   config = mkIf cfg.enable {
     programs.bat = {
@@ -18,8 +24,9 @@ in {
         batwatch
         prettybat
       ];
-      config = { theme = "base16"; };
+      config = {
+        theme = "base16";
+      };
     };
   };
 }
-

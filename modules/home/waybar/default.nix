@@ -1,8 +1,18 @@
-{ config, lib, pkgs, osConfig, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
 with lib;
-let cfg = config.Wotan.programs.waybar;
-in {
-  options.Wotan.programs.waybar = { enable = mkEnableOption "Waybar"; };
+let
+  cfg = config.Wotan.programs.waybar;
+in
+{
+  options.Wotan.programs.waybar = {
+    enable = mkEnableOption "Waybar";
+  };
 
   config = mkIf cfg.enable {
     programs.waybar = {
@@ -17,7 +27,10 @@ in {
           layer = "top";
           position = "top";
           modules-left = [ "hyprland/workspaces" ];
-          modules-center = [ "clock" "idle_inhibitor" ];
+          modules-center = [
+            "clock"
+            "idle_inhibitor"
+          ];
           modules-right = [
             "mpris"
             "tray"
@@ -33,8 +46,7 @@ in {
             format-ethernet = "{ifname} ";
             format-disconnected = "";
             max-length = 50;
-            on-click =
-              "${pkgs.alacritty}/bin/alacritty -e ${pkgs.networkmanager}/bin/nmtui";
+            on-click = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.networkmanager}/bin/nmtui";
           };
           idle_inhibitor = {
             format = "{icon}";
@@ -50,10 +62,7 @@ in {
             spacing = 5;
           };
           clock = {
-            timezone = if builtins.hasAttr "time" osConfig then
-              osConfig.time.timeZone
-            else
-              "America/Mountain";
+            timezone = if builtins.hasAttr "time" osConfig then osConfig.time.timeZone else "America/Mountain";
             format = "{:%H:%M:%S} ";
             tooltip-format = ''
               <big>{:%Y %b}</big>
@@ -81,7 +90,13 @@ in {
             format-plugged = "{capacity}% ";
             format-alt = "{time} {icon}";
             format-full = "";
-            format-icons = [ "" "" "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
           pulseaudio = {
             format = "{volume}% {icon}";
@@ -98,7 +113,11 @@ in {
               phone = "";
               portable = "";
               car = "";
-              default = [ "" "" "" ];
+              default = [
+                ""
+                ""
+                ""
+              ];
             };
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
@@ -112,7 +131,10 @@ in {
               vlc = "";
               default = "";
             };
-            ignored-players = [ "firefox" "chromium" ];
+            ignored-players = [
+              "firefox"
+              "chromium"
+            ];
             status-icons = {
               playing = "";
               paused = "";
@@ -122,25 +144,27 @@ in {
           };
           "custom/power" = {
             format = "";
-            on-click = let
-              power-menu = pkgs.writeScript "wofi-powermenu.sh" ''
-                entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⭮ Firmware \n⏻ Shutdown"
-                selected=$(echo -e $entries|${pkgs.wofi}/bin/wofi --width 250 --height 210 --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
+            on-click =
+              let
+                power-menu = pkgs.writeScript "wofi-powermenu.sh" ''
+                  entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⭮ Firmware \n⏻ Shutdown"
+                  selected=$(echo -e $entries|${pkgs.wofi}/bin/wofi --width 250 --height 210 --dmenu --cache-file /dev/null | awk '{print tolower($2)}')
 
-                case $selected in
-                  logout)
-                    hyprctl dispatch exit;;
-                  suspend)
-                    exec systemctl suspend;;
-                  reboot)
-                    exec systemctl reboot;;
-                  firmware)
-                    exec systemctl reboot --firmware-setup;;
-                  shutdown)
-                    exec systemctl poweroff -i;;
-                esac
-              '';
-            in "${power-menu}";
+                  case $selected in
+                    logout)
+                      hyprctl dispatch exit;;
+                    suspend)
+                      exec systemctl suspend;;
+                    reboot)
+                      exec systemctl reboot;;
+                    firmware)
+                      exec systemctl reboot --firmware-setup;;
+                    shutdown)
+                      exec systemctl poweroff -i;;
+                  esac
+                '';
+              in
+              "${power-menu}";
           };
         };
       };
@@ -231,4 +255,3 @@ in {
     };
   };
 }
-

@@ -1,4 +1,13 @@
-{ disks ? [ "nvme0n1" "nvme1n1" "sda" "sdb" ], ... }: {
+{
+  disks ? [
+    "nvme0n1"
+    "nvme1n1"
+    "sda"
+    "sdb"
+  ],
+  ...
+}:
+{
   disk = {
     main = {
       type = "disk";

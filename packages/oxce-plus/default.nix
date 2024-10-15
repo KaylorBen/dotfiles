@@ -1,4 +1,8 @@
-{ pkgs, lib, stdenv }:
+{
+  pkgs,
+  lib,
+  stdenv,
+}:
 stdenv.mkDerivation {
   pname = "oxce-plus";
   version = "7.12";

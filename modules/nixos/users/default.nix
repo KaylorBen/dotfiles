@@ -1,13 +1,18 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.users;
-in {
+let
+  cfg = config.Wotan.users;
+in
+{
   options.Wotan.users.enable = mkOption {
     type = types.bool;
     default = true;
     description = "Nebula users defaults - Opt out";
   };
-  imports = [ ./perUser/root ./perUser/builder ];
+  imports = [
+    ./perUser/root
+    ./perUser/builder
+  ];
 
   config = mkIf cfg.enable {
     # systemd.sysusers.enable = true;

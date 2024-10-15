@@ -1,7 +1,9 @@
 { config, lib, ... }:
 with lib;
-let cfg = config.Wotan.time;
-in {
+let
+  cfg = config.Wotan.time;
+in
+{
   options.Wotan.time = {
     enable = mkOption {
       type = types.bool;

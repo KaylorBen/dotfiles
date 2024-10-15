@@ -65,18 +65,17 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    xdg-desktop-portal-hyprland.url =
-      "github:hyprwm/xdg-desktop-portal-hyprland";
+    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
-  outputs = { self, systems, ... }@inputs:
+  outputs =
+    { self, systems, ... }@inputs:
     let
-      forAllSystems = f:
-        inputs.nixpkgs.lib.genAttrs (import systems)
-        (system: f inputs.nixpkgs.legacyPackages.${system});
-      treefmtEval = forAllSystems
-        (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in inputs.snowfall-lib.mkFlake {
+      forAllSystems =
+        f: inputs.nixpkgs.lib.genAttrs (import systems) (system: f inputs.nixpkgs.legacyPackages.${system});
+      treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in
+    inputs.snowfall-lib.mkFlake {
       inherit inputs;
 
       src = ./.;
@@ -94,7 +93,12 @@
         nixcord.homeManagerModules.nixcord
       ];
       systems.modules.nixos = with inputs; [
-        ({ lib, ... }: { system.stateVersion = lib.Wotan.stateVersion.nixos; })
+        (
+          { lib, ... }:
+          {
+            system.stateVersion = lib.Wotan.stateVersion.nixos;
+          }
+        )
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
@@ -107,13 +111,14 @@
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
       ];
-      channels-config = { allowUnfree = true; };
-    } // {
-      formatter =
-        forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      channels-config = {
+        allowUnfree = true;
+      };
+    }
+    // {
+      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = forAllSystems (pkgs: {
         formatting = treefmtEval.${pkgs.system}.config.build.check self;
       });
     };
 }
-

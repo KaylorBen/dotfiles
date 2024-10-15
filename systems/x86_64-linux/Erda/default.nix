@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
     autoUpgrade.enable = true;
@@ -9,7 +10,9 @@
     # };
     time.enable = true;
     sound.enable = true;
-    desktop = { hyprland.enable = true; };
+    desktop = {
+      hyprland.enable = true;
+    };
   };
   boot.loader.systemd-boot.enable = lib.mkForce true;
   boot.loader.efi.canTouchEfiVariables = true;

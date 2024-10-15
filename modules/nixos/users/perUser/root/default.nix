@@ -1,4 +1,5 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   config = lib.mkIf config.Wotan.users.enable {
     # Define root
     snowfallorg.users.root.create = false;

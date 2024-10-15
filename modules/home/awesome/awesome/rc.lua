@@ -268,9 +268,9 @@ root.buttons(gears.table.join(
 
 -- Resize gaps on the fly
 useless_gaps_resize = function(amt)
-  local t =awful.screen.focused.selected_tag
-  t.gap = t.gap + tonumber(amt)
-  awful.layout.arrange(awful.screen.focused)
+	local t = awful.screen.focused.selected_tag
+	t.gap = t.gap + tonumber(amt)
+	awful.layout.arrange(awful.screen.focused)
 end
 
 -- {{{ Key bindings
@@ -380,13 +380,13 @@ globalkeys = gears.table.join(
 		menubar.show()
 	end, { description = "show the menubar", group = "launcher" }),
 
-   -- useless gaps change
-  awful.key({ modkey, "Control" }, "+", function ()
-    useless_gaps_resize(1)
-  end, {description = "increment useless gaps", group = "tag"}),
-  awful.key({ modkey, "Control" }, "-", function ()
-    useless_gaps_resize(-1)
-  end, {description = "decrement useless gaps", group = "tag"})
+	-- useless gaps change
+	awful.key({ modkey, "Control" }, "+", function()
+		useless_gaps_resize(1)
+	end, { description = "increment useless gaps", group = "tag" }),
+	awful.key({ modkey, "Control" }, "-", function()
+		useless_gaps_resize(-1)
+	end, { description = "decrement useless gaps", group = "tag" })
 )
 
 clientkeys = gears.table.join(

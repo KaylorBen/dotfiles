@@ -52,7 +52,7 @@
 
   hardware = {
     openrazer = {
-      enable = false;
+      enable = true;
       users = [ config.users.users.ben.name ];
     };
   };

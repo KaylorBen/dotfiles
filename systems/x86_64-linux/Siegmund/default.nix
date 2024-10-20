@@ -8,7 +8,7 @@
     time.enable = true;
     gaming = {
       enable = true;
-      starCitizen.enable = false;
+      # starCitizen.enable = false;
     };
     # flatpak = {
     #   enable = true;

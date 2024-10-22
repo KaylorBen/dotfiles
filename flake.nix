@@ -64,6 +64,7 @@
     snowfall-lib.url = "github:snowfallorg/lib/dev";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
+    stylix.url = "github:danth/stylix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -112,6 +113,7 @@
         nix-minecraft.nixosModules.minecraft-servers
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
+        stylix.nixosModules.stylix
       ];
       channels-config = {
         allowUnfree = true;

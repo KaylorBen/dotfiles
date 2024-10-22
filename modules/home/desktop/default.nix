@@ -28,24 +28,24 @@ in
     };
     services.syncthing.enable = true;
 
-    gtk = {
-      font.size = mkDefault 12;
-      iconTheme = {
-        name = "rose-pine";
-        package = pkgs.rose-pine-icon-theme;
-      };
-      theme = {
-        name = "rose-pine";
-        package = pkgs.rose-pine-gtk-theme;
-      };
-    };
+    # gtk = {
+    #   font.size = mkDefault 12;
+    #   iconTheme = {
+    #     name = "rose-pine";
+    #     package = pkgs.rose-pine-icon-theme;
+    #   };
+    #   theme = {
+    #     name = "rose-pine";
+    #     package = pkgs.rose-pine-gtk-theme;
+    #   };
+    # };
 
     # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-    xdg.configFile = {
-      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-      "gtk-3.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/assets";
-      "gtk-3.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    };
+    # xdg.configFile = {
+    #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    #   "gtk-3.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-3.0/assets";
+    #   "gtk-3.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    # };
 
     home = {
       sessionVariables = {

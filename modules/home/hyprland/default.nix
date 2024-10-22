@@ -69,6 +69,13 @@ in
           }
         ];
       };
+      hyprpaper = {
+        enable = true;
+        package = inputs.hyprpaper.package.${pkgs.system}.hyprpaper;
+        settings = {
+          preload = [ "${config.stylix.image}" ];
+        };
+      };
     };
 
     home.packages = with pkgs; [
@@ -180,8 +187,8 @@ in
               gaps_out = mkDefault 8;
               border_size = mkDefault 3;
               layout = "dwindle"; # master | dwindle
-              "col.active_border" = "0xffebbcba";
-              "col.inactive_border" = "0xff6e6a86";
+              # "col.active_border" = "0xffebbcba";
+              # "col.inactive_border" = "0xff6e6a86";
             };
             dwindle = {
               force_split = 0;

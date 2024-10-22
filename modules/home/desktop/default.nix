@@ -67,7 +67,7 @@ in
         freetube
         # kitty
         libreoffice
-        pwvucontrol
+        pavucontrol
         pinta
         teamspeak_client
         todo

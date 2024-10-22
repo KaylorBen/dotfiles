@@ -18,6 +18,8 @@
     hypridle.url = "github:hyprwm/hypridle";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:vaxerski/Hyprland";
+    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";

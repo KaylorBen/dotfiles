@@ -19,6 +19,9 @@ in
   get-secret-file = file: fs.get-file "secrets/${file}";
   get-ssh-key-files = user: fs.get-files (lib.snowfall.fs.get-file "keys/${user}/ssh");
 
+  wallpaper1 = .;
+  wallpaper2 = ;
+
   stateVersion = {
     nixos = "23.11";
     # This should be the same as nixos

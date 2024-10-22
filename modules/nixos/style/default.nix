@@ -25,22 +25,27 @@ in
     stylix = {
       enable = true;
 
-      image = ./../awesome/awesome/themes/rose-pine/wallpaper_primary.jpg;
+      image = ./../../home/awesome/awesome/themes/rose-pine/wallpaper_primary.jpg;
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.style}.yaml";
+
+      cursor = {
+        package = pkgs.rose-pine-cursor;
+        name = "BreezeX-RosePine-Linux";
+      };
 
       fonts = {
         serif = {
           package = pkgs.fonts;
-          name = "FiraCode";
+          name = "FiraCode Nerd Font";
         };
         sansSerif = {
           package = pkgs.fonts;
-          name = "FantasqueSansMono";
+          name = "FiraCode Nerd Font";
         };
         monospace = {
           package = pkgs.fonts;
-          name = "FiraMono";
+          name = "FiraCode Nerd Font";
         };
 
         emoji = {

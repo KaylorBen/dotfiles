@@ -24,9 +24,9 @@ in
         batwatch
         prettybat
       ];
-      config = {
-        theme = "base16";
-      };
+      # config = {
+      #   theme = "base16";
+      # };
     };
   };
 }

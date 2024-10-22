@@ -19,12 +19,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file.".config/btop/themes/rose-pine.theme".source = ./rose-pine.theme;
+    # home.file.".config/btop/themes/rose-pine.theme".source = ./rose-pine.theme;
     programs.btop = {
       enable = true;
       package = (pkgs.btop.override { cudaSupport = true; });
       settings = {
-        color_theme = "rose-pine";
+        # color_theme = "rose-pine";
         truecolor = true;
         vim_keys = true;
       };

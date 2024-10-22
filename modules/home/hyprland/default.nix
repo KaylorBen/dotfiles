@@ -33,10 +33,14 @@ in
       default = [];
     };
     splitBinds = mkEnableOption "split keybindings instead";
+    bar = mkOption {
+      type = types.str;
+      default = "waybar";
+    };
   };
 
   config = mkIf cfg.enable {
-    Wotan.programs.waybar.enable = true;
+    Wotan.programs.${cfg.bar}.enable = true;
 
     # programs.rofi = {
     #   enable = true;
@@ -71,12 +75,23 @@ in
       };
       hyprpaper = {
         enable = true;
-        package = inputs.hyprpaper.package.${pkgs.system}.hyprpaper;
+        package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings = {
-          preload = [ "${config.stylix.image}" ];
+          preload = [
+            "${lib.Wotan.wallpaper1}"
+            "${lib.Wotan.wallpaper2}"
+          ];
+          wallpaper = [
+            "DP-1, ${lib.Wotan.wallpaper1}"
+            "HDMI-A-1, ${lib.Wotan.wallpaper2}"
+          ];
+          splash = true;
+
+          ipc = "off";
         };
       };
     };
+    stylix.targets.hyprpaper.enable = lib.mkForce false;
 
     home.packages = with pkgs; [
       rofi-wayland
@@ -173,6 +188,9 @@ in
             xwayland = {
               force_zero_scaling = true;
             };
+
+            render.explicit_sync = 0;
+
             misc = {
               disable_autoreload = true;
               disable_hyprland_logo = true;
@@ -189,6 +207,7 @@ in
               layout = "dwindle"; # master | dwindle
               # "col.active_border" = "0xffebbcba";
               # "col.inactive_border" = "0xff6e6a86";
+              allow_tearing = true;
             };
             dwindle = {
               force_split = 0;
@@ -275,6 +294,8 @@ in
               "noinitialfocus,class:^(xwaylandvideobridge)$"
               "opacity 0.0 override 0.0 override,class:ffxiv_dx11.exe"
               "noblur, class:ffxiv_dx11.exe"
+              "fullscreen, class:ffxiv_dx11.exe"
+              "workspace 11, class:ffxiv_dx11.exe"
             ];
           }
           // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {

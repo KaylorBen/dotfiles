@@ -28,6 +28,7 @@ in
     security.pam.services.swaylock.text = ''
       auth include login
     '';
+
     # xdg.portal = {
     #  enable = true;
     #  extraPortals = with pkgs; [xdg-desktop-portal-hyprland];

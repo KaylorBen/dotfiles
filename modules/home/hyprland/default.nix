@@ -32,11 +32,12 @@ in
       type = with types; listOf package;
       default = [];
     };
-    hyprsplitBinds = mkEnableOption "hyprsplit keybindings instead";
+    splitBinds = mkEnableOption "split keybindings instead";
   };
 
   config = mkIf cfg.enable {
     Wotan.programs.waybar.enable = true;
+
     # programs.rofi = {
     #   enable = true;
     #   package = pkgs.wofi;
@@ -128,6 +129,7 @@ in
         self = config.wayland.windowManager.hyprland;
       in {
         enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland = {
           enable = true;
         };
@@ -182,7 +184,6 @@ in
               "col.inactive_border" = "0xff6e6a86";
             };
             dwindle = {
-              no_gaps_when_only = false;
               force_split = 0;
               special_scale_factor = 0.8;
               split_width_multiplier = 1.0;
@@ -269,7 +270,7 @@ in
               "noblur, class:ffxiv_dx11.exe"
             ];
           }
-          // (import (if cfg.hyprsplitBinds then ./split-window-binds.nix else ./keybinds.nix) {
+          // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {
             inherit lib;
             inherit pkgs;
             inherit (self.settings.general) gaps_in;

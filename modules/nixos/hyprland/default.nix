@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -32,10 +33,25 @@ in
     #  extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
     #  xdgOpenUsePortal = true;
     # };
+
+    nix.settings =
+      let
+        substituters = [
+          "https://hyprland.cachix.org"
+        ];
+        trusted-public-keys = [
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        ];
+      in {
+          inherit substituters trusted-public-keys;
+          trusted-substituters = substituters;
+          extra-trusted-public-keys = trusted-public-keys;
+        };
+
     programs.hyprland = {
       enable = true;
-      package = pkgs.hyprland;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
       xwayland = {
         enable = true;
       };

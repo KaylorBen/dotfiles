@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
@@ -112,9 +112,9 @@
           ];
         };
         plugins = with pkgs.hyprlandPlugins; [
-          hyprsplit
+          inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
-        hyprsplitBinds = true;
+        splitBinds = true;
       };
     };
   };

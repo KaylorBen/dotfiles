@@ -62,6 +62,8 @@
     picom.url = "github:yshui/picom/next";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     snowfall-lib.url = "github:snowfallorg/lib/dev";
+    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
+    split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
     xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";

@@ -79,6 +79,12 @@
 
     "$mainMod,slash,split-workspace,previous"
 
+    # Monitor bindings
+    "$mainMod CTRL, j, split-changemonitor, -1"
+    "$mainMod CTRL, k, split-changemonitor, +1"
+
+    "$mainMod, o, split-cycleworkspaces, +1"
+
     "$mainMod SHIFT,X,exec,swaylock -f"
     "$mainMod, bracketleft,exec,grimblast --notify --cursor  copysave area ~/Pictures/$(date '+%Y-%m-%d'T'%H:%M:%S_no_watermark').png"
     "$mainMod, bracketright,exec, grimblast --notify --cursor  copy area"

@@ -39,11 +39,6 @@ in
   config = mkIf cfg.enable {
     nix-citizen.starCitizen = {
       inherit (cfg.starCitizen) enable;
-      preCommands = ''
-        export DXVK_HUD=compiler;
-        export MANGO_HUD=1;
-      '';
-      helperScript.enable = true;
     };
     zramSwap.enable = cfg.zram.enable;
     zramSwap.memoryPercent = cfg.zram.memoryPercent;

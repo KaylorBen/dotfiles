@@ -26,7 +26,9 @@
       enable = false;
       enableTPM = false;
     };
-    desktop.awesome.enable = true;
+    desktop.hyprland = {
+      enable = true;
+    };
   };
 
   # boot.plymouth.enable = true;
@@ -101,6 +103,19 @@
     Wotan = {
       home-profiles.desktop.enable = true;
       programs.git.enable = true;
+      desktop.hyprland = {
+        enable = true;
+        extraSettings = {
+          monitor = [
+            "DP-1, preferred, 0x0, 1"
+            "HDMI-A-1, preferred, 3840x0, 1, transform, 3"
+          ];
+        };
+        plugins = with pkgs.hyprlandPlugins; [
+          hyprsplit
+        ];
+        hyprsplitBinds = true;
+      };
     };
   };
   home-manager = {

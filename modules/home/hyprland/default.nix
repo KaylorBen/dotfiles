@@ -28,6 +28,11 @@ in
       default =
         if builtins.hasAttr "Wotan" osConfig then osConfig.Wotan.desktop.hyprland.extraSettings else { };
     };
+    plugins = mkOption {
+      type = with types; listOf package;
+      default = [];
+    };
+    hyprsplitBinds = mkEnableOption "hyprsplit keybindings instead";
   };
 
   config = mkIf cfg.enable {
@@ -121,15 +126,14 @@ in
     wayland.windowManager.hyprland =
       let
         self = config.wayland.windowManager.hyprland;
-      in
-      {
+      in {
         enable = true;
         xwayland = {
           enable = true;
         };
         systemd.enable = true;
-        settings =
-          {
+        plugins = cfg.plugins;
+        settings = {
             source = "${./keybinds.conf}";
             "$mainMod" = "super";
             input = {
@@ -265,7 +269,7 @@ in
               "noblur, class:ffxiv_dx11.exe"
             ];
           }
-          // (import ./keybinds.nix {
+          // (import (if cfg.hyprsplitBinds then ./split-window-binds.nix else ./keybinds.nix) {
             inherit lib;
             inherit pkgs;
             inherit (self.settings.general) gaps_in;

@@ -94,6 +94,7 @@
         nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
         nixcord.homeManagerModules.nixcord
+        stylix.homeManagerModules.stylix
       ];
       systems.modules.nixos = with inputs; [
         (

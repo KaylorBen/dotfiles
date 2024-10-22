@@ -24,6 +24,8 @@ in
     stylix = {
       enable = true;
 
+      image = ./../../home/awesome/awesome/themes/rose-pine/wallpaper_primary.jpg;
+
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.style}.yaml";
 
       fonts = {

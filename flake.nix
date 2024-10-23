@@ -3,6 +3,7 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
+    ags.url = "github:Aylur/ags";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
@@ -91,6 +92,7 @@
         # nixpkgs-wayland.overlays.default
       ];
       home.users."ben@Siegmund".modules = with inputs; [
+        ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
         nix-index-database.hmModules.nix-index

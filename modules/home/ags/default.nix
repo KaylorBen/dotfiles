@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 with lib;
@@ -13,15 +14,17 @@ in
     enable = mkEnableOption "Ags";
   };
 
+  imports = [ inputs.ags.homeManagerModules.default ];
+
   config = mkIf cfg.enable {
     programs.ags = {
       enable = true;
 
-      configDir = ./.;
+      # configDir = ./.;
 
-      extraPackages = with pkgs; [
-
-      ];
+      # extraPackages = with pkgs; [
+      #
+      # ];
     };
   };
 }

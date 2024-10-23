@@ -48,7 +48,6 @@ in
     # };
     home.file.".config/rofi/config.rasi".source = ./rose-pine.rasi;
     services = {
-      mako.enable = true;
       playerctld.enable = true;
       swayidle = {
         enable = true;
@@ -219,7 +218,7 @@ in
             };
             decoration = {
               active_opacity = 1.0;
-              inactive_opacity = 0.85;
+              inactive_opacity = 0.9;
               rounding = 10;
 
               blur = {
@@ -248,7 +247,6 @@ in
             };
             # No stylix or styling set up or wallpaper engine
             # exec-once = [
-            #   "mako &"
             #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
             #     tostring config.stylix.cursor.size
             #   }"

@@ -84,6 +84,7 @@
     #   nssmdns4 = true;
     #   openFirewall = true;
     # };
+    gvfs.enable = true;
   };
 
   users.users.ben.packages = with pkgs; [
@@ -115,6 +116,7 @@
           inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
         splitBinds = true;
+        bar = "ags";
       };
     };
   };

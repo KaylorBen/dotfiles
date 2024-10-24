@@ -87,7 +87,8 @@ in
             "DP-1, ${wallpaper1}"
             "HDMI-A-1, ${wallpaper2}"
           ];
-          splash = true;
+
+          splash = false;
 
           ipc = "off";
         };

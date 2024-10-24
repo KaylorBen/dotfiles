@@ -7,8 +7,8 @@ App.addIcons(`${App.configDir}/assets`)
 App.config({
   style: "./style.css",
   windows: [
-    Bar(0),
     Bar(1),
+    Bar(0),
     NotificationPopups(1),
     applauncher,
   ],

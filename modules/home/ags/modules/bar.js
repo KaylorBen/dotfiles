@@ -9,16 +9,16 @@ const date = Variable("", {
 
   const icons = [
     // secondary monitor
-    "SGE.png", // 1
-    "AST.png", // 2
-    "SCH.png", // 3
-    "WHM.png", // 4
-    "WAR.png", // 5
-    "PLD.png", // 6
-    "DRK.png", // 7
-    "GNB.png", // 8
-    "MNK.png", // 9
-    "RDM.png", // 10
+    "SGE", // 1
+    "AST", // 2
+    "SCH", // 3
+    "WHM", // 4
+    "WAR", // 5
+    "PLD", // 6
+    "DRK", // 7
+    "GNB", // 8
+    "MNK", // 9
+    "RDM", // 10
 
     // primary monitor
     "PCT", // 11

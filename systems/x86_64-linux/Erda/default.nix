@@ -55,10 +55,6 @@
   snowfallorg.users.ben.home.config = {
     Wotan = {
       home-profiles.desktop.enable = true;
-      styles = {
-        enable = true;
-        style = "rose-pine";
-      };
     };
   };
   home-manager = {

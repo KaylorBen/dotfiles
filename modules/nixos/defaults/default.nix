@@ -48,7 +48,6 @@ in
     fonts = {
       fontDir.decompressFonts = mkDefault true;
       enableDefaultPackages = true;
-      packages = [ pkgs.fonts ];
     };
 
     programs = {

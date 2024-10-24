@@ -11,11 +11,6 @@ in
       default = true;
       description = "Enable low latency mode";
     };
-    support32Bit = mkEnableOption {
-      types = types.bool;
-      default = true;
-      description = "Enable 32 bit support";
-    };
   };
 
   config = mkIf cfg.enable {

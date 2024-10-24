@@ -19,7 +19,7 @@ in
       settings = {
         logo = {
           source = "${lib.Wotan.get-asset "ffxiv.png"}";
-          padding.top = 2;
+          padding.top = 1;
           padding.right = 1;
         };
         display = {

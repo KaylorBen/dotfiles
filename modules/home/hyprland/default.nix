@@ -77,7 +77,7 @@ in
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings = let
           wallpaper1 = lib.Wotan.get-asset "ff14ew-venat-art.jpg";
-          wallpaper2 = lib.Wotan.get-asset "ff14ew-the-dark-throne-artwork.jpg";
+          wallpaper2 = lib.Wotan.get-asset "ew_wallpaper.jpg";
         in {
           preload = [
             "${wallpaper1}"

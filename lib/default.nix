@@ -17,10 +17,9 @@ in
       map (host: lib.Wotan.info.hostInfo host flake) (builtins.attrNames flake.nixosConfigurations);
   };
   get-secret-file = file: fs.get-file "secrets/${file}";
-  get-ssh-key-files = user: fs.get-files (lib.snowfall.fs.get-file "keys/${user}/ssh");
+  get-ssh-key-files = user: fs.get-files (fs.get-file "keys/${user}/ssh");
 
-  wallpaper1 = ./wallpaper_primary.jpg;
-  wallpaper2 = ./wallpaper_secondary.jpg;
+  get-asset = asset: fs.get-file "assets/${asset}";
 
   stateVersion = {
     nixos = "23.11";

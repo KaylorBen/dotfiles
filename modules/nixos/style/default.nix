@@ -25,7 +25,9 @@ in
     stylix = {
       enable = true;
 
-      image = ./../../home/awesome/awesome/themes/rose-pine/wallpaper_primary.jpg;
+      image = ../../../assets/ff14ew-venat-art.jpg;
+
+      # polarity = "dark";
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.style}.yaml";
 

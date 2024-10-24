@@ -26,6 +26,7 @@
       enable = false;
       enableTPM = false;
     };
+    styles.style = "tokyo-night-dark";
     desktop.hyprland = {
       enable = true;
     };

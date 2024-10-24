@@ -36,7 +36,7 @@ in
         intelBusId = "PCI:0:1:0";
       };
     };
-    hardware.nvidia.powerManagement.enable = mkDefault true;
+    hardware.nvidia.powerManagement.enable = mkDefault false;
     # hardware.nvidia.open = mkDefault false;
     # bool.kernelParams =  [ "nvidia_drm.fbdev=1" ];
     # Might need this for cosmic

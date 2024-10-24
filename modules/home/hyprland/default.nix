@@ -188,7 +188,7 @@ in
               force_zero_scaling = true;
             };
 
-            render.explicit_sync = 0;
+            # render.explicit_sync = 0;
 
             misc = {
               disable_autoreload = true;

@@ -28,7 +28,7 @@ in
     };
     services.syncthing.enable = true;
 
-    programs.kitten.enable = true;
+    programs.kitty.enable = true;
 
     # gtk = {
     #   font.size = mkDefault 12;

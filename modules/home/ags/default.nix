@@ -8,7 +8,7 @@ with lib;
 let
   cfg = config.Wotan.programs.ags;
 in
-  {
+{
   options.Wotan.programs.ags = {
     enable = mkEnableOption "Ags";
   };

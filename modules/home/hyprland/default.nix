@@ -75,14 +75,17 @@ in
       hyprpaper = {
         enable = true;
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
-        settings = {
+        settings = let
+          wallpaper1 = lib.Wotan.get-asset "ff14ew-venat-art.jpg";
+          wallpaper2 = lib.Wotan.get-asset "ff14ew-the-dark-throne-artwork.jpg";
+        in {
           preload = [
-            "${lib.Wotan.get-asset "ff14ew-venat-art.jpg"}"
-            "${lib.Wotan.get-asset "ff14ew-the-dark-throne-artwork.jpg"}"
+            "${wallpaper1}"
+            "${wallpaper2}"
           ];
           wallpaper = [
-            "DP-1, ${lib.Wotan.wallpaper1}"
-            "HDMI-A-1, ${lib.Wotan.wallpaper2}"
+            "DP-1, ${wallpaper1}"
+            "HDMI-A-1, ${wallpaper2}"
           ];
           splash = true;
 

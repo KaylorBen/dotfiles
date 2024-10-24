@@ -7,6 +7,7 @@ in
   options.Wotan.MyNextGPUWillNotBeNvidia = mkEnableOption "Fix nvidia nonsense";
 
   config = mkIf cfg {
+    boot.extraModprobeConfig = ''options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"'';
     services.xserver.videoDrivers = [ "nvidia" ];
     environment.sessionVariables = {
       A_DRIVER_NAME = mkDefault "nvidia";

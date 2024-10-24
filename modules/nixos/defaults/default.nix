@@ -45,10 +45,10 @@ in
     };
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev;
 
-    fonts = {
-      fontDir.decompressFonts = mkDefault true;
-      enableDefaultPackages = true;
-    };
+    # fonts = {
+    #   fontDir.decompressFonts = mkDefault true;
+    #   enableDefaultPackages = true;
+    # };
 
     programs = {
       nano.enable = false;

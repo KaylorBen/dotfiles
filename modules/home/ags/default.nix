@@ -19,7 +19,7 @@ in
     programs.ags = {
       enable = true;
 
-      # configDir = ./.;
+      configDir = ./.;
 
       # extraPackages = with pkgs; [
       #

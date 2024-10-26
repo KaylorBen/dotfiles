@@ -101,7 +101,10 @@ export const applauncher = Widget.Window({
     keymode: "exclusive",
     child: Widget.Box({
         children: [
-            //Widget.Icon("ffxiv"),
+            Widget.Icon({
+              icon: "ffxiv",
+              size: 400,
+            }),
             Applauncher({
                 width: 500,
                 height: 500,

@@ -298,6 +298,7 @@ in
               "noblur, class:ffxiv_dx11.exe"
               "fullscreen, class:ffxiv_dx11.exe"
               "workspace 11, class:ffxiv_dx11.exe"
+              "opacity 0.0 override 0.0 override, class:vesktop, initialTitle:^(*Popout)$,"
             ];
           }
           // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {

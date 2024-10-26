@@ -50,7 +50,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
         // to launch the first item on Enter
         on_accept: () => {
             // make sure we only consider visible (searched for) applications
-	    const results = applications.filter((item) => item.visible);
+            const results = applications.filter((item) => item.visible);
             if (results[0]) {
                 App.toggleWindow(WINDOW_NAME)
                 results[0].attribute.app.launch()
@@ -99,9 +99,14 @@ export const applauncher = Widget.Window({
     }),
     visible: false,
     keymode: "exclusive",
-    child: Applauncher({
-        width: 500,
-        height: 500,
-        spacing: 12,
-    }),
+    child: Widget.Box({
+        children: [
+            //Widget.Icon("ffxiv"),
+            Applauncher({
+                width: 500,
+                height: 500,
+                spacing: 12,
+            }),
+        ]
+    })
 })

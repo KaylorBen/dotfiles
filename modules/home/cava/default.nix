@@ -10,17 +10,17 @@ in
     programs.cava = {
       enable = true;
       settings = {
-        # color = {
-        #   background = "'#191724'";
-        #   gradient = 1;
-        #   gradient_count = 6;
-        #   gradient_color_1 = "'#31748f'";
-        #   gradient_color_2 = "'#9ccfd8'";
-        #   gradient_color_3 = "'#c4a7e7'";
-        #   gradient_color_4 = "'#ebbcba'";
-        #   gradient_color_5 = "'#f6c177'";
-        #   gradient_color_6 = "'#eb6f92'";
-        # };
+        color = {
+          background = "'#${config.lib.stylix.colors.base01}'";
+          gradient = 1;
+          gradient_count = 6;
+          gradient_color_1 = "'#${config.lib.stylix.colors.base08}'";
+          gradient_color_2 = "'#${config.lib.stylix.colors.base0B}'";
+          gradient_color_3 = "'#${config.lib.stylix.colors.base0A}'";
+          gradient_color_4 = "'#${config.lib.stylix.colors.base0D}'";
+          gradient_color_5 = "'#${config.lib.stylix.colors.base0E}'";
+          gradient_color_6 = "'#${config.lib.stylix.colors.base0C}'";
+        };
       };
     };
   };

@@ -16,7 +16,8 @@ button:active {
 }
 
 button:hover {
-    border-bottom: 5px solid @theme_fg_color;
+    border-width: 5px;
+    border-color: @theme_fg_color;
 }
 
 label {

@@ -5,13 +5,13 @@ import { applauncher } from "./modules/applauncher.js"
 App.addIcons(`${App.configDir}/assets`)
 
 App.config({
-  style: "./style.css",
-  windows: [
-    Bar(1),
-    Bar(0),
-    NotificationPopups(1),
-    applauncher,
-  ],
+    style: "./style.css",
+    windows: [
+        Bar(1),
+        Bar(0),
+        NotificationPopups(1),
+        applauncher,
+    ],
 })
 
 export { }

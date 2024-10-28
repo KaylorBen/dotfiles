@@ -10,7 +10,7 @@
     "$mainMod SHIFT, Return, exec, alacritty --class='termfloat'"
     "$mainMod SHIFT, Q, killactive"
     "$mainMod SHIFT, E, exit"
-    "$mainMod SHIFT, SPACE, togglefloating"
+    "$mainMod SHIFT, F, togglefloating"
     "$mainMod SHIFT, SPACE, centerwindow"
 
     "$mainMod, F, fullscreen"

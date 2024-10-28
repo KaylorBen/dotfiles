@@ -49,29 +49,29 @@ in
     home.file.".config/rofi/config.rasi".source = ./rose-pine.rasi;
     services = {
       playerctld.enable = true;
-      swayidle = {
-        enable = true;
-        events = [
-          {
-            event = "before-sleep";
-            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
-          }
-          {
-            event = "after-resume";
-            command = "${getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms on";
-          }
-          {
-            event = "lock";
-            command = "${pkgs.swaylock-effects}/bin/swaylock -f";
-          }
-        ];
-        timeouts = [
-          {
-            timeout = 300;
-            command = "${pkgs.systemd}/bin/loginctl lock-session";
-          }
-        ];
-      };
+      # swayidle = {
+      #   enable = true;
+      #   events = [
+      #     {
+      #       event = "before-sleep";
+      #       command = "${pkgs.swaylock-effects}/bin/swaylock -f";
+      #     }
+      #     {
+      #       event = "after-resume";
+      #       command = "${getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms on";
+      #     }
+      #     {
+      #       event = "lock";
+      #       command = "${pkgs.swaylock-effects}/bin/swaylock -f";
+      #     }
+      #   ];
+      #   timeouts = [
+      #     {
+      #       timeout = 300;
+      #       command = "${pkgs.systemd}/bin/loginctl lock-session";
+      #     }
+      #   ];
+      # };
       hyprpaper = {
         enable = true;
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;

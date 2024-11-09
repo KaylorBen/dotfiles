@@ -77,7 +77,7 @@
 
       xkb.layout = "us";
     };
-    # dbus.enable = true;
+    dbus.enable = true;
     openssh.enable = true;
     printing.enable = true;
     # avahi = {
@@ -137,6 +137,7 @@
     # nvtopPackages.full
     tmux
     wget
+    gnome-keyring
   ];
 
   virtualisation = {

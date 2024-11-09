@@ -5,6 +5,7 @@
   xdg-desktop-portal-hyprland,
   picom,
   nixos-xivlauncher-rb,
+  stable-nixpkgs,
   ...
 }:
 
@@ -20,6 +21,8 @@ _prev: super: {
   # xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
   picom = picom.defaultPackage.${super.system};
   xivlauncher-rb = nixos-xivlauncher-rb.packages.${super.system}.default;
+
+  _7zz = stable-nixpkgs.legacyPackages.${super.system}._7zz;
 
   fonts = (
     super.nerdfonts.override {

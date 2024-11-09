@@ -95,6 +95,7 @@ in
       };
     };
     stylix.targets.hyprpaper.enable = lib.mkForce false;
+    stylix.targets.hyprland.enable = lib.mkForce false;
 
     home.packages = with pkgs; [
       rofi-wayland
@@ -230,10 +231,6 @@ in
                 passes = 1;
                 new_optimizations = true;
               };
-              drop_shadow = true;
-              shadow_range = 4;
-              shadow_render_power = 3;
-              shadow_ignore_window = true;
 
               dim_inactive = false;
               dim_strength = 0.3;

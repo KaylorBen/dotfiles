@@ -63,6 +63,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
+    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     snowfall-lib.url = "github:snowfallorg/lib/dev";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";

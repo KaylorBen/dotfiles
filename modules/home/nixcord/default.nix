@@ -66,7 +66,7 @@ in
             enable = false; # TODO
           };
           dearrow.enable = true;
-          decor.enable = true;
+          # decor.enable = true;
           disableCallIdle.enable = true;
           dontRoundMyTimestamps.enable = true;
           emoteCloner.enable = true;

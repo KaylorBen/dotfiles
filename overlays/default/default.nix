@@ -22,7 +22,8 @@ _prev: super: {
   picom = picom.defaultPackage.${super.system};
   xivlauncher-rb = nixos-xivlauncher-rb.packages.${super.system}.default;
 
-  _7zz = stable-nixpkgs.legacyPackages.${super.system}._7zz;
+  # _7zz = stable-nixpkgs.legacyPackages.${super.system}._7zz;
+  cava = stable-nixpkgs.legacyPackages.${super.system}.cava;
 
   fonts = (
     super.nerdfonts.override {

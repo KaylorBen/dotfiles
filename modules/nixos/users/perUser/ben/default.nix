@@ -18,6 +18,7 @@
         "libvirtd"
         "podman"
         "pipewire"
+        "rslsync"
         "ssh"
         "tss"
         "video"

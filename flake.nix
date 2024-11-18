@@ -3,7 +3,7 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags/v1";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";

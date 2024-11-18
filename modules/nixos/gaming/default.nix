@@ -48,7 +48,14 @@ in
       remotePlay.openFirewall = true;
     };
 
+
     services = with pkgs; {
+      sunshine = {
+        enable = true;
+        openFirewall = true;
+        package = pkgs.sunshine.override {cudaSupport = true;};
+        capSysAdmin = true;
+      };
       xserver.modules = [ xorg.xf86inputjoystick ];
       udev.packages = [ game-devices-udev-rules ];
     };
@@ -109,6 +116,7 @@ in
       };
       steam-hardware.enable = true;
     };
+
 
     Wotan.sound.enable = true;
   };

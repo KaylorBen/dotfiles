@@ -86,6 +86,15 @@
     #   openFirewall = true;
     # };
     gvfs.enable = true;
+
+    resilio = {
+      enable = true;
+      deviceName = "Siegmund";
+      httpLogin = "thisis";
+      httpPass = "dumb";
+      httpListenPort = 9000;
+      enableWebUI = true;
+    };
   };
 
   users.users.ben.packages = with pkgs; [

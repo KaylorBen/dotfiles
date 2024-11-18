@@ -1,13 +1,30 @@
 # Ben's NixOS Flake
 
-<a href="https://nixos.wiki/wiki/Flakes" target="_blank">
-	<img alt="Nix Flakes Ready" src="https://img.shields.io/static/v1?logo=nixos&logoColor=d8dee9&label=Nix%20Flakes&labelColor=5e81ac&message=Ready&color=d8dee9&style=for-the-badge">
-</a>
-<a href="https://nixos.org" target="_blank">
-	<img alt="Linux Ready" src="https://img.shields.io/static/v1?logo=linux&logoColor=d8dee9&label=Linux&labelColor=5e81ac&message=Ready&color=d8dee9&style=for-the-badge">
-</a>
-<a href="https://github.com/snowfallorg/lib" target="_blank">
-	<img alt="Built With Snowfall" src="https://img.shields.io/static/v1?logoColor=d8dee9&label=Built%20With&labelColor=5e81ac&message=Snowfall&color=d8dee9&style=for-the-badge">
-</a>
+**Ode to NixOS**
 
-Unified config across multiple systems.
+In the land where packages don’t clash,
+NixOS rises, a system so brash.
+With a declarative mind, it configures with grace,
+Each line a promise, each change a safe space.
+
+No more dependency hell, no more fright,
+For Nix keeps all versions just right.
+Immutable, pristine, no drift to be found,
+What you declare is exactly what’s bound.
+
+The `/etc/nixos/configuration.nix` is key,
+Where you write your system, and set it all free.
+In this world of Nix, there’s no need to fear,
+Rollbacks are magic, and updates are clear.
+
+From DevOps to desktop, it stands tall,
+A reproducible world, that answers the call.
+With nixpkgs and flakes, it's future-proof too,
+A builder’s dream, a sysadmin’s view.
+
+So hail to Nix, where the builds are neat,
+Where your system's as pure as your code's heartbeat.
+No bloated packages, no surprises to dread—
+In NixOS, all is controlled, well-fed.
+
+**Long live NixOS, the declarative dream, where everything’s clean and the builds always gleam.**

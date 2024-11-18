@@ -15,11 +15,4 @@ _: {
     #   statix.enable = true;
     #   rustfmt.enable = true;
   };
-  # settings.formatter = {
-  #   deadnix.excludes = [ "npins/default.nix" ];
-  #   nixfmt.excludes = [ "npins/default.nix" ];
-  #   deno.excludes = [ "npins/default.nix" ];
-  #   statix.excludes = [ "npins/default.nix" ];
-  #   yamlfmt.excludes = [ "npins/sources.json" ];
-  # };
 }

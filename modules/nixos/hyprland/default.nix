@@ -43,11 +43,12 @@ in
         trusted-public-keys = [
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         ];
-      in {
-          inherit substituters trusted-public-keys;
-          trusted-substituters = substituters;
-          extra-trusted-public-keys = trusted-public-keys;
-        };
+      in
+      {
+        inherit substituters trusted-public-keys;
+        trusted-substituters = substituters;
+        extra-trusted-public-keys = trusted-public-keys;
+      };
 
     programs.hyprland = {
       enable = true;

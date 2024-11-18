@@ -17,7 +17,6 @@ in
     description = "Enable nebula base defaults";
   };
 
-
   config = mkIf cfg.enable {
     boot.initrd.systemd.enable = mkDefault (format != "iso");
     # GIT is needed for flakes

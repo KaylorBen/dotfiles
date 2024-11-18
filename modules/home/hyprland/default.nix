@@ -30,7 +30,7 @@ in
     };
     plugins = mkOption {
       type = with types; listOf package;
-      default = [];
+      default = [ ];
     };
     splitBinds = mkEnableOption "split keybindings instead";
     bar = mkOption {
@@ -75,23 +75,25 @@ in
       hyprpaper = {
         enable = true;
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
-        settings = let
-          wallpaper1 = lib.Wotan.get-asset "ff14ew-venat-art.jpg";
-          wallpaper2 = lib.Wotan.get-asset "ew_wallpaper.jpg";
-        in {
-          preload = [
-            "${wallpaper1}"
-            "${wallpaper2}"
-          ];
-          wallpaper = [
-            "DP-1, ${wallpaper1}"
-            "HDMI-A-1, ${wallpaper2}"
-          ];
+        settings =
+          let
+            wallpaper1 = lib.Wotan.get-asset "ff14ew-venat-art.jpg";
+            wallpaper2 = lib.Wotan.get-asset "ew_wallpaper.jpg";
+          in
+          {
+            preload = [
+              "${wallpaper1}"
+              "${wallpaper2}"
+            ];
+            wallpaper = [
+              "DP-1, ${wallpaper1}"
+              "HDMI-A-1, ${wallpaper2}"
+            ];
 
-          splash = false;
+            splash = false;
 
-          ipc = "off";
-        };
+            ipc = "off";
+          };
       };
     };
     stylix.targets.hyprpaper.enable = lib.mkForce false;
@@ -153,7 +155,8 @@ in
     wayland.windowManager.hyprland =
       let
         self = config.wayland.windowManager.hyprland;
-      in {
+      in
+      {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland = {
@@ -161,7 +164,8 @@ in
         };
         systemd.enable = true;
         plugins = cfg.plugins;
-        settings = {
+        settings =
+          {
             source = "${./keybinds.conf}";
             "$mainMod" = "super";
             input = {

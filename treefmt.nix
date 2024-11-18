@@ -3,7 +3,7 @@ _: {
   projectRootFile = "flake.nix";
   # Terraform formatter
   programs = {
-    nixfmt.enable = true;
+    nixfmt-rfc-style.enable = true;
     stylua.enable = true;
     yamlfmt.enable = true;
     #   deno.enable = true;

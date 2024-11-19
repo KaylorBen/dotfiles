@@ -251,7 +251,7 @@ in
               ];
             };
             # No stylix or styling set up or wallpaper engine
-            # exec-once = [
+            exec-once = [
             #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
             #     tostring config.stylix.cursor.size
             #   }"
@@ -259,7 +259,9 @@ in
             #   "border_color &"
             #   "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
             #   "${wallpaper-engine} &"
-            # ] ++ cfg.extraautostart;
+              "fcitx5 -d -r"
+              "fcitx5-remote -r"
+            ]; # ++ cfg.extraAutoStart;
             # `hyprctl clients` get class、title...
             windowrule = [
               "float,title:^(picture-in-picture)$"
@@ -289,6 +291,7 @@ in
               "move 25%-,ncmpcpp"
               "size 960 540,ncmpcpp"
               "noblur,^(firefox)$"
+              "pseudo, fcitx"
             ];
             windowrulev2 = [
               "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"

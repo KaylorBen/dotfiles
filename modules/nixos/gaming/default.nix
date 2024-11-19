@@ -89,7 +89,6 @@ in
       # oxce-plus
       protontricks
       starsector
-      steam
       steamcmd
       xivlauncher
       winetricks

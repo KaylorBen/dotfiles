@@ -105,7 +105,7 @@ in
       })
     ];
 
-    boot.kernelPackages = cfg.kernel;
+    # boot.kernelPackages = cfg.kernel;
 
     hardware = {
       graphics = {

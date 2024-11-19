@@ -36,6 +36,6 @@ in
       hybrid-sleep.enable = mkForce false;
     };
 
-    boot.kernelPackages = mkForce latestKernelPackage;
+    # boot.kernelPackages = mkForce pkgs.linuxPackages_6_10;
   };
 }

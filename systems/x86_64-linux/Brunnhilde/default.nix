@@ -4,6 +4,7 @@
   Wotan = {
     virt.enable = true;
     autoUpgrade.enable = true;
+    chinese-lang.enable = true;
     zfs.enable = true;
     users.enable = true;
     gaming = {

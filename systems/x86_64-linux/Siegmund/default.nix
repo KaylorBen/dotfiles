@@ -4,6 +4,7 @@
   Wotan = {
     virt.enable = true;
     autoUpgrade.enable = true;
+    chinese-lang.enable = true;
     users.enable = true;
     time.enable = true;
     gaming = {
@@ -58,15 +59,6 @@
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      type = "fcitx5";
-      enable = true;
-      fcitx5.addons = with pkgs; [
-        fcitx5-gtk
-        fcitx5-chinese-addons
-        fcitx5-tokyonight
-      ];
-    };
   };
 
   services = {

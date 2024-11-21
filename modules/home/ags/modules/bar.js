@@ -51,11 +51,11 @@ function Workspaces(monitor = 0) {
     })
 }
 
-function ClientTitle() {
-    return Widget.Label({
+function ClientTitle(monitor = 0) {
+    return (monitor == 0) ? Widget.Label({
         class_name: "client-title",
         label: hyprland.active.client.bind("title"),
-    })
+    }) : Widget.Box();
 }
 
 function Clock() {
@@ -141,7 +141,7 @@ function Left(monitor = 0) {
         class_name: "block",
         children: [
             Workspaces(monitor),
-            ClientTitle(),
+            ClientTitle(monitor),
         ],
     })
 }

@@ -52,9 +52,9 @@ function Workspaces(monitor = 0) {
 }
 
 function ClientTitle(monitor = 0) {
-    return (monitor == 0) ? Widget.Label({
+    return (monitor != 0) ? Widget.Label({
         class_name: "client-title",
-        label: hyprland.active.client.bind("title"),
+        label: hyprland.active.client.bind("title").as(i => `${i.length < 40 ? i : i.substring(0, 40) + " ..."}`),
     }) : Widget.Box();
 }
 

@@ -114,7 +114,7 @@ export function NotificationPopups(monitor = 0) {
         anchor: ["top", "right"],
         css: "-gtk-dpi: 130;",
         child: Widget.Box({
-            css: "min-width: 2px; min-height: 200px;",
+            css: "min-width: 2px; min-height: 300px;",
             class_name: "notifications",
             vertical: true,
             child: list,

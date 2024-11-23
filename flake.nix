@@ -11,6 +11,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
+    ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs";
+    ghostty-hm-module.url = "github:clo4/ghostty-hm-module";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hyprwm-contrib.inputs.nixpkgs.follows = "nixpkgs";
@@ -94,6 +98,7 @@
       ];
       home.users."ben@Siegmund".modules = with inputs; [
         ags.homeManagerModules.default
+        ghostty-hm-module.homeModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
         nix-index-database.hmModules.nix-index

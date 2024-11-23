@@ -17,19 +17,15 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [ inputs.ghostty.packages.${system}.default ];
-    # programs.ghostty = {
-    #   enable = true;
-    #
-    #   package = inputs.ghostty.packages.${system}.default;
-    #
-    #   settings = {
-    #     font-size = 24;
-    #     font-family = "FiraCode Nerd Font";
-    #
-    #     unfocused-split-opacity = 0.96;
-    #
-    #     theme = "TokyoNight";
-    #   };
-    # };
+    home.file.".config/ghostty/config".text = ''
+      theme = tokyonight
+
+      window-decoration = false
+
+      font-size = 32
+      font-family = "FiraCode Nerd Font"
+      font-family = "Noto Color Emoji"
+      font-family = "Noto Sans CJK SC"
+    '';
   };
 }

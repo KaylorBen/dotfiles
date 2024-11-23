@@ -2,12 +2,13 @@
   pkgs,
   gaps_out,
   gaps_in,
+  inputs,
   ...
 }:
 {
   bind = [
-    "$mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-    "$mainMod SHIFT, Return, exec, alacritty --class='termfloat'"
+    "$mainMod, Return, exec, ${inputs.ghostty.packages.${pkgs.system}.default}/bin/ghostty"
+    "$mainMod SHIFT, Return, exec, ghostty --class='termfloat'"
     "$mainMod SHIFT, Q, killactive"
     "$mainMod SHIFT, E, exit"
     "$mainMod SHIFT, F, togglefloating"

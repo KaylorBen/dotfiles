@@ -613,21 +613,6 @@
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       }
     },
-    "ghostty-hm-module": {
-      "locked": {
-        "lastModified": 1702368251,
-        "narHash": "sha256-hafrDmzGplzm+vdIo+LkOjRfA4qRcy5JmpGGksnht5c=",
-        "owner": "clo4",
-        "repo": "ghostty-hm-module",
-        "rev": "887e13a6e7acf5ffaab0119d96e476d84db90904",
-        "type": "github"
-      },
-      "original": {
-        "owner": "clo4",
-        "repo": "ghostty-hm-module",
-        "type": "github"
-      }
-    },
     "git-ignore-nix": {
       "inputs": {
         "nixpkgs": [
@@ -2091,7 +2076,6 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils_2",
         "ghostty": "ghostty",
-        "ghostty-hm-module": "ghostty-hm-module",
         "home-manager": "home-manager",
         "hypridle": "hypridle",
         "hyprland": "hyprland",

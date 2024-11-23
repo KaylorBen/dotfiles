@@ -308,6 +308,7 @@ in
           // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {
             inherit lib;
             inherit pkgs;
+            inherit inputs;
             inherit (self.settings.general) gaps_in;
             inherit (self.settings.general) gaps_out;
           })

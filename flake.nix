@@ -91,7 +91,6 @@
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
-        snowfall-lib.homeModules.user
         nixcord.homeManagerModules.nixcord
         stylix.homeManagerModules.stylix
       ];
@@ -127,7 +126,7 @@
           system = "x86_64-linux";
           modules = nixosModules ++ [
             import
-            ./systems/siegmund/
+            ./systems/siegmund
           ];
         };
 

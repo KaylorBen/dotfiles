@@ -18,7 +18,7 @@ in
 
       settings = {
         logo = {
-          source = "${lib.Wotan.get-asset "ffxiv.png"}";
+          source = "${lib.get-asset "ffxiv.png"}";
           height = 18;
           padding.top = 1;
           padding.right = 1;

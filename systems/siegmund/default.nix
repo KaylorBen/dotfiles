@@ -116,7 +116,7 @@
     xclip
   ];
 
-  snowfallorg.users.ben.home.config = {
+  users.ben.home.config = {
     # home.persistence."/.FinalFantasyXIV" = {
     #   directories = [ ".xlcore" ];
     #   allowOther = true;
@@ -143,10 +143,6 @@
         bar = "ags";
       };
     };
-  };
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
   };
   environment.systemPackages = with pkgs; [
     # miru

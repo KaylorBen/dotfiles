@@ -6,5 +6,5 @@
 }:
 {
   Wotan.home-profiles.desktop.enable = true;
-  home.stateVersion = lib.Wotan.stateVersion.home;
+  home.stateVersion = lib.stateVersion.home;
 }

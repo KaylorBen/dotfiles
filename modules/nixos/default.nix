@@ -1,0 +1,22 @@
+import [
+  ./auto-update
+  ./awesome
+  ./cosmic
+  ./defaults
+  ./flatpak
+  ./gaming
+  ./hyprland
+  ./impermanence
+  ./kmscon
+  ./laptop
+  ./nvidia
+  ./package-versions
+  ./security
+  ./sound
+  ./streaming
+  ./style
+  ./time
+  ./users
+  ./vms
+  ./zfs
+]

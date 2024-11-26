@@ -35,6 +35,8 @@ _prev: super: {
     }
   );
 
+  lib = _prev.lib // import ../lib/default.nix;
+
   lutris = super.lutris.override {
     steamSupport = true;
     extraPkgs = _pkgs: [

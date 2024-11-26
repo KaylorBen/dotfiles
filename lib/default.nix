@@ -1,10 +1,7 @@
 { lib, ... }:
-let
-  inherit (lib.snowfall) fs;
-in
 {
   info = {
-    url = "https://github.com/KaylorBen/dotfiles/tree/snowfall";
+    url = "https://github.com/KaylorBen/dotfiles/tree/snowmelt";
     hostInfo = host: flake: {
       inherit (flake.nixosConfiguations.${host}.config.networking) hostName;
       platform = import (./src/hosts + "/${host}/system.nix");
@@ -16,14 +13,14 @@ in
       flake:
       map (host: lib.Wotan.info.hostInfo host flake) (builtins.attrNames flake.nixosConfigurations);
   };
-  get-secret-file = file: fs.get-file "secrets/${file}";
-  get-ssh-key-files = user: fs.get-files (fs.get-file "keys/${user}/ssh");
+  # get-secret-file = file: fs.get-file "secrets/${file}";
+  # get-ssh-key-files = user: fs.get-files (fs.get-file "keys/${user}/ssh");
 
-  get-asset = asset: fs.get-file "assets/${asset}";
+  get-asset = asset: "../assets/${asset}";
 
   stateVersion = {
-    nixos = "23.11";
+    nixos = "24.11";
     # This should be the same as nixos
-    home = "23.11";
+    home = "24.11";
   };
 }

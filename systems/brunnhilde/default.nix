@@ -93,7 +93,7 @@
 
   users.users.ben.packages = with pkgs; [ ani-cli ];
 
-  snowfallorg.users.ben.home.config = {
+  users.ben.home.config = {
     Wotan = {
       home-profiles.desktop.enable = true;
     };

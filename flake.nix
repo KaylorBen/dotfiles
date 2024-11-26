@@ -1,5 +1,5 @@
 {
-  description = "Ben's NixOS configuration powered by Snowfall";
+  description = "Ben's NixOS configuration";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
@@ -63,8 +63,6 @@
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-    snowfall-lib.url = "github:snowfallorg/lib/dev";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     stylix.url = "github:danth/stylix";
@@ -80,18 +78,16 @@
       forAllSystems =
         f: inputs.nixpkgs.lib.genAttrs (import systems) (system: f inputs.nixpkgs.legacyPackages.${system});
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
 
-      src = ./.;
-      snowfall.namespace = "Wotan";
       overlays = with inputs; [
+        ./overlay
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
       ];
-      home.users."ben@Siegmund".modules = with inputs; [
+
+      homeModules = with inputs; [
+        ./modules/home
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
@@ -99,13 +95,9 @@
         nixcord.homeManagerModules.nixcord
         stylix.homeManagerModules.stylix
       ];
-      systems.modules.nixos = with inputs; [
-        (
-          { lib, ... }:
-          {
-            system.stateVersion = lib.Wotan.stateVersion.nixos;
-          }
-        )
+
+      nixosModules = with inputs; [
+        ./modules/nixos
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
@@ -118,12 +110,35 @@
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
         stylix.nixosModules.stylix
+        {
+          nixpkgs.overlays = overlays;
+          nixpkgs.config.allowUnfree = true;
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPkgs = true;
+
+          home-manager.sharedModules = homeModules;
+        }
       ];
-      channels-config = {
-        allowUnfree = true;
+    in
+    {
+      nixosConfigurations = with inputs; {
+        siegmund = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = nixosModules ++ [
+            import
+            ./systems/siegmund/
+          ];
+        };
+
+        brunnhilde = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = nixosModules ++ [
+            import
+            ./systems/brunnhilde
+          ];
+        };
       };
-    }
-    // {
       formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = forAllSystems (pkgs: {
         formatting = treefmtEval.${pkgs.system}.config.build.check self;

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib;
@@ -18,7 +19,7 @@ in
 
       settings = {
         logo = {
-          source = "${lib.get-asset "ffxiv.png"}";
+          source = "${pkgs.myLib.get-asset "ffxiv.png"}";
           height = 18;
           padding.top = 1;
           padding.right = 1;

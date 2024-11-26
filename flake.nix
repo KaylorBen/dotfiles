@@ -80,17 +80,21 @@
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
       overlays = with inputs; [
-        (final: prev: { myLib = import ./lib/default.nix; })
+        (import ./overlay/default.nix)
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
+        (final: prev: {
+          star-citizen = inputs.nix-citizen.packages.${prev.system}.star-citizen;
+          cava = inputs.stable-nixpkgs.legacyPackages.${prev.system}.cava;
+        })
       ];
 
       homeModules = with inputs; [
-        ags.homeManagerModules.default
+        # ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
-        nixcord.homeManagerModules.nixcord
+        # nixcord.homeManagerModules.nixcord
         # stylix.homeManagerModules.stylix
         {
           imports = import ./modules/home;

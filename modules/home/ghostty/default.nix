@@ -2,7 +2,7 @@
   config,
   inputs,
   lib,
-  system,
+  pkgs,
   ...
 }:
 let
@@ -16,7 +16,7 @@ in
   options.Wotan.programs.ghostty.enable = mkEnableOption "Ghostty";
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.ghostty.packages.${system}.default ];
+    home.packages = [ inputs.ghostty.packages.${pkgs.system}.default ];
     home.file.".config/ghostty/config".text = ''
       theme = tokyonight
 

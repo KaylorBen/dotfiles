@@ -10,6 +10,7 @@ in
     description = "Nebula users defaults - Opt out";
   };
   imports = [
+    ./perUser/ben
     ./perUser/root
     ./perUser/builder
   ];

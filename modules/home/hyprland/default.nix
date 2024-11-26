@@ -19,7 +19,7 @@ in
     };
     extraAutoStart = mkOption {
       # list of strings
-      type = with types; listof str;
+      type = with types; listOf str;
       default =
         if builtins.hasAttr "Wotan" osConfig then osConfig.Wotan.desktop.hyprland.extraAutoStart else [ ];
     };

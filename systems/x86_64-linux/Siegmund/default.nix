@@ -133,6 +133,9 @@
             "HDMI-A-1, preferred, 3840x0, 1, transform, 3"
           ];
         };
+        extraAutoStart = [
+          "xrandr --output DP-1 --primary"
+        ];
         plugins = with pkgs.hyprlandPlugins; [
           inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];

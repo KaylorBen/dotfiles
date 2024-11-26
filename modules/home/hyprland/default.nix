@@ -261,7 +261,7 @@ in
             #   "${wallpaper-engine} &"
               "fcitx5 -d -r"
               "fcitx5-remote -r"
-            ]; # ++ cfg.extraAutoStart;
+            ] ++ cfg.extraAutoStart;
             # `hyprctl clients` get class、title...
             windowrule = [
               "float,title:^(picture-in-picture)$"

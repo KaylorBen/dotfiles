@@ -77,8 +77,8 @@ in
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings =
           let
-            wallpaper1 = pkgs.myLib.get-asset "ff14ew-venat-art.jpg";
-            wallpaper2 = pkgs.myLib.get-asset "ew_wallpaper.jpg";
+            wallpaper1 = ../../../assets/ff14ew-venat-art.jpg;
+            wallpaper2 = ../../../assets/ew_wallpaper.jpg;
           in
           {
             preload = [

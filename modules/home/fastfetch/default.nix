@@ -19,7 +19,7 @@ in
 
       settings = {
         logo = {
-          source = "${pkgs.myLib.get-asset "ffxiv.png"}";
+          source = ../../../assets/ffxiv.png;
           height = 18;
           padding.top = 1;
           padding.right = 1;

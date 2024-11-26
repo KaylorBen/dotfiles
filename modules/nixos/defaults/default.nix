@@ -72,7 +72,6 @@ in
       };
     };
 
-
     programs = {
       nano.enable = false;
       starship = {

@@ -252,13 +252,13 @@ in
             };
             # No stylix or styling set up or wallpaper engine
             exec-once = [
-            #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
-            #     tostring config.stylix.cursor.size
-            #   }"
-            #   "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"
-            #   "border_color &"
-            #   "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
-            #   "${wallpaper-engine} &"
+              #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
+              #     tostring config.stylix.cursor.size
+              #   }"
+              #   "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"
+              #   "border_color &"
+              #   "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
+              #   "${wallpaper-engine} &"
               "fcitx5 -d -r"
               "fcitx5-remote -r"
             ] ++ cfg.extraAutoStart;

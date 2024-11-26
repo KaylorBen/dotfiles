@@ -19,7 +19,7 @@ in
     carapaceCompletions = mkOption {
       type = types.bool;
       description = "Completion engine written in Go";
-      default = true;
+      # default = true;
     };
   };
 
@@ -45,10 +45,10 @@ in
           "gensokyo" = "mpg123 https://stream.gensokyoradio.net/1/";
         };
       };
-      carapace = {
-        enable = cfg.carapaceCompletions;
-        enableNushellIntegration = true;
-      };
+      # carapace = {
+      #   enable = cfg.carapaceCompletions;
+      #   enableNushellIntegration = true;
+      # };
       lsd.enable = true; # For tree command
     };
   };

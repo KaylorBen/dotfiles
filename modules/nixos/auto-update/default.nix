@@ -52,7 +52,7 @@ in
       inherit (cfg) allowReboot;
       inherit (cfg) randomizedDelaySec;
       inherit (cfg) persistent;
-      flake = Wotan.info.url;
+      flake = "github:kaylorben/dotfiles";
     };
   };
 }

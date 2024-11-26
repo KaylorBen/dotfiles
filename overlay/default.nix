@@ -1,32 +1,18 @@
-{
-  self,
-  nix-citizen,
-  hyprland,
-  xdg-desktop-portal-hyprland,
-  picom,
-  nixos-xivlauncher-rb,
-  stable-nixpkgs,
-  ...
-}:
-
-_prev: super: {
-  inherit (self.packages.${super.system}) oxce-plus;
-  inherit (nix-citizen.packages.${super.system})
+final: prev: {
+  inherit (self.packages.${prev.system}) oxce-plus;
+  inherit (nix-citizen.packages.${prev.system})
     lug-helper
     star-citizen-helper
     star-citizen
     ;
-  # wezterm = wezterm.packages.${super.system}.default;
-  # hyprland = hyprland.packages.${super.system}.hyprland;
-  # xdg-desktop-portal-hyprland = xdg-desktop-portal-hyprland.packages.${super.system}.xdg-desktop-portal-hyprland;
-  picom = picom.defaultPackage.${super.system};
-  xivlauncher-rb = nixos-xivlauncher-rb.packages.${super.system}.default;
+  picom = picom.defaultPackage.${prev.system};
+  xivlauncher-rb = nixos-xivlauncher-rb.packages.${prev.system}.default;
 
-  # _7zz = stable-nixpkgs.legacyPackages.${super.system}._7zz;
-  cava = stable-nixpkgs.legacyPackages.${super.system}.cava;
+  # _7zz = stable-nixpkgs.legacyPackages.${prev.system}._7zz;
+  cava = stable-nixpkgs.legacyPackages.${prev.system}.cava;
 
   fonts = (
-    super.nerdfonts.override {
+    prev.nerdfonts.override {
       fonts = [
         "FantasqueSansMono"
         "FiraCode"
@@ -35,16 +21,16 @@ _prev: super: {
     }
   );
 
-  lib = _prev.lib // import ../lib/default.nix;
+  # lib = prev.lib // import ../lib/default.nix;
 
-  lutris = super.lutris.override {
+  lutris = prev.lutris.override {
     steamSupport = true;
     extraPkgs = _pkgs: [
-      super.winetricks
-      super.gamescope
-      super.goverlay
-      super.gamemode
+      prev.winetricks
+      prev.gamescope
+      prev.goverlay
+      prev.gamemode
     ];
-    extraLibraries = _pkgs: [ super.mangohud ];
+    extraLibraries = _pkgs: [ prev.mangohud ];
   };
 }

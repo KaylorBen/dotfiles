@@ -80,7 +80,7 @@
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
       overlays = with inputs; [
-        # ./overlay
+        (final: prev: { myLib = import ./lib/default.nix; })
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
@@ -91,9 +91,9 @@
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
         nixcord.homeManagerModules.nixcord
-        stylix.homeManagerModules.stylix
+        # stylix.homeManagerModules.stylix
         {
-          # imports = ./modules/home;
+          imports = import ./modules/home;
         }
       ];
 
@@ -116,6 +116,9 @@
 
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+          };
 
           home-manager.sharedModules = homeModules;
 

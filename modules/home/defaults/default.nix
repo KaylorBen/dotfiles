@@ -61,7 +61,7 @@ in
         #   '';
         # };
       };
-      stateVersion = lib.stateVersion.nixos;
+      stateVersion = pkgs.myLib.stateVersion.nixos;
     };
   };
 }

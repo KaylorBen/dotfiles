@@ -27,5 +27,5 @@
       bar = "ags";
     };
   };
-  home.stateVersion = lib.stateVersion.home;
+  home.stateVersion = pkgs.myLib.stateVersion.home;
 }

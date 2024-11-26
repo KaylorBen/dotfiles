@@ -80,23 +80,24 @@
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
       overlays = with inputs; [
-        ./overlay
+        # ./overlay
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
       ];
 
       homeModules = with inputs; [
-        ./modules/home
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
         nixcord.homeManagerModules.nixcord
         stylix.homeManagerModules.stylix
+        {
+          # imports = ./modules/home;
+        }
       ];
 
       nixosModules = with inputs; [
-        ./modules/nixos
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
@@ -114,9 +115,11 @@
           nixpkgs.config.allowUnfree = true;
 
           home-manager.useGlobalPkgs = true;
-          home-manager.useUserPkgs = true;
+          home-manager.useUserPackages = true;
 
           home-manager.sharedModules = homeModules;
+
+          imports = import ./modules/nixos;
         }
       ];
     in
@@ -124,16 +127,23 @@
       nixosConfigurations = with inputs; {
         siegmund = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
           modules = nixosModules ++ [
-            import
             ./systems/siegmund
+
+            {
+              home-manager.users.ben = {
+                imports = [ ./homes/siegmund/ben ];
+              };
+            }
           ];
         };
 
         brunnhilde = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = nixosModules ++ [
-            import
             ./systems/brunnhilde
           ];
         };

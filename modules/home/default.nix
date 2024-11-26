@@ -1,33 +1,33 @@
-import [
-  ./ags
-  ./alacritty
-  ./aria2
-  ./awesome
-  ./bat
-  ./btop
-  ./cava
-  ./chromium
-  ./defaults
-  ./desktop
-  ./direnv
-  ./fastfetch
-  ./firefox
-  ./fzf
-  ./gaming
-  ./ghostty
-  ./git
-  ./hyprland
-  ./mpv
-  ./neovim
-  ./nixcord
-  ./nushell
-  ./picom
-  ./spotify-player
-  ./ssh
-  ./starship
-  ./tmux
-  ./waybar
-  ./wezterm
-  ./zathura
-  ./zoxide
+[
+  import ./ags
+  import ./alacritty
+  import ./aria2
+  import ./awesome
+  import ./bat
+  import ./btop
+  import ./cava
+  import ./chromium
+  import ./defaults
+  import ./desktop
+  import ./direnv
+  import ./fastfetch
+  import ./firefox
+  import ./fzf
+  import ./gaming
+  import ./ghostty
+  import ./git
+  import ./hyprland
+  import ./mpv
+  import ./neovim
+  import ./nixcord
+  import ./nushell
+  import ./picom
+  import ./spotify-player
+  import ./ssh
+  import ./starship
+  import ./tmux
+  import ./waybar
+  import ./wezterm
+  import ./zathura
+  import ./zoxide
 ]

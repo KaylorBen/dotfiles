@@ -92,14 +92,4 @@
   security.polkit.enable = true;
 
   users.users.ben.packages = with pkgs; [ ani-cli ];
-
-  users.ben.home.config = {
-    Wotan = {
-      home-profiles.desktop.enable = true;
-    };
-  };
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
 }

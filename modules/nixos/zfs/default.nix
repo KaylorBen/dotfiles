@@ -36,6 +36,7 @@ in
       hybrid-sleep.enable = mkForce false;
     };
 
-    # boot.kernelPackages = mkForce pkgs.linuxPackages_6_10;
+    boot.zfs.package = pkgs.zfs_unstable;
+    boot.kernelPackages = mkForce latestKernelPackage;
   };
 }

@@ -28,19 +28,19 @@ in
       font-family = "Noto Sans CJK SC"
     '';
 
-    nix.settings =
-      let
-        substituters = [
-          "https://ghostty.chachix.org"
-        ];
-        trusted-public-keys = [
-          "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-        ];
-      in
-      {
-        inherit substituters trusted-public-keys;
-        trusted-substituters = substituters;
-        extra-trusted-public-keys = trusted-public-keys;
-      };
+    # nix.settings =
+    #   let
+    #     substituters = [
+    #       "https://ghostty.chachix.org"
+    #     ];
+    #     trusted-public-keys = [
+    #       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+    #     ];
+    #   in
+    #   {
+    #     inherit substituters trusted-public-keys;
+    #     trusted-substituters = substituters;
+    #     extra-trusted-public-keys = trusted-public-keys;
+    #   };
   };
 }

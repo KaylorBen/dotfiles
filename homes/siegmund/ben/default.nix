@@ -18,7 +18,7 @@
         ];
       };
       extraAutoStart = [
-        "xrandr --output DP-1 --primary"
+        "xrandr --output DP-1 --primary --pos 0x0"
       ];
       plugins = with pkgs.hyprlandPlugins; [
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces

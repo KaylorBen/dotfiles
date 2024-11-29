@@ -55,8 +55,8 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-xivlauncher-rb.url = "github:drakon64/nixos-xivlauncher-rb";
-    # nixcord.url = "path:/home/ben/Development/nixcord"; # Development
-    nixcord.url = "github:kaylorben/nixcord";
+    nixcord.url = "path:/home/ben/Development/nixcord"; # Development
+    # nixcord.url = "github:kaylorben/nixcord";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
@@ -152,7 +152,13 @@
           system = "x86_64-linux";
           modules = nixosModules ++ [
             ./systems/brunnhilde
+            {
+              home-manager.users.ben = {
+                imports = [ ./homes/brunnhilde/ben ];
+              };
+            }
           ];
+
         };
       };
       formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);

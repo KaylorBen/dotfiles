@@ -42,7 +42,9 @@ in
     environment.etc.FLAKE_CURRENT_COMMIT = {
       text = "${config.system.configurationRevision}";
     };
+
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev;
+    system.stateVersion = pkgs.myLib.stateVersion.nixos;
 
     fonts = {
       enableDefaultPackages = true;
@@ -69,7 +71,6 @@ in
         };
       };
     };
-
 
     programs = {
       nano.enable = false;

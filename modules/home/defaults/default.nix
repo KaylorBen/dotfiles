@@ -21,7 +21,7 @@ in
     };
     home = {
       keyboard = mkIf isDarwin { layout = true; };
-      username = mkDefault config.snowfallorg.user.name;
+      username = mkDefault "ben";
       homeDirectory =
         let
           inherit (config.home) username;
@@ -61,7 +61,7 @@ in
         #   '';
         # };
       };
-      stateVersion = Wotan.stateVersion.nixos;
+      stateVersion = pkgs.myLib.stateVersion.nixos;
     };
   };
 }

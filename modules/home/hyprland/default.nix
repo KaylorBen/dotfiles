@@ -77,8 +77,8 @@ in
         package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings =
           let
-            wallpaper1 = lib.Wotan.get-asset "ff14ew-venat-art.jpg";
-            wallpaper2 = lib.Wotan.get-asset "ew_wallpaper.jpg";
+            wallpaper1 = ../../../assets/ff14ew-venat-art.jpg;
+            wallpaper2 = ../../../assets/ew_wallpaper.jpg;
           in
           {
             preload = [
@@ -252,13 +252,13 @@ in
             };
             # No stylix or styling set up or wallpaper engine
             exec-once = [
-            #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
-            #     tostring config.stylix.cursor.size
-            #   }"
-            #   "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"
-            #   "border_color &"
-            #   "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
-            #   "${wallpaper-engine} &"
+              #   "hyprctl setcursor '${config.stylix.cursor.name}' ${
+              #     tostring config.stylix.cursor.size
+              #   }"
+              #   "${pkgs.swaybg}/bin/swaybg -i ${config.stylix.image} -m fill"
+              #   "border_color &"
+              #   "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
+              #   "${wallpaper-engine} &"
               "fcitx5 -d -r"
               "fcitx5-remote -r"
             ] ++ cfg.extraAutoStart;

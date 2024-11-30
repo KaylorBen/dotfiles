@@ -1,5 +1,5 @@
 {
-  description = "Ben's NixOS configuration powered by Snowfall";
+  description = "Ben's NixOS configuration";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs = {
@@ -55,16 +55,14 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-xivlauncher-rb.url = "github:drakon64/nixos-xivlauncher-rb";
-    # nixcord.url = "path:/home/ben/Development/nixcord"; # Development
-    nixcord.url = "github:kaylorben/nixcord";
+    nixcord.url = "path:/home/ben/Development/nixcord"; # Development
+    # nixcord.url = "github:kaylorben/nixcord";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
-    snowfall-lib.url = "github:snowfallorg/lib/dev";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     stylix.url = "github:danth/stylix";
@@ -80,32 +78,30 @@
       forAllSystems =
         f: inputs.nixpkgs.lib.genAttrs (import systems) (system: f inputs.nixpkgs.legacyPackages.${system});
       treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
 
-      src = ./.;
-      snowfall.namespace = "Wotan";
       overlays = with inputs; [
+        (import ./overlay/default.nix)
         nix-minecraft.overlays.default
         neovim.overlays.default
         # nixpkgs-wayland.overlays.default
+        (final: prev: {
+          star-citizen = inputs.nix-citizen.packages.${prev.system}.star-citizen;
+          cava = inputs.stable-nixpkgs.legacyPackages.${prev.system}.cava;
+        })
       ];
-      home.users."ben@Siegmund".modules = with inputs; [
-        ags.homeManagerModules.default
+
+      homeModules = with inputs; [
+        # ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
-        snowfall-lib.homeModules.user
-        nixcord.homeManagerModules.nixcord
-        stylix.homeManagerModules.stylix
+        # nixcord.homeManagerModules.nixcord
+        # stylix.homeManagerModules.stylix
+        {
+          imports = import ./modules/home;
+        }
       ];
-      systems.modules.nixos = with inputs; [
-        (
-          { lib, ... }:
-          {
-            system.stateVersion = lib.Wotan.stateVersion.nixos;
-          }
-        )
+
+      nixosModules = with inputs; [
         disko.nixosModules.disko
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
@@ -118,12 +114,53 @@
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats
         stylix.nixosModules.stylix
+        {
+          nixpkgs.overlays = overlays;
+          nixpkgs.config.allowUnfree = true;
+
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+          };
+
+          home-manager.sharedModules = homeModules;
+
+          imports = import ./modules/nixos;
+        }
       ];
-      channels-config = {
-        allowUnfree = true;
+    in
+    {
+      nixosConfigurations = with inputs; {
+        siegmund = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = nixosModules ++ [
+            ./systems/siegmund
+
+            {
+              home-manager.users.ben = {
+                imports = [ ./homes/siegmund/ben ];
+              };
+            }
+          ];
+        };
+
+        brunnhilde = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = nixosModules ++ [
+            ./systems/brunnhilde
+            {
+              home-manager.users.ben = {
+                imports = [ ./homes/brunnhilde/ben ];
+              };
+            }
+          ];
+
+        };
       };
-    }
-    // {
       formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       checks = forAllSystems (pkgs: {
         formatting = treefmtEval.${pkgs.system}.config.build.check self;

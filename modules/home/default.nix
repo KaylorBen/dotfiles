@@ -1,0 +1,33 @@
+[
+  ./ags
+  ./alacritty
+  ./aria2
+  ./awesome
+  ./bat
+  ./btop
+  ./cava
+  ./chromium
+  ./defaults
+  ./desktop
+  ./direnv
+  ./fastfetch
+  ./firefox
+  ./fzf
+  ./gaming
+  ./ghostty
+  ./git
+  ./hyprland
+  ./mpv
+  ./neovim
+  ./nixcord
+  ./nushell
+  ./picom
+  ./spotify-player
+  ./ssh
+  ./starship
+  ./tmux
+  ./waybar
+  ./wezterm
+  ./zathura
+  ./zoxide
+]

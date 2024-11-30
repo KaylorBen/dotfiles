@@ -2,7 +2,7 @@
   config,
   inputs,
   lib,
-  system,
+  pkgs,
   ...
 }:
 let
@@ -16,7 +16,7 @@ in
   options.Wotan.programs.ghostty.enable = mkEnableOption "Ghostty";
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.ghostty.packages.${system}.default ];
+    home.packages = [ inputs.ghostty.packages.${pkgs.system}.default ];
     home.file.".config/ghostty/config".text = ''
       theme = tokyonight
 
@@ -28,19 +28,19 @@ in
       font-family = "Noto Sans CJK SC"
     '';
 
-    nix.settings =
-      let
-        substituters = [
-          "https://ghostty.chachix.org"
-        ];
-        trusted-public-keys = [
-          "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-        ];
-      in
-      {
-        inherit substituters trusted-public-keys;
-        trusted-substituters = substituters;
-        extra-trusted-public-keys = trusted-public-keys;
-      };
+    # nix.settings =
+    #   let
+    #     substituters = [
+    #       "https://ghostty.chachix.org"
+    #     ];
+    #     trusted-public-keys = [
+    #       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+    #     ];
+    #   in
+    #   {
+    #     inherit substituters trusted-public-keys;
+    #     trusted-substituters = substituters;
+    #     extra-trusted-public-keys = trusted-public-keys;
+    #   };
   };
 }

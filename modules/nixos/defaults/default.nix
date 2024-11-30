@@ -44,10 +44,32 @@ in
     };
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev;
 
-    # fonts = {
-    #   fontDir.decompressFonts = mkDefault true;
-    #   enableDefaultPackages = true;
-    # };
+    fonts = {
+      enableDefaultPackages = true;
+      packages = with pkgs; [
+        fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+      ];
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          serif = [
+            "FiraCode Nerd Font"
+            "Noto Serif Simplified Chinese"
+          ];
+          sansSerif = [
+            "FiraCode Nerd Font"
+            "Noto Sans Simplified Chinese"
+          ];
+          monospace = [
+            "FiraCode Nerd Font"
+            "Noto Sans Simplified Chinese"
+          ];
+        };
+      };
+    };
+
 
     programs = {
       nano.enable = false;

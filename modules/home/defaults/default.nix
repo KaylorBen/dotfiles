@@ -35,6 +35,7 @@ in
             "/root"
         );
       packages = with pkgs; [
+        comma
         rclone
         ripgrep
         ventoy

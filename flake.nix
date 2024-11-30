@@ -11,6 +11,9 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    # ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
+    # ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hyprwm-contrib.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,10 +40,6 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
     nix-gaming.inputs.flake-parts.follows = "flake-parts";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index.url = "github:nix-community/nix-index";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-anywhere.inputs.disko.follows = "disko";
@@ -96,7 +95,6 @@
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         impermanence.nixosModules.home-manager.impermanence
-        nix-index-database.hmModules.nix-index
         snowfall-lib.homeModules.user
         nixcord.homeManagerModules.nixcord
         stylix.homeManagerModules.stylix

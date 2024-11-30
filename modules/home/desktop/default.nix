@@ -15,15 +15,16 @@ in
   config = mkIf cfg.enable {
     Wotan = {
       programs = {
+        alacritty.enable = true;
+        cava.enable = true;
         chromium.enable = true;
         firefox.enable = true;
-        alacritty.enable = true;
-        zathura.enable = true;
-        cava.enable = true;
-        spotify-player.enable = true;
+        ghostty.enable = true;
         nixcord.enable = true;
         mpv.enable = true;
+        spotify-player.enable = true;
         ssh.enable = true;
+        zathura.enable = true;
       };
     };
     services.syncthing.enable = true;

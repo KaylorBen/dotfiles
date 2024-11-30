@@ -40,6 +40,7 @@ in
           }
           "uptime"
           "shell"
+          "terminal"
           {
             type = "display";
             compactType = "original";

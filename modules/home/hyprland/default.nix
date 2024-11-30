@@ -19,7 +19,7 @@ in
     };
     extraAutoStart = mkOption {
       # list of strings
-      type = with types; listof str;
+      type = with types; listOf str;
       default =
         if builtins.hasAttr "Wotan" osConfig then osConfig.Wotan.desktop.hyprland.extraAutoStart else [ ];
     };
@@ -261,7 +261,7 @@ in
             #   "${wallpaper-engine} &"
               "fcitx5 -d -r"
               "fcitx5-remote -r"
-            ]; # ++ cfg.extraAutoStart;
+            ] ++ cfg.extraAutoStart;
             # `hyprctl clients` get class、title...
             windowrule = [
               "float,title:^(picture-in-picture)$"
@@ -308,6 +308,7 @@ in
           // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {
             inherit lib;
             inherit pkgs;
+            inherit inputs;
             inherit (self.settings.general) gaps_in;
             inherit (self.settings.general) gaps_out;
           })

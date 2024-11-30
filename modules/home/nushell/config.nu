@@ -23,7 +23,6 @@ let external_completer = {|spans|
 
     match $spans.0 {
         # use zoxide completions for zoxide commands
-        __zoxide_z | __zoxide_zi => $zoxide_completer
         _ => $fish_completer
     } | do $in $spans
 }

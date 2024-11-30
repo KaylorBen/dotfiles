@@ -23,6 +23,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.light.enable = true;
     services.greetd = {
       enable = true;
       settings = {

@@ -24,6 +24,8 @@ in
         frameless = true;
         disableMinSize = true;
         plugins = {
+          accountPanelServerProfile.enable = true;
+          alwaysExpandRoles.enable = true;
           alwaysTrust.enable = true;
           anonymiseFileNames.enable = true;
           # betterFolders = {
@@ -61,12 +63,13 @@ in
           consoleJanitor.enable = true;
           consoleShortcuts.enable = true;
           copyEmojiMarkdown.enable = true;
+          copyFileContents.enable = true;
           copyUserURLs.enable = true;
           customRPC = {
             enable = false; # TODO
           };
           dearrow.enable = true;
-          # decor.enable = true;
+          decor.enable = true;
           disableCallIdle.enable = true;
           dontRoundMyTimestamps.enable = true;
           emoteCloner.enable = true;
@@ -79,6 +82,7 @@ in
           favoriteEmojiFirst.enable = true;
           favoriteGifSearch.enable = true;
           fixCodeblockGap.enable = true;
+          fixImagesQuality.enable = true;
           fixSpotifyEmbeds.enable = true;
           fixYoutubeEmbeds.enable = true;
           forceOwnerCrown.enable = true;

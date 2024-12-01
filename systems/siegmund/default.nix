@@ -33,10 +33,14 @@
   };
 
   # boot.plymouth.enable = true;
-  boot.kernel = {
-    sysctl = {
+  boot = {
+    kernel.sysctl = {
       "net.ipv4.tcp_mtu_probing" = 1;
     };
+    kernelParams = [
+      "video=DP-1:3840x2160"
+      # "video=HDMI-A-1:d"
+    ];
   };
 
   networking = {

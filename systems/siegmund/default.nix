@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
   Wotan = {
@@ -119,7 +119,6 @@
     jdk
     prismlauncher
     nil
-    xclip
   ];
 
   environment.systemPackages = with pkgs; [

@@ -1,3 +1,7 @@
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell ...$spans | from json
+}
+
 let fish_completer = {|spans|
     fish --command $'complete "--do-complete=($spans | str join " ")"'
     | $"value(char tab)description(char newline)" + $in
@@ -22,7 +26,7 @@ let external_completer = {|spans|
     }
 
     match $spans.0 {
-        # use zoxide completions for zoxide commands
+        __zoxide_z | __zoxide_zi => $carapace_completer
         _ => $fish_completer
     } | do $in $spans
 }
@@ -92,7 +96,7 @@ $env.EDITOR = "nvim"
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
 $env.PROMPT_INDICATOR = ""
-$env.PROMPT_INDICATOR_VI_INSERT = ": "
+$env.PROMPT_INDICATOR_VI_INSERT = "λ "
 $env.PROMPT_INDICATOR_VI_NORMAL = "〉"
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 

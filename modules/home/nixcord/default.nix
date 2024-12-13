@@ -16,6 +16,7 @@ in
     services.arrpc.enable = true;
     programs.nixcord = {
       enable = true;
+      discord.vencord.unstable = true;
       vesktop.enable = true;
       config = {
         themeLinks = [
@@ -54,10 +55,10 @@ in
           betterUploadButton.enable = true;
           biggerStreamPreview.enable = true;
           blurNSFW.enable = true;
-          callTimer = {
-            enable = true;
-            format = "human";
-          };
+          # callTimer = {
+          #   enable = true;
+          #   format = "human";
+          # };
           clearURLs.enable = true;
           colorSighted.enable = true;
           consoleJanitor.enable = true;
@@ -70,7 +71,7 @@ in
           };
           dearrow.enable = true;
           decor.enable = true;
-          disableCallIdle.enable = true;
+          # disableCallIdle.enable = true;
           dontRoundMyTimestamps.enable = true;
           emoteCloner.enable = true;
           experiments = {

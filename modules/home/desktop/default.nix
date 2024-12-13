@@ -55,7 +55,7 @@ in
         DONTNET_CLI_TELEMETRY_OPTOUT = "1";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
-        TERM = "xterm-256color";
+        TERM = "xterm-ghostty";
       };
       sessionPath = [
         "${pkgs.dotnet-sdk}/bin"

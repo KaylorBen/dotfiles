@@ -162,7 +162,22 @@
               };
             }
           ];
+        };
 
+        wolfram = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = nixosModules ++ [
+            ./systems/wolfram
+
+            {
+              home-manager.users.ben = {
+                imports = [ ./homes/wolfram/ben ];
+              };
+            }
+          ];
         };
       };
       formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);

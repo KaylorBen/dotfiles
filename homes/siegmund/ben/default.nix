@@ -5,7 +5,6 @@
   ...
 }:
 {
-  programs.yazi.enable = true;
   Wotan = {
     home-profiles.desktop.enable = true;
     programs.git.enable = true;

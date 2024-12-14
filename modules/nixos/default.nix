@@ -1,6 +1,7 @@
 [
   ./auto-update
   ./awesome
+  ./chinese-lang
   ./cosmic
   ./defaults
   ./flatpak

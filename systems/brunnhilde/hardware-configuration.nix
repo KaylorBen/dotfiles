@@ -1,18 +1,15 @@
 {
   config,
   lib,
-  pkgs,
-  modulesPath,
   inputs,
   ...
 }:
 {
-  imports = with inputs; [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.common-cpu-intel
-    nixos-hardware.nixosModules.common-pc-laptop-ssd
-    nixos-hardware.nixosModules.common-pc-laptop
-    nixos-hardware.nixosModules.dell-xps-13-9310
+  imports = [
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+    inputs.nixos-hardware.nixosModules.common-pc-laptop
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9310
   ];
 
   boot = {

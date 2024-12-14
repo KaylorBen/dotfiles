@@ -12,8 +12,9 @@ in
   options.Wotan.virt.enable = mkEnableOption "Enable Virtualisation";
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.quickemu
+    environment.systemPackages = with pkgs; [
+      quickemu
+      distrobox
     ];
     virtualisation = {
       libvirtd = {
@@ -31,6 +32,10 @@ in
           #   ];
           # };
         };
+      };
+      podman = {
+        enable = true;
+        dockerCompat = true;
       };
     };
   };

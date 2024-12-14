@@ -39,7 +39,6 @@ in
         rclone
         ripgrep
         ventoy
-        smassh
       ];
       file = {
         # TODO: custom website fetch

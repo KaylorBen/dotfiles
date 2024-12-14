@@ -1,14 +1,14 @@
 final: prev: {
   myLib = import ../lib/default.nix;
-  fonts = (
-    prev.nerdfonts.override {
-      fonts = [
-        "FantasqueSansMono"
-        "FiraCode"
-        "FiraMono"
-      ];
-    }
-  );
+  # fonts = (
+  #   prev.nerdfonts.override {
+  #     fonts = [
+  #       "FantasqueSansMono"
+  #       "FiraCode"
+  #       "FiraMono"
+  #     ];
+  #   }
+  # );
 }
 
 # final: prev: {

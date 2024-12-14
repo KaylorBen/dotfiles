@@ -16,6 +16,7 @@ in
     services.arrpc.enable = true;
     programs.nixcord = {
       enable = true;
+      discord.vencord.unstable = true;
       vesktop.enable = true;
       config = {
         themeLinks = [
@@ -24,6 +25,8 @@ in
         frameless = true;
         disableMinSize = true;
         plugins = {
+          accountPanelServerProfile.enable = true;
+          alwaysExpandRoles.enable = true;
           alwaysTrust.enable = true;
           anonymiseFileNames.enable = true;
           # betterFolders = {
@@ -52,22 +55,23 @@ in
           betterUploadButton.enable = true;
           biggerStreamPreview.enable = true;
           blurNSFW.enable = true;
-          callTimer = {
-            enable = true;
-            format = "human";
-          };
+          # callTimer = {
+          #   enable = true;
+          #   format = "human";
+          # };
           clearURLs.enable = true;
           colorSighted.enable = true;
           consoleJanitor.enable = true;
           consoleShortcuts.enable = true;
           copyEmojiMarkdown.enable = true;
+          copyFileContents.enable = true;
           copyUserURLs.enable = true;
           customRPC = {
             enable = false; # TODO
           };
           dearrow.enable = true;
-          # decor.enable = true;
-          disableCallIdle.enable = true;
+          decor.enable = true;
+          # disableCallIdle.enable = true;
           dontRoundMyTimestamps.enable = true;
           emoteCloner.enable = true;
           experiments = {
@@ -79,6 +83,7 @@ in
           favoriteEmojiFirst.enable = true;
           favoriteGifSearch.enable = true;
           fixCodeblockGap.enable = true;
+          fixImagesQuality.enable = true;
           fixSpotifyEmbeds.enable = true;
           fixYoutubeEmbeds.enable = true;
           forceOwnerCrown.enable = true;

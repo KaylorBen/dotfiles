@@ -38,15 +38,15 @@ in
 
       fonts = {
         serif = {
-          package = pkgs.fonts;
+          package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font";
         };
         sansSerif = {
-          package = pkgs.fonts;
+          package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font";
         };
         monospace = {
-          package = pkgs.fonts;
+          package = pkgs.nerd-fonts.fira-code;
           name = "FiraCode Nerd Font";
         };
 

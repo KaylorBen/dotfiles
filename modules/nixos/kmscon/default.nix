@@ -16,7 +16,7 @@ in
       default = [
         {
           name = "FiraMono Nerd Font";
-          package = pkgs.fonts;
+          package = pkgs.nerd-fonts.fira-mono;
         }
       ];
     };

@@ -72,6 +72,7 @@ in
         libreoffice
         pavucontrol
         pinta
+        qutebrowser
         teamspeak_client
         todo
         youtube-tui

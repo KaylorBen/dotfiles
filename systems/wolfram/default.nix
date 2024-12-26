@@ -51,6 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     # miru
+    ckb-next
     cpulimit
     vim
     gh

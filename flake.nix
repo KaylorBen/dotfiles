@@ -11,14 +11,13 @@
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghostty.url = "github:ghostty-org/ghostty";
     # ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
     # ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    hyprwm-contrib.url = "github:hyprwm/contrib";
     hypridle.url = "github:hyprwm/hypridle";
-    hyprland.url = "github:vaxerski/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
@@ -77,7 +76,6 @@
         # nixpkgs-wayland.overlays.default
         (final: prev: {
           star-citizen = inputs.nix-citizen.packages.${prev.system}.star-citizen;
-          cava = inputs.stable-nixpkgs.legacyPackages.${prev.system}.cava;
         })
       ];
 

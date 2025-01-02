@@ -99,10 +99,7 @@ in
       #   nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       # })
 
-      (wineWowPackages.full.override {
-        wineRelease = "staging";
-        mingwSupport = true;
-      })
+      wineWowPackages.waylandFull
     ];
 
     # boot.kernelPackages = cfg.kernel;

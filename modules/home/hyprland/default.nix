@@ -103,54 +103,54 @@ in
       rofi-wayland
       wofi
       pamixer
-      inputs.hyprwm-contrib.packages.${pkgs.system}.grimblast
+      grimblast
       networkmanager
       wl-clipboard
       wl-clipboard-x11
     ];
 
-    programs.swaylock = {
-      enable = true;
-      package = pkgs.swaylock-effects;
-      settings = {
-        ignore-empty-password = true;
-        # Not using stylix
-        font = "Fantasque Sans Mono";
-        screenshots = true;
-        clock = true;
-        timestr = "%r";
-        datestr = "%A, %d %B";
-        fade-in = 0.2;
-        effect-blur = "20x2";
-        indicator = true;
-        indicator-radius = 100;
-        indicator-thickness = 10;
-        indicator-x-position = 175;
-        indicator-y-position = 1000;
-        indicator-caps-lock = true;
-
-        disable-caps-lock-text = true;
-
-        key-hl-color = mkForce "31748f";
-        bs-hl-color = mkForce "eb6f92";
-        caps-lock-key-hl-color = mkForce "c4a7e7";
-        caps-lock-bs-hl-color = mkForce "eb6f92";
-
-        inside-color = mkForce "00000000";
-        inside-clear-color = mkForce "00000000";
-        inside-caps-lock-color = mkForce "00000000";
-        inside-ver-color = mkForce "00000000";
-        inside-wrong-color = mkForce "00000000";
-
-        line-uses-inside = true;
-
-        ring-color = mkForce "26233a";
-        ring-clear-color = mkForce "ebbcba";
-        ring-caps-lock-color = mkForce "f6c177";
-        ring-ver-color = mkForce "31748f";
-        ring-wrong-color = mkForce "eb6f92";
-      };
-    };
+    # programs.swaylock = {
+    #   enable = true;
+    #   package = pkgs.swaylock-effects;
+    #   settings = {
+    #     ignore-empty-password = true;
+    #     # Not using stylix
+    #     font = "Fantasque Sans Mono";
+    #     screenshots = true;
+    #     clock = true;
+    #     timestr = "%r";
+    #     datestr = "%A, %d %B";
+    #     fade-in = 0.2;
+    #     effect-blur = "20x2";
+    #     indicator = true;
+    #     indicator-radius = 100;
+    #     indicator-thickness = 10;
+    #     indicator-x-position = 175;
+    #     indicator-y-position = 1000;
+    #     indicator-caps-lock = true;
+    #
+    #     disable-caps-lock-text = true;
+    #
+    #     key-hl-color = mkForce "31748f";
+    #     bs-hl-color = mkForce "eb6f92";
+    #     caps-lock-key-hl-color = mkForce "c4a7e7";
+    #     caps-lock-bs-hl-color = mkForce "eb6f92";
+    #
+    #     inside-color = mkForce "00000000";
+    #     inside-clear-color = mkForce "00000000";
+    #     inside-caps-lock-color = mkForce "00000000";
+    #     inside-ver-color = mkForce "00000000";
+    #     inside-wrong-color = mkForce "00000000";
+    #
+    #     line-uses-inside = true;
+    #
+    #     ring-color = mkForce "26233a";
+    #     ring-clear-color = mkForce "ebbcba";
+    #     ring-caps-lock-color = mkForce "f6c177";
+    #     ring-ver-color = mkForce "31748f";
+    #     ring-wrong-color = mkForce "eb6f92";
+    #   };
+    # };
 
     wayland.windowManager.hyprland =
       let

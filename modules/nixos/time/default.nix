@@ -19,9 +19,8 @@ in
 
   config = mkIf cfg.enable {
     time.hardwareClockInLocalTime = cfg.hwclock;
-    time.timeZone = "America/New-York";
-    # services.timesyncd.enable = mkDefault true;
-    # services.automatic-timezoned.enable = mkDefault true;
+    time.timeZone = "America/Denver";
+    services.timesyncd.enable = mkDefault true;
     services.geoclue2.enable = true;
     services.geoclue2.enableDemoAgent = mkForce true;
   };

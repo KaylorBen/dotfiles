@@ -22,6 +22,7 @@
   ./nixcord
   ./nushell
   ./picom
+  ./qutebrowser
   ./spotify-player
   ./ssh
   ./starship

@@ -6,14 +6,13 @@
     ags.url = "github:Aylur/ags/v1";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
+    emacs.url = "github:kaylorben/emacs";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-utils.url = "github:numtide/flake-utils";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     ghostty.url = "github:ghostty-org/ghostty";
-    # ghostty.inputs.nixpkgs-stable.follows = "nixpkgs";
-    # ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hypridle.url = "github:hyprwm/hypridle";

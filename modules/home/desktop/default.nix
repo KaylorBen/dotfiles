@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 with lib;
@@ -22,6 +23,7 @@ in
         ghostty.enable = true;
         nixcord.enable = true;
         mpv.enable = true;
+        qutebrowser.enable = true;
         spotify-player.enable = true;
         ssh.enable = true;
         zathura.enable = true;
@@ -72,10 +74,11 @@ in
         libreoffice
         pavucontrol
         pinta
-        qutebrowser
         teamspeak_client
         todo
         youtube-tui
+
+        inputs.emacs.defaultPackage.${pkgs.system}
       ];
     };
     services.easyeffects.enable = true;

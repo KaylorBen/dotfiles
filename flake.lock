@@ -1431,11 +1431,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1734444316,
-        "narHash": "sha256-AWSsZvpA61vOjc4cPXmT5sAwkE9BBcTVkXtZ8Jytf10=",
+        "lastModified": 1736186653,
+        "narHash": "sha256-iutGN6uh8l79ebr9W7YXGb9ntUsRw0xxx5Guo5G2UBc=",
         "owner": "kaylorben",
         "repo": "neovim",
-        "rev": "4240e4853c5abd9155a5b7ee568e3ca68db41317",
+        "rev": "5fca6a6969f6808493070a9440bdfb3f6c4e8d7f",
         "type": "github"
       },
       "original": {

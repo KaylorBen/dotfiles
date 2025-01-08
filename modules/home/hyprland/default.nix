@@ -302,7 +302,8 @@ in
               "noblur, class:ffxiv_dx11.exe"
               "fullscreen, class:ffxiv_dx11.exe"
               "workspace 11, class:ffxiv_dx11.exe"
-              "opacity 0.0 override 0.0 override, class:vesktop, initialTitle:^(*Popout)$,"
+              "opacity 1.0 override 1.0 override, class:vesktop, initialTitle:^(*Popout)$,"
+              "opacity 1.0 override 1.0 override, class:com.obsproject.Studio,"
             ];
           }
           // (import (if cfg.splitBinds then ./split-window-binds.nix else ./keybinds.nix) {

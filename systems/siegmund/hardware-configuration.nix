@@ -65,12 +65,13 @@
       enable = true;
       package = (
         pkgs.ckb-next.overrideAttrs (prev: {
-          src = pkgs.fetchFromGitHub {
-            owner = "trashguy";
-            repo = "ckb-next";
-            rev = "486f2f5b4cf5c5cbba066401233822b822cc133a";
-            hash = "sha256-T0jRNW6AsR1zHRnQy1vUA8uiOXYEc3MMVLWwo/W98pM=";
-          };
+          src = /home/ben/Development/ckb-next;
+          # src = pkgs.fetchFromGitHub {
+          #   owner = "trashguy";
+          #   repo = "ckb-next";
+          #   rev = "486f2f5b4cf5c5cbba066401233822b822cc133a";
+          #   hash = "sha256-T0jRNW6AsR1zHRnQy1vUA8uiOXYEc3MMVLWwo/W98pM=";
+          # };
         })
       );
     };

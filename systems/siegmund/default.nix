@@ -59,6 +59,9 @@
         ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
         ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
       '';
+      allowedUDPPorts = [
+        9987
+      ];
     };
   };
 

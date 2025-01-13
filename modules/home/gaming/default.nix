@@ -1,6 +1,7 @@
 {
   config,
   osConfig ? { },
+  pkgs,
   lib,
   ...
 }:
@@ -17,6 +18,9 @@ in
   config = mkIf cfg.enable {
     # consider reshade
     Wotan.desktop.picom.enable = mkForce false;
+    home.packages = with pkgs; [
+      arma3-unix-launcher
+    ];
     programs.mangohud = {
       enable = true;
       enableSessionWide = mkDefault true;

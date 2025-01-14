@@ -216,9 +216,9 @@ in
         };
       };
       userPlugins = {
-        betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
-        blockKrisp = "github:D3SOX/vc-blockKrisp/91964150e5ba42e45bf4bc514c2616abe7cdca53";
-        ignoreTerms = "github:D3SOX/vc-ignoreTerms/7e63e599e7f8918dda6b4ec4c2ea1a6f6e1879e2";
+        betterActivities = "github:D3SOX/vc-betterActivities/b42afcd35d0ade108114b301859c7a077f45a8d5";
+        blockKrisp = "github:D3SOX/vc-blockKrisp/b4578ec59eee7c4cf3fddfa773a5a2c9752e310e";
+        ignoreTerms = "github:D3SOX/vc-ignoreTerms/bda412e2b7f60521628927022efd89b5f6bb526e";
         serverProfilesToolbox = "github:D3SOX/vc-serverProfilesToolbox/3178aed3dbf8f95dce439d2fa97bdd4d997bc2f3";
         voiceChatUtilities = "github:D3SOX/vc-voiceChatUtilities/251a18a0e4afed197cebe6bfaac9b534c243d094";
       };

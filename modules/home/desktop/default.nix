@@ -19,6 +19,7 @@ in
         alacritty.enable = true;
         cava.enable = true;
         chromium.enable = true;
+        fastfetch.enable = true;
         firefox.enable = true;
         ghostty.enable = true;
         nixcord.enable = true;

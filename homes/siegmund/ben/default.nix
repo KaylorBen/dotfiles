@@ -18,11 +18,11 @@
       extraAutoStart = [
         "xrandr --output DP-1 --primary --pos 0x0"
       ];
-      # plugins = with pkgs.hyprlandPlugins; [
-      #   inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-      # ];
-      # splitBinds = true;
-      # bar = "ags";
+      plugins = with pkgs.hyprlandPlugins; [
+        inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      ];
+      splitBinds = true;
+      bar = "ags";
     };
   };
   home.stateVersion = pkgs.myLib.stateVersion.home;

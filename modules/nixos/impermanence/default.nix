@@ -38,7 +38,7 @@ in
         wantedBy = [ "initrd.target" ];
         after = [ "zfs-import-zroot.service" ];
         before = [ "sysroot.mount" ];
-        path = with pkgs; [ zfs ];
+        path = with pkgs; [ zfs_unstable ];
         unitConfig.DefaultDependencies = "no";
         serviceConfig.Type = "oneshot";
         script = cfg.rollbackCommand;

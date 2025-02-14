@@ -49,12 +49,12 @@ in
     };
 
     services = with pkgs; {
-      sunshine = {
-        enable = true;
-        openFirewall = true;
-        package = pkgs.sunshine.override { cudaSupport = true; };
-        capSysAdmin = true;
-      };
+      # sunshine = {
+      #   enable = true;
+      #   openFirewall = true;
+      #   package = pkgs.sunshine.override { cudaSupport = true; };
+      #   capSysAdmin = true;
+      # };
       xserver.modules = [ xorg.xf86inputjoystick ];
       udev.packages = [ game-devices-udev-rules ];
     };

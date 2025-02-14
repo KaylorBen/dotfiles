@@ -132,7 +132,6 @@ in
           noMosaic.enable = true;
           noOnboardingDelay.enable = true;
           noPendingCount.enable = true;
-          noScreensharePreview.enable = true;
           noTypingAnimation.enable = true;
           noUnblockToJump.enable = true;
           normalizeMessageLinks.enable = true;

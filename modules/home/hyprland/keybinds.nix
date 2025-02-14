@@ -7,7 +7,7 @@
 }:
 {
   bind = [
-    "$mainMod, Return, exec, ${inputs.ghostty.packages.${pkgs.system}.default}/bin/ghostty"
+    "$mainMod, Return, exec, ${pkgs.ghostty}/bin/ghostty"
     "$mainMod SHIFT, Return, exec, ghostty --class='termfloat'"
     "$mainMod SHIFT, Q, killactive"
     "$mainMod SHIFT, E, exit"

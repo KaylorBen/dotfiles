@@ -48,7 +48,7 @@
   services = {
     thermald.enable = true;
     # blueman.enable = true;
-    # fwupd.enable = true;
+    fwupd.enable = true;
     # hardware.openrgb = {
     #   enable = true;
     #   package = pkgs.openrgb-with-all-plugins;
@@ -94,9 +94,9 @@
     #   TODO: find cooler model and configure
     #   config = {
     #   };
+    zfs.enable = true;
   };
 
-  Wotan.zfs.enable = true;
   # RAID stuff
   # environment.etc."mdadm.conf".text = ''
   #   MAILADDR root

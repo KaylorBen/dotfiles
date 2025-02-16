@@ -26,7 +26,6 @@ let external_completer = {|spans|
     }
 
     match $spans.0 {
-        __zoxide_z | __zoxide_zi => $carapace_completer
         _ => $fish_completer
     } | do $in $spans
 }

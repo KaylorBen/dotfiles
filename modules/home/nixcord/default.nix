@@ -17,6 +17,7 @@ in
     programs.nixcord = {
       enable = true;
       discord.vencord.unstable = true;
+      discord.openASAR.enable = false;
       vesktop.enable = true;
       config = {
         themeLinks = [

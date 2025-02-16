@@ -7,7 +7,7 @@
   ...
 }:
 {
-  # imports = with inputs; [ 
+  # imports = with inputs; [
   #   (modulesPath + "/installer/scan/not-detected.nix")
   #   nixos-hardware.nixosModules.common-cpu-intel
   #   nixos-hardware.nixosModules.common-pc-laptop-ssd

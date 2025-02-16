@@ -7,8 +7,10 @@ let
   cfg = config.Wotan.programs.qutebrowser;
   inherit (lib)
     mkEnableOption
-    mkIf;
-in {
+    mkIf
+    ;
+in
+{
   options.Wotan.programs.qutebrowser.enable = mkEnableOption "Vim Browser";
 
   config = mkIf cfg.enable {

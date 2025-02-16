@@ -10,7 +10,8 @@ let
   cfg = config.Wotan.programs.firefox;
 in
 {
-  options.Wotan.programs.firefox.enable = mkEnableOption "A web browser built from Firefox source tree";
+  options.Wotan.programs.firefox.enable =
+    mkEnableOption "A web browser built from Firefox source tree";
 
   config = mkIf cfg.enable {
     programs.firefox = {

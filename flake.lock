@@ -1475,16 +1475,15 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_7",
-        "plugins-rustowl": "plugins-rustowl",
         "systems": "systems_7",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1739814455,
-        "narHash": "sha256-aGxqgDEj79v/sCoDD8wICRwjNxixKUsCodXcjYMMtVs=",
+        "lastModified": 1739829850,
+        "narHash": "sha256-30Jvzuqo52I+BA8+54v61DMArxsvBlEnranY7F+1vII=",
         "owner": "kaylorben",
         "repo": "neovim",
-        "rev": "e2f9505abc05b6d6aee5b1ee1fa4f00b2834b419",
+        "rev": "f35db8134ef31010de1eaba60d8d145b50c8bab2",
         "type": "github"
       },
       "original": {
@@ -2267,22 +2266,6 @@
         "owner": "yshui",
         "ref": "next",
         "repo": "picom",
-        "type": "github"
-      }
-    },
-    "plugins-rustowl": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739595476,
-        "narHash": "sha256-/w6eSRWXp4LJP5PKzUvG0Q1zoCC34HCWI6nVrOL6oVM=",
-        "owner": "cordx56",
-        "repo": "rustowl",
-        "rev": "1885c5c6f3ff817b9a2d239c146313e5141186dc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cordx56",
-        "repo": "rustowl",
         "type": "github"
       }
     },

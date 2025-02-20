@@ -26,7 +26,6 @@
     nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
     nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
     nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
-    nix-flatpak.url = "github:lilyinstarlight/nix-flatpak";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -94,7 +93,6 @@
         hyprland.nixosModules.default
         impermanence.nixosModules.impermanence
         lanzaboote.nixosModules.lanzaboote
-        nix-flatpak.nixosModules.nix-flatpak
         nix-gaming.nixosModules.pipewireLowLatency
         nix-citizen.nixosModules.StarCitizen
         nix-minecraft.nixosModules.minecraft-servers

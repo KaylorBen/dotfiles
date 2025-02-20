@@ -4,7 +4,7 @@
   ./chinese-lang
   ./cosmic
   ./defaults
-  ./flatpak
+  # ./flatpak
   ./gaming
   ./hyprland
   ./impermanence

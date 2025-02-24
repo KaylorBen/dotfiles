@@ -102,7 +102,7 @@ in
     home.packages = with pkgs; [
       rofi-wayland
       wofi
-      pamixer
+      # pamixer
       grimblast
       networkmanager
       wl-clipboard

@@ -16,7 +16,7 @@ in
     services.arrpc.enable = true;
     programs.nixcord = {
       enable = true;
-      discord.vencord.unstable = true;
+      discord.vencord.unstable = false;
       discord.openASAR.enable = false;
       vesktop.enable = true;
       config = {

@@ -22,7 +22,7 @@ in
         fastfetch.enable = true;
         firefox.enable = true;
         ghostty.enable = true;
-        nixcord.enable = true;
+        # nixcord.enable = true;
         mpv.enable = true;
         qutebrowser.enable = true;
         spotify-player.enable = true;
@@ -69,10 +69,10 @@ in
       packages = with pkgs; [
         audacity
         emulsion
-        # discord
+        discord
         freetube
         # kitty
-        libreoffice
+        # libreoffice
         pavucontrol
         pinta
         teamspeak_client

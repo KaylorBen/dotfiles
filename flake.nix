@@ -42,10 +42,9 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-xivlauncher-rb.url = "github:drakon64/nixos-xivlauncher-rb";
     # nixcord.url = "path:/home/ben/Development/nixcord"; # Development
-    nixcord.url = "github:kaylorben/nixcord";
+    nixcord.url = "github:kaylorben/nixcord/";
     # nixcord.url = "github:DontEatOreo/nixcord/add-vencord-unstable";
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-wayland.inputs.nix-eval-jobs.follows = "nix-eval-jobs";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";

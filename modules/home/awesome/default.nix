@@ -39,7 +39,7 @@ in
 
     home.packages = with pkgs; [
       xorg.libxcb
-      pamixer
+      # pamixer
       pa_applet
       xclip
     ];

@@ -79,6 +79,7 @@ in
 
     environment.systemPackages = with pkgs; [
       crawl
+      bottles
       fflogs
       gamescope
       goverlay

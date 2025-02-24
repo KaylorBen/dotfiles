@@ -31,6 +31,7 @@ in
   };
 
   config = mkIf cfg.enable (mkMerge [
+    (mkIf cfg.Wotan.zfs.enable)
     {
       # Handles rollbacks for ZFS, disabled to ensure paths are fully set
       boot.initrd.systemd.services.impermanence = {
@@ -43,6 +44,41 @@ in
         serviceConfig.Type = "oneshot";
         script = cfg.rollbackCommand;
       };
+    }
+    (mkIf !cfg.Wotan.zfs.enable && cfg.boot.bcache.enable)
+    {
+      boot.initrd = {
+        enable = true;
+        supportedFilesystems = [ "bcachefs" ];
+
+        postResumeComands = lib.mkAfter ''
+          mkdir -p /mnt
+          # We mount the whole bcachefs filesystem. Now its time to save our data.
+          mount --mkdir /dev/nvme0n1p2 /mnt/
+
+          # Bcachefs snapshots are virtually free, so we can create a bunch to
+          # save our data, then reset root and restore them.
+          # Unfortunately a few features useful for this (mount a single subvol and
+          # list all subvolumes) are not available.
+          bcachefs subvolume delete /mnt/.snapshots/*
+          bcachefs subvolume snapshot /mnt/home /mnt/.snapshots/home
+          bcachefs subvolume snapshot /mnt/nix /mnt/.snapshots/nix
+          bcachefs subvolume snapshot /mnt/.persistent /mnt/.snapshots/persistent
+          bcachefs subvolume snapshot /mnt/var/logs /mnt/.snapshots/logs
+
+          # Now we destoy current root. Not sure if this is the best way to do this.
+          export GLOBIGNORE="/mnt/.snapshots:.:.."
+          rm -rf /mnt/*
+
+          # And restore
+          bcachefs subvolume snapshot /mnt/.snapshots/home /mnt/home
+          bcachefs subvolume snapshot /mnt/.snapshots/nix /mnt/nix
+          bcachefs subvolume snapshot /mnt/.snapshots/persistent /mnt/.persistent
+          bcachefs subvolume snapshot /mnt/.snapshots/logs /mnt/var/logs
+        '';
+      };
+    }
+    {
       fileSystems.${cfg.persistentDirectory}.neededForBoot = true;
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;

@@ -14,9 +14,7 @@
     time.enable = true;
     impermanence = {
       enable = true;
-      rollbackCommand = ''
-        zfs rollback -r zroot/encrypted/NixOS/root@blank
-      '';
+      rollbackCommand = "";
     };
     sound.enable = true;
     security = {

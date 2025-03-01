@@ -22,7 +22,7 @@ in
         fastfetch.enable = true;
         firefox.enable = true;
         ghostty.enable = true;
-        # nixcord.enable = true;
+        nixcord.enable = true;
         mpv.enable = true;
         qutebrowser.enable = true;
         spotify-player.enable = true;
@@ -69,7 +69,7 @@ in
       packages = with pkgs; [
         audacity
         emulsion
-        discord
+        # discord
         freetube
         # kitty
         # libreoffice
@@ -77,6 +77,7 @@ in
         pinta
         teamspeak_client
         todo
+        # vesktop
         youtube-tui
 
         inputs.emacs.defaultPackage.${pkgs.system}

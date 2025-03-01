@@ -26,54 +26,54 @@ in
         frameless = true;
         disableMinSize = true;
         plugins = {
-          # accountPanelServerProfile.enable = true;
-          # alwaysExpandRoles.enable = true;
-          # alwaysTrust.enable = true;
-          # anonymiseFileNames.enable = true;
-          # # betterFolders = {
-          # #   enable = true;
-          # #   sidebar = true;
-          # #   sidebarAnim = false;
-          # #   closeAllFolders = true;
-          # #   closeAllHomeButton = true;
-          # #   closeOthers = true;
-          # #   forceOpen = false;
-          # #   keepIcons = false;
-          # #   showFolderIcon = "moreThanOne";
-          # # };
-          # betterGifAltText.enable = true;
-          # betterGifPicker.enable = true;
-          # betterNotesBox.enable = true;
-          # betterRoleContext.enable = true;
-          # betterRoleDot.enable = true;
-          # betterSessions.enable = true;
-          # betterSettings.enable = true;
-          # betterUploadButton.enable = true;
-          # biggerStreamPreview.enable = true;
-          # blurNSFW.enable = true;
-          # callTimer = {
+          accountPanelServerProfile.enable = true;
+          alwaysExpandRoles.enable = true;
+          alwaysTrust.enable = true;
+          anonymiseFileNames.enable = true;
+          # betterFolders = {
           #   enable = true;
-          #   format = "human";
+          #   sidebar = true;
+          #   sidebarAnim = false;
+          #   closeAllFolders = true;
+          #   closeAllHomeButton = true;
+          #   closeOthers = true;
+          #   forceOpen = false;
+          #   keepIcons = false;
+          #   showFolderIcon = "moreThanOne";
           # };
-          # clearURLs.enable = true;
-          # colorSighted.enable = true;
-          # consoleJanitor.enable = true;
-          # consoleShortcuts.enable = true;
-          # copyEmojiMarkdown.enable = true;
-          # copyFileContents.enable = true;
-          # copyUserURLs.enable = true;
-          # customRPC = {
-          #   enable = false; # TODO
-          # };
-          # dearrow.enable = true;
-          # decor.enable = true;
-          # disableCallIdle.enable = true;
-          # dontRoundMyTimestamps.enable = true;
-          # emoteCloner.enable = true;
-          # experiments = {
-          #   enable = true;
-          #   toolbarDevMenu = true;
-          # };
+          betterGifAltText.enable = true;
+          betterGifPicker.enable = true;
+          betterNotesBox.enable = true;
+          betterRoleContext.enable = true;
+          betterRoleDot.enable = true;
+          betterSessions.enable = true;
+          betterSettings.enable = true;
+          betterUploadButton.enable = true;
+          biggerStreamPreview.enable = true;
+          blurNSFW.enable = true;
+          callTimer = {
+            enable = true;
+            format = "human";
+          };
+          clearURLs.enable = true;
+          colorSighted.enable = true;
+          consoleJanitor.enable = true;
+          consoleShortcuts.enable = true;
+          copyEmojiMarkdown.enable = true;
+          copyFileContents.enable = true;
+          copyUserURLs.enable = true;
+          customRPC = {
+            enable = false; # TODO
+          };
+          dearrow.enable = true;
+          decor.enable = true;
+          disableCallIdle.enable = true;
+          dontRoundMyTimestamps.enable = true;
+          emoteCloner.enable = true;
+          experiments = {
+            enable = true;
+            toolbarDevMenu = true;
+          };
           f8Break.enable = true;
           fakeProfileThemes.enable = true;
           favoriteEmojiFirst.enable = true;
@@ -138,7 +138,7 @@ in
           permissionsViewer.enable = true;
           petpet.enable = true;
           pictureInPicture.enable = true;
-          # pinDMs.enable = true;
+          pinDMs.enable = true;
           platformIndicators.enable = true;
           previewMessage.enable = true;
           quickMention.enable = true;
@@ -201,22 +201,22 @@ in
           webScreenShareFixes.enable = true;
         };
       };
-      extraConfig = {
-        plugins = {
-          betterActivities.enable = true;
-          blockKrisp.enable = true;
-          ignoreTerms.enable = true;
-          serverProfilesToolbox.enable = true;
-          voiceChatUtilities.enable = true;
-        };
-      };
-      userPlugins = {
-        betterActivities = "github:D3SOX/vc-betterActivities/b42afcd35d0ade108114b301859c7a077f45a8d5";
-        blockKrisp = "github:D3SOX/vc-blockKrisp/b4578ec59eee7c4cf3fddfa773a5a2c9752e310e";
-        ignoreTerms = "github:D3SOX/vc-ignoreTerms/bda412e2b7f60521628927022efd89b5f6bb526e";
-        serverProfilesToolbox = "github:D3SOX/vc-serverProfilesToolbox/3178aed3dbf8f95dce439d2fa97bdd4d997bc2f3";
-        voiceChatUtilities = "github:D3SOX/vc-voiceChatUtilities/251a18a0e4afed197cebe6bfaac9b534c243d094";
-      };
+      # extraConfig = {
+      #   plugins = {
+      #     betterActivities.enable = true;
+      #     blockKrisp.enable = true;
+      #     ignoreTerms.enable = true;
+      #     serverProfilesToolbox.enable = true;
+      #     voiceChatUtilities.enable = true;
+      #   };
+      # };
+      # userPlugins = {
+      #   betterActivities = "github:D3SOX/vc-betterActivities/b42afcd35d0ade108114b301859c7a077f45a8d5";
+      #   blockKrisp = "github:D3SOX/vc-blockKrisp/b4578ec59eee7c4cf3fddfa773a5a2c9752e310e";
+      #   ignoreTerms = "github:D3SOX/vc-ignoreTerms/bda412e2b7f60521628927022efd89b5f6bb526e";
+      #   serverProfilesToolbox = "github:D3SOX/vc-serverProfilesToolbox/3178aed3dbf8f95dce439d2fa97bdd4d997bc2f3";
+      #   voiceChatUtilities = "github:D3SOX/vc-voiceChatUtilities/251a18a0e4afed197cebe6bfaac9b534c243d094";
+      # };
     };
   };
 }

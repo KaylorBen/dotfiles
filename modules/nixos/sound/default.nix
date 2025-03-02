@@ -24,7 +24,11 @@ in
       pulse.enable = true;
       jack.enable = true;
       wireplumber.enable = true;
-      lowLatency.enable = cfg.lowLatency;
+      lowLatency = {
+        enable = true;
+        quantum = 256;
+        rate = 48000;
+      };
     };
   };
 }

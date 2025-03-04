@@ -153,6 +153,7 @@
     };
   };
   programs = {
+    ladybird.enable = true;
     nix-ld.enable = true;
     fuse.userAllowOther = true;
     kdeconnect.enable = true;

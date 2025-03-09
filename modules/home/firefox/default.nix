@@ -14,6 +14,7 @@ in
     mkEnableOption "A web browser built from Firefox source tree";
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.tridactyl-native ];
     programs.firefox = {
       enable = true;
       policies = {

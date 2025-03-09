@@ -133,6 +133,8 @@ in
       };
       gc = {
         automatic = mkDefault true;
+        dates = "weekly";
+        persistent = true;
         options = mkDefault "--delete-older-than 30d";
       };
     };

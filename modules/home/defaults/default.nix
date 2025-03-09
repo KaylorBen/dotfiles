@@ -13,24 +13,31 @@ in
     programs = {
       yazi.enable = true;
     };
-    nix.settings =
-      let
-      in
-      # substituters = [
-      #   "https://nix-community.cachix.org"
-      # ];
-      # trusted-public-keys = [
-      #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      # ];
-      {
-        # inherit substituters trusted-public-keys;
-        # trusted-substituters = substituters;
-        # extra-trusted-public-keys = trusted-public-keys;
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+    nix = {
+      settings =
+        let
+        in
+        # substituters = [
+        #   "https://nix-community.cachix.org"
+        # ];
+        # trusted-public-keys = [
+        #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        # ];
+        {
+          # inherit substituters trusted-public-keys;
+          # trusted-substituters = substituters;
+          # extra-trusted-public-keys = trusted-public-keys;
+          experimental-features = [
+            "nix-command"
+            "flakes"
+          ];
+        };
+      gc = {
+        automatic = true;
+        frequency = "weekly";
+        options = "--delete-older-than 30d";
       };
+    };
     home = {
       keyboard = mkIf isDarwin { layout = true; };
       username = mkDefault "ben";

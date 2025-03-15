@@ -94,6 +94,10 @@
     "$mainMod, Super_L,exec, bash ~/.config/rofi/powermenu.sh"
     "$mainMod, SPACE, exec, rofi -show drun"
 
+    # Global Keybinds (PTT)
+    ", Alt_L, pass, class:^(discord)$"
+    ", Alt_L, pass, class:^(vesktop)$"
+
     # control volume,brightness,media players
     ", XF86AudioRaiseVolume,exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
     ", XF86AudioLowerVolume,exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"

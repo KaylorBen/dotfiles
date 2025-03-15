@@ -5,6 +5,7 @@
   ./cosmic
   ./defaults
   # ./flatpak
+  ./foundry
   ./gaming
   ./hyprland
   ./impermanence

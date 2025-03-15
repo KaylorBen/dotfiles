@@ -26,6 +26,7 @@
     nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
     nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
     nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
+    nix-foundry.url = "github:reckenrode/nix-foundryvtt";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -94,6 +95,7 @@
         lanzaboote.nixosModules.lanzaboote
         nix-gaming.nixosModules.pipewireLowLatency
         nix-citizen.nixosModules.StarCitizen
+        nix-foundry.nixosModules.foundryvtt
         nix-minecraft.nixosModules.minecraft-servers
         nixos-cosmic.nixosModules.default
         nixos-generators.nixosModules.all-formats

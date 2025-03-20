@@ -31,12 +31,14 @@ in
       trim.enable = true;
     };
 
+    # boot.supportedFilesystems = [ "zfs" ];
+
     systemd.targets = {
       hibernate.enable = mkForce false;
       hybrid-sleep.enable = mkForce false;
     };
 
-    boot.zfs.package = pkgs.zfs_unstable;
-    boot.kernelPackages = mkForce latestKernelPackage;
+    # boot.zfs.package = pkgs.zfs_unstable;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
   };
 }

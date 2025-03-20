@@ -40,7 +40,7 @@
       ];
       kernelModules = [ ];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ ];
     extraModulePackages = [ ];
   };
   # powerManagement.cpuFreqGovernor = "performance";
@@ -57,24 +57,25 @@
   };
 
   hardware = {
+    enableAllHardware = true;
     openrazer = {
       enable = true;
       users = [ config.users.users.ben.name ];
     };
-    ckb-next = {
-      enable = true;
-      package = (
-        pkgs.ckb-next.overrideAttrs (prev: {
-          src = /home/ben/Development/ckb-next;
-          # src = pkgs.fetchFromGitHub {
-          #   owner = "trashguy";
-          #   repo = "ckb-next";
-          #   rev = "486f2f5b4cf5c5cbba066401233822b822cc133a";
-          #   hash = "sha256-T0jRNW6AsR1zHRnQy1vUA8uiOXYEc3MMVLWwo/W98pM=";
-          # };
-        })
-      );
-    };
+    # ckb-next = {
+    #   enable = true;
+    #   package = (
+    #     pkgs.ckb-next.overrideAttrs (prev: {
+    #       src = /home/ben/Development/ckb-next;
+    #       # src = pkgs.fetchFromGitHub {
+    #       #   owner = "trashguy";
+    #       #   repo = "ckb-next";
+    #       #   rev = "486f2f5b4cf5c5cbba066401233822b822cc133a";
+    #       #   hash = "sha256-T0jRNW6AsR1zHRnQy1vUA8uiOXYEc3MMVLWwo/W98pM=";
+    #       # };
+    #     })
+    #   );
+    # };
   };
   networking = {
     hostName = "Siegmund";
@@ -110,8 +111,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

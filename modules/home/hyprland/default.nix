@@ -74,7 +74,7 @@ in
       # };
       hyprpaper = {
         enable = true;
-        package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
+        # package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
         settings =
           let
             wallpaper1 = ../../../assets/ff14ew-venat-art.jpg;
@@ -158,7 +158,7 @@ in
       in
       {
         enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland = {
           enable = true;
         };

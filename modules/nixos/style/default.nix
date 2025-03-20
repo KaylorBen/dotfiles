@@ -31,10 +31,11 @@ in
 
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.style}.yaml";
 
-      cursor = {
-        package = pkgs.rose-pine-cursor;
-        name = "BreezeX-RosePine-Linux";
-      };
+      # cursor = {
+      #   package = pkgs.rose-pine-cursor;
+      #   name = "BreezeX-RosePine-Linux";
+      #   size = 
+      # };
 
       fonts = {
         serif = {

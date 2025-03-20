@@ -81,8 +81,8 @@
     "$mainMod,slash,workspace,previous"
 
     "$mainMod SHIFT,X,exec,swaylock -f"
-    "$mainMod, bracketleft,exec,grimblast --notify --cursor  copysave area ~/Pictures/$(date '+%Y-%m-%d'T'%H:%M:%S_no_watermark').png"
-    "$mainMod, bracketright,exec, grimblast --notify --cursor  copy area"
+    "$mainMod, bracketleft,exec,grimblast --notify copysave area ~/Pictures/$(date '+%Y-%m-%d'T'%H:%M:%S_no_watermark').png"
+    "$mainMod, bracketright,exec, grimblast --notify copy area"
     "$mainMod, A,exec, grimblast_watermark"
     ",Super_L, exec, pkill rofi || ~/.config/rofi/launcher.sh"
     "$mainMod, Super_L,exec, bash ~/.config/rofi/powermenu.sh"

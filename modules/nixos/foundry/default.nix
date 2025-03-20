@@ -17,6 +17,7 @@ in
   config = mkIf cfg.enable {
     services.foundryvtt = {
       enable = true;
+      package = inputs.nix-foundry.packages.${pkgs.system}.foundryvtt_12;
     };
   };
 }

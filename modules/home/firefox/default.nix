@@ -24,7 +24,7 @@ in
       profiles.ben = {
         name = "ben";
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
             "Brave Search" = {
               url = "https://search.brave.com/search?q={searchTerms}";
@@ -98,7 +98,7 @@ in
                   template = "https://nixos.wiki/index.php?search={searchTerms}";
                 }
               ];
-              iconUpdateURL = "https://nixos.wiki/favicon.png";
+              icon = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = [ "@nw" ];
             };

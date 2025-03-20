@@ -57,7 +57,6 @@
   };
 
   hardware = {
-    enableAllHardware = true;
     openrazer = {
       enable = true;
       users = [ config.users.users.ben.name ];

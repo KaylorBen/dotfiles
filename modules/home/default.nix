@@ -19,6 +19,7 @@
   ./hyprland
   ./mpv
   ./neovim
+  ./niri
   ./nixcord
   ./nushell
   ./picom

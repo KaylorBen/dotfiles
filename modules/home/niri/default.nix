@@ -30,6 +30,7 @@ in {
       wl-clipboard
       wl-clipboard-x11
       swaybg
+      xwayland-satellite
     ];
 
     services.mako.enable = true;

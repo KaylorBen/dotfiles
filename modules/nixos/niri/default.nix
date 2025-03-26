@@ -15,14 +15,18 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.light.enable = true;
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri";
-          user = "greeter";
+    services = {
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+            user = "greeter";
+          };
         };
       };
+      graphical-desktop.enable = true;
+      xserver.desktopManager.runXdgAutostartIfNone = true;
     };
     security.pam.services.swaylock.text = ''
       auth include login
@@ -43,15 +47,23 @@ in
     #     extra-trusted-public-keys = trusted-public-keys;
     #   };
 
-    programs.niri = {
-      enable = true;
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    programs = {
+      niri = {
+        enable = true;
+        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
+      xwayland.enable = true;
+      dconf.enable = true;
     };
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
       ];
+    };
+    security = {
+      polkit.enable = true;
     };
   };
 }

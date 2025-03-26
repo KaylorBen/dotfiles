@@ -24,21 +24,12 @@ in
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
     };
     hardware.nvidia = {
-      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = mkDefault true;
       open = mkDefault true;
       nvidiaSettings = mkDefault true;
-
-      prime = {
-        sync.enable = true;
-
-        # Bus IDs for Desktop
-        nvidiaBusId = "PCI:1:0:0";
-        intelBusId = "PCI:0:1:0";
-      };
     };
     hardware.nvidia.powerManagement.enable = mkDefault false;
-    # hardware.nvidia.open = mkDefault false;
     # bool.kernelParams =  [ "nvidia_drm.fbdev=1" ];
     # Might need this for cosmic
   };

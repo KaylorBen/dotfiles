@@ -18,6 +18,7 @@
   ./sound
   ./streaming
   ./style
+  ./sway
   ./time
   ./users
   ./vms

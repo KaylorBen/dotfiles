@@ -11,6 +11,7 @@
   ./impermanence
   ./kmscon
   ./laptop
+  ./niri
   ./nvidia
   ./package-versions
   ./security

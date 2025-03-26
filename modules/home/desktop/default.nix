@@ -71,6 +71,7 @@ in
         emulsion
         # discord
         freetube
+        gimp
         # kitty
         # libreoffice
         pavucontrol

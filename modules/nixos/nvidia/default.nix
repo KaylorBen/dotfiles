@@ -10,13 +10,13 @@ in
     boot.extraModprobeConfig = ''options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"'';
     services.xserver.videoDrivers = [ "nvidia" ];
     environment.sessionVariables = {
-      A_DRIVER_NAME = mkDefault "nvidia";
+      # A_DRIVER_NAME = mkDefault "nvidia";
       # May crash firefox
-      GBM_BACKEND = mkDefault "nividia-drm";
+      # GBM_BACKEND = mkDefault "nividia-drm";
       # May break scerensharing / Discord
-      __GLX_VENDOR_LIBRARY_NAME = mkDefault "nvidia";
-      LIBVA_DRIVER_NAME = "nvidia";
-      __GL_VRR_ALLOWED = "1";
+      # __GLX_VENDOR_LIBRARY_NAME = mkDefault "nvidia";
+      # LIBVA_DRIVER_NAME = "nvidia";
+      # __GL_VRR_ALLOWED = "1";
       # Unsure what this has the potential to break
       NIXOS_WAYLAND = "1";
       NIXOS_OZONE_WL = mkDefault "1";
@@ -24,13 +24,12 @@ in
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
     };
     hardware.nvidia = {
-      # package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = mkDefault true;
       open = mkDefault true;
       nvidiaSettings = mkDefault true;
+      powerManagement.enable = mkDefault false;
     };
-    hardware.nvidia.powerManagement.enable = mkDefault false;
-    # bool.kernelParams =  [ "nvidia_drm.fbdev=1" ];
-    # Might need this for cosmic
+    bool.kernelParams =  [ "nvidia_drm.fbdev=1" ];
   };
 }

@@ -192,6 +192,7 @@ in
               # "gdk_scale,2"
               # Not using stylix
               # "xcursor_size,${tostring config.stylix.cursor.size}"
+              "ELECTRON_OZONE_PLATFORM_HINT,auto"
             ];
             xwayland = {
               force_zero_scaling = true;

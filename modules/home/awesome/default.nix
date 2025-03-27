@@ -41,7 +41,7 @@ in
       xorg.libxcb
       # pamixer
       pa_applet
-      xclip
+      # xclip
     ];
   };
 }

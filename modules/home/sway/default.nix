@@ -11,13 +11,13 @@ let
     mkIf
     types
     ;
-  cfg = config.Wotan.desktop.river;
+  cfg = config.Wotan.desktop.sway;
 in {
-  options.Wotan.desktop.river = {
+  options.Wotan.desktop.sway = {
     enable = mkOption {
       type = types.bool;
-      description = "river";
-      default = osConfig.Wotan.desktop.river.enable or false;
+      description = "sway";
+      default = osConfig.Wotan.desktop.sway.enable or false;
     };
   };
 
@@ -28,10 +28,17 @@ in {
       networkmanager
       wl-clipboard
       wl-clipboard-x11
-      i3bar-river
       wlr-randr
     ];
 
     services.mako.enable = true;
+
+    wayland.windowManager.sway = {
+      enable = true;
+      package = pkgs.swayfx;
+      config = {
+        bars = [];
+      };
+    };
   };
 }

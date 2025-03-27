@@ -28,6 +28,7 @@
   ./spotify-player
   ./ssh
   ./starship
+  ./sway
   ./tmux
   ./waybar
   ./wezterm

@@ -15,7 +15,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hypridle.url = "github:hyprwm/hypridle";
-    hyprland.url = "github:hyprwm/Hyprland/7753e8ea686ba0aeaa825502f27e5b3f813faade";
+    hyprland.url = "github:hyprwm/Hyprland/";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";

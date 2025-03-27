@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.Wotan.desktop.sway;
+  cfg = config.Wotan.desktop.river;
 in
 {
-  options.Wotan.desktop.sway = {
-    enable = lib.mkEnableOption "sway";
+  options.Wotan.desktop.river = {
+    enable = lib.mkEnableOption "river";
   };
 
   config = lib.mkIf cfg.enable {
@@ -30,10 +30,9 @@ in
     '';
 
     programs = {
-      sway = {
+      river = {
         enable = true;
         xwayland.enable = true;
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       };
       dconf.enable = true;
     };

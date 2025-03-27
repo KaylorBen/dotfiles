@@ -293,9 +293,9 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "waybar"
-spawn-at-startup "${pkgs.xwayland-satellite}"
-spawn-at-startup "${pkgs.swaybg}" "-o" "DP-1" "-i" "${../../../assets/ff14ew-venat-art.jpg}"
-spawn-at-startup "${pkgs.swaybg}" "-o" "HDMI-A-1" "-i" "${../../../assets/ew_wallpaper.jpg}"
+spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
+spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-o" "DP-1" "-i" "${../../../assets/ff14ew-venat-art.jpg}"
+spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-o" "HDMI-A-1" "-i" "${../../../assets/ew_wallpaper.jpg}"
 
 environment {
   DISPLAY ":0"

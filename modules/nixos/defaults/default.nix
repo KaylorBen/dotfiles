@@ -24,7 +24,6 @@ in
       cbonsai
       comma
       cowsay
-      fastfetch
       git
       htop
       p7zip

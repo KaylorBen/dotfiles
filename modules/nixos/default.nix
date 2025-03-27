@@ -14,6 +14,7 @@
   ./niri
   ./nvidia
   ./package-versions
+  ./river
   ./security
   ./sound
   ./streaming

@@ -24,6 +24,7 @@
   ./nushell
   ./picom
   ./qutebrowser
+  ./river
   ./spotify-player
   ./ssh
   ./starship

@@ -28,7 +28,7 @@
       enableTPM = false;
     };
     styles.style = "tokyo-night-dark";
-    desktop.niri = {
+    desktop.river = {
       enable = true;
     };
   };

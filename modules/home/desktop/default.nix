@@ -21,7 +21,6 @@ in
         chromium.enable = true;
         fastfetch.enable = true;
         firefox.enable = true;
-        ghostty.enable = true;
         nixcord.enable = true;
         mpv.enable = true;
         qutebrowser.enable = true;
@@ -32,7 +31,9 @@ in
     };
     services.syncthing.enable = true;
 
-    programs.kitty.enable = true;
+    programs = {
+      kitty.enable = true;
+    };
 
     # gtk = {
     #   font.size = mkDefault 12;
@@ -58,7 +59,7 @@ in
         DONTNET_CLI_TELEMETRY_OPTOUT = "1";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
-        TERM = "xterm-ghostty";
+        # TERM = "xterm-ghostty";
       };
       sessionPath = [
         "${pkgs.dotnet-sdk}/bin"

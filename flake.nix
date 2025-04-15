@@ -14,8 +14,7 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    hypridle.url = "github:hyprwm/hypridle";
-    hyprland.url = "github:hyprwm/Hyprland/";
+    hyprland.url = "github:hyprwm/Hyprland/da2d7c3971d40f841f2afd7def8e4bad9a351e41";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
@@ -53,10 +52,9 @@
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     stylix.url = "github:danth/stylix";
+    swww.url = "github:LGFae/swww";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs =

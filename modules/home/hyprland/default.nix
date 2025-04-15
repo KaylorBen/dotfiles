@@ -72,29 +72,30 @@ in
       #     }
       #   ];
       # };
-      hyprpaper = {
-        enable = true;
-        package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
-        settings =
-          let
-            wallpaper1 = ../../../assets/ff14ew-venat-art.jpg;
-            wallpaper2 = ../../../assets/ew_wallpaper.jpg;
-          in
-          {
-            preload = [
-              "${wallpaper1}"
-              "${wallpaper2}"
-            ];
-            wallpaper = [
-              "DP-1, ${wallpaper1}"
-              "HDMI-A-1, ${wallpaper2}"
-            ];
 
-            splash = false;
-
-            ipc = "off";
-          };
-      };
+      # hyprpaper = {
+      #   enable = true;
+      #   package = inputs.hyprpaper.packages.${pkgs.system}.hyprpaper;
+      #   settings =
+      #     let
+      #       wallpaper1 = ../../../assets/ff14ew-venat-art.jpg;
+      #       wallpaper2 = ../../../assets/ew_wallpaper.jpg;
+      #     in
+      #     {
+      #       preload = [
+      #         "${wallpaper1}"
+      #         "${wallpaper2}"
+      #       ];
+      #       wallpaper = [
+      #         "DP-1, ${wallpaper1}"
+      #         "HDMI-A-1, ${wallpaper2}"
+      #       ];
+      #
+      #       splash = false;
+      #
+      #       ipc = "off";
+      #     };
+      # };
     };
     stylix.targets.hyprpaper.enable = lib.mkForce false;
     stylix.targets.hyprland.enable = lib.mkForce false;
@@ -105,6 +106,7 @@ in
       # pamixer
       grimblast
       networkmanager
+      inputs.swww.packages.${pkgs.system}.default
       wl-clipboard
       wl-clipboard-x11
     ];
@@ -169,8 +171,9 @@ in
             source = "${./keybinds.conf}";
             "$mainMod" = "super";
             input = {
-              kb_layout = "us";
-              kb_options = "caps:escape";
+              kb_layout = "us,us";
+              kb_variant = ",3l";
+              kb_options = "caps:escape,grp:alt_shift_toggle";
               touchpad = {
                 natural_scroll = true;
                 clickfinger_behavior = true;
@@ -190,8 +193,7 @@ in
             };
             env = [
               # "gdk_scale,2"
-              # Not using stylix
-              # "xcursor_size,${tostring config.stylix.cursor.size}"
+              # "xcursor_size,${toString config.stylix.cursor.size}"
               "ELECTRON_OZONE_PLATFORM_HINT,auto"
             ];
             xwayland = {
@@ -262,6 +264,7 @@ in
               #   "${wallpaper-engine} &"
               "fcitx5 -d -r"
               "fcitx5-remote -r"
+              "swww-daemon"
             ] ++ cfg.extraAutoStart;
             # `hyprctl clients` get class、title...
             windowrule = [

@@ -4,7 +4,7 @@
   Wotan = {
     virt.enable = true;
     autoUpgrade.enable = true;
-    chinese-lang.enable = true;
+    # chinese-lang.enable = true;
     users.enable = true;
     time.enable = true;
     gaming = {
@@ -74,6 +74,8 @@
     # ];
   };
 
+  console.useXkbConfig = true;
+
   services = {
     # pixiecore =
     #   let inherit (inputs.self.nixosConfigurations.Netboot.config.system) build;
@@ -91,7 +93,11 @@
     xserver = {
       enable = true;
 
-      xkb.layout = "us";
+      xkb = {
+        layout = "us,us";
+        variant = ",3l";
+        options = "grp:alt_shift_toggle";
+      };
     };
     dbus.enable = true;
     openssh.enable = true;

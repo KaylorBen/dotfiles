@@ -19,7 +19,7 @@ in
         sponsorblock
         webtorrent-mpv-hook
         vr-reversal
-        visualizer
+        # visualizer
         thumbnail
         quality-menu
         mpv-playlistmanager
@@ -38,6 +38,7 @@ in
       config = {
         profile = "gpu-hq";
         ytdl-format = "bestvideo+bestaudio";
+        osc = "no";
       };
     };
   };

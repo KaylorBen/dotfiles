@@ -31,19 +31,20 @@ in
   };
 
   config = mkIf cfg.enable (mkMerge [
-    # (mkIf config.Wotan.zfs.enable {
-    #   # Handles rollbacks for ZFS, disabled to ensure paths are fully set
-    #   boot.initrd.systemd.services.impermanence = {
-    #     description = "Resets root to a clean state (Requires ZFS)";
-    #     wantedBy = [ "initrd.target" ];
-    #     after = [ "zfs-import-zroot.service" ];
-    #     before = [ "sysroot.mount" ];
-    #     path = with pkgs; [ zfs_unstable ];
-    #     unitConfig.DefaultDependencies = "no";
-    #     serviceConfig.Type = "oneshot";
-    #     script = cfg.rollbackCommand;
-    #   };
-    # })
+    (mkIf config.Wotan.zfs.enable {
+      # Handles rollbacks for ZFS, disabled to ensure paths are fully set
+      boot.initrd.systemd.services.impermanence = {
+        description = "Resets root to a clean state (Requires ZFS)";
+        wantedBy = [ "initrd.target" ];
+        after = [ "zfs-import-zroot.service" ];
+        before = [ "sysroot.mount" ];
+        path = with pkgs; [ zfs_unstable ];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = cfg.rollbackCommand;
+      };
+    })
+    # Broken
     # (mkIf (!config.Wotan.zfs.enable && cfg.boot.bcache.enable) {
     #   boot.initrd = {
     #     enable = true;
@@ -86,7 +87,7 @@ in
       environment.persistence.${cfg.persistentDirectory} = {
         hideMounts = true;
         directories = [
-          (dir "/var/log" "root" "root" "u=rwx,g=rx,o=rx")
+          # (dir "/var/log" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/bluetooth" "root" "root" "u=rwx,g=,o=")
           (dir "/var/lib/nixos" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
@@ -114,8 +115,8 @@ in
       };
     }
     (mkIf config.Wotan.users.enable {
-      # users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
-      # users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
+      users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
+      users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
       programs.fuse.userAllowOther = true;
       environment.persistence.${cfg.persistentDirectory} = {
         users.ben = {

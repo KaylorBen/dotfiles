@@ -31,56 +31,56 @@ in
   };
 
   config = mkIf cfg.enable (mkMerge [
-    (mkIf config.Wotan.zfs.enable {
-      # Handles rollbacks for ZFS, disabled to ensure paths are fully set
-      boot.initrd.systemd.services.impermanence = {
-        description = "Resets root to a clean state (Requires ZFS)";
-        wantedBy = [ "initrd.target" ];
-        after = [ "zfs-import-zroot.service" ];
-        before = [ "sysroot.mount" ];
-        path = with pkgs; [ zfs_unstable ];
-        unitConfig.DefaultDependencies = "no";
-        serviceConfig.Type = "oneshot";
-        script = cfg.rollbackCommand;
-      };
-    })
-    (mkIf (!config.Wotan.zfs.enable && cfg.boot.bcache.enable) {
-      boot.initrd = {
-        enable = true;
-        supportedFilesystems = [ "bcachefs" ];
-
-        postResumeCommands = lib.mkAfter ''
-          mkdir -p /mnt
-          # We mount the whole bcachefs filesystem. Now its time to save our data.
-          mount --mkdir /dev/nvme0n1p2 /mnt/
-
-          # Bcachefs snapshots are virtually free, so we can create a bunch to
-          # save our data, then reset root and restore them.
-          # Unfortunately a few features useful for this (mount a single subvol and
-          # list all subvolumes) are not available.
-          bcachefs subvolume delete /mnt/.snapshots/*
-          bcachefs subvolume snapshot /mnt/home /mnt/.snapshots/home
-          bcachefs subvolume snapshot /mnt/nix /mnt/.snapshots/nix
-          bcachefs subvolume snapshot /mnt/.persistent /mnt/.snapshots/persistent
-          bcachefs subvolume snapshot /mnt/var/logs /mnt/.snapshots/logs
-
-          # Now we destoy current root. Not sure if this is the best way to do this.
-          bcachefs subvolume delete /mnt/home
-          bcachefs subvolume delete /mnt/nix
-          bcachefs subvolume delete /mnt/.persistent
-          bcachefs subvolume delete /mnt/var/logs
-          export GLOBIGNORE="/mnt/.snapshots:.:.."
-          rm -rf /mnt/*
-
-          # And restore
-          bcachefs subvolume snapshot /mnt/.snapshots/home /mnt/home
-          bcachefs subvolume snapshot /mnt/.snapshots/nix /mnt/nix
-          bcachefs subvolume snapshot /mnt/.snapshots/persistent /mnt/.persistent
-          mkdir /mnt/var
-          bcachefs subvolume snapshot /mnt/.snapshots/logs /mnt/var/logs
-        '';
-      };
-    })
+    # (mkIf config.Wotan.zfs.enable {
+    #   # Handles rollbacks for ZFS, disabled to ensure paths are fully set
+    #   boot.initrd.systemd.services.impermanence = {
+    #     description = "Resets root to a clean state (Requires ZFS)";
+    #     wantedBy = [ "initrd.target" ];
+    #     after = [ "zfs-import-zroot.service" ];
+    #     before = [ "sysroot.mount" ];
+    #     path = with pkgs; [ zfs_unstable ];
+    #     unitConfig.DefaultDependencies = "no";
+    #     serviceConfig.Type = "oneshot";
+    #     script = cfg.rollbackCommand;
+    #   };
+    # })
+    # (mkIf (!config.Wotan.zfs.enable && cfg.boot.bcache.enable) {
+    #   boot.initrd = {
+    #     enable = true;
+    #     supportedFilesystems = [ "bcachefs" ];
+    #
+    #     postResumeCommands = lib.mkAfter ''
+    #       mkdir -p /mnt
+    #       # We mount the whole bcachefs filesystem. Now its time to save our data.
+    #       mount --mkdir /dev/nvme0n1p2 /mnt/
+    #
+    #       # Bcachefs snapshots are virtually free, so we can create a bunch to
+    #       # save our data, then reset root and restore them.
+    #       # Unfortunately a few features useful for this (mount a single subvol and
+    #       # list all subvolumes) are not available.
+    #       bcachefs subvolume delete /mnt/.snapshots/*
+    #       bcachefs subvolume snapshot /mnt/home /mnt/.snapshots/home
+    #       bcachefs subvolume snapshot /mnt/nix /mnt/.snapshots/nix
+    #       bcachefs subvolume snapshot /mnt/.persistent /mnt/.snapshots/persistent
+    #       bcachefs subvolume snapshot /mnt/var/logs /mnt/.snapshots/logs
+    #
+    #       # Now we destoy current root. Not sure if this is the best way to do this.
+    #       bcachefs subvolume delete /mnt/home
+    #       bcachefs subvolume delete /mnt/nix
+    #       bcachefs subvolume delete /mnt/.persistent
+    #       bcachefs subvolume delete /mnt/var/logs
+    #       export GLOBIGNORE="/mnt/.snapshots:.:.."
+    #       rm -rf /mnt/*
+    #
+    #       # And restore
+    #       bcachefs subvolume snapshot /mnt/.snapshots/home /mnt/home
+    #       bcachefs subvolume snapshot /mnt/.snapshots/nix /mnt/nix
+    #       bcachefs subvolume snapshot /mnt/.snapshots/persistent /mnt/.persistent
+    #       mkdir /mnt/var
+    #       bcachefs subvolume snapshot /mnt/.snapshots/logs /mnt/var/logs
+    #     '';
+    #   };
+    # })
     {
       fileSystems.${cfg.persistentDirectory}.neededForBoot = true;
       environment.persistence.${cfg.persistentDirectory} = {
@@ -114,8 +114,8 @@ in
       };
     }
     (mkIf config.Wotan.users.enable {
-      users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
-      users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
+      # users.users.root.hashedPasswordFile = "/.persistent/passwords/root";
+      # users.users.ben.hashedPasswordFile = "/.persistent/passwords/ben";
       programs.fuse.userAllowOther = true;
       environment.persistence.${cfg.persistentDirectory} = {
         users.ben = {

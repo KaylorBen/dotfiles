@@ -45,25 +45,7 @@
     laptop.enable = lib.mkDefault true;
   };
 
-  # disko.devices = import ./disko.nix { inherit lib; };
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/";
-      fsType = "bcachefs";
-      neededForBoot = true;
-    };
-    "/boot" = {
-      device = "/dev/disk/by-uuid";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 16 * 1024;
-    }
-  ];
+  disko.devices = import ./disko.nix { inherit lib; };
 
   hardware.bluetooth = {
     enable = true;

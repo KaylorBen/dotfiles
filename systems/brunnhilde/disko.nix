@@ -1,5 +1,5 @@
 {
-  disks ? [ "/dev/nvme0n1" ],
+  disks ? [ "nvme0n1" ],
   ...
 }:
 {
@@ -19,19 +19,19 @@
               mountpoint = "/boot";
             };
           };
-          root = {
-            end = "-16G";
-            content = {
-              type = "zfs";
-              pool = "zroot";
-            };
-          };
           swap = {
             size = "16G";
             content = {
               type = "swap";
               randomEncryption = true;
               resumeDevice = true;
+            };
+          };
+          root = {
+            end = "-0";
+            content = {
+              type = "zfs";
+              pool = "zroot";
             };
           };
         };

@@ -11,7 +11,7 @@ in
 {
   options.Wotan.programs.nixcord.enable = mkEnableOption "Discord + Vencord config";
 
-  imports = [ inputs.nixcord.homeManagerModules.nixcord ];
+  imports = [ inputs.nixcord.homeModules.nixcord ];
   config = mkIf cfg.enable {
     services.arrpc.enable = true;
     programs.nixcord = {

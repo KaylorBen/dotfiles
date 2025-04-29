@@ -12,7 +12,8 @@ let
     types
     ;
   cfg = config.Wotan.desktop.sway;
-in {
+in
+{
   options.Wotan.desktop.sway = {
     enable = mkOption {
       type = types.bool;
@@ -37,7 +38,7 @@ in {
       enable = true;
       package = pkgs.swayfx;
       config = {
-        bars = [];
+        bars = [ ];
       };
     };
   };

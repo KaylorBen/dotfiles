@@ -14,42 +14,28 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    hyprland.url = "github:hyprwm/Hyprland/da2d7c3971d40f841f2afd7def8e4bad9a351e41";
+    hyprland.url = "github:hyprwm/Hyprland/29e2e59fdbab8ed2cc23a20e3c6043d5decb5cdc";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";
     neovim.url = "github:kaylorben/neovim";
     nix-citizen.url = "github:LovingMelody/nix-citizen";
-    nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
-    nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
-    nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
-    nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
+    # nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
+    # nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
+    # nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
     nix-foundry.url = "github:reckenrode/nix-foundryvtt";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nixos-anywhere.inputs.disko.follows = "disko";
-    nixos-anywhere.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-anywhere.inputs.treefmt-nix.follows = "treefmt-nix";
-    nixos-anywhere.url = "github:nix-community/nixos-anywhere";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-generators.inputs.nixlib.follows = "nixpkgs";
-    nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixos-xivlauncher-rb.url = "github:drakon64/nixos-xivlauncher-rb";
-    # nixcord.url = "path:/home/ben/Development/nixcord"; # Development
     nixcord.url = "github:kaylorben/nixcord/";
-    # nixcord.url = "github:DontEatOreo/nixcord/add-vencord-unstable";
-    nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
-    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
+    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces/a8e39ff10dfb5ff451416a791a30388a8517e038";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     stylix.url = "github:danth/stylix";
     swww.url = "github:LGFae/swww";
@@ -66,9 +52,7 @@
 
       overlays = with inputs; [
         (import ./overlay/default.nix)
-        nix-minecraft.overlays.default
         neovim.overlays.default
-        # nixpkgs-wayland.overlays.default
         (final: prev: {
           star-citizen = inputs.nix-citizen.packages.${prev.system}.star-citizen;
         })
@@ -94,9 +78,7 @@
         nix-gaming.nixosModules.pipewireLowLatency
         nix-citizen.nixosModules.StarCitizen
         nix-foundry.nixosModules.foundryvtt
-        nix-minecraft.nixosModules.minecraft-servers
         nixos-cosmic.nixosModules.default
-        nixos-generators.nixosModules.all-formats
         stylix.nixosModules.stylix
         {
           nixpkgs.overlays = overlays;

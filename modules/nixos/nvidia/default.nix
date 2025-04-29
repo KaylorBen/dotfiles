@@ -30,6 +30,6 @@ in
       nvidiaSettings = mkDefault true;
       powerManagement.enable = mkDefault false;
     };
-    boot.kernelParams =  [ "nvidia_drm.fbdev=1" ];
+    boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
   };
 }

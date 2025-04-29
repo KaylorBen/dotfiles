@@ -12,7 +12,8 @@ let
     types
     ;
   cfg = config.Wotan.desktop.river;
-in {
+in
+{
   options.Wotan.desktop.river = {
     enable = mkOption {
       type = types.bool;

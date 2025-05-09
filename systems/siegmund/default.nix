@@ -47,48 +47,32 @@
   networking = {
     networkmanager.enable = true;
 
-    firewall = {
-      # if packets are still dropped, they will show up in dmesg
-      logReversePathDrops = true;
-      # wireguard trips rpfilter up
-      extraCommands = ''
-        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
-        ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
-      '';
-      extraStopCommands = ''
-        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
-        ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
-      '';
-      allowedUDPPorts = [
-        9987
-      ];
-    };
+    # firewall = {
+    #   # if packets are still dropped, they will show up in dmesg
+    #   logReversePathDrops = true;
+    #   # wireguard trips rpfilter up
+    #   extraCommands = ''
+    #     ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN
+    #     ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN
+    #   '';
+    #   extraStopCommands = ''
+    #     ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 49860 -j RETURN || true
+    #     ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 49860 -j RETURN || true
+    #   '';
+    #   allowedUDPPorts = [
+    #     9987
+    #   ];
+    # };
   };
 
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    # supportedLocales = [
-    #   "ja_JP.EUC-JP/EUC-JP"
-    #   "ja_JP.UTF-8/UTF-8"
-    # ];
   };
 
   console.useXkbConfig = true;
 
   services = {
-    # pixiecore =
-    #   let inherit (inputs.self.nixosConfigurations.Netboot.config.system) build;
-    #   in {
-    #     enable = false;
-    #     openFirewall = true;
-    #     dhcpNoBind = true;
-    #     mode = "boot";
-    #     kernel = "${build.kernel}/bzImage";
-    #     initrd = "${build.netbootRamdisk}/initrd";
-    #     cmdLine = "init=${build.toplevel}/init loglevel=4";
-    #     debug = true;
-    #   };
     libinput.enable = true;
     xserver = {
       enable = true;
@@ -116,21 +100,12 @@
 
     # logmein-hamachi.enable = true;
 
-    # resilio = {
-    #   enable = true;
-    #   deviceName = "Siegmund";
-    #   httpLogin = "thisis";
-    #   httpPass = "dumb";
-    #   httpListenPort = 9000;
-    #   enableWebUI = true;
-    # };
   };
 
   users.users.ben.packages = with pkgs; [
     ani-cli
     jdk
     prismlauncher
-    nil
   ];
 
   environment.systemPackages = with pkgs; [
@@ -141,16 +116,10 @@
     git
     imgcat
     os-prober
-    # nvtopPackages.full
     tmux
     wget
     gnome-keyring
   ];
-
-  virtualisation = {
-    # libvirtd.enable = true;
-    # waydroid.enable = true;
-  };
 
   # Disable autosleep
   systemd = {

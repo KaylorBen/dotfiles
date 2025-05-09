@@ -11,12 +11,12 @@
       enable = true;
       extraSettings = {
         monitor = [
-          "DP-1, preferred, 0x0, 1"
-          "HDMI-A-1, preferred, 3840x0, 1, transform, 3"
+          "DP-1, preferred, 3840x0, 1"
+          "HDMI-A-1, preferred, 0x0, 1"
         ];
       };
       extraAutoStart = [
-        "xrandr --output DP-1 --primary --pos 0x0"
+        "xrandr --output HDMI-A-1 --primary --pos 0x0"
       ];
       plugins = with pkgs.hyprlandPlugins; [
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces

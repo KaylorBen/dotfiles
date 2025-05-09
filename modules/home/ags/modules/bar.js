@@ -40,7 +40,8 @@ function Workspaces(monitor = 0) {
             on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
             child: Widget.Icon({
                 icon: icons[id - 1],
-                size: (monitor == 0) ? 20 : 35,
+                // size: (monitor == 0) ? 20 : 35,
+                size: 35,
             }),
             class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
         })))
@@ -174,7 +175,8 @@ function Right() {
 export function Bar(monitor = 0) {
     return Widget.Window({
         name: `bar-${monitor}`,
-        css: (monitor == 1) ? "-gtk-dpi: 130;" : "-gtk-dpi: 70",
+        // css: (monitor == 1) ? "-gtk-dpi: 130;" : "-gtk-dpi: 70",
+        css: "-gtk-dpi: 130;",
         class_name: "bar",
         margins: [4, 2, 0],
         monitor,

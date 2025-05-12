@@ -110,11 +110,11 @@
 
   environment.systemPackages = with pkgs; [
     # miru
-    cpulimit
     vim
     gh
     git
     imgcat
+    sc-im
     os-prober
     tmux
     wget

@@ -51,7 +51,6 @@
 
   environment.systemPackages = with pkgs; [
     # miru
-    cpulimit
     vim
     gh
     git

@@ -44,6 +44,8 @@
     networkmanager.enable = true;
     # interfaces.wlp2s0.useDHCP = true;
     firewall = {
+      allowedTCPPorts = [ 6112 ];
+      allowedUDPPorts = [ 6112 ];
       # if packets are still dropped, they will show up in dmesg
       logReversePathDrops = true;
       # wireguard trips rpfilter up
@@ -62,6 +64,7 @@
     enable32Bit = true;
   };
   services = {
+    dbus.enable = true;
     printing.enable = true;
     # avahi = {
     #   enable = true;
@@ -84,10 +87,20 @@
     blueman.enable = true;
   };
 
+  users.users."guest" = {
+    isNormalUser = true;
+    # shell = pkgs.writeShellScript ''
+    #   ${pkgs.wemux}/bin/wemux attach
+    # '';
+    initialPassword = "LUG";
+    packages = with pkgs; [ tmux ];
+  };
+
   environment.systemPackages = with pkgs; [
     firefox
     git
     nil
+    prismlauncher
   ];
 
   security.polkit.enable = true;

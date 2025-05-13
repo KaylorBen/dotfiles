@@ -12,7 +12,7 @@
       extraSettings = {
         monitor = [
           "DP-1, preferred, 3840x0, 1"
-          "HDMI-A-1, preferred, 0x0, 1"
+          "HDMI-A-1, 3480x2160@120.0, 0x0, 1"
         ];
       };
       extraAutoStart = [

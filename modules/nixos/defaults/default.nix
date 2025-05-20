@@ -32,7 +32,6 @@ in
       sl
       tldr
       vim
-      ventoy
       unrar
       unzip
       xz

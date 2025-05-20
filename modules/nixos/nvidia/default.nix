@@ -24,7 +24,7 @@ in
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
     };
     hardware.nvidia = {
-      # package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = mkDefault true;
       open = mkDefault true;
       nvidiaSettings = mkDefault true;

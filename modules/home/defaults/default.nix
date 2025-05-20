@@ -57,7 +57,6 @@ in
         comma
         rclone
         ripgrep
-        ventoy
       ];
       file = {
         # TODO: custom website fetch

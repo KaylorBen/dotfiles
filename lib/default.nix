@@ -2,8 +2,8 @@
   get-asset = asset: "../assets/${asset}";
 
   stateVersion = {
-    nixos = "24.11";
+    nixos = "25.05";
     # This should be the same as nixos
-    home = "24.11";
+    home = "25.05";
   };
 }

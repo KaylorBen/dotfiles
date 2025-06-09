@@ -31,7 +31,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixcord.url = "github:kaylorben/nixcord/";
+    nixcord.url = "github:kaylorben/nixcord/donteatoreo/push-qznoroyymmku";
+    # nixcord.url = "github:kaylorben/nixcord/";
+    # nixcord.url = "path:/home/ben/Development/nixcord";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
     stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";

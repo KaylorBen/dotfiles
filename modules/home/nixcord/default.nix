@@ -19,6 +19,7 @@ in
       discord.vencord.unstable = false;
       discord.openASAR.enable = false;
       vesktop.enable = true;
+      dorion.enable = true;
       config = {
         themeLinks = [
           "https://raw.githubusercontent.com/rose-pine/discord/main/rose-pine.theme.css"
@@ -131,7 +132,6 @@ in
           noTypingAnimation.enable = true;
           noUnblockToJump.enable = true;
           normalizeMessageLinks.enable = true;
-          nsfwGateBypass.enable = true;
           openInApp.enable = true;
           overrideForumDefaults.enable = true;
           permissionFreeWill.enable = true;

@@ -15,6 +15,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.tridactyl-native ];
+    stylix.targets.firefox.profileNames = [ "ben" ];
     programs.firefox = {
       enable = true;
       policies = {

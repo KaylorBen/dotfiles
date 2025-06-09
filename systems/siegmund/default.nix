@@ -80,7 +80,7 @@
       xkb = {
         layout = "us,us";
         variant = ",3l";
-        options = "grp:alt_shift_toggle";
+        options = "grp:rctrl_rshift_toggle";
       };
     };
     dbus.enable = true;

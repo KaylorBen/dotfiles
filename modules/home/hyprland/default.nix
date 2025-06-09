@@ -173,7 +173,7 @@ in
             input = {
               kb_layout = "us,us";
               kb_variant = ",3l";
-              kb_options = "caps:escape,grp:alt_shift_toggle";
+              kb_options = "caps:escape,grp:rctrl_rshift_toggle";
               touchpad = {
                 natural_scroll = true;
                 clickfinger_behavior = true;

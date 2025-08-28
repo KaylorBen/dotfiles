@@ -25,14 +25,14 @@
     # nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
     # nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
     # nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
-    nix-foundry.url = "github:reckenrode/nix-foundryvtt";
+    nix-foundry.url = "github:CaptainMinnette/nix-foundryvtt/cc05672231e76c35616f05777e0881b416e46350";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixcord.url = "github:kaylorben/nixcord/donteatoreo/push-qznoroyymmku";
-    # nixcord.url = "github:kaylorben/nixcord/";
+    # nixcord.url = "github:kaylorben/nixcord/donteatoreo/push-qznoroyymmku";
+    nixcord.url = "github:kaylorben/nixcord/hash";
     # nixcord.url = "path:/home/ben/Development/nixcord";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";

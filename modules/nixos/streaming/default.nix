@@ -14,10 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
+    # boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
 
     boot.kernelModules = [
-      "v4l2loopback"
+      # "v4l2loopback"
       "snd-aloop"
     ];
 

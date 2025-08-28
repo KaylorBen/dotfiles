@@ -7,6 +7,7 @@
     # chinese-lang.enable = true;
     users.enable = true;
     time.enable = true;
+    foundry.enable = true;
     gaming = {
       enable = true;
       # starCitizen.enable = false;
@@ -21,7 +22,7 @@
         zfs rollback -r zroot/NixOS/root@blank
       '';
     };
-    streaming.enable = true;
+    # streaming.enable = true;
     sound.enable = true;
     security = {
       enable = false;
@@ -47,6 +48,7 @@
   networking = {
     networkmanager.enable = true;
 
+    firewall.allowedTCPPorts = [ 25565 ];
     # firewall = {
     #   # if packets are still dropped, they will show up in dmesg
     #   logReversePathDrops = true;
@@ -98,7 +100,7 @@
     };
     gvfs.enable = true;
 
-    # logmein-hamachi.enable = true;
+    logmein-hamachi.enable = true;
 
   };
 

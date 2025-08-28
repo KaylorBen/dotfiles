@@ -69,6 +69,7 @@ in
       keyboard.layout = true;
       packages = with pkgs; [
         audacity
+        dragon-drop
         emulsion
         # discord
         freetube
@@ -77,7 +78,7 @@ in
         # libreoffice
         pavucontrol
         pinta
-        teamspeak_client
+        # teamspeak_client
         todo
         # vesktop
         youtube-tui

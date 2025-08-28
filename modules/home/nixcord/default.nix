@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 with lib;
@@ -13,9 +14,10 @@ in
 
   imports = [ inputs.nixcord.homeModules.nixcord ];
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.vesktop ];
     services.arrpc.enable = true;
     programs.nixcord = {
-      enable = true;
+      # enable = true;
       discord.vencord.unstable = false;
       discord.openASAR.enable = false;
       vesktop.enable = true;

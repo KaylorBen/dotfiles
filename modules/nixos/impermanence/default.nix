@@ -89,6 +89,7 @@ in
         directories = [
           # (dir "/var/log" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/bluetooth" "root" "root" "u=rwx,g=,o=")
+          (dir "/var/lib/foundryvtt" "foundryvtt" "foundryvtt" "u=rwx,g=rx,o=")
           (dir "/var/lib/nixos" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/var/lib/systemd/coredump" "root" "root" "u=rwx,g=rx,o=rx")
           (dir "/etc/NetworkManager/system-connections" "root" "root" "u=rwx,g=,o=")

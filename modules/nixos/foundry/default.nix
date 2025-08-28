@@ -17,7 +17,11 @@ in
   config = mkIf cfg.enable {
     services.foundryvtt = {
       enable = true;
-      package = inputs.nix-foundry.packages.${pkgs.system}.foundryvtt_12;
+      package = (inputs.nix-foundry.packages.${pkgs.system}.foundryvtt).overrideAttrs (prev: {
+        version = "13.0.0+345";
+      });
     };
+
+    networking.firewall.allowedTCPPorts = [ 30000 ];
   };
 }

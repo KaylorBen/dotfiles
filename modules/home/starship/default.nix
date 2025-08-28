@@ -42,6 +42,7 @@ in
         };
       };
       enableNushellIntegration = true;
+      enableFishIntegration = true;
     };
 
     home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";

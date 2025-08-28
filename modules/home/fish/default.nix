@@ -16,12 +16,13 @@ in
   config = mkIf cfg.enable {
     programs.fish = {
       enable = true;
+      generateCompletions = true;
       shellAliases = {
-        "ls"  = "${pkgs.lsd}/bin/lsd";
-        "l"   = "${pkgs.lsd}/bin/lsd -l";
-        "la"  = "${pkgs.lsd}/bin/lsd -a";
-        "lla" = "${pkgs.lsd}/bin/lsd -la";
-        "lt"  = "${pkgs.lsd}/bin/lsd --tree";
+        "ls"  = mkForce "${pkgs.lsd}/bin/lsd";
+        "l"   = mkForce "${pkgs.lsd}/bin/lsd -l";
+        "la"  = mkForce "${pkgs.lsd}/bin/lsd -a";
+        "lla" = mkForce "${pkgs.lsd}/bin/lsd -la";
+        "lt"  = mkForce "${pkgs.lsd}/bin/lsd --tree";
 
         "gensokyo" = "${pkgs.mpg123}/bin/mpg123 https://stream.gensokyoreadio.net/1/";
       };

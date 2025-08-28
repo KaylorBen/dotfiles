@@ -13,7 +13,7 @@ in
     programs.direnv = {
       enable = true;
       enableNushellIntegration = config.programs.nushell.enable;
-      enableFishIntegration = config.programs.fish.enable;
+      # enableFishIntegration = config.programs.fish.enable;
       nix-direnv.enable = true;
     };
   };

@@ -24,7 +24,7 @@
         "virtualization"
         "wheel"
       ];
-      shell = lib.mkForce pkgs.nushell;
+      shell = lib.mkForce pkgs.fish;
       description = "Benjamin Kaylor";
       # openssh.authorizedKeys.keyFiles = lib.Wotan.get-ssh-key-files "ben";
     };

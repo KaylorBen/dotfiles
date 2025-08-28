@@ -12,6 +12,7 @@
   ./direnv
   ./fastfetch
   ./firefox
+  ./fish
   ./fzf
   ./gaming
   ./ghostty

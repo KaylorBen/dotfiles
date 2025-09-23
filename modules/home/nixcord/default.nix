@@ -14,12 +14,12 @@ in
 
   imports = [ inputs.nixcord.homeModules.nixcord ];
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.vesktop ];
+    # home.packages = [ pkgs.vesktop ];
     services.arrpc.enable = true;
     programs.nixcord = {
-      # enable = true;
-      discord.vencord.unstable = false;
-      discord.openASAR.enable = false;
+      enable = true;
+      discord.vencord.unstable = true;
+      discord.openASAR.enable = true;
       vesktop.enable = true;
       dorion.enable = true;
       config = {
@@ -72,7 +72,6 @@ in
           decor.enable = true;
           disableCallIdle.enable = true;
           dontRoundMyTimestamps.enable = true;
-          emoteCloner.enable = true;
           experiments = {
             enable = true;
             toolbarDevMenu = true;
@@ -92,7 +91,6 @@ in
           gameActivityToggle.enable = true;
           gifPaste.enable = true;
           greetStickerPicker.enable = true;
-          hideAttachments.enable = true;
           iLoveSpam.enable = true;
           imageLink.enable = true;
           imageZoom = {

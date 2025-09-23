@@ -40,6 +40,10 @@ in
             "Pictures" = " ";
           };
         };
+        character = {
+          success_symbol = ''[λ](bold green)'';
+          error_symbol   = ''[λ](bold red)'';
+        };
       };
       enableNushellIntegration = true;
       enableFishIntegration = true;

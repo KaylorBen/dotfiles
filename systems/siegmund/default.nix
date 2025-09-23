@@ -22,14 +22,14 @@
         zfs rollback -r zroot/NixOS/root@blank
       '';
     };
-    # streaming.enable = true;
+    streaming.enable = true;
     sound.enable = true;
     security = {
       enable = false;
       enableTPM = false;
     };
     styles.style = "tokyo-night-dark";
-    desktop.hyprland = {
+    desktop.niri = {
       enable = true;
     };
   };

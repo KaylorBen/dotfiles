@@ -14,20 +14,27 @@ in
   };
 
   config = mkIf cfg.enable {
-    # boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
+    boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
 
     boot.kernelModules = [
-      # "v4l2loopback"
+      "v4l2loopback"
       "snd-aloop"
     ];
+
+    programs.obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    };
 
     # Maybe move this to homeManager not sure
     environment.systemPackages = with pkgs; [
       cudatoolkit
       nv-codec-headers
       ffmpeg-full
-      obs-studio
-      obs-studio-plugins.obs-composite-blur
     ];
   };
 }

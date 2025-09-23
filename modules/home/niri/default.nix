@@ -34,7 +34,7 @@ in
     services.mako.enable = true;
     programs.waybar.enable = true;
 
-    home.file.".config/niri/config.kdl".text = ''
+    programs.niri.config = ''
       // This config is in the KDL format: https://kdl.dev
       // "/-" comments out the following node.
       // Check the wiki for a full description of the configuration:
@@ -130,17 +130,21 @@ in
           // so to put another output directly adjacent to it on the right, set its x to 1920.
           // If the position is unset or results in an overlap, the output is instead placed
           // automatically.
-          position x=0 y=0
+          position x=3840 y=0
 
           variable-refresh-rate
       }
 
       output "HDMI-A-1" {
-          mode "1920x1200@59.950"
+          mode "3840x2160@120.0"
 
           scale 1.0
 
-          transform "270"
+          transform "normal"
+
+          position x=0 y=0
+
+          variable-refresh-rate
       }
 
       // Settings that influence how windows are positioned and sized.
@@ -296,7 +300,7 @@ in
       spawn-at-startup "waybar"
       spawn-at-startup "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
       spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-o" "DP-1" "-i" "${../../../assets/ff14ew-venat-art.jpg}"
-      spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-o" "HDMI-A-1" "-i" "${../../../assets/ew_wallpaper.jpg}"
+      spawn-at-startup "${pkgs.swaybg}/bin/swaybg" "-o" "HDMI-A-1" "-i" "${../../../assets/ff14ew-venat-art.jpg}"
 
       environment {
         DISPLAY ":0"
@@ -325,7 +329,7 @@ in
           // off
 
           // Slow down all animations by this factor. Values below 1 speed them up instead.
-          // slowdown 3.0
+          slowdown 0.4
       }
 
       // Window rules let you adjust behavior for individual windows.

@@ -42,10 +42,16 @@ in
     };
     zramSwap.enable = cfg.zram.enable;
     zramSwap.memoryPercent = cfg.zram.memoryPercent;
-    programs.gamemode.enable = true;
-    programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
+    programs = {
+      gamescope = {
+        enable = true;
+        capSysNice = false;
+      };
+      gamemode.enable = true;
+      steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+      };
     };
 
     services = with pkgs; {
@@ -55,6 +61,17 @@ in
       #   package = pkgs.sunshine.override { cudaSupport = true; };
       #   capSysAdmin = true;
       # };
+      ananicy = {
+        enable = true;
+        package = pkgs.ananicy-cpp;
+        rulesProvider = pkgs.ananicy-cpp;
+        extraRules = [
+          {
+            "name" = "gamescope";
+            "nice" = -20;
+          }
+        ];
+      };
       xserver.modules = [ xorg.xf86inputjoystick ];
       udev.packages = [ game-devices-udev-rules ];
     };
@@ -81,11 +98,10 @@ in
       crawl
       bottles
       fflogs
-      gamescope
       goverlay
       lug-helper
       lutris
-      mangohud
+      # mangohud
       moonlight-qt
       # oxce-plus
       protontricks

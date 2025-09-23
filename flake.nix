@@ -20,6 +20,7 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";
     neovim.url = "github:kaylorben/neovim";
+    niri.url = "github:sodiboo/niri-flake";
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     # nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
     # nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,8 +32,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    # nixcord.url = "github:kaylorben/nixcord/donteatoreo/push-qznoroyymmku";
-    nixcord.url = "github:kaylorben/nixcord/hash";
+    # nixcord.url = "github:xaiyadev/nixcord/";
+    nixcord.url = "github:kaylorben/nixcord/";
     # nixcord.url = "path:/home/ben/Development/nixcord";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
@@ -77,6 +78,7 @@
         hyprland.nixosModules.default
         impermanence.nixosModules.impermanence
         lanzaboote.nixosModules.lanzaboote
+        niri.nixosModules.niri
         nix-gaming.nixosModules.pipewireLowLatency
         nix-citizen.nixosModules.StarCitizen
         nix-foundry.nixosModules.foundryvtt

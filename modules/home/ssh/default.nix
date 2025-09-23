@@ -9,8 +9,7 @@ in
   config = mkIf cfg.enable {
     programs.ssh = {
       enable = true;
-      # compression = mkDefault true;
-      # forwardAgent = mkDefault false;
+      enableDefaultConfig = false;
     };
   };
 }

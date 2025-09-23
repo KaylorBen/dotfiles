@@ -50,7 +50,6 @@ in
     programs = {
       niri = {
         enable = true;
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       };
       xwayland.enable = true;
       dconf.enable = true;
@@ -59,7 +58,7 @@ in
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
+        # xdg-desktop-portal-gnome
       ];
     };
     security = {

@@ -25,7 +25,7 @@ in
   config = mkIf cfg.enable {
     home.file.".config/rofi/config.rasi".source = ../hyprland/rose-pine.rasi;
     home.packages = with pkgs; [
-      rofi-wayland
+      rofi
       networkmanager
       wl-clipboard
       wl-clipboard-x11

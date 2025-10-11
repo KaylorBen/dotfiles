@@ -29,7 +29,7 @@
       enableTPM = false;
     };
     styles.style = "tokyo-night-dark";
-    desktop.niri = {
+    desktop.hyprland = {
       enable = true;
     };
   };

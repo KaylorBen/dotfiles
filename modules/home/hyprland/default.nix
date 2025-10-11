@@ -101,7 +101,7 @@ in
     stylix.targets.hyprland.enable = lib.mkForce false;
 
     home.packages = with pkgs; [
-      rofi-wayland
+      rofi
       wofi
       # pamixer
       grimblast
@@ -183,8 +183,6 @@ in
               sensitivity = 0; # -1.0 to 1.0
             };
             gestures = {
-              workspace_swipe = true;
-              workspace_swipe_fingers = 4;
               workspace_swipe_distance = 250;
               workspace_swipe_invert = true;
               workspace_swipe_min_speed_to_force = 15;
@@ -218,7 +216,7 @@ in
               layout = "dwindle"; # master | dwindle
               # "col.active_border" = "0xffebbcba";
               # "col.inactive_border" = "0xff6e6a86";
-              allow_tearing = true;
+              # allow_tearing = true;
             };
             dwindle = {
               force_split = 0;

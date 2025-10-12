@@ -16,7 +16,6 @@ in
   config = mkIf cfg.enable {
     programs.eww = {
       enable = true;
-      package = pkgs.eww-wayland;
     };
   };
 }

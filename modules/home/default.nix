@@ -10,6 +10,7 @@
   ./defaults
   ./desktop
   ./direnv
+  ./eww
   ./fastfetch
   ./firefox
   ./fish

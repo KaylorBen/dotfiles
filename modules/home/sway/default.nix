@@ -205,8 +205,8 @@ in
 
         startup = [
           { command = "${pkgs.swaysome}/bin/swaysome init 1"; }
-          { command = "${pkgs.eww-wayland}/bin/eww daemon"; }
-          { command = "${pkgs.eww-wayland}/bin/eww open bar"; }
+          { command = "${pkgs.eww}/bin/eww daemon"; }
+          { command = "${pkgs.eww}/bin/eww open bar"; }
         ];
 
         modifier = "Mod4";

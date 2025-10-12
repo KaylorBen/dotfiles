@@ -25,7 +25,7 @@ in
     stylix = {
       enable = true;
 
-      image = ../../../assets/ff14ew-venat-art.jpg;
+      image = ../../../assets/min-linux-wallpaper.jpg;
 
       # polarity = "dark";
 

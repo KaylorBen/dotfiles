@@ -50,6 +50,8 @@ in
       package = pkgs.swayfx;
       checkConfig = false;
       config = {
+        bars = [ ];
+
         input = {
           "type:keyboard" = {
             xkb_layout = "us,us(3l)";
@@ -205,8 +207,32 @@ in
 
         startup = [
           { command = "${pkgs.swaysome}/bin/swaysome init 1"; }
-          { command = "${pkgs.eww}/bin/eww daemon"; }
-          { command = "${pkgs.eww}/bin/eww open bar"; }
+          {
+            command = "${pkgs.eww}/bin/eww daemon";
+            always = true;
+          }
+          {
+            command = "${pkgs.writeShellScriptBin "eww-sway-updater" ''
+              ${pkgs.swayfx}/bin/swaymsg -m -t subscribe '[ "workspace" ]' | stdbuf -oL ${pkgs.jq}/bin/jq -r '
+                select(.change == "focus") |
+                .current.num as $num |
+                ($num % 10) as $mod |
+                if $mod == 0 then "10" else "\($mod)" end
+              ' \
+              | while IFS= read -r output; do
+                ${pkgs.eww}/bin/eww update current_workspace="$output"
+              done
+            ''}/bin/eww-sway-updater";
+            always = true;
+          }
+          {
+            command = "${pkgs.eww}/bin/eww open bar0";
+            always = true;
+          }
+          {
+            command = "${pkgs.eww}/bin/eww open bar1";
+            always = true;
+          }
         ];
 
         modifier = "Mod4";

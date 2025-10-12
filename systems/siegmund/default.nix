@@ -28,8 +28,8 @@
       enable = false;
       enableTPM = false;
     };
-    styles.style = "tokyo-night-dark";
-    desktop.hyprland = {
+    styles.style = "rose-pine";
+    desktop.sway = {
       enable = true;
     };
   };

@@ -10,6 +10,10 @@ in
 {
   options.Wotan.desktop.sway = {
     enable = lib.mkEnableOption "sway";
+    extraSettings = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
+    };
   };
 
   config = lib.mkIf cfg.enable {

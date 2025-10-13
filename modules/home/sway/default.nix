@@ -224,17 +224,84 @@ in
             always = true;
           }
           {
-            command = "${pkgs.eww}/bin/eww open bar0";
+            command = "${pkgs.eww}/bin/eww open-many bar0 bar1";
             always = true;
           }
           {
-            command = "${pkgs.eww}/bin/eww open bar1";
+            command =
+              let
+                sidebar-script = pkgs.writeShellScriptBin "eww-sidebar-launch" ''
+                  FILE="$HOME/.cache/eww_launch_side.xyz"
+                  w_ls="
+                    main-1
+                    pfp-1
+                    song-1
+                    sys_usg-1
+                    song_prog-1
+                    song_ctl-1
+                    audio-1
+                    sys_tray-1
+                    time-1
+                  "
+
+                  if [[ ! $(pidof eww) ]]; then
+                    ${pkgs.eww}/bin/eww daemon
+                    sleep 1
+                  fi
+
+                  run_eww() {
+                    ${pkgs.eww}/bin/eww open-many $w_ls
+                  }
+
+                  if [[ ! -f "$FILE" ]]; then
+                    touch "$FILE"
+                    run_eww
+                  else
+                    ${pkgs.eww}/bin/eww close $w_ls
+                    rm "$FILE"
+                  fi
+                '';
+              in
+              "${pkgs.nushell}/bin/nu ${pkgs.writeText "eww-sidebar-script" ''
+                ${pkgs.swayfx}/bin/swaymsg -m -t subscribe '[ "workspace", "window" ]'
+                | from json --objects
+                | each {
+                  mut open = $"($env.HOME)/.cache/eww_launch_side.xyz" | path exists;
+                  if $in.change == "focus" or $in.change == "new" or $in.change == "close" {
+                    let ws = ${pkgs.swayfx}/bin/swaymsg -t get_workspaces
+                    | from json
+                    | where focused == true
+                    | get num
+                    | first
+
+                    let count = ${pkgs.swayfx}/bin/swaymsg -t get_tree
+                    | from json
+                    | get nodes
+                    | where orientation == none
+                    | each { get nodes | where num == $ws }
+                    | where { ($in | length) > 0 }
+                    | first
+                    | first
+                    | get nodes
+                    | length
+
+                    if $ws >= 20 {
+                      if $count == 0 and $open == false {
+                        ${sidebar-script}/bin/eww-sidebar-launch
+                      } else if $count != 0 and $open == true {
+                        ${sidebar-script}/bin/eww-sidebar-launch
+                      }
+                    }
+                  }
+                }
+              ''}";
             always = true;
           }
         ];
 
         modifier = "Mod4";
-      } // cfg.extraSettings;
+      }
+      // cfg.extraSettings;
       extraConfig = ''
         blur enable
         blur_passes 2

@@ -51,6 +51,8 @@ in
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
 
+        (pkgs.callPackage ../../../packages/feather-font/default.nix { inherit pkgs; })
+
         liberation_ttf
       ];
       fontconfig = {

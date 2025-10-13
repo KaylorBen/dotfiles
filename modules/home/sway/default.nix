@@ -213,6 +213,7 @@ in
           }
           {
             command = "${pkgs.writeShellScriptBin "eww-sway-updater" ''
+              pkill -O 5 sway-update
               ${pkgs.swayfx}/bin/swaymsg -m -t subscribe '[ "workspace" ]' | stdbuf -oL ${pkgs.jq}/bin/jq -r '
                 select(.change == "focus") |
                 .current.num

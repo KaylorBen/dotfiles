@@ -41,7 +41,7 @@ in
 
     Wotan.programs.eww.enable = true;
 
-    services.mako.enable = true;
+    services.dunst.enable = true;
 
     # Wotan.programs.${cfg.bar}.enable = true;
 
@@ -215,9 +215,7 @@ in
             command = "${pkgs.writeShellScriptBin "eww-sway-updater" ''
               ${pkgs.swayfx}/bin/swaymsg -m -t subscribe '[ "workspace" ]' | stdbuf -oL ${pkgs.jq}/bin/jq -r '
                 select(.change == "focus") |
-                .current.num as $num |
-                ($num % 10) as $mod |
-                if $mod == 0 then "10" else "\($mod)" end
+                .current.num
               ' \
               | while IFS= read -r output; do
                 ${pkgs.eww}/bin/eww update current_workspace="$output"

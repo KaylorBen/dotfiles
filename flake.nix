@@ -56,9 +56,7 @@
       overlays = with inputs; [
         (import ./overlay/default.nix)
         neovim.overlays.default
-        (final: prev: {
-          star-citizen = inputs.nix-citizen.packages.${prev.system}.star-citizen;
-        })
+        nix-citizen.overlays.default
       ];
 
       homeModules = with inputs; [

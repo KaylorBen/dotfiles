@@ -120,6 +120,7 @@
     os-prober
     tmux
     wget
+    file
     gnome-keyring
   ];
 

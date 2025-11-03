@@ -39,18 +39,50 @@ in
   config = mkIf cfg.enable {
     nix-citizen.starCitizen = {
       inherit (cfg.starCitizen) enable;
+      package = pkgs.star-citizen;
+      umu.enable = false;
+      disableEAC = false;
+      preCommands =
+        let
+          vars = {
+            DXVK_HUUD = "compiler";
+            MANGO_HUD = 1;
+            NVPRESENT_ENABLE_SMOOTH_MOTION = 1;
+          };
+        in
+        ''
+          ${toShellVars vars}
+        '';
+      patchXwayland = false;
     };
-    zramSwap.enable = cfg.zram.enable;
-    zramSwap.memoryPercent = cfg.zram.memoryPercent;
+    zramSwap = {
+      inherit (cfg.zram) enable memoryPercent;
+    };
     programs = {
+      gamemode = {
+        enable = true;
+        settings = {
+          general = {
+            softrealtime = "auto";
+            renice = 15;
+          };
+        };
+      };
       gamescope = {
         enable = true;
         capSysNice = false;
       };
-      gamemode.enable = true;
       steam = {
         enable = true;
         remotePlay.openFirewall = true;
+        extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        extraPackages = with pkgs; [
+          lsfg-vk
+          lsfg-vk-ui
+          gale
+        ];
+        protontricks.enable = true;
+        # platformOptimizations.enable = true;
       };
     };
 
@@ -78,14 +110,12 @@ in
     nix.settings =
       let
         substituters = [
-          # "https://nix-gaming.cachix.org"
+          "https://nix-gaming.cachix.org"
           "https://nix-citizen.cachix.org"
-          # "https://cache.garnix.io"
         ];
         trusted-public-keys = [
-          # "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+          "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
           "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
-          # "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         ];
       in
       {
@@ -93,6 +123,21 @@ in
         trusted-substituters = substituters;
         extra-trusted-public-keys = trusted-public-keys;
       };
+
+    security.pam.loginLimits = [
+      {
+        domain = "*";
+        type = "soft";
+        item = "memlock";
+        value = "unlimited";
+      }
+      {
+        domain = "*";
+        type = "hard";
+        item = "memlock";
+        value = "unlimited";
+      }
+    ];
 
     environment.systemPackages = with pkgs; [
       crawl
@@ -111,12 +156,27 @@ in
       winetricks
       wowup-cf
 
+      wine-astral
+
+      (pkgs.rsi-launcher.override (_: {
+        extraLibs =
+          _:
+          config.hardware.graphics.extraPackages
+          ++ [
+            config.hardware.graphics.package
+            pkgs.lsfg-vk
+          ];
+        extraEnvVars = {
+          DXVK_HUD = "compiler";
+          MANGO_HUD = 1;
+          NVPRESENT_ENABLE_SMOOTH_MOTION = 1;
+        };
+      }))
+
       # (xivlauncher-rb.override {
       #   useGameMode = true;
       #   nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       # })
-
-      wineWowPackages.waylandFull
     ];
 
     # boot.kernelPackages = cfg.kernel;

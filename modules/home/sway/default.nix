@@ -41,7 +41,85 @@ in
 
     Wotan.programs.eww.enable = true;
 
-    services.dunst.enable = true;
+    services.dunst = {
+      enable = true;
+      settings = {
+        global = {
+          monitor = 1;
+          follow = "mouse";
+          indicate_hidden = "yes";
+          stack_duplicates = true;
+          hide_duplicate_count = false;
+
+          title = "Dunst";
+          class = "Dunst";
+
+          show_age_threshold = 60;
+          ellipsize = "middle";
+          ignore_newline = "no";
+          show_indicators = "no";
+          sticky_history = "no";
+          history_length = 20;
+
+          always_run_script = true;
+          ignore_dbusclose = false;
+          force_xinerama = false;
+
+          sort = "yes";
+          scale = 0;
+          shrink = "no";
+          word_wrap = "yes";
+
+          width = 300;
+          height = 200;
+          origin = "top-right";
+          offset = "12+48";
+          corner_radius = 10;
+
+          padding = 20;
+          horizontal_padding = 20;
+          notification_limit = 0;
+          seperator_height = 2;
+
+          progress_bar = true;
+          progress_bar_height = 10;
+          progress_bar_frame_width = 1;
+          progress_bar_min_width = 150;
+          progress_bar_max_width = 300;
+
+          frame_width = 2;
+          seperator_color = "frame";
+          transparency = 30;
+
+          line_height = 1;
+          idle_threshold = 120;
+          markup = "full";
+          format = "<span font='13' weight='bold'>%s</span>\\n%b";
+          alignment = "left";
+          vertical_alignment = "center";
+
+          icon_position = "left";
+          min_icon_size = 0;
+          max_icon_size = 64;
+
+          close = "ctrl+space";
+          close_all = "ctrl+shift+space";
+          history = "ctrl+grave";
+          context = "ctrl+shift+period";
+
+          mouse_left_click = "close_current";
+          mouse_middle_click = "do_action, close_current";
+          mouse_right_click = "close_all";
+        };
+
+        global = {
+          highlight = "#EBBCBA";
+          foreground = "#E0DEF4";
+          background = "#26233a";
+          frame_color = "#21202E";
+        };
+      };
+    };
 
     # Wotan.programs.${cfg.bar}.enable = true;
 
@@ -190,6 +268,8 @@ in
             "${modifier}+Alt+o" = "exec ${pkgs.swaysome}/bin/swaysome workspace-group-next-output";
             "${modifier}+Alt+Shift+o" = "exec ${pkgs.swaysome}/bin/swaysome workspace-group-prev-output";
 
+            "${modifier}+d" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+
             "Print" = "exec ${cmd-screenshot}/bin/cmd-screenshot";
             "Shift+Print" = "exec ${cmd-screenshot}/bin/cmd-screenshot window";
             "Ctrl+Print" = "exec ${cmd-screenshot}/bin/cmd-screenshot output";
@@ -268,7 +348,7 @@ in
                 | from json --objects
                 | each {
                   mut open = $"($env.HOME)/.cache/eww_launch_side.xyz" | path exists;
-                  if $in.change == "focus" or $in.change == "new" or $in.change == "close" {
+                  if $in.change == "focus" or $in.change == "new" or $in.change == "close" or $in.change == "floating" or $in.change == "move" {
                     let ws = ${pkgs.swayfx}/bin/swaymsg -t get_workspaces
                     | from json
                     | where focused == true

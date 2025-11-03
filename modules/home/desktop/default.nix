@@ -70,7 +70,7 @@ in
       packages = with pkgs; [
         audacity
         dragon-drop
-        emulsion
+        nsxiv
         # discord
         freetube
         gimp

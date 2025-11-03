@@ -33,6 +33,8 @@ in
       auth include login
     '';
 
+    environment.systemPackages = [ pkgs.slurp ];
+
     programs = {
       sway = {
         enable = true;
@@ -42,7 +44,13 @@ in
       dconf.enable = true;
     };
     xdg.portal = {
+      enable = true;
+      config.common.default = "*";
       wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
     };
     security = {
       polkit.enable = true;

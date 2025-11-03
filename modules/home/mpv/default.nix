@@ -20,7 +20,6 @@ in
         webtorrent-mpv-hook
         vr-reversal
         # visualizer
-        thumbnail
         quality-menu
         mpv-playlistmanager
         (pkgs.mpvScripts.buildLua {

@@ -27,9 +27,5 @@ in
       enable = true;
     };
     # too lazy to put this in its own thing
-    services.mpd = {
-      enable = true;
-      musicDirectory = "${config.xdg.userDirs.music}";
-    };
   };
 }

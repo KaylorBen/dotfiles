@@ -48,7 +48,6 @@ in
       };
       podman = {
         enable = true;
-        dockerCompat = true;
       };
     };
 

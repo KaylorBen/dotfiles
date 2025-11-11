@@ -14,7 +14,7 @@ in
   };
   config = mkIf cfg.enable {
     programs.git = {
-      package = pkgs.gitAndTools.gitFull;
+      package = pkgs.git;
       enable = true;
       userName = "Benjamin Kaylor";
       userEmail = "blkaylor22@gmail.com";

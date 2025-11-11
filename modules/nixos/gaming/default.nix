@@ -145,7 +145,7 @@ in
       fflogs
       goverlay
       lug-helper
-      lutris
+      # lutris
       # mangohud
       moonlight-qt
       # oxce-plus

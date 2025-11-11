@@ -30,6 +30,16 @@ in
       };
     };
     services.syncthing.enable = true;
+    services.mpd = {
+      enable = true;
+      musicDirectory = "${config.xdg.userDirs.music}";
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "PipeWire Sound Server"
+        }
+      '';
+    };
 
     programs = {
       kitty.enable = true;

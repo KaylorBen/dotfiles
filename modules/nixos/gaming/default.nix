@@ -37,9 +37,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    nix-citizen.starCitizen = {
+    programs.rsi-launcher = {
       inherit (cfg.starCitizen) enable;
-      package = pkgs.star-citizen;
       umu.enable = false;
       disableEAC = false;
       preCommands =
@@ -53,7 +52,6 @@ in
         ''
           ${toShellVars vars}
         '';
-      patchXwayland = false;
     };
     zramSwap = {
       inherit (cfg.zram) enable memoryPercent;
@@ -104,7 +102,7 @@ in
           }
         ];
       };
-      xserver.modules = [ xorg.xf86inputjoystick ];
+      # xserver.modules = [ xorg.xf86inputjoystick ];
       udev.packages = [ game-devices-udev-rules ];
     };
     nix.settings =
@@ -144,12 +142,10 @@ in
       bottles
       fflogs
       goverlay
-      lug-helper
       # lutris
       # mangohud
       moonlight-qt
       # oxce-plus
-      protontricks
       starsector
       steamcmd
       xivlauncher
@@ -158,20 +154,20 @@ in
 
       wine-astral
 
-      (pkgs.rsi-launcher.override (_: {
-        extraLibs =
-          _:
-          config.hardware.graphics.extraPackages
-          ++ [
-            config.hardware.graphics.package
-            pkgs.lsfg-vk
-          ];
-        extraEnvVars = {
-          DXVK_HUD = "compiler";
-          MANGO_HUD = 1;
-          NVPRESENT_ENABLE_SMOOTH_MOTION = 1;
-        };
-      }))
+      # (pkgs.rsi-launcher.override (_: {
+      #   extraLibs =
+      #     _:
+      #     config.hardware.graphics.extraPackages
+      #     ++ [
+      #       config.hardware.graphics.package
+      #       pkgs.lsfg-vk
+      #     ];
+      #   extraEnvVars = {
+      #     DXVK_HUD = "compiler";
+      #     MANGO_HUD = 1;
+      #     NVPRESENT_ENABLE_SMOOTH_MOTION = 1;
+      #   };
+      # }))
 
       # (xivlauncher-rb.override {
       #   useGameMode = true;

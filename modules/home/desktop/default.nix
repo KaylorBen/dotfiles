@@ -84,6 +84,8 @@ in
         # discord
         freetube
         gimp
+        godot # gamedev
+        gpu-screen-recorder-gtk
         # kitty
         # libreoffice
         pavucontrol
@@ -92,6 +94,7 @@ in
         todo
         # vesktop
         youtube-tui
+        vimpc
 
         inputs.emacs.defaultPackage.${pkgs.system}
       ];

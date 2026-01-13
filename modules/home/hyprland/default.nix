@@ -100,6 +100,8 @@ in
     stylix.targets.hyprpaper.enable = lib.mkForce false;
     stylix.targets.hyprland.enable = lib.mkForce false;
 
+    programs.ags.enable = true;
+
     home.packages = with pkgs; [
       rofi
       wofi

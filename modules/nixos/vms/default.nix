@@ -44,6 +44,7 @@ in
             namespaces = []
             user = "+${builtins.toString config.users.users.ben.uid}"
           '';
+          swtpm.enable = true;
         };
       };
       podman = {

@@ -31,5 +31,6 @@ in
       powerManagement.enable = mkDefault false;
     };
     boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
+    boot.initrd.availableKernelModules = [ "nvidia_drm" "nvidia_modeset" "nvidia" "nvidia_uvm" ];
   };
 }

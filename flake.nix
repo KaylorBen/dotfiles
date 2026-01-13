@@ -2,6 +2,7 @@
   description = "Ben's NixOS configuration";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   inputs = {
     ags.url = "github:Aylur/ags/v1";
     disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -10,8 +11,7 @@
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     flake-utils.url = "github:numtide/flake-utils";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    gpu-screen-recorder-ui.url = "github:enovale/gsrui-nix";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/Hyprland/";
@@ -22,22 +22,15 @@
     neovim.url = "github:kaylorben/neovim";
     niri.url = "github:sodiboo/niri-flake";
     nix-citizen.url = "github:LovingMelody/nix-citizen";
-    # nix-eval-jobs.url = "github:nix-community/nix-eval-jobs";
-    # nix-eval-jobs.inputs.nixpkgs.follows = "nixpkgs";
-    # nix-eval-jobs.inputs.treefmt-nix.follows = "treefmt-nix";
-    # nix-eval-jobs.inputs.flake-parts.follows = "flake-parts";
     nix-foundry.url = "github:CaptainMinnette/nix-foundryvtt/cc05672231e76c35616f05777e0881b416e46350";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    # nixcord.url = "github:xaiyadev/nixcord/";
     nixcord.url = "github:kaylorben/nixcord/";
-    # nixcord.url = "path:/home/ben/Development/nixcord";
     picom.inputs.nixpkgs.follows = "nixpkgs";
     picom.url = "github:yshui/picom/next";
-    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces/";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
     stylix.url = "github:danth/stylix";
@@ -72,6 +65,7 @@
 
       nixosModules = with inputs; [
         disko.nixosModules.disko
+        gpu-screen-recorder-ui.nixosModules.default
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
         impermanence.nixosModules.impermanence

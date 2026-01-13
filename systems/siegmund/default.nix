@@ -29,8 +29,9 @@
       enableTPM = false;
     };
     styles.style = "rose-pine";
-    desktop.sway = {
-      enable = true;
+    desktop = {
+      # sway.enable = true;
+      niri.enable = true;
     };
   };
 
@@ -75,9 +76,10 @@
   console.useXkbConfig = true;
 
   services = {
+    cloudflare-warp.enable = true;
     libinput.enable = true;
     xserver = {
-      enable = true;
+      enable = false;
 
       xkb = {
         layout = "us,us";
@@ -133,6 +135,8 @@
     };
   };
   programs = {
+    gpu-screen-recorder.enable = true;
+    gpu-screen-recorder.ui.enable = true;
     ladybird.enable = true;
     nix-ld.enable = true;
     fuse.userAllowOther = true;

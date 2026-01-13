@@ -32,6 +32,7 @@ in
       sl
       tldr
       vim
+      man-pages
       unrar
       unzip
       xz

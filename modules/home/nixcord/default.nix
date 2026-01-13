@@ -53,21 +53,20 @@ in
           betterSettings.enable = true;
           betterUploadButton.enable = true;
           biggerStreamPreview.enable = true;
-          blurNSFW.enable = true;
           callTimer = {
             enable = true;
             format = "human";
           };
-          clearURLs.enable = true;
+          # clearURLs.enable = true;
           colorSighted.enable = true;
           consoleJanitor.enable = true;
           consoleShortcuts.enable = true;
           copyEmojiMarkdown.enable = true;
           copyFileContents.enable = true;
-          copyUserURLs.enable = true;
-          customRPC = {
-            enable = false; # TODO
-          };
+          # copyUserURLs.enable = true;
+          # customRPC = {
+          #  enable = false; # TODO
+          # };
           dearrow.enable = true;
           decor.enable = true;
           disableCallIdle.enable = true;
@@ -98,7 +97,7 @@ in
             nearestNeighbour = true;
           };
           implicitRelationships.enable = true;
-          invisibleChat.enable = true;
+          # invisibleChat.enable = true;
           keepCurrentChannel.enable = true;
           memberCount.enable = true;
           mentionAvatars.enable = true;
@@ -114,13 +113,10 @@ in
           messageLinkEmbeds.enable = true;
           messageLogger.enable = true;
           messageTags.enable = true;
-          moreCommands.enable = true;
-          moreKaomoji.enable = true;
-          moreUserTags.enable = true;
-          mutualGroupDMs.enable = true;
+          # mutualGroupDMs.enable = true;
           newGuildSettings = {
             enable = true;
-            messages = "only@Mentions";
+            messages = 0;
             role = false;
           };
           noBlockedMessages.enable = true;
@@ -138,7 +134,7 @@ in
           permissionsViewer.enable = true;
           petpet.enable = true;
           pictureInPicture.enable = true;
-          pinDMs.enable = true;
+          # pinDMs.enable = true;
           platformIndicators.enable = true;
           previewMessage.enable = true;
           quickMention.enable = true;
@@ -156,14 +152,14 @@ in
           serverInfo.enable = true;
           serverListIndicators = {
             enable = true;
-            mode = "both";
+            mode = 1;
           };
           shikiCodeblocks.enable = true;
           showAllMessageButtons.enable = true;
           showConnections.enable = true;
           showHiddenChannels = {
             enable = true;
-            showMode = "muted";
+            showMode = 0;
           };
           showHiddenThings.enable = true;
           showTimeoutDuration.enable = true;

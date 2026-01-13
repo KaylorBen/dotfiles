@@ -21,11 +21,9 @@ in
       playerctl
       mpc
       jq
-      vimpc
     ];
     programs.eww = {
       enable = true;
     };
-    # too lazy to put this in its own thing
   };
 }

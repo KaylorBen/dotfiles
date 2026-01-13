@@ -52,6 +52,10 @@ in
                   // For example:
                   // layout "us,ru"
                   // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+
+                  layout "us,us"
+                  variant ",3l"
+                  options "caps:escape,grb:rctrl_rshift_toggle"
               }
           }
 
@@ -89,9 +93,7 @@ in
           }
 
           // Uncomment this to make the mouse warp to the center of newly focused windows.
-          warp-mouse-to-focus
-
-          // Focus windows and outputs automatically when moving the mouse into them.
+          warp-mouse-to-focus // Focus windows and outputs automatically when moving the mouse into them.
           // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
           focus-follows-mouse max-scroll-amount="0%"
       }
@@ -132,7 +134,7 @@ in
           // automatically.
           position x=3840 y=0
 
-          variable-refresh-rate
+          // variable-refresh-rate
       }
 
       output "HDMI-A-1" {
@@ -144,7 +146,7 @@ in
 
           position x=0 y=0
 
-          variable-refresh-rate
+          // variable-refresh-rate
       }
 
       // Settings that influence how windows are positioned and sized.
